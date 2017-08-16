@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nn_x_mm">NN * MM</string>
+    <string name="nnn_x_mm">NNN * MM</string>
+    <string name="app_name">Mental Math</string>
+    <string name="hint_for_result">enter result here</string>
+</resources>
