@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import static com.example.mentalmath.MainFragment.Trainings.*;
+import static com.example.mentalmath.TrainingFragment.Trainings.*;
 
 public class MainFragment extends Fragment
     implements View.OnClickListener {
@@ -42,7 +42,7 @@ public class MainFragment extends Fragment
 
     @Override
     public void onClick(View v) {
-        Trainings kind;
+        TrainingFragment.Trainings kind;
         switch (v.getId()) {
             case R.id.NNxM:
                 kind = NNxM;
@@ -75,9 +75,5 @@ public class MainFragment extends Fragment
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    enum Trainings {
-        NNxM, NNxMM, NNNxMM;
     }
 }

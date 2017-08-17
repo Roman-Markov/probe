@@ -9,4 +9,7 @@
     <string name="app_name">Mental Math</string>
     <string name="hint_for_result">enter result here</string>
     <string name="statistics">Statistics</string>
+    <string name="ok">OK</string>
+    <string name="right">Right!</string>
+    <string name="wrong">Wrong!</string>
 </resources>
