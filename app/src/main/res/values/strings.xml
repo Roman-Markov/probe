@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="nn_x_m">NN * M</string>
     <string name="nn_x_mm">NN * MM</string>
     <string name="nnn_x_mm">NNN * MM</string>
+    <string name="show_nn_x_m">Show NN * M</string>
+    <string name="show_nn_x_mm">Show NN * MM</string>
+    <string name="show_nnn_x_mm">Show NNN * MM</string>
     <string name="app_name">Mental Math</string>
     <string name="hint_for_result">enter result here</string>
+    <string name="statistics">Statistics</string>
 </resources>

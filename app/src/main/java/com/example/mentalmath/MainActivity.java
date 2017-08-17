@@ -16,8 +16,4 @@ public class MainActivity extends Activity {
                     new MainFragment()).commit();
         }
     }
-
-    public void startTraining(View v) {
-
-    }
 }

@@ -6,17 +6,21 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/NNxM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nn_x_m"/>
+
+    <Button
         android:id="@+id/NNxMM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/nn_x_mm"
-        android:onClick="startTraining"/>
+        android:text="@string/nn_x_mm"/>
 
     <Button
         android:id="@+id/NNNxMM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/nnn_x_mm"
-        android:onClick="startTraining"/>
+        android:text="@string/nnn_x_mm"/>
 
 </LinearLayout>

@@ -3,21 +3,20 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-
-        <RadioButton
-            android:id="@+id/radio_nn_x_mm"
+        <Button
+            android:id="@+id/nn_x_m"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/nn_x_mm"/>
-        <RadioButton
-            android:id="@+id/radio_nnn_x_mm"
+            android:text="@string/show_nn_x_m"/>
+        <Button
+            android:id="@+id/nn_x_mm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/nnn_x_mm"/>
-
-    </RadioGroup>
+            android:text="@string/show_nn_x_mm"/>
+        <Button
+            android:id="@+id/nnn_x_mm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/show_nnn_x_mm"/>
 
 </LinearLayout>
