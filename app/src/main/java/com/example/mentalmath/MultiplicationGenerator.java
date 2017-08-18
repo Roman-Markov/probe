@@ -12,7 +12,7 @@ public class MultiplicationGenerator implements ExampleGenerator {
     private int m_numberOfDigit2;
     private long m_result;
 
-    public MultiplicationGenerator(int n, int m) {
+    MultiplicationGenerator(int n, int m) {
         m_numberOfDigit1 = n;
         m_numberOfDigit2 = m;
     }
@@ -31,7 +31,7 @@ public class MultiplicationGenerator implements ExampleGenerator {
         dif = (int) (max - min);
 
         int m = Math.round(random.nextInt(dif) + min);
-        
+
         m_result = n * m;
 
         return String.format("%d * %d", n, m);

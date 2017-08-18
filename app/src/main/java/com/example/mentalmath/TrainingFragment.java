@@ -2,6 +2,7 @@ package com.example.mentalmath;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Роман on 16.08.2017.
@@ -19,7 +23,11 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
     private TextView m_example;
     private EditText m_responce;
     private Button m_okButton;
+    private TextView m_timeView;
+    private Stopwatch m_stopwatch;
     private ExampleGenerator m_generator;
+    private Handler handler = new Handler();
+    private Runnable m_uiUpdate;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +48,17 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         m_responce = (EditText) result.findViewById(R.id.result);
         m_okButton = (Button) result.findViewById(R.id.okButton);
         m_okButton.setOnClickListener(this);
+        m_timeView = (TextView) result.findViewById(R.id.stopwatch);
+        m_stopwatch = new Stopwatch();
+        m_uiUpdate = new Runnable() {
+            @Override
+            public void run() {
+                updateUI();
+                handler.postDelayed(this, 10);
+            }
+        };
 
-        m_example.setText(m_generator.generateExample());
+        startExample();
 
         return result;
     }
@@ -56,11 +73,24 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
             } else {
                 Toast.makeText(getActivity(), R.string.wrong, Toast.LENGTH_SHORT).show();
             }
-            m_example.setText(m_generator.generateExample());
             m_responce.setText("");
+            startExample();
         }
     }
 
+    public void updateUI() {
+        int[] time = m_stopwatch.getTimePassed();
+        String result = String.format("%d:%02d", time[0], time[1]);
+        m_timeView.setText(result);
+    }
+
+    public void startExample() {
+
+        m_example.setText(m_generator.generateExample());
+        m_stopwatch.start();
+        handler.removeCallbacks(m_uiUpdate);
+        handler.post(m_uiUpdate);
+    }
 
     public enum Trainings {
         NNxM, NNxMM, NNNxMM;
@@ -80,4 +110,6 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
             return generator;
         }
     }
+
+
 }
