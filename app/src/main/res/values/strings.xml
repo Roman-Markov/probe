@@ -13,4 +13,5 @@
     <string name="right">Right!</string>
     <string name="wrong">Wrong!</string>
     <string name="start">start</string>
+    <string name="initTime">0:00</string>
 </resources>

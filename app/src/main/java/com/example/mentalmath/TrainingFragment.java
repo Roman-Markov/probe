@@ -3,6 +3,7 @@ package com.example.mentalmath;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.Timer;
-import java.util.TimerTask;
-
-/**
- * Created by Роман on 16.08.2017.
- */
 
 public class TrainingFragment extends Fragment implements View.OnClickListener {
 
@@ -31,6 +25,8 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
     private ExampleGenerator m_generator;
     private Handler handler = new Handler();
     private Runnable m_uiUpdate;
+    private int m_counter = 0;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +50,8 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         m_startButton.setOnClickListener(this);
         m_timeView = (TextView) result.findViewById(R.id.stopwatch);
         m_timeViewTotal = (TextView) result.findViewById(R.id.swTotal);
+        m_timeViewTotal.setText(R.string.initTime);
+        m_timeView.setText(R.string.initTime);
         m_stopwatch = new Stopwatch();
         m_swTotal = new Stopwatch();
         m_uiUpdate = new Runnable() {
@@ -78,12 +76,19 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
                 Toast.makeText(getActivity(), R.string.wrong, Toast.LENGTH_SHORT).show();
             }
             m_responce.setText("");
-            startExample();
+            if (m_counter < getNumberOfExamples()) {
+                startExample();
+                m_counter++;
+            } else {
+                endSession();
+            }
+
         } else if (v.getId() == R.id.startButton) {
             m_startButton.setVisibility(View.GONE);
             m_okButton.setVisibility(View.VISIBLE);
             startSession();
             startExample();
+            m_counter++;
         }
     }
 
@@ -108,8 +113,27 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         m_swTotal.start();
     }
 
+    public void endSession() {
+        handler.removeCallbacks(m_uiUpdate);
+        m_counter = 0;
+        m_stopwatch.clear();
+        m_swTotal.clear();
+        m_timeViewTotal.setText(R.string.initTime);
+        m_timeView.setText(R.string.initTime);
+        m_example.setText("");
+        m_okButton.setVisibility(View.GONE);
+        m_startButton.setVisibility(View.VISIBLE);
+    }
+
+    public int getNumberOfExamples() {
+
+        // hardcoded yet
+        return 3;
+    }
+
     public enum Trainings {
         NNxM, NNxMM, NNNxMM;
+
         public ExampleGenerator getGenerator() {
             ExampleGenerator generator = null;
             switch (this) {
