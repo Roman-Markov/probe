@@ -25,7 +25,9 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
     private Button m_okButton;
     private Button m_startButton;
     private TextView m_timeView;
+    private TextView m_timeViewTotal;
     private Stopwatch m_stopwatch;
+    private Stopwatch m_swTotal;
     private ExampleGenerator m_generator;
     private Handler handler = new Handler();
     private Runnable m_uiUpdate;
@@ -51,7 +53,9 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         m_startButton = (Button) result.findViewById(R.id.startButton);
         m_startButton.setOnClickListener(this);
         m_timeView = (TextView) result.findViewById(R.id.stopwatch);
+        m_timeViewTotal = (TextView) result.findViewById(R.id.swTotal);
         m_stopwatch = new Stopwatch();
+        m_swTotal = new Stopwatch();
         m_uiUpdate = new Runnable() {
             @Override
             public void run() {
@@ -78,6 +82,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         } else if (v.getId() == R.id.startButton) {
             m_startButton.setVisibility(View.GONE);
             m_okButton.setVisibility(View.VISIBLE);
+            startSession();
             startExample();
         }
     }
@@ -85,6 +90,9 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
     public void updateUI() {
         int[] time = m_stopwatch.getTimePassed();
         String result = String.format("%d:%02d", time[0], time[1]);
+        time = m_swTotal.getTimePassed();
+        String total = String.format("%d:%02d", time[0], time[1]);
+        m_timeViewTotal.setText(total);
         m_timeView.setText(result);
     }
 
@@ -94,6 +102,10 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         m_stopwatch.start();
         handler.removeCallbacks(m_uiUpdate);
         handler.post(m_uiUpdate);
+    }
+
+    public void startSession() {
+        m_swTotal.start();
     }
 
     public enum Trainings {

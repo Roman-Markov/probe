@@ -11,6 +11,7 @@ public class Stopwatch {
     private boolean isRunning = false;
 
     public void start() {
+        clear();
         resume();
     }
 
