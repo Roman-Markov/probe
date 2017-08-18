@@ -30,7 +30,7 @@ public class MultiplicationGenerator implements ExampleGenerator {
         max = Math.round(Math.pow(10, m_numberOfDigit2));
         dif = (int) (max - min);
 
-        int m = Math.round(random.nextInt(dif) + min);
+        int m = Math.round(random.nextInt(dif) + min + 1);
 
         m_result = n * m;
 
