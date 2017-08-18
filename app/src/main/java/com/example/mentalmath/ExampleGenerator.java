@@ -8,4 +8,5 @@ public interface ExampleGenerator {
 
     public String generateExample();
     public boolean checkResult(String str);
+    public String getName();
 }

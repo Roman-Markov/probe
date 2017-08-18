@@ -1,8 +1,12 @@
 package com.example.mentalmath;
 
 import android.app.Fragment;
+import android.content.ContentValues;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +15,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
+
 public class TrainingFragment extends Fragment implements View.OnClickListener {
 
     public static final String KEY_RESULT_SESSION = "session result";
     public static final String KEY_EXAMPLE = "text from example";
+    public static final String NNXM = "NNxM";
+    public static final String NNXMM = "NNxMM";
+    public static final String NNNXMM = "NNNxMM";
 
     private TextView m_example;
     private EditText m_responce;
@@ -31,6 +40,8 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
     private ExampleGenerator m_generator;
     private Handler m_handler = new Handler();
     private Runnable m_uiUpdate;
+    private DataBaseHelper db = null;
+    private AsyncTask<ContentValues, Void, Void> m_task = null;
 
     private int m_counter = 0;
     private int m_rightCounter = 0;
@@ -46,6 +57,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
                              ViewGroup container,
                              Bundle savedInstanceState) {
         setRetainInstance(true);
+        db = DataBaseHelper.getInstance(getActivity());
 
         View result = inflater.inflate(R.layout.training, container, false);
 
@@ -89,6 +101,9 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onStop() {
+//        if (m_task != null) {
+//            m_task.cancel(false);
+//        }
         m_handler.removeCallbacks(m_uiUpdate);
         super.onStop();
     }
@@ -201,6 +216,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         double averageTime = 0;
         if (m_rightCounter != 0) {
             averageTime = totalTime / m_rightCounter;
+            insertResultToDB(averageTime);
         }
         String total = String.format(getString(R.string.stopwatchFormat), time[0], time[1]);
 
@@ -226,6 +242,21 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         return 2;
     }
 
+    public void insertResultToDB(double average) {
+
+        String date = DateUtils.formatDateTime(getActivity(), new Date().getTime(),
+                DateUtils.FORMAT_SHOW_YEAR
+                        | DateUtils.FORMAT_SHOW_DATE
+                        | DateUtils.FORMAT_SHOW_TIME);
+
+        ContentValues values = new ContentValues();
+        values.put(DataBaseHelper.TYPE, m_generator.getName());
+        values.put(DataBaseHelper.DATE, date);
+        values.put(DataBaseHelper.TIME, average);
+        m_task = new InsertTask();
+        m_task.execute(values);
+    }
+
     enum Trainings {
         NNxM, NNxMM, NNNxMM;
 
@@ -233,17 +264,26 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
             ExampleGenerator generator = null;
             switch (this) {
                 case NNxM:
-                    generator = new MultiplicationGenerator(2, 1);
+                    generator = new MultiplicationGenerator(2, 1, NNXM);
                     break;
                 case NNxMM:
-                    generator = new MultiplicationGenerator(2, 2);
+                    generator = new MultiplicationGenerator(2, 2, NNXMM);
                     break;
                 case NNNxMM:
-                    generator = new MultiplicationGenerator(3, 2);
+                    generator = new MultiplicationGenerator(3, 2, NNNXMM);
                     break;
             }
             return generator;
         }
     }
 
+    protected class InsertTask extends AsyncTask<ContentValues, Void, Void> {
+
+        @Override
+        protected Void doInBackground(ContentValues... params) {
+            db.getWritableDatabase().insert(DataBaseHelper.TABLE,
+                    DataBaseHelper.TYPE, params[0]);
+            return null;
+        }
+    }
 }

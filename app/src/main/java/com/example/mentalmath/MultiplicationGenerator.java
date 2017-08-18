@@ -10,11 +10,17 @@ public class MultiplicationGenerator implements ExampleGenerator {
 
     private int m_numberOfDigit1;
     private int m_numberOfDigit2;
+    protected String m_name;
     private long m_result;
 
-    MultiplicationGenerator(int n, int m) {
+    MultiplicationGenerator(int n, int m, String name) {
         m_numberOfDigit1 = n;
         m_numberOfDigit2 = m;
+        m_name = name;
+    }
+
+    public String getName() {
+        return m_name;
     }
 
     @Override
