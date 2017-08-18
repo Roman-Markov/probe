@@ -23,6 +23,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
     private TextView m_example;
     private EditText m_responce;
     private Button m_okButton;
+    private Button m_startButton;
     private TextView m_timeView;
     private Stopwatch m_stopwatch;
     private ExampleGenerator m_generator;
@@ -39,7 +40,6 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.training, container, false);
 
-        // for test
         String choice = getActivity().getIntent().getStringExtra(MainFragment.KEY_KIND_OF_TRAININGS);
         Trainings train = Trainings.valueOf(choice);
         m_generator = train.getGenerator();
@@ -48,6 +48,8 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         m_responce = (EditText) result.findViewById(R.id.result);
         m_okButton = (Button) result.findViewById(R.id.okButton);
         m_okButton.setOnClickListener(this);
+        m_startButton = (Button) result.findViewById(R.id.startButton);
+        m_startButton.setOnClickListener(this);
         m_timeView = (TextView) result.findViewById(R.id.stopwatch);
         m_stopwatch = new Stopwatch();
         m_uiUpdate = new Runnable() {
@@ -57,8 +59,6 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
                 handler.postDelayed(this, 10);
             }
         };
-
-        startExample();
 
         return result;
     }
@@ -74,6 +74,10 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
                 Toast.makeText(getActivity(), R.string.wrong, Toast.LENGTH_SHORT).show();
             }
             m_responce.setText("");
+            startExample();
+        } else if (v.getId() == R.id.startButton) {
+            m_startButton.setVisibility(View.GONE);
+            m_okButton.setVisibility(View.VISIBLE);
             startExample();
         }
     }
@@ -110,6 +114,5 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
             return generator;
         }
     }
-
 
 }

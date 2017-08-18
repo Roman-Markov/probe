@@ -26,13 +26,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/ok" />
+        android:text="@string/ok"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/start" />
+
     <TextView
         android:id="@+id/stopwatch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
         android:gravity="center"
+        android:padding="20dp"
         android:textSize="18sp" />
 
 </LinearLayout>
