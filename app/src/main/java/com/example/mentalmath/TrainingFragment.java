@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.format.DateUtils;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +58,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         View result = inflater.inflate(R.layout.training, container, false);
 
         int type = getActivity().getIntent().getIntExtra(MainFragment.KEY_KIND_OF_TRAININGS,
-                TrainingFactory.NNxM);
+                TrainingFactory.NN_MULT_M);
 
         m_trainBuilder = TrainingFactory.getmInstance().getGenerator(type);
 
@@ -131,12 +133,22 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.okButton) {
             String result = m_responce.getText().toString();
-            boolean isRight = m_trainBuilder.checkResult(result);
+            boolean isRight;
+            if (result != null) {
+                isRight = m_trainBuilder.checkResult(result);
+                Log.e(getClass().getSimpleName(), "result: " + result);
+                Log.e(getClass().getSimpleName(), ": " + isRight);
+            } else {
+                isRight = false;
+                Log.e(getClass().getSimpleName(), "result: " + result);
+                Log.e(getClass().getSimpleName(), ": " + isRight);
+            }
+
             if (isRight) {
                 m_rightCounter++;
-                Toast.makeText(getActivity(), R.string.right, Toast.LENGTH_SHORT).show();
+                showToast(R.string.right);
             } else {
-                Toast.makeText(getActivity(), R.string.wrong, Toast.LENGTH_SHORT).show();
+                showToast(R.string.wrong);
             }
             m_responce.setText("");
             if (m_counter < getNumberOfExamples()) {
@@ -153,6 +165,13 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
             startExample();
             m_counter++;
         }
+    }
+
+    public void showToast(int stringId) {
+        Toast toast = Toast.makeText(getActivity(), stringId, Toast.LENGTH_SHORT);
+        // todo create dimension resource for third parameter
+        toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 150);
+        toast.show();
     }
 
     public void updateUI() {

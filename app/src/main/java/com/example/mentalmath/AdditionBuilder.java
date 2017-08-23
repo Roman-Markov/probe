@@ -3,15 +3,15 @@ package com.example.mentalmath;
 import java.util.Random;
 
 /**
- * Created by Роман on 18.08.2017.
+ * Created by Роман on 24.08.2017.
  */
 
-public class MultiplicationBuilder extends AriphmeticBuilder {
+public class AdditionBuilder extends AriphmeticBuilder {
 
     private int m_numberOfDigit1;
     private int m_numberOfDigit2;
 
-    MultiplicationBuilder(int n, int m, String name) {
+    AdditionBuilder(int n, int m, String name) {
         super(name);
         m_numberOfDigit1 = n;
         m_numberOfDigit2 = m;
@@ -22,9 +22,7 @@ public class MultiplicationBuilder extends AriphmeticBuilder {
         long[] result = generateRandoms(m_numberOfDigit1, m_numberOfDigit2);
         long big = result[0];
         long little = result[1];
-
-        m_result = big * little;
-
-        return String.format("%d * %d", big, little);
+        m_result = big + little;
+        return String.format("%d + %d", big, little);
     }
 }
