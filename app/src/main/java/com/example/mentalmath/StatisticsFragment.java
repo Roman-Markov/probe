@@ -50,6 +50,7 @@ public class StatisticsFragment extends ListFragment {
         }
     }
 
+
     abstract private class BaseTask<T> extends AsyncTask<T, Void, Cursor> {
         @Override
         public void onPostExecute(Cursor result) {

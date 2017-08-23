@@ -2,6 +2,7 @@ package com.example.mentalmath;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 
 public class StaticsticsActivity extends Activity {
 
@@ -15,4 +16,5 @@ public class StaticsticsActivity extends Activity {
                     new StatisticsFragment()).commit();
         }
     }
+
 }

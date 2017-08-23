@@ -11,8 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class MainFragment extends Fragment
-    implements View.OnClickListener {
+public class MainFragment extends Fragment {
 
     public static final String KEY_KIND_OF_TRAININGS = "train";
 
@@ -30,30 +29,48 @@ public class MainFragment extends Fragment
                              Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.main, container, false);
 
-        Button nnXm = (Button) result.findViewById(R.id.NNxM);
-        Button nnXmm = (Button) result.findViewById(R.id.NNxMM);
-        Button nnnXmm = (Button) result.findViewById(R.id.NNNxMM);
-        nnXm.setOnClickListener(this);
-        nnXmm.setOnClickListener(this);
-        nnnXmm.setOnClickListener(this);
         return result;
     }
 
-    @Override
-    public void onClick(View v) {
+
+    public void launchTrain(View v) {
         int kind = 0;
         switch (v.getId()) {
+            case R.id.NxM:
+                kind = TrainingFactory.N_MULT_M;
+                break;
             case R.id.NNxM:
-                kind = TrainingFactory.NNxM;
+                kind = TrainingFactory.NN_MULT_M;
                 break;
             case R.id.NNxMM:
-                kind = TrainingFactory.NNxMM;
+                kind = TrainingFactory.NN_MULT_MM;
+                break;
+            case R.id.NNNxM:
+                kind = TrainingFactory.NNN_MULT_M;
                 break;
             case R.id.NNNxMM:
-                kind = TrainingFactory.NNNxMM;
+                kind = TrainingFactory.NNN_MULT_MM;
+                break;
+            case R.id.NNNxMMM:
+                kind = TrainingFactory.NNN_MULT_MMM;
+                break;
+            case R.id.n_plus_m:
+                kind = TrainingFactory.N_PLUS_M;
+                break;
+            case R.id.nn_plus_m:
+                kind = TrainingFactory.NN_PLUS_M;
+                break;
+            case R.id.nn_plus_mm:
+                kind = TrainingFactory.NN_PLUS_MM;
+                break;
+            case R.id.nnn_plus_mm:
+                kind = TrainingFactory.NNN_PLUS_MM;
+                break;
+            case R.id.nnn_plus_mmm:
+                kind = TrainingFactory.NNN_PLUS_MMM;
                 break;
             default:
-                kind = TrainingFactory.NNxMM;
+                kind = TrainingFactory.N_PLUS_M;
         }
 
         Intent i = new Intent(getActivity(), TrainingActivity.class);

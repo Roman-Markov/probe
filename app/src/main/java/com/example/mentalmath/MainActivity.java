@@ -16,4 +16,8 @@ public class MainActivity extends Activity {
                     new MainFragment()).commit();
         }
     }
+
+    public void launchTrain(View v) {
+        ((MainFragment) getFragmentManager().findFragmentById(android.R.id.content)).launchTrain(v);
+    }
 }
