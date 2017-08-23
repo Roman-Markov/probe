@@ -6,37 +6,32 @@ import java.util.Random;
  * Created by Роман on 18.08.2017.
  */
 
-public class MultiplicationGenerator implements ExampleGenerator {
+public class MultiplicationBuilder extends BaseExampleBuilder {
 
     private int m_numberOfDigit1;
     private int m_numberOfDigit2;
-    protected String m_name;
     private long m_result;
 
-    MultiplicationGenerator(int n, int m, String name) {
+    MultiplicationBuilder(int n, int m, String name) {
+        super(name);
         m_numberOfDigit1 = n;
         m_numberOfDigit2 = m;
-        m_name = name;
-    }
-
-    public String getName() {
-        return m_name;
     }
 
     @Override
     public String generateExample() {
         Random random = new Random();
-        long min = Math.round(Math.pow(10, m_numberOfDigit1 -1));
+        long min = Math.round(Math.pow(10, m_numberOfDigit1 -1)) + 1;
         long max = Math.round(Math.pow(10, m_numberOfDigit1));
-        int dif = (int) (max - min);
+        int dif = (int) (max - min );
 
         int n = Math.round(random.nextInt(dif) + min);
 
-        min = Math.round(Math.pow(10, m_numberOfDigit2 -1));
+        min = Math.round(Math.pow(10, m_numberOfDigit2 -1)) + 1;
         max = Math.round(Math.pow(10, m_numberOfDigit2));
-        dif = (int) (max - min);
+        dif = (int) (max - min );
 
-        int m = Math.round(random.nextInt(dif) + min + 1);
+        int m = Math.round(random.nextInt(dif) + min);
 
         m_result = n * m;
 

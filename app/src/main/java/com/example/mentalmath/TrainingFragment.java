@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +20,6 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
 
     public static final String KEY_RESULT_SESSION = "session result";
     public static final String KEY_EXAMPLE = "text from example";
-    public static final String NNXM = "NNxM";
-    public static final String NNXMM = "NNxMM";
-    public static final String NNNXMM = "NNNxMM";
 
     private TextView m_example;
     private EditText m_responce;
@@ -37,10 +33,9 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
 
     private Stopwatch m_stopwatch;
     private Stopwatch m_swTotal;
-    private ExampleGenerator m_generator;
+    private BaseExampleBuilder m_trainBuilder;
     private Handler m_handler = new Handler();
     private Runnable m_uiUpdate;
-    private DataBaseHelper db = null;
     private AsyncTask<ContentValues, Void, Void> m_task = null;
 
     private int m_counter = 0;
@@ -57,13 +52,13 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
                              ViewGroup container,
                              Bundle savedInstanceState) {
         setRetainInstance(true);
-        db = DataBaseHelper.getInstance(getActivity());
 
         View result = inflater.inflate(R.layout.training, container, false);
 
-        String choice = getActivity().getIntent().getStringExtra(MainFragment.KEY_KIND_OF_TRAININGS);
-        Trainings train = Trainings.valueOf(choice);
-        m_generator = train.getGenerator();
+        int type = getActivity().getIntent().getIntExtra(MainFragment.KEY_KIND_OF_TRAININGS,
+                TrainingFactory.NNxM);
+
+        m_trainBuilder = TrainingFactory.getmInstance().getGenerator(type);
 
         m_example = (TextView) result.findViewById(R.id.example);
         m_sessionResultView = (TextView) result.findViewById(R.id.sessionResult);
@@ -93,7 +88,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
             m_isFirstrunning = false;
         }
         if (savedInstanceState != null) {
-            restrore(savedInstanceState);
+            restore(savedInstanceState);
         }
 
         return result;
@@ -101,9 +96,6 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onStop() {
-//        if (m_task != null) {
-//            m_task.cancel(false);
-//        }
         m_handler.removeCallbacks(m_uiUpdate);
         super.onStop();
     }
@@ -115,7 +107,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         outState.putString(KEY_EXAMPLE, m_example.getText().toString());
     }
 
-    public void restrore(Bundle savedInstanceState) {
+    public void restore(Bundle savedInstanceState) {
         String temp = savedInstanceState.getString(KEY_EXAMPLE);
         if (temp == null) {
             m_example.setText("");
@@ -139,7 +131,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.okButton) {
             String result = m_responce.getText().toString();
-            boolean isRight = m_generator.checkResult(result);
+            boolean isRight = m_trainBuilder.checkResult(result);
             if (isRight) {
                 m_rightCounter++;
                 Toast.makeText(getActivity(), R.string.right, Toast.LENGTH_SHORT).show();
@@ -174,7 +166,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
 
     public void startExample() {
 
-        m_example.setText(m_generator.generateExample());
+        m_example.setText(m_trainBuilder.generateExample());
         m_stopwatch.start();
         m_handler.removeCallbacks(m_uiUpdate);
         m_handler.post(m_uiUpdate);
@@ -250,38 +242,19 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
                         | DateUtils.FORMAT_SHOW_TIME);
 
         ContentValues values = new ContentValues();
-        values.put(DataBaseHelper.TYPE, m_generator.getName());
+        values.put(DataBaseHelper.TYPE, m_trainBuilder.getName());
         values.put(DataBaseHelper.DATE, date);
         values.put(DataBaseHelper.TIME, average);
         m_task = new InsertTask();
         m_task.execute(values);
     }
 
-    enum Trainings {
-        NNxM, NNxMM, NNNxMM;
-
-        public ExampleGenerator getGenerator() {
-            ExampleGenerator generator = null;
-            switch (this) {
-                case NNxM:
-                    generator = new MultiplicationGenerator(2, 1, NNXM);
-                    break;
-                case NNxMM:
-                    generator = new MultiplicationGenerator(2, 2, NNXMM);
-                    break;
-                case NNNxMM:
-                    generator = new MultiplicationGenerator(3, 2, NNNXMM);
-                    break;
-            }
-            return generator;
-        }
-    }
-
     protected class InsertTask extends AsyncTask<ContentValues, Void, Void> {
 
         @Override
         protected Void doInBackground(ContentValues... params) {
-            db.getWritableDatabase().insert(DataBaseHelper.TABLE,
+            DataBaseHelper.getInstance(getActivity())
+                    .getWritableDatabase().insert(DataBaseHelper.TABLE,
                     DataBaseHelper.TYPE, params[0]);
             return null;
         }

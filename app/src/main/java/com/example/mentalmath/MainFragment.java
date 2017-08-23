@@ -11,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import static com.example.mentalmath.TrainingFragment.Trainings.*;
-
 public class MainFragment extends Fragment
     implements View.OnClickListener {
 
@@ -43,23 +41,23 @@ public class MainFragment extends Fragment
 
     @Override
     public void onClick(View v) {
-        TrainingFragment.Trainings kind;
+        int kind = 0;
         switch (v.getId()) {
             case R.id.NNxM:
-                kind = NNxM;
+                kind = TrainingFactory.NNxM;
                 break;
             case R.id.NNxMM:
-                kind = NNxMM;
+                kind = TrainingFactory.NNxMM;
                 break;
             case R.id.NNNxMM:
-                kind = NNNxMM;
+                kind = TrainingFactory.NNNxMM;
                 break;
             default:
-                kind = NNxMM;
+                kind = TrainingFactory.NNxMM;
         }
 
         Intent i = new Intent(getActivity(), TrainingActivity.class);
-        i.putExtra(KEY_KIND_OF_TRAININGS, kind.toString());
+        i.putExtra(KEY_KIND_OF_TRAININGS, kind);
         startActivity(i);
     }
 
