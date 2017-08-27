@@ -1,9 +1,7 @@
 package com.example.mentalmath.trainings;
 
-import android.app.Fragment;
 import android.content.Context;
-
-import com.example.mentalmath.R;
+import android.util.Log;
 
 /**
  * Created by Роман on 26.08.2017.
@@ -11,37 +9,48 @@ import com.example.mentalmath.R;
 
 public class ChooseSubTrainFragmentFactory {
 
-    public final static int I_ARIPHMETICS     = 0;
-    public final static int I_EQUATIONS       = 1;
-    public final static int I_MATRIX          = 2;
-    public final static int I_MULTI_EQATIONS  = 3;
-    public final static int I_POLYNOMIALS     = 4;
+    public final static int I_ARITHMETICS           = 0;
+    public final static int I_ARITH_ADDITION        = 1;
+    public final static int I_ARITH_SUBTRACTION     = 2;
+    public final static int I_ARITH_MULTIPLICATION  = 3;
+    public final static int I_ARITH_DIVISION        = 4;
+
+    public final static int I_EQUATIONS       = 100;
+    public final static int I_MATRIX          = 200;
+    public final static int I_MULTI_EQATIONS  = 300;
+    public final static int I_POLYNOMIALS     = 400;
 
     public final static String S_ARIPHMETICS     = "ariphmetics";
     public final static String S_EQUATIONS       = "eqations";
     public final static String S_MATRIX          = "matrix";
     public final static String S_MULTI_EQATIONS  = "multi equations";
-    public final static String S_POLYNOMIALS     = "polinomials";
+    public final static String S_POLYNOMIALS     = "polynomials";
 
-    public Fragment getTrainingFragment(Context ctxt, int type) {
-        int rId = 0;
+    public static ChooseSubTrainFragment getTrainingFragment(Context ctxt, int type) {
         switch (type) {
-            case I_ARIPHMETICS:
-                rId = R.layout.arithmetics_choice;
-                break;
+            case I_ARITHMETICS:
+                return new ChooseArithmeticFragment();
             case I_EQUATIONS:
-                rId = R.layout.equtions_choice;
-                break;
+                return new ChooseEquationsFragment();
             case I_MATRIX:
-                rId = R.layout.matrix_choice;
-                break;
+                return new ChooseMatrixFragment();
             case I_MULTI_EQATIONS:
-                rId = R.layout.linear_equations_choice;
-                break;
+                return new ChooseLinearEquationsFragment();
             case I_POLYNOMIALS:
-                rId = R.layout.polinomials_choice;
-                break;
+                return new ChoosePolinomialsFragment();
+
+            case I_ARITH_ADDITION:
+                return new ChooseAditionSubTrainFragment();
+            case I_ARITH_SUBTRACTION:
+                return new ChooseSubtractionSubTrainFragment();
+            case I_ARITH_MULTIPLICATION:
+                return new ChooseMultiplicationSubTrainFragment();
+            case I_ARITH_DIVISION:
+                return new ChooseDivisionSubTrainFragment();
+
+            default:
+                Log.e("TrainingFragmentFactory", "Unlnown type of training fragment:" + type);
+                return new ChooseArithmeticFragment();
         }
-        return TraininigFragment.instantiate(ctxt, rId);
     }
 }

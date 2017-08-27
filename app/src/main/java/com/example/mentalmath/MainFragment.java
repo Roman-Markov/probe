@@ -77,7 +77,7 @@ public class MainFragment extends Fragment {
 
         switch (v.getId()) {
             case R.id.ariphmetics:
-                kind = ChooseSubTrainFragmentFactory.I_ARIPHMETICS;
+                kind = ChooseSubTrainFragmentFactory.I_ARITHMETICS;
                 break;
             case R.id.equations:
                 kind = ChooseSubTrainFragmentFactory.I_EQUATIONS;
@@ -92,7 +92,7 @@ public class MainFragment extends Fragment {
                 kind = ChooseSubTrainFragmentFactory.I_POLYNOMIALS;
                 break;
             default:
-                kind = ChooseSubTrainFragmentFactory.I_ARIPHMETICS;
+                kind = ChooseSubTrainFragmentFactory.I_ARITHMETICS;
         }
 
         Intent i = new Intent(getActivity(), ChooseSubTrainActivity.class);

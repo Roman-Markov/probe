@@ -40,4 +40,8 @@
     <string name="matrix">Operations with matrix</string>
     <string name="multi_equation">Equation with multiple variables</string>
     <string name="polynomial">Operations with polynomials</string>
+    <string name="addition">addition</string>
+    <string name="subtraction">subtraction</string>
+    <string name="multiplication">multiplication</string>
+    <string name="division">division</string>
 </resources>
