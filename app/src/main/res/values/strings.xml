@@ -35,4 +35,9 @@
     <string name="show_nn_p_mm">Show NN + MM</string>
     <string name="show_nnn_p_mm">Show NNN + MM</string>
     <string name="show_nnn_p_mmm">Show NNN + MMM</string>
+    <string name="equations">Equations</string>
+    <string name="ariphmetic">Ariphmetic operations</string>
+    <string name="matrix">Operations with matrix</string>
+    <string name="multi_equation">Equation with multiple variables</string>
+    <string name="polynomial">Operations with polynomials</string>
 </resources>

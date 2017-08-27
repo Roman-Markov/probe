@@ -9,7 +9,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
+import com.example.mentalmath.trainings.ChooseSubTrainActivity;
+import com.example.mentalmath.trainings.ChooseSubTrainFragmentFactory;
 
 public class MainFragment extends Fragment {
 
@@ -27,7 +29,7 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
-        View result = inflater.inflate(R.layout.main, container, false);
+        View result = inflater.inflate(R.layout.main_choice, container, false);
 
         return result;
     }
@@ -35,45 +37,65 @@ public class MainFragment extends Fragment {
 
     public void launchTrain(View v) {
         int kind = 0;
+//        switch (v.getId()) {
+//            case R.id.NxM:
+//                kind = ExampleBuilderFactory.N_MULT_M;
+//                break;
+//            case R.id.NNxM:
+//                kind = ExampleBuilderFactory.NN_MULT_M;
+//                break;
+//            case R.id.NNxMM:
+//                kind = ExampleBuilderFactory.NN_MULT_MM;
+//                break;
+//            case R.id.NNNxM:
+//                kind = ExampleBuilderFactory.NNN_MULT_M;
+//                break;
+//            case R.id.NNNxMM:
+//                kind = ExampleBuilderFactory.NNN_MULT_MM;
+//                break;
+//            case R.id.NNNxMMM:
+//                kind = ExampleBuilderFactory.NNN_MULT_MMM;
+//                break;
+//            case R.id.n_plus_m:
+//                kind = ExampleBuilderFactory.N_PLUS_M;
+//                break;
+//            case R.id.nn_plus_m:
+//                kind = ExampleBuilderFactory.NN_PLUS_M;
+//                break;
+//            case R.id.nn_plus_mm:
+//                kind = ExampleBuilderFactory.NN_PLUS_MM;
+//                break;
+//            case R.id.nnn_plus_mm:
+//                kind = ExampleBuilderFactory.NNN_PLUS_MM;
+//                break;
+//            case R.id.nnn_plus_mmm:
+//                kind = ExampleBuilderFactory.NNN_PLUS_MMM;
+//                break;
+//            default:
+//                kind = ExampleBuilderFactory.N_PLUS_M;
+//        }
+
         switch (v.getId()) {
-            case R.id.NxM:
-                kind = TrainingFactory.N_MULT_M;
+            case R.id.ariphmetics:
+                kind = ChooseSubTrainFragmentFactory.I_ARIPHMETICS;
                 break;
-            case R.id.NNxM:
-                kind = TrainingFactory.NN_MULT_M;
+            case R.id.equations:
+                kind = ChooseSubTrainFragmentFactory.I_EQUATIONS;
                 break;
-            case R.id.NNxMM:
-                kind = TrainingFactory.NN_MULT_MM;
+            case R.id.matrix:
+                kind = ChooseSubTrainFragmentFactory.I_MATRIX;
                 break;
-            case R.id.NNNxM:
-                kind = TrainingFactory.NNN_MULT_M;
+            case R.id.multi_equations:
+                kind = ChooseSubTrainFragmentFactory.I_MULTI_EQATIONS;
                 break;
-            case R.id.NNNxMM:
-                kind = TrainingFactory.NNN_MULT_MM;
-                break;
-            case R.id.NNNxMMM:
-                kind = TrainingFactory.NNN_MULT_MMM;
-                break;
-            case R.id.n_plus_m:
-                kind = TrainingFactory.N_PLUS_M;
-                break;
-            case R.id.nn_plus_m:
-                kind = TrainingFactory.NN_PLUS_M;
-                break;
-            case R.id.nn_plus_mm:
-                kind = TrainingFactory.NN_PLUS_MM;
-                break;
-            case R.id.nnn_plus_mm:
-                kind = TrainingFactory.NNN_PLUS_MM;
-                break;
-            case R.id.nnn_plus_mmm:
-                kind = TrainingFactory.NNN_PLUS_MMM;
+            case R.id.polynomials:
+                kind = ChooseSubTrainFragmentFactory.I_POLYNOMIALS;
                 break;
             default:
-                kind = TrainingFactory.N_PLUS_M;
+                kind = ChooseSubTrainFragmentFactory.I_ARIPHMETICS;
         }
 
-        Intent i = new Intent(getActivity(), TrainingActivity.class);
+        Intent i = new Intent(getActivity(), ChooseSubTrainActivity.class);
         i.putExtra(KEY_KIND_OF_TRAININGS, kind);
         startActivity(i);
     }

@@ -26,7 +26,7 @@
         </activity>
         <activity android:name=".ChoiceStatisticsActivity" />
         <activity android:name=".StaticsticsActivity"></activity>
-        <activity android:name=".TrainingActivity"></activity>
+        <activity android:name=".trainings.ChooseSubTrainActivity"></activity>
     </application>
 
 </manifest>
