@@ -64,17 +64,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
 
         View result = inflater.inflate(R.layout.training, container, false);
 
-        int kindOfArithmetic = getActivity().getIntent().getIntExtra(KEY_KIND_OF_ARITHMETIC, -1);
-        String key = new String();
-        if (kindOfArithmetic == ADDITION) {
-            key = ChooseAditionSubTrainFragment.KEY_KIND_OF_ADDITION;
-        } else if (kindOfArithmetic != -1){
-            key = ChooseMultiplicationSubTrainFragment.KEY_KIND_OF_MULTIPLICATION;
-        } else {
-            Log.e(getClass().getSimpleName(), "Arithmetic kind isn't set");
-            getActivity().finish();
-        }
-        int type = getActivity().getIntent().getIntExtra(key, ExampleBuilderFactory.N_PLUS_M);
+        int type = getActivity().getIntent().getIntExtra(MainFragment.KEY_KIND_OF_TRAININGS, -1);
 
         m_trainBuilder = ExampleBuilderFactory.getmInstance().getGenerator(type);
 

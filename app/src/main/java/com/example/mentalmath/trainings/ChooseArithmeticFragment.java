@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mentalmath.MainFragment;
 import com.example.mentalmath.R;
 
 /**
@@ -56,8 +57,8 @@ public class ChooseArithmeticFragment extends ChooseSubTrainFragment {
                 kind = ChooseSubTrainFragmentFactory.I_ARITHMETICS;
                 Log.e(getClass().getSimpleName(), "Unknown type of training fragment:");
         }
-        Intent i = new Intent(getActivity(), ChooseArithmeticOperationActivity.class);
-        i.putExtra(KEY_KIND_OF_ARITHMETIC, kind);
+        Intent i = new Intent(getActivity(), ChooseSubTrainActivity.class);
+        i.putExtra(MainFragment.KEY_KIND_OF_TRAININGS, kind);
         startActivity(i);
     }
 

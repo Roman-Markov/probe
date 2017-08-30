@@ -1,6 +1,7 @@
 package com.example.mentalmath.trainings;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 
@@ -26,8 +27,14 @@ public class ChooseSubTrainActivity extends Activity {
 
         mSubTrainFragment = ChooseSubTrainFragmentFactory.getTrainingFragment(this, type);
 
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
         if (getFragmentManager().findFragmentById(android.R.id.content) == null) {
-            getFragmentManager().beginTransaction().add(android.R.id.content, mSubTrainFragment).commit();
+            transaction.add(android.R.id.content, mSubTrainFragment).commit();
+        } else {
+            transaction.replace(android.R.id.content, mSubTrainFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
     }
 

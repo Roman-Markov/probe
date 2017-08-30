@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mentalmath.MainFragment;
 import com.example.mentalmath.R;
 
 import static com.example.mentalmath.trainings.ChooseArithmeticFragment.*;
@@ -54,8 +55,7 @@ public class ChooseMultiplicationSubTrainFragment extends ChooseSubTrainFragment
         }
 
         Intent i = new Intent(getActivity(), TrainingActivity.class);
-        i.putExtra(KEY_KIND_OF_MULTIPLICATION, kind);
-        i.putExtra(KEY_KIND_OF_ARITHMETIC, MULTIPLICATION);
+        i.putExtra(MainFragment.KEY_KIND_OF_TRAININGS, kind);
         startActivity(i);
     }
 }
