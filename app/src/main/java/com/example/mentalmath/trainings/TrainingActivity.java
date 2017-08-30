@@ -1,17 +1,12 @@
-package com.example.mentalmath;
+package com.example.mentalmath.trainings;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.TextWatcher;
-import android.widget.TextView;
-
-/**
- * Created by Роман on 16.08.2017.
- */
 
 public class TrainingActivity extends Activity {
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 

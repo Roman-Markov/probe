@@ -1,10 +1,11 @@
-package com.example.mentalmath;
+package com.example.mentalmath.trainings;
 
 /**
  * Created by Роман on 23.08.2017.
  */
 
-public class TrainingFactory {
+public class ExampleBuilderFactory {
+
     public final static int N_MULT_M = 0;
     public final static int NN_MULT_M = 1;
     public final static int NN_MULT_MM = 2;
@@ -31,16 +32,16 @@ public class TrainingFactory {
     public final static String NNN_P_MM     = "NNN_PLUS_MM";
     public final static String NNN_P_MMM    = "NNN_PLUS_MMM";
 
-    private static TrainingFactory mInstance;
+    private static ExampleBuilderFactory mInstance;
 
-    public static TrainingFactory getmInstance() {
+    public static ExampleBuilderFactory getmInstance() {
         if (mInstance == null) {
-            return new TrainingFactory();
+            return new ExampleBuilderFactory();
         }
         return mInstance;
     }
 
-    private TrainingFactory(){};
+    private ExampleBuilderFactory(){};
 
     public BaseExampleBuilder getGenerator(int aType) {
         BaseExampleBuilder generator = null;

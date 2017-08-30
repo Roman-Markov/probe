@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * Contains fragment to show statistics
+ */
 public class StaticsticsActivity extends Activity {
 
     @Override

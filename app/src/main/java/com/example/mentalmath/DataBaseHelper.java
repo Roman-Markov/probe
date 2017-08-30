@@ -5,17 +5,17 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by Роман on 18.08.2017.
+ * Helper class to operate with database
  */
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "results.db";
     private static final int SHEMA = 1;
-    static final String TABLE = "results";
-    static final String TYPE = "type";
-    static final String DATE = "date";
-    static final String TIME = "time";
+    public static final String TABLE = "results";
+    public static final String TYPE = "type";
+    public static final String DATE = "date";
+    public static final String TIME = "time";
     private static DataBaseHelper instance = null;
 
     public static DataBaseHelper getInstance(Context ctxt) {

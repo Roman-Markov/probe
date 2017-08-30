@@ -9,7 +9,7 @@ import android.support.v4.content.ContextCompat;
 import java.util.ArrayList;
 
 /**
- * Created by Роман on 08.08.2017.
+ * Abstract class to simplify permission system usage. Currently not used.
  */
 
 public abstract class AbstractPermissionActivity extends Activity {

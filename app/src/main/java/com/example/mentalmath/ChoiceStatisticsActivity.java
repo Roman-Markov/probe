@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * The activity contains fragment which show kinds of statistics to show
+ */
 public class ChoiceStatisticsActivity extends Activity {
 
     @Override

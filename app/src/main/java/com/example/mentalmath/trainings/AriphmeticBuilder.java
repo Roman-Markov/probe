@@ -1,6 +1,4 @@
-package com.example.mentalmath;
-
-import android.util.Log;
+package com.example.mentalmath.trainings;
 
 import java.util.Random;
 
@@ -35,8 +33,6 @@ public abstract class AriphmeticBuilder extends BaseExampleBuilder {
     @Override
     public boolean checkResult(String str) {
         long result = Long.valueOf(str);
-        Log.e(getClass().getSimpleName(), "result: " + result);
-        Log.e(getClass().getSimpleName(), "expected: " + m_result);
         return result == m_result;
     }
 

@@ -1,7 +1,8 @@
-package com.example.mentalmath;
+package com.example.mentalmath.trainings;
 
 import android.app.Fragment;
 import android.content.ContentValues;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,7 +17,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mentalmath.DataBaseHelper;
+import com.example.mentalmath.MainFragment;
+import com.example.mentalmath.R;
+
 import java.util.Date;
+
+import static com.example.mentalmath.trainings.ChooseArithmeticFragment.*;
 
 public class TrainingFragment extends Fragment implements View.OnClickListener {
 
@@ -57,10 +64,19 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
 
         View result = inflater.inflate(R.layout.training, container, false);
 
-        int type = getActivity().getIntent().getIntExtra(MainFragment.KEY_KIND_OF_TRAININGS,
-                TrainingFactory.NN_MULT_M);
+        int kindOfArithmetic = getActivity().getIntent().getIntExtra(KEY_KIND_OF_ARITHMETIC, -1);
+        String key = new String();
+        if (kindOfArithmetic == ADDITION) {
+            key = ChooseAditionSubTrainFragment.KEY_KIND_OF_ADDITION;
+        } else if (kindOfArithmetic != -1){
+            key = ChooseMultiplicationSubTrainFragment.KEY_KIND_OF_MULTIPLICATION;
+        } else {
+            Log.e(getClass().getSimpleName(), "Arithmetic kind isn't set");
+            getActivity().finish();
+        }
+        int type = getActivity().getIntent().getIntExtra(key, ExampleBuilderFactory.N_PLUS_M);
 
-        m_trainBuilder = TrainingFactory.getmInstance().getGenerator(type);
+        m_trainBuilder = ExampleBuilderFactory.getmInstance().getGenerator(type);
 
         m_example = (TextView) result.findViewById(R.id.example);
         m_sessionResultView = (TextView) result.findViewById(R.id.sessionResult);
@@ -136,12 +152,8 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
             boolean isRight;
             if (result != null) {
                 isRight = m_trainBuilder.checkResult(result);
-                Log.e(getClass().getSimpleName(), "result: " + result);
-                Log.e(getClass().getSimpleName(), ": " + isRight);
             } else {
                 isRight = false;
-                Log.e(getClass().getSimpleName(), "result: " + result);
-                Log.e(getClass().getSimpleName(), ": " + isRight);
             }
 
             if (isRight) {
@@ -250,7 +262,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
     public int getNumberOfExamples() {
 
         // hardcoded yet
-        return 2;
+        return 5;
     }
 
     public void insertResultToDB(double average) {
