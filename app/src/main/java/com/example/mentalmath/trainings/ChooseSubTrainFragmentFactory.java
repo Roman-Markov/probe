@@ -17,7 +17,7 @@ public class ChooseSubTrainFragmentFactory {
 
     public final static int I_EQUATIONS       = 100;
     public final static int I_MATRIX          = 200;
-    public final static int I_MULTI_EQATIONS  = 300;
+    public final static int I_MULTI_EQUATIONS  = 300;
     public final static int I_POLYNOMIALS     = 400;
 
     public final static String S_ARIPHMETICS     = "ariphmetics";
@@ -34,7 +34,7 @@ public class ChooseSubTrainFragmentFactory {
                 return new ChooseEquationsFragment();
             case I_MATRIX:
                 return new ChooseMatrixFragment();
-            case I_MULTI_EQATIONS:
+            case I_MULTI_EQUATIONS:
                 return new ChooseLinearEquationsFragment();
             case I_POLYNOMIALS:
                 return new ChoosePolinomialsFragment();

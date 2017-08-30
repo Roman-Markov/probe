@@ -3,6 +3,7 @@ package com.example.mentalmath;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,6 +14,11 @@ import android.view.ViewGroup;
 import com.example.mentalmath.trainings.ChooseSubTrainActivity;
 import com.example.mentalmath.trainings.ChooseSubTrainFragmentFactory;
 
+/**
+ * Fragments which is dynamically attached to {@link MainActivity} to show choice of types of
+ * trainings e. g. arithmetic, equations, polynomials and  so on. After clicking appropriate button
+ * it can start {@link ChooseSubTrainActivity} and pass it kind of training.
+ */
 public class MainFragment extends Fragment {
 
     public static final String KEY_KIND_OF_TRAININGS = "train";
@@ -86,13 +92,15 @@ public class MainFragment extends Fragment {
                 kind = ChooseSubTrainFragmentFactory.I_MATRIX;
                 break;
             case R.id.multi_equations:
-                kind = ChooseSubTrainFragmentFactory.I_MULTI_EQATIONS;
+                kind = ChooseSubTrainFragmentFactory.I_MULTI_EQUATIONS;
                 break;
             case R.id.polynomials:
                 kind = ChooseSubTrainFragmentFactory.I_POLYNOMIALS;
                 break;
             default:
+                //todo: handle more smartly this case
                 kind = ChooseSubTrainFragmentFactory.I_ARITHMETICS;
+                Log.e(getClass().getSimpleName(), "Unknown type of training fragment:");
         }
 
         Intent i = new Intent(getActivity(), ChooseSubTrainActivity.class);

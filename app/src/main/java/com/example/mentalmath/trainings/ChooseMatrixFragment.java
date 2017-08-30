@@ -9,6 +9,7 @@ import com.example.mentalmath.R;
 
 /**
  * Created by Роман on 27.08.2017.
+ * Fragment which represents choice of kind of matrix.
  */
 
 public class ChooseMatrixFragment extends ChooseSubTrainFragment {

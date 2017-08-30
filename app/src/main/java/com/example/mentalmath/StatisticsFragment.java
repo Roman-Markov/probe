@@ -13,7 +13,7 @@ import android.widget.CursorAdapter;
 import android.widget.SimpleCursorAdapter;
 
 /**
- * Created by Роман on 16.08.2017.
+ * Fragment which shows statistics
  */
 
 public class StatisticsFragment extends ListFragment {

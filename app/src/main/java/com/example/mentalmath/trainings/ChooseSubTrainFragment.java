@@ -4,7 +4,8 @@ import android.app.Fragment;
 import android.view.View;
 
 /**
- * Created by Роман on 27.08.2017.
+ * Base class for fragments which clarify the appropriate subtrain and launch activity for training
+ * itself or launch one more activity for choice sub subtrain.
  */
 
 public abstract class ChooseSubTrainFragment extends Fragment {

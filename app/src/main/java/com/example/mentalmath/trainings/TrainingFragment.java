@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,9 @@ import com.example.mentalmath.R;
 
 import java.util.Date;
 
-public class TraininigFragment extends Fragment implements View.OnClickListener {
+import static com.example.mentalmath.trainings.ChooseArithmeticFragment.*;
+
+public class TrainingFragment extends Fragment implements View.OnClickListener {
 
     public static final String KEY_RESULT_SESSION = "session result";
     public static final String KEY_EXAMPLE = "text from example";
@@ -61,8 +64,17 @@ public class TraininigFragment extends Fragment implements View.OnClickListener 
 
         View result = inflater.inflate(R.layout.training, container, false);
 
-        int type = getActivity().getIntent().getIntExtra(MainFragment.KEY_KIND_OF_TRAININGS,
-                ExampleBuilderFactory.N_PLUS_M);
+        int kindOfArithmetic = getActivity().getIntent().getIntExtra(KEY_KIND_OF_ARITHMETIC, -1);
+        String key = new String();
+        if (kindOfArithmetic == ADDITION) {
+            key = ChooseAditionSubTrainFragment.KEY_KIND_OF_ADDITION;
+        } else if (kindOfArithmetic != -1){
+            key = ChooseMultiplicationSubTrainFragment.KEY_KIND_OF_MULTIPLICATION;
+        } else {
+            Log.e(getClass().getSimpleName(), "Arithmetic kind isn't set");
+            getActivity().finish();
+        }
+        int type = getActivity().getIntent().getIntExtra(key, ExampleBuilderFactory.N_PLUS_M);
 
         m_trainBuilder = ExampleBuilderFactory.getmInstance().getGenerator(type);
 

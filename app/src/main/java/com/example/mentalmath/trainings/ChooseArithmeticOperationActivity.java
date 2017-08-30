@@ -16,8 +16,6 @@ public class ChooseArithmeticOperationActivity extends Activity {
         int type = getIntent().getIntExtra(ChooseArithmeticFragment.KEY_KIND_OF_ARITHMETIC, -1);
 
         mSubTrainFragment = ChooseSubTrainFragmentFactory.getTrainingFragment(this, type);
-        mSubTrainFragment = (ChooseSubTrainFragment) getFragmentManager().
-                findFragmentById(android.R.id.content);
 
         if (getFragmentManager().findFragmentById(android.R.id.content) == null) {
             getFragmentManager().beginTransaction().add(android.R.id.content, mSubTrainFragment).commit();

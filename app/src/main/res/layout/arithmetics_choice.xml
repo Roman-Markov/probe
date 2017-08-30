@@ -7,7 +7,8 @@
         android:id="@+id/addition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/addition"/>
+        android:text="@string/addition"
+        android:onClick="launchTrain"/>
 
     <Button
         android:id="@+id/subtraction"
@@ -20,12 +21,14 @@
         android:id="@+id/multiplication"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/multiplication"/>
+        android:text="@string/multiplication"
+        android:onClick="launchTrain"/>
 
     <Button
         android:id="@+id/division"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/division"/>
+        android:text="@string/division"
+        android:onClick="launchTrain"/>
 
 </LinearLayout>

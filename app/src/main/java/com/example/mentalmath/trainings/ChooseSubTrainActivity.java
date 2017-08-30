@@ -7,7 +7,11 @@ import android.view.View;
 import com.example.mentalmath.MainFragment;
 
 /**
- * Created by Роман on 16.08.2017.
+ * According to arguments passed in Intents currently may contain fragments: {@link
+ * ChooseArithmeticFragment}, {@link ChooseArithmeticFragment}, {@link ChooseEquationsFragment},
+ * {@link ChooseLinearEquationsFragment},{@link ChoosePolinomialsFragment}. These fragments
+ * clarify the appropriate subtrain and launch activity for training itself or launch one more
+ * activity for choice sub subtrain.
  */
 
 public class ChooseSubTrainActivity extends Activity {
@@ -21,8 +25,6 @@ public class ChooseSubTrainActivity extends Activity {
         int type = getIntent().getIntExtra(MainFragment.KEY_KIND_OF_TRAININGS, -1);
 
         mSubTrainFragment = ChooseSubTrainFragmentFactory.getTrainingFragment(this, type);
-        mSubTrainFragment = (ChooseSubTrainFragment) getFragmentManager().
-                findFragmentById(android.R.id.content);
 
         if (getFragmentManager().findFragmentById(android.R.id.content) == null) {
             getFragmentManager().beginTransaction().add(android.R.id.content, mSubTrainFragment).commit();

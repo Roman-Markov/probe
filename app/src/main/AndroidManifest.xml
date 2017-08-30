@@ -27,7 +27,8 @@
         <activity android:name=".ChoiceStatisticsActivity" />
         <activity android:name=".StaticsticsActivity" />
         <activity android:name=".trainings.ChooseSubTrainActivity" />
-        <activity android:name=".trainings.ChooseArithmeticOperationActivity"></activity>
+        <activity android:name=".trainings.ChooseArithmeticOperationActivity" />
+        <activity android:name=".trainings.TrainingActivity"></activity>
     </application>
 
 </manifest>

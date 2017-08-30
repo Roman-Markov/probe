@@ -1,13 +1,9 @@
-package com.example.mentalmath;
+package com.example.mentalmath.trainings;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 
-/**
- * Contains fragment to show statistics
- */
-public class StaticsticsActivity extends Activity {
+public class TrainingActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +12,7 @@ public class StaticsticsActivity extends Activity {
 
         if (getFragmentManager().findFragmentById(android.R.id.content) == null) {
             getFragmentManager().beginTransaction().add(android.R.id.content,
-                    new StatisticsFragment()).commit();
+                    new TrainingFragment()).commit();
         }
     }
-
 }

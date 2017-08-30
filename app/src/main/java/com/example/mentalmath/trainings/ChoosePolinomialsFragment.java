@@ -9,6 +9,7 @@ import com.example.mentalmath.R;
 
 /**
  * Created by Роман on 27.08.2017.
+ * Fragment which represents choice of kind of polynomials operations.
  */
 
 public class ChoosePolinomialsFragment extends ChooseSubTrainFragment {
@@ -16,7 +17,7 @@ public class ChoosePolinomialsFragment extends ChooseSubTrainFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.arithmetics_choice, container, false);
+        View v = inflater.inflate(R.layout.polinomials_choice, container, false);
         return v;
     }
 
