@@ -28,7 +28,8 @@
         <activity android:name=".StaticsticsActivity" />
         <activity android:name=".trainings.ChooseSubTrainActivity" />
         <activity android:name=".trainings.TrainingActivity" />
-        <activity android:name=".trainings.SetOptionOrStartTrainActivity"></activity>
+        <activity android:name=".trainings.SetOptionOrStartTrainActivity" />
+        <activity android:name=".trainings.SetOptionActivity"></activity>
     </application>
 
 </manifest>

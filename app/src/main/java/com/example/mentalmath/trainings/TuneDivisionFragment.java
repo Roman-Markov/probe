@@ -11,12 +11,12 @@ import com.example.mentalmath.R;
  * Created by Роман on 27.08.2017.
  */
 
-public class SetSubtractionTrainingFragment extends ChooseSubTrainFragment {
+public class TuneDivisionFragment extends ChooseSubTrainFragment {
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.subtraction_choice, container, false);
+        return inflater.inflate(R.layout.division_option, container, false);
     }
 
     @Override

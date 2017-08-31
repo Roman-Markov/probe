@@ -11,7 +11,7 @@ import com.example.mentalmath.Constants;
 
 public class ChooseSubTrainFragmentFactory {
 
-    public static ChooseSubTrainFragment getTrainingFragment(Context ctxt, int type) {
+    public static ChooseSubTrainFragment getFragmentByType(Context ctxt, int type) {
         switch (type) {
             case Constants.I_KIND_ARITHMETICS:
                 return new ChooseArithmeticFragment();
@@ -25,15 +25,24 @@ public class ChooseSubTrainFragmentFactory {
                 return new ChoosePolinomialsFragment();
 
             case Constants.I_KIND_ARITH_ADDITION:
-                return new SetAdditionTrainingFragment();
+                return new TuneAdditionFragment();
             case Constants.I_KIND_ARITH_SUBTRACTION:
-                return new SetSubtractionTrainingFragment();
+                return new TuneSubtractionFragment();
             case Constants.I_KIND_ARITH_MULTIPLICATION:
-                return new SetMultiplicationTrainingFragment();
+                return new TuneMultiplicationFragment();
             case Constants.I_KIND_ARITH_DIVISION:
-                return new SetDivisionTrainingFragment();
+                return new TuneDivisionFragment();
             case Constants.I_KIND_OPT_OR_START:
                 return new SetOrStartFragment();
+
+            case Constants.I_ADDTION_OPTIONS:
+                return new TuneAdditionFragment();
+            case Constants.I_SUBTRACTION_OPTIONS:
+                return new TuneSubtractionFragment();
+            case Constants.I_MULTIPLICATION_OPTIONS:
+                return new TuneMultiplicationFragment();
+            case Constants.I_DIVISION_OPTIONS:
+                return new TuneDivisionFragment();
 
             default:
                 Log.e("TrainingFragmentFactory", "Unlnown type of training fragment:" + type);

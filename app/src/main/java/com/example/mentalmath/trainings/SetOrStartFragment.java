@@ -51,8 +51,8 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
         Intent i;
         switch (v.getId()) {
             case R.id.set_options:
-                i = new Intent(getActivity(), ChooseSubTrainActivity.class);
-                i.putExtra(Constants.KEY_KIND_OF_TRAININGS, mOptionKind);
+                i = new Intent(getActivity(), SetOptionActivity.class);
+                i.putExtra(Constants.KEY_KIND_OF_OPTIONS, mOptionKind);
                 break;
             default:
                 Log.e(getClass().getSimpleName(), "Unknown id of button.");

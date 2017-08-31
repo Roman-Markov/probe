@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.mentalmath.Constants;
-import com.example.mentalmath.MainFragment;
 
 /**
  * According to arguments passed in Intents currently may contain fragments: {@link
@@ -26,7 +25,7 @@ public class ChooseSubTrainActivity extends Activity {
 
         int type = getIntent().getIntExtra(Constants.KEY_KIND_OF_TRAININGS, -1);
 
-        mSubTrainFragment = ChooseSubTrainFragmentFactory.getTrainingFragment(this, type);
+        mSubTrainFragment = ChooseSubTrainFragmentFactory.getFragmentByType(this, type);
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 

@@ -12,14 +12,14 @@ import com.example.mentalmath.R;
  * Shows kind of addition trainings.
  */
 
-public class SetAdditionTrainingFragment extends ChooseSubTrainFragment {
+public class TuneAdditionFragment extends ChooseSubTrainFragment {
 
     public static final String KEY_KIND_OF_ADDITION = "kind of addition";
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.set_or_start, container, false);
+        return inflater.inflate(R.layout.addition_option, container, false);
     }
 
     @Override

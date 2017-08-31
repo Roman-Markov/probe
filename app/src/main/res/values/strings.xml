@@ -46,4 +46,6 @@
     <string name="division">division</string>
     <string name="setOptions">OPTIONS</string>
     <string name="isntSet">Settings for current training isn\'t set yet. Press OPTIONS button to tune training.</string>
+    <string name="usage_seekbar_descr">Choose complexity of training moving seek bar</string>
+    <string name="complexity_descr">Default minimal value</string>
 </resources>

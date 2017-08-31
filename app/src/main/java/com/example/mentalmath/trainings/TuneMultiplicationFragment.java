@@ -8,23 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mentalmath.Constants;
-import com.example.mentalmath.MainFragment;
 import com.example.mentalmath.R;
-
-import static com.example.mentalmath.trainings.ChooseArithmeticFragment.*;
 
 /**
  * Created by Роман on 27.08.2017.
  */
 
-public class SetMultiplicationTrainingFragment extends ChooseSubTrainFragment {
+public class TuneMultiplicationFragment extends ChooseSubTrainFragment {
 
     public static final String KEY_KIND_OF_MULTIPLICATION = "kind of multiplication";
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.multiplication_choice, container, false);
+        return inflater.inflate(R.layout.multiplication_option, container, false);
     }
 
     @Override
