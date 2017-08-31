@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mentalmath.Constants;
 import com.example.mentalmath.MainFragment;
 import com.example.mentalmath.R;
 
@@ -16,7 +17,7 @@ import static com.example.mentalmath.trainings.ChooseArithmeticFragment.*;
  * Created by Роман on 27.08.2017.
  */
 
-public class ChooseMultiplicationSubTrainFragment extends ChooseSubTrainFragment {
+public class SetMultiplicationTrainingFragment extends ChooseSubTrainFragment {
 
     public static final String KEY_KIND_OF_MULTIPLICATION = "kind of multiplication";
 
@@ -55,7 +56,7 @@ public class ChooseMultiplicationSubTrainFragment extends ChooseSubTrainFragment
         }
 
         Intent i = new Intent(getActivity(), TrainingActivity.class);
-        i.putExtra(MainFragment.KEY_KIND_OF_TRAININGS, kind);
+        i.putExtra(Constants.KEY_KIND_OF_TRAININGS, kind);
         startActivity(i);
     }
 }

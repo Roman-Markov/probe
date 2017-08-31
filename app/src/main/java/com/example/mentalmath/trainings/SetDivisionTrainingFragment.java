@@ -11,7 +11,7 @@ import com.example.mentalmath.R;
  * Created by Роман on 27.08.2017.
  */
 
-public class ChooseDivisionSubTrainFragment extends ChooseSubTrainFragment {
+public class SetDivisionTrainingFragment extends ChooseSubTrainFragment {
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container,

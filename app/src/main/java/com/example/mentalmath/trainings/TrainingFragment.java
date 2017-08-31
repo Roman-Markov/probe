@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mentalmath.Constants;
 import com.example.mentalmath.DataBaseHelper;
 import com.example.mentalmath.MainFragment;
 import com.example.mentalmath.R;
@@ -64,7 +65,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
 
         View result = inflater.inflate(R.layout.training, container, false);
 
-        int type = getActivity().getIntent().getIntExtra(MainFragment.KEY_KIND_OF_TRAININGS, -1);
+        int type = getActivity().getIntent().getIntExtra(Constants.KEY_KIND_OF_TRAININGS, -1);
 
         m_trainBuilder = ExampleBuilderFactory.getmInstance().getGenerator(type);
 

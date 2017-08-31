@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_mid1"
+        android:text="@string/isntSet"
+        android:padding="10dp"
+        android:id="@+id/description"/>
+
+    <Button
+        android:id="@+id/set_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setOptions"
+        android:onClick="showOptions"/>
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:onClick="launchTrain"/>
+
+</LinearLayout>

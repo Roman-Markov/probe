@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mentalmath.trainings.ChooseSubTrainActivity;
-import com.example.mentalmath.trainings.ChooseSubTrainFragmentFactory;
 
 /**
  * Fragments which is dynamically attached to {@link MainActivity} to show choice of types of
@@ -20,8 +19,6 @@ import com.example.mentalmath.trainings.ChooseSubTrainFragmentFactory;
  * it can start {@link ChooseSubTrainActivity} and pass it kind of training.
  */
 public class MainFragment extends Fragment {
-
-    public static final String KEY_KIND_OF_TRAININGS = "train";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,68 +40,30 @@ public class MainFragment extends Fragment {
 
     public void launchTrain(View v) {
         int kind = 0;
-//        switch (v.getId()) {
-//            case R.id.NxM:
-//                kind = ExampleBuilderFactory.N_MULT_M;
-//                break;
-//            case R.id.NNxM:
-//                kind = ExampleBuilderFactory.NN_MULT_M;
-//                break;
-//            case R.id.NNxMM:
-//                kind = ExampleBuilderFactory.NN_MULT_MM;
-//                break;
-//            case R.id.NNNxM:
-//                kind = ExampleBuilderFactory.NNN_MULT_M;
-//                break;
-//            case R.id.NNNxMM:
-//                kind = ExampleBuilderFactory.NNN_MULT_MM;
-//                break;
-//            case R.id.NNNxMMM:
-//                kind = ExampleBuilderFactory.NNN_MULT_MMM;
-//                break;
-//            case R.id.n_plus_m:
-//                kind = ExampleBuilderFactory.N_PLUS_M;
-//                break;
-//            case R.id.nn_plus_m:
-//                kind = ExampleBuilderFactory.NN_PLUS_M;
-//                break;
-//            case R.id.nn_plus_mm:
-//                kind = ExampleBuilderFactory.NN_PLUS_MM;
-//                break;
-//            case R.id.nnn_plus_mm:
-//                kind = ExampleBuilderFactory.NNN_PLUS_MM;
-//                break;
-//            case R.id.nnn_plus_mmm:
-//                kind = ExampleBuilderFactory.NNN_PLUS_MMM;
-//                break;
-//            default:
-//                kind = ExampleBuilderFactory.N_PLUS_M;
-//        }
-
         switch (v.getId()) {
             case R.id.ariphmetics:
-                kind = ChooseSubTrainFragmentFactory.I_ARITHMETICS;
+                kind = Constants.I_KIND_ARITHMETICS;
                 break;
             case R.id.equations:
-                kind = ChooseSubTrainFragmentFactory.I_EQUATIONS;
+                kind = Constants.I_KIND_EQUATIONS;
                 break;
             case R.id.matrix:
-                kind = ChooseSubTrainFragmentFactory.I_MATRIX;
+                kind = Constants.I_KIND_MATRIX;
                 break;
             case R.id.multi_equations:
-                kind = ChooseSubTrainFragmentFactory.I_MULTI_EQUATIONS;
+                kind = Constants.I_KIND_MULTI_EQUATIONS;
                 break;
             case R.id.polynomials:
-                kind = ChooseSubTrainFragmentFactory.I_POLYNOMIALS;
+                kind = Constants.I_KIND_POLYNOMIALS;
                 break;
             default:
                 //todo: handle more smartly this case
-                kind = ChooseSubTrainFragmentFactory.I_ARITHMETICS;
+                kind = Constants.I_KIND_ARITHMETICS;
                 Log.e(getClass().getSimpleName(), "Unknown type of training fragment:");
         }
 
         Intent i = new Intent(getActivity(), ChooseSubTrainActivity.class);
-        i.putExtra(KEY_KIND_OF_TRAININGS, kind);
+        i.putExtra(Constants.KEY_KIND_OF_TRAININGS, kind);
         startActivity(i);
     }
 

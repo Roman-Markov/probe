@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.mentalmath.Constants;
 import com.example.mentalmath.MainFragment;
 
 /**
@@ -23,7 +24,7 @@ public class ChooseSubTrainActivity extends Activity {
 
         super.onCreate(savedInstanceState);
 
-        int type = getIntent().getIntExtra(MainFragment.KEY_KIND_OF_TRAININGS, -1);
+        int type = getIntent().getIntExtra(Constants.KEY_KIND_OF_TRAININGS, -1);
 
         mSubTrainFragment = ChooseSubTrainFragmentFactory.getTrainingFragment(this, type);
 
