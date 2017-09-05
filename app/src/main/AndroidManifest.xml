@@ -29,7 +29,8 @@
         <activity android:name=".trainings.ChooseSubTrainActivity" />
         <activity android:name=".trainings.TrainingActivity" />
         <activity android:name=".trainings.SetOptionOrStartTrainActivity" />
-        <activity android:name=".trainings.SetOptionActivity"></activity>
+        <activity android:name=".trainings.SetOptionActivity"
+            android:theme="@style/AppPreferenceTheme"/>
     </application>
 
 </manifest>

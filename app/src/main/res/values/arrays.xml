@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="additionTrainId">
+        <item>1-5_p_1-5</item>
+        <item>6-9_p_1-5</item>
+        <item>n_p_n</item>
+        <item>nn_p_n</item>
+        <item>2n_p_2n</item>
+        <item>3n_p_2n</item>
+        <item>3n_p_3n</item>
+        <item>4n_p_4n</item>
+        <item>5n_p_5n</item>
+        <item>6n_p_6n</item>
+        <item>7n_p_7n</item>
+        <item>8n_p_8n</item>
+        <item>9n_p_9n</item>
+        <item>10n_p_10n</item>
+        <item>11n_p_11n</item>
+        <item>12n_p_12n</item>
+    </string-array>
+    <string-array name="additionTrainString">
+        <item>1-5 + 1-5</item>
+        <item>6-9 + 1-5</item>
+        <item>6-9 + 6-9</item>
+        <item>10-100 + 1-10</item>
+        <item>10-100 + 10-100</item>
+        <item>100-1000 + 10-100</item>
+        <item>100-1000 + 100-1000</item>
+        <item>1000-10000 + 1000-10000</item>
+        <item>10"&#8308;"-10"&#8309;" + 10"&#8308;"-10"&#8309;"</item>
+        <item>10"&#8309;"-10"&#8310;" + 10"&#8309;"-10"&#8310;"</item>
+        <item>10"&#8310;"-10"&#8311;" + 10"&#8310;"-10"&#8311;"</item>
+        <item>10"&#8311;"-10"&#8312;" + 10"&#8311;"-10"&#8312;"</item>
+        <item>10"&#8312;"-10"&#8313;" + 10"&#8312;"-10"&#8313;"</item>
+        <item>10"&#8313;"-10"&#185;""&#8304;" + 10"&#8313;"-10"&#185;""&#8304;"</item>
+        <item>10"&#185;""&#8304;"-10"&#185;""&#185; + 10"&#185;""&#8304;"-10"&#185;""&#185;</item>
+        <item>10"&#185;""&#185;"-10"&#185;""&#178; + 10"&#185;""&#185;"-10"&#185;""&#178;</item>
+    </string-array>
+</resources>

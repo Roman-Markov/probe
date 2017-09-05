@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padleft_mid1"
-        android:text="@string/usage_seekbar_descr" />
+        android:text="@string/choose_complexity" />
 
     <SeekBar
         android:id="@+id/seekBar2"
@@ -21,4 +21,14 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padleft_mid1"
         android:text="@string/complexity_descr" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 </LinearLayout>

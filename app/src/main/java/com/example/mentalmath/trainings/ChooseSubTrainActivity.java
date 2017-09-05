@@ -25,7 +25,7 @@ public class ChooseSubTrainActivity extends Activity {
 
         int type = getIntent().getIntExtra(Constants.KEY_KIND_OF_TRAININGS, -1);
 
-        mSubTrainFragment = ChooseSubTrainFragmentFactory.getFragmentByType(this, type);
+        mSubTrainFragment = (ChooseSubTrainFragment) ChooseSubTrainFragmentFactory.getFragmentByType(this, type);
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
