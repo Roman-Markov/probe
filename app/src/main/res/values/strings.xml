@@ -46,9 +46,28 @@
     <string name="division">division</string>
     <string name="setOptions">OPTIONS</string>
     <string name="isntSet">Settings for current training isn\'t set yet. Press OPTIONS button to tune training.</string>
-    <string name="choose_complexity">Choose complexity</string>
-    <string name="complexity_descr">Default minimal value Default minimal value Default minimal value Default minimal value</string>
-    <string name="additionKindDialogtTitle">Choose a kind of training</string>
-    <string name="additionKindSummary">Complexity of training</string>
+
+    <!-- ListPreference with kinds of addition trainings -->
+    <string name="additionKindDialogtTitle">Kind of training</string>
+    <string name="additionKindSummary">Choose a kind of training</string>
     <string name="additionKindTitle">Complexity</string>
+
+    <!-- SeekBar Preference with number of trainings -->
+    <string name="trainingNumber">Number of trainings</string>
+    <string name="trainingNumberSummary">Number of examples per training set</string>
+
+    <!-- ListPreference with kinds of example format -->
+    <string name="formatListTitle">Type of format</string>
+    <string name="formatListSummary">Choose format of example: row or column.</string>
+    <string name="formatListDialogTitle">Choose format:</string>
+
+    <!-- ListPreference with times of example visibility -->
+    <string name="visTimeListTitle">Time of example visibility</string>
+    <string name="visTimeSummary">Less time more skills</string>
+    <string name="visTimeDialogTitle">Choose time:</string>
+
+    <!-- CheckBoxPreference to choose honest mode -->
+    <string name="cbHonestModeTitle">Honest mode</string>
+    <string name="cbHonestModeSummary">You don\'t type answer and save your time</string>
+
 </resources>

@@ -2,6 +2,8 @@ package com.example.mentalmath.trainings;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,4 +62,5 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
         }
         startActivity(i);
     }
+
 }

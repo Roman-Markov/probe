@@ -36,4 +36,43 @@
         <item>10"&#185;""&#8304;"-10"&#185;""&#185; + 10"&#185;""&#8304;"-10"&#185;""&#185;</item>
         <item>10"&#185;""&#185;"-10"&#185;""&#178; + 10"&#185;""&#185;"-10"&#185;""&#178;</item>
     </string-array>
+
+    <!-- format of example output -->
+    <string-array name="formatExample">
+        <item>1234 + 1234</item>
+        <item> 1234\n+\n 1234</item>
+    </string-array>
+    <string-array name="formatExampleId">
+        <item>row</item>
+        <item>column</item>
+    </string-array>
+
+    <!-- time of example visibility -->
+    <string-array name="visTime">
+        <item>always</item>
+        <item>30 sec</item>
+        <item>20 sec</item>
+        <item>15 sec</item>
+        <item>10 sec</item>
+        <item>8 sec</item>
+        <item>6 sec</item>
+        <item>4 sec</item>
+        <item>3 sec</item>
+        <item>2 sec</item>
+        <item>1 sec</item>
+    </string-array>
+    <string-array name="visTimeId">
+        <item>always</item>
+        <item>thirty</item>
+        <item>twenty</item>
+        <item>fifteen</item>
+        <item>ten</item>
+        <item>eight</item>
+        <item>six</item>
+        <item>four</item>
+        <item>three</item>
+        <item>two</item>
+        <item>one</item>
+    </string-array>
+
 </resources>

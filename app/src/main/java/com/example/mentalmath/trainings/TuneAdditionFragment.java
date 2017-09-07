@@ -1,6 +1,7 @@
 package com.example.mentalmath.trainings;
 
 import android.os.Bundle;
+import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.SeekBarPreference;
 import android.util.Log;
@@ -15,12 +16,13 @@ import com.example.mentalmath.R;
 
 public class TuneAdditionFragment extends PreferenceFragmentCompat {
 
+    SeekBarPreference pref;
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
         // Load the Preferences from the XML file
         addPreferencesFromResource(R.xml.addition_prefs);
-        SeekBarPreference pref = (SeekBarPreference) getPreferenceManager().findPreference("addition_complex");
-        pref.setMin(1);
-
+        pref = (SeekBarPreference) getPreferenceManager().findPreference("additionQuantity");
+        pref.setMin(2);
     }
+
 }

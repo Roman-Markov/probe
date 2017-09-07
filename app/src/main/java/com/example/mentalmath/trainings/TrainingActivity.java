@@ -12,7 +12,7 @@ public class TrainingActivity extends Activity {
 
         if (getFragmentManager().findFragmentById(android.R.id.content) == null) {
             getFragmentManager().beginTransaction().add(android.R.id.content,
-                    new TrainingFragment()).commit();
+                    new CommonTrainingFragment()).commit();
         }
     }
 }

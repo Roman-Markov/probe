@@ -3,21 +3,42 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/lib-auto">
 
+    <ListPreference
+        android:key="additionKindList"
+        android:title="@string/additionKindTitle"
+        android:summary="@string/additionKindSummary"
+        android:dialogTitle="@string/additionKindDialogtTitle"
+        android:entries="@array/additionTrainString"
+        android:entryValues="@array/additionTrainId"/>
+
     <SeekBarPreference
-        android:key="addition_complex"
-        android:title="@string/choose_complexity"
-        android:summary="@string/complexity_descr"
+        android:key="additionQuantity"
+        android:title="@string/trainingNumber"
+        android:summary="@string/trainingNumberSummary"
         android:min="1"
-        android:max="21"
+        android:max="20"
         android:defaultValue="1"/>
 
     <ListPreference
-        android:dialogTitle="@string/additionKindDialogtTitle"
-        android:entries="@array/additionTrainString"
-        android:entryValues="@array/additionTrainId"
-        android:key="additionKindList"
-        android:summary="@string/additionKindSummary"
-        android:title="@string/additionKindTitle"/>
+        android:key="additionFormatList"
+        android:title="@string/formatListTitle"
+        android:summary="@string/formatListSummary"
+        android:dialogTitle="@string/formatListDialogTitle"
+        android:entries="@array/formatExample"
+        android:entryValues="@array/formatExampleId"/>
+
+    <ListPreference
+        android:key="additionVisTimeList"
+        android:title="@string/visTimeListTitle"
+        android:summary="@string/visTimeSummary"
+        android:dialogTitle="@string/visTimeDialogTitle"
+        android:entries="@array/visTime"
+        android:entryValues="@array/visTimeId"/>
+
+    <CheckBoxPreference
+        android:key="additionCbHonestMode"
+        android:title="@string/cbHonestModeTitle"
+        android:summary="@string/cbHonestModeSummary"/>
 
 
 </android.support.v7.preference.PreferenceScreen>
