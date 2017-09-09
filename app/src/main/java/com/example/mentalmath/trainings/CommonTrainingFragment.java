@@ -13,7 +13,7 @@ import com.example.mentalmath.R;
  * Created by Роман on 07.09.2017.
  */
 
-public class CommonTrainingFragment extends Fragment {
+public class CommonTrainingFragment extends Fragment implements ITraining {
 
     private TrainingState mState;
 
@@ -38,6 +38,8 @@ public class CommonTrainingFragment extends Fragment {
     public void startExample() {}
 
     public void pause () {}
+
+    public void resume() {}
 
     public void stopExample() {}
 
