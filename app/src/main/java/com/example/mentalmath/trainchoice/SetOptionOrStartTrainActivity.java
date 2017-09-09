@@ -1,10 +1,8 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainchoice;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-
-import com.example.mentalmath.Constants;
 
 public class SetOptionOrStartTrainActivity extends Activity {
 

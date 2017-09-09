@@ -1,4 +1,4 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainchoice;
 
 import android.app.Fragment;
 import android.view.View;

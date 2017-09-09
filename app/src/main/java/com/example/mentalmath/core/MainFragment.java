@@ -1,4 +1,4 @@
-package com.example.mentalmath;
+package com.example.mentalmath.core;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -11,7 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mentalmath.trainings.ChooseSubTrainActivity;
+import com.example.mentalmath.R;
+import com.example.mentalmath.trainchoice.ChooseSubTrainActivity;
 
 /**
  * Fragments which is dynamically attached to {@link MainActivity} to show choice of types of

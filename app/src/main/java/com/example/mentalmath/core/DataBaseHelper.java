@@ -1,4 +1,4 @@
-package com.example.mentalmath;
+package com.example.mentalmath.core;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

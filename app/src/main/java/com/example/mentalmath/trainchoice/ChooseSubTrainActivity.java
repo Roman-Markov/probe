@@ -1,11 +1,11 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainchoice;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.mentalmath.Constants;
+import com.example.mentalmath.core.Constants;
 
 /**
  * According to arguments passed in Intents currently may contain fragments: {@link

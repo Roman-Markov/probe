@@ -1,4 +1,4 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainchoice;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,19 +9,19 @@ import com.example.mentalmath.R;
 
 /**
  * Created by Роман on 27.08.2017.
- * Fragment which represents choice of kind of matrix.
+ * Fragment which represents choice of kind of polynomials operations.
  */
 
-public class ChooseMatrixFragment extends ChooseSubTrainFragment {
+public class ChoosePolinomialsFragment extends ChooseSubTrainFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.matrix_choice, container, false);
+        View v = inflater.inflate(R.layout.polinomials_choice, container, false);
         return v;
     }
 
     public void launchTrain(View v) {
-
+        
     }
 }

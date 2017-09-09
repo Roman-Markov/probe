@@ -1,11 +1,8 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainchoice;
 
 import android.os.Bundle;
-import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.SeekBarPreference;
-import android.util.Log;
-import android.view.View;
 
 import com.example.mentalmath.R;
 

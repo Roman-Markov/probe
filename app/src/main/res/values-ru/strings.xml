@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_nn_x_m">Показать NN * M</string>
+    <string name="show_nn_x_mm">Показать NN * MM</string>
+    <string name="show_nnn_x_mm">Показать NNN * MM</string>
+    <string name="app_name">Ментальная Математика</string>
+    <string name="hint_for_result">введите результат</string>
+    <string name="statistics">Статистика</string>
+
+    <!-- Buttons text -->
+    <string name="ok">ДОБРО</string>
+    <string name="start">СТАРТ</string>
+    <string name="pause">ПАУЗА</string>
+
+    <string name="right">ВЕРНО!</string>
+    <string name="wrong">ОШИБКА!</string>
+
+    <string name="initTime">0:00</string>
+    <string name="rightAnswers" formatted="false">Правильных ответов: %d/%d\n</string>
+    <string name="totalTime" formatted="false">Общее время:    %s\n</string>
+    <string name="averageTime" formatted="false">"Среднее время: %s\n</string>
+    <string name="stopwatchFormat" formatted="false">%d:%02d</string>
+    <string name="noRightAnswers">Нет верных ответов</string>
+    <string name="show_n_x_m">Показать N * M</string>
+    <string name="show_nnn_x_m">Показать NNN * M</string>
+    <string name="show_nnn_x_mmm">Показать NNN * MMM</string>
+    <string name="show_n_p_m">Показать N + M</string>
+    <string name="show_nn_p_m">Показать NN + M</string>
+    <string name="show_nn_p_mm">Показать NN + MM</string>
+    <string name="show_nnn_p_mm">Показать NNN + MM</string>
+    <string name="show_nnn_p_mmm">Показать NNN + MMM</string>
+    <string name="equations">Equations</string>
+    <string name="ariphmetic">Арифметические операции</string>
+    <string name="matrix">Операции с матрицами</string>
+    <string name="multi_equation">Уравнения с несколькими неизвестными</string>
+    <string name="polynomial">Операции с многочленами</string>
+    <string name="addition">сложение</string>
+    <string name="subtraction">вычитание</string>
+    <string name="multiplication">умножение</string>
+    <string name="division">деление</string>
+    <string name="setOptions">Настройки</string>
+    <string name="isntSet">Настройки для текущей тренировки ещё не установлены. Для регулировки нажмите кнопку "Настройки".</string>
+
+    <!-- ListPreference with kinds of addition trainings -->
+    <string name="additionKindDialogtTitle">Вид тренировки</string>
+    <string name="additionKindSummary">Выберите разновидность тренировки</string>
+    <string name="additionKindTitle">Сложность</string>
+
+    <!-- SeekBar Preference with number of trainings -->
+    <string name="trainingNumber">Количество примеров</string>
+    <string name="trainingNumberSummary">Количество примеров за подход</string>
+
+    <!-- ListPreference with kinds of example format -->
+    <string name="formatListTitle">Тип формата</string>
+    <string name="formatListSummary">Выберить формат примера: ряд или колонна</string>
+    <string name="formatListDialogTitle">Выберите формат</string>
+
+    <!-- ListPreference with times of example visibility -->
+    <string name="visTimeListTitle">Время видимости примера</string>
+    <string name="visTimeSummary">Меньше времени больше навыков</string>
+    <string name="visTimeDialogTitle">Выберите время:</string>
+
+    <!-- CheckBoxPreference to choose honest mode -->
+    <string name="cbHonestModeTitle">Честный режим</string>
+    <string name="cbHonestModeSummary">Не набирая ответы вы экономите время</string>
+
+</resources>

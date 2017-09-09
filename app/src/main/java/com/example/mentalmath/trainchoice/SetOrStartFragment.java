@@ -1,17 +1,16 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainchoice;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mentalmath.Constants;
-import com.example.mentalmath.MainFragment;
+import com.example.mentalmath.core.Constants;
 import com.example.mentalmath.R;
+import com.example.mentalmath.trainings.ExampleBuilderFactory;
+import com.example.mentalmath.trainings.TrainingActivity;
 
 /**
  * Created by Роман on 31.08.2017.

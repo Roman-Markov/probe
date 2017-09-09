@@ -1,11 +1,11 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainchoice;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceFragmentCompat;
 
-import com.example.mentalmath.Constants;
+import com.example.mentalmath.core.Constants;
 
 public class SetOptionActivity extends AppCompatActivity {
 

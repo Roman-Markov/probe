@@ -1,4 +1,4 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainchoice;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,15 +9,15 @@ import com.example.mentalmath.R;
 
 /**
  * Created by Роман on 27.08.2017.
- * Fragment which represents choice of kind of linear equations.
+ * Fragment which represents choice of kind of equations.
  */
 
-public class ChooseLinearEquationsFragment extends ChooseSubTrainFragment {
+public class ChooseEquationsFragment extends ChooseSubTrainFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.linear_equations_choice, container, false);
+        View v = inflater.inflate(R.layout.equtions_choice, container, false);
         return v;
     }
 

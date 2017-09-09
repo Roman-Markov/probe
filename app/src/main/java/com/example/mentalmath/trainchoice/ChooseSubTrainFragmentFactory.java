@@ -1,11 +1,11 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainchoice;
 
 import android.app.Fragment;
 import android.content.Context;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.util.Log;
 
-import com.example.mentalmath.Constants;
+import com.example.mentalmath.core.Constants;
 
 /**
  * Created by Роман on 26.08.2017.

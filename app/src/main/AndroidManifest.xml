@@ -17,19 +17,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".core.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChoiceStatisticsActivity" />
-        <activity android:name=".StaticsticsActivity" />
-        <activity android:name=".trainings.ChooseSubTrainActivity" />
+        <activity android:name=".core.ChoiceStatisticsActivity" />
+        <activity android:name=".core.StaticsticsActivity" />
+        <activity android:name=".trainchoice.ChooseSubTrainActivity" />
         <activity android:name=".trainings.TrainingActivity" />
-        <activity android:name=".trainings.SetOptionOrStartTrainActivity" />
-        <activity android:name=".trainings.SetOptionActivity"
+        <activity android:name=".trainchoice.SetOptionOrStartTrainActivity" />
+        <activity android:name=".trainchoice.SetOptionActivity"
             android:theme="@style/AppPreferenceTheme"/>
     </application>
 

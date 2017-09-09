@@ -1,10 +1,10 @@
-package com.example.mentalmath;
+package com.example.mentalmath.core;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.mentalmath.trainings.ChooseSubTrainActivity;
+import com.example.mentalmath.trainchoice.ChooseSubTrainActivity;
 
 /**
  * Base activity, represents fragment {@link MainFragment} with choice of types of trainings e. g.

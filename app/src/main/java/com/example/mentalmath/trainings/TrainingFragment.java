@@ -2,12 +2,10 @@ package com.example.mentalmath.trainings;
 
 import android.app.Fragment;
 import android.content.ContentValues;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,14 +15,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mentalmath.Constants;
-import com.example.mentalmath.DataBaseHelper;
-import com.example.mentalmath.MainFragment;
+import com.example.mentalmath.core.Constants;
+import com.example.mentalmath.core.DataBaseHelper;
 import com.example.mentalmath.R;
 
 import java.util.Date;
-
-import static com.example.mentalmath.trainings.ChooseArithmeticFragment.*;
 
 public class TrainingFragment extends Fragment implements View.OnClickListener {
 

@@ -1,4 +1,4 @@
-package com.example.mentalmath;
+package com.example.mentalmath.core;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
+import com.example.mentalmath.R;
 
 
 public class ChoiceStatisticsFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.example.mentalmath;
+package com.example.mentalmath.core;
 
 /**
  * Created by Роман on 31.08.2017.
