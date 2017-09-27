@@ -1,10 +1,19 @@
 package com.example.mentalmath.trainings;
 
+import android.widget.LinearLayout;
+
 /**
  * Created by Роман on 27.09.2017.
  */
 
 public class SimpleAnswerField implements IAnswerField {
+
+    LinearLayout mLayout;
+
+    public SimpleAnswerField(LinearLayout layout) {
+        mLayout = layout;
+    }
+
     @Override
     public void prepareField() {
 
