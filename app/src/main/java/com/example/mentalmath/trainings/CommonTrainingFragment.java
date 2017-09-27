@@ -12,9 +12,7 @@ import android.widget.Toast;
 
 import com.example.mentalmath.R;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashSet;
 
 /**
@@ -26,7 +24,7 @@ public class CommonTrainingFragment extends Fragment implements ITraining {
     private IStopWatcherField mStopWatcherField;
     private IExampleDisplay mExampleDisplay;
     private IAnswerField mAnswerField;
-    private ISessionResult mSessionResult;
+    private ISessionResultField mSessionResult;
     private IExampleBuilder mExampleBuilder;
 
     private Button mStartButton;
