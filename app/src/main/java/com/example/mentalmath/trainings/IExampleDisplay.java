@@ -9,4 +9,6 @@ public interface IExampleDisplay {
     public void showNewExample();
 
     public void hideExample();
+
+    public void showExample();
 }

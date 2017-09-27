@@ -8,7 +8,7 @@ public interface ISessionResult {
 
     public void addExampleResult();
 
-    public void addCommonResult ();
+    public void addCommonResult (String commonResult);
 
     public void reset ();
 }

@@ -8,6 +8,8 @@ public interface IStopWatcherField {
 
     public void start();
 
+    public void startExample();
+
     public void resume();
 
     public void pause();

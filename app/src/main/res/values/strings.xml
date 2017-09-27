@@ -66,5 +66,6 @@
 
     <string name="rightButtonText">right</string>
     <string name="wrongButtonText">wrong</string>
+    <string name="noanswer">No answer</string>
 
 </resources>

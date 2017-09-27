@@ -17,4 +17,12 @@ public interface ITraining {
     public void stopExample();
 
     public void stopTrain();
+
+    /**
+     * shows wright result comparing with answer form user
+     * @param userAnswer - result from user
+     */
+    public void showRightExampleResult(String userAnswer);
+
+    public void handleResult(String result);
 }
