@@ -6,7 +6,7 @@ package com.example.mentalmath.trainings;
 
 public interface ITrainingPartsFactory {
 
-    public IStopWatcherField getStopWatcherField();
+    public IStopWatchField getStopWatcherField();
 
     public IExampleDisplay getExampleDisplay();
 

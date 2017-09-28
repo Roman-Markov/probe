@@ -21,7 +21,7 @@ import java.util.HashSet;
 
 public class CommonTrainingFragment extends Fragment implements ITraining {
 
-    private IStopWatcherField mStopWatcherField;
+    private IStopWatchField mStopWatcherField;
     private IExampleDisplay mExampleDisplay;
     private IAnswerField mAnswerField;
     private ISessionResultField mSessionResult;
@@ -75,6 +75,7 @@ public class CommonTrainingFragment extends Fragment implements ITraining {
     public void setState(TrainingState state) {
         mState = state;
         mState.init();
+
     }
 
     public void startTraining() {

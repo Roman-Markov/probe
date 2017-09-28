@@ -1,6 +1,6 @@
 package com.example.mentalmath.trainings;
 
-import android.view.LayoutInflater;
+import android.app.Fragment;
 import android.widget.LinearLayout;
 
 /**
@@ -9,41 +9,35 @@ import android.widget.LinearLayout;
 
 public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFactory {
 
-    LinearLayout mStopWatcherLayout;
-    LinearLayout mExampleDisplayLayout;
-    LinearLayout mAnswerFieldLayout;
-    LinearLayout mSessionResultLayout;
+    LinearLayout mParentLayout;
+    Fragment mFragment;
 
-    IStopWatcher mStopWatcher;
+    IStopWatcher mStopWatch;
 
-    public ATrainingPartsAbstractFactory(LinearLayout layoutForStopWatcher,
-                                         LinearLayout layoutForExampleDisplay,
-                                         LinearLayout layoutForAnswerField,
-                                         LinearLayout layoutForSessionResultField) {
-        mStopWatcherLayout = layoutForStopWatcher;
-        mExampleDisplayLayout = layoutForExampleDisplay;
-        mAnswerFieldLayout = layoutForAnswerField;
-        mSessionResultLayout = layoutForSessionResultField;
-
-        mStopWatcher = new SimpleStopWatcher();
+    public ATrainingPartsAbstractFactory(Fragment fragment,
+                                         LinearLayout parentLayout,
+                                         IStopWatcher stopWatch) {
+        mFragment = fragment;
+        mParentLayout = parentLayout;
+        mStopWatch = stopWatch;
     }
 
     @Override
-    public IStopWatcherField getStopWatcherField(){return new SimpleStopWatcherField(mStopWatcherLayout, mStopWatcher);}
+    public IStopWatchField getStopWatcherField(){return new SimpleStopWatchField(mFragment, mParentLayout, mStopWatch);}
 
     @Override
-    public IExampleDisplay getExampleDisplay(){return new SimpleExampleDisplay(mExampleDisplayLayout);}
+    public IExampleDisplay getExampleDisplay(){return new SimpleExampleDisplay(mParentLayout);}
 
     @Override
-    public IAnswerField getAnswerField(){return new SimpleAnswerField(mAnswerFieldLayout);}
+    public IAnswerField getAnswerField(){return new SimpleAnswerField(mParentLayout);}
 
     @Override
-    public ISessionResultField getSessionResultField(){return new SimpleSessionResultField(mSessionResultLayout);}
+    public ISessionResultField getSessionResultField(){return new SimpleSessionResultField(mParentLayout);}
 
     @Override
     public abstract IExampleBuilder getExampleBuilder();
 
     public void setStopWatcher(IStopWatcher sw) {
-        mStopWatcher = sw;
+        mStopWatch = sw;
     }
 }
