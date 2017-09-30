@@ -17,31 +17,78 @@ public class SimpleStopWatchField implements IStopWatchField {
     private IStopWatcher mStopWatcher;
     private LinearLayout mLayout;
 
-    TextView mAllTrainStopWatch;
-    TextView mTrainExerciseWatch;
+    TextView mCommonTrainStopWatch;
+    TextView mCurrentTrainStopWatch;
 
-    private Handler m_handler = new Handler();
-    private Runnable m_uiUpdate;
+    private Handler mHandler = new Handler();
+    private Runnable mUiUpdate;
 
-    private long exampleTimePassed;
+    private long mCurrentTrainStartTime;
 
-    public SimpleStopWatchField(Fragment fragment,LinearLayout layout, IStopWatcher sw) {
+    public SimpleStopWatchField(Fragment fragment,LinearLayout parentLayout, IStopWatcher sw) {
         mFragment = fragment;
         mStopWatcher = sw;
-        mLayout = layout.findViewById(R.layout.stopwatch_field);
-        mAllTrainStopWatch = mLayout.findViewById(R.id.swTotal);
-        mTrainExerciseWatch = mLayout.findViewById(R.id.stopwatch);
-        resetStopWatch(mAllTrainStopWatch, mTrainExerciseWatch);
+        mLayout = parentLayout.findViewById(R.layout.stopwatch_field);
+        mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);
+        mCurrentTrainStopWatch = mLayout.findViewById(R.id.stopwatch);
+        resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
 
-        layout.addView(mLayout);
+        parentLayout.addView(mLayout);
 
-        m_uiUpdate = new Runnable() {
+        mUiUpdate = new Runnable() {
             @Override
             public void run() {
                 updateUI();
-                m_handler.postDelayed(this, 10);
+                mHandler.postDelayed(this, 10);
             }
         };
+    }
+
+    @Override
+    public void start() {
+        mCurrentTrainStartTime = 0;
+        mStopWatcher.start();
+        resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
+        mHandler.removeCallbacks(mUiUpdate);
+        mHandler.post(mUiUpdate);
+    }
+
+    @Override
+    public void startExample() {
+        mCurrentTrainStartTime = mStopWatcher.getCurrentTime();
+    }
+
+    @Override
+    public void resume() {
+        mStopWatcher.resume();
+        mHandler.removeCallbacks(mUiUpdate);
+        mHandler.post(mUiUpdate);
+    }
+
+    @Override
+    public void pause() {
+        mStopWatcher.pause();
+        mHandler.removeCallbacks(mUiUpdate);
+    }
+
+    @Override
+    public void stopExample() {
+        resetStopWatch(mCurrentTrainStopWatch);
+    }
+
+    @Override
+    public void stopAll() {
+        resetAll();
+    }
+
+    private void init() {
+
+    }
+
+    private void resetAll() {
+        mStopWatcher.stop();
+        mCurrentTrainStartTime = 0;
+        resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
     }
 
     private void resetStopWatch(TextView... textViews) {
@@ -51,18 +98,21 @@ public class SimpleStopWatchField implements IStopWatchField {
     }
 
     private void updateUI() {
+
         long totalTimePassed = mStopWatcher.getCurrentTime();
         int[] formattedTime = formatLongMillis(totalTimePassed);
         String total = String.format(mFragment.getString(R.string.stopwatchFormat), formattedTime[0], formattedTime[1]);
-        long timeForExersice = totalTimePassed - exampleTimePassed;
-        formattedTime = formatLongMillis(timeForExersice);
+
+        long currentTrainTimePassed = totalTimePassed - mCurrentTrainStartTime;
+        formattedTime = formatLongMillis(currentTrainTimePassed);
         String result = String.format(mFragment.getString(R.string.stopwatchFormat), formattedTime[0], formattedTime[1]);
-        mAllTrainStopWatch.setText(total);
-        mTrainExerciseWatch.setText(result);
+
+        mCommonTrainStopWatch.setText(total);
+        mCurrentTrainStopWatch.setText(result);
     }
 
     /**
-     * format long mils to itn[2]{sec, santisecs};
+     * Formats long mils to itn[2]{sec, santisecs};
      * @param mils - passed time in milliseconds
      * @return itn[2]{sec, santisecs}
      */
@@ -71,43 +121,5 @@ public class SimpleStopWatchField implements IStopWatchField {
         time[0] = (int) (mils/1000);
         time[1] = (int) ((int) (mils%1000)/10);
         return time;
-    }
-
-    @Override
-    public void start() {
-        exampleTimePassed = 0;
-        mStopWatcher.start();
-        resetStopWatch(mAllTrainStopWatch, mTrainExerciseWatch);
-        m_handler.removeCallbacks(m_uiUpdate);
-        m_handler.post(m_uiUpdate);
-    }
-
-    @Override
-    public void startExample() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void stopExample() {
-        exampleTimePassed = mStopWatcher.getCurrentTime();
-    }
-
-    @Override
-    public void stopAll() {
-        exampleTimePassed = 0;
-    }
-
-    private void init() {
-
     }
 }

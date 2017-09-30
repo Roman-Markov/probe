@@ -52,11 +52,11 @@ public class CommonTrainingFragment extends Fragment implements ITraining {
         super.onCreateView(inflater, container, onSavedInstanceState);
         View result = inflater.inflate(R.layout.common_training, container, false);
 
-        mStartButton = (Button) result.findViewById(R.id.startButton);
-        mOkButton = (Button) result.findViewById(R.id.okButton);
-        mPauseButton = (Button) result.findViewById(R.id.pauseButton);
-        mRightButton = (Button) result.findViewById(R.id.rightButton);
-        mWrongButton = (Button) result.findViewById(R.id.wrongButton);
+        mStartButton    = result.findViewById(R.id.startButton);
+        mOkButton       = result.findViewById(R.id.okButton);
+        mPauseButton    = result.findViewById(R.id.pauseButton);
+        mRightButton    = result.findViewById(R.id.rightButton);
+        mWrongButton    = result.findViewById(R.id.wrongButton);
 
         addButtons(mStartButton, mOkButton, mPauseButton, mRightButton, mWrongButton);
 

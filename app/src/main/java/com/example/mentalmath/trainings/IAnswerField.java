@@ -21,10 +21,6 @@ public interface IAnswerField {
      */
     public void resume();
 
-    /**
-     * deletes all widgets from field
-     */
-    public void resetField();
 
     /**
      * @return string representation of answer

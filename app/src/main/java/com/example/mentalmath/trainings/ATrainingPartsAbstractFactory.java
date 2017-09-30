@@ -26,7 +26,8 @@ public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFac
     public IStopWatchField getStopWatcherField(){return new SimpleStopWatchField(mFragment, mParentLayout, mStopWatch);}
 
     @Override
-    public IExampleDisplay getExampleDisplay(){return new SimpleExampleDisplay(mParentLayout);}
+    public IExampleDisplay getExampleDisplay(){return new SimpleExampleDisplay(mParentLayout,
+            getBuilder());}
 
     @Override
     public IAnswerField getAnswerField(){return new SimpleAnswerField(mParentLayout);}
@@ -39,5 +40,10 @@ public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFac
 
     public void setStopWatcher(IStopWatcher sw) {
         mStopWatch = sw;
+    }
+
+    protected IExampleBuilder getBuilder() {
+        //todo add logic or move it to child class
+        return new SimpleExampleBuilder();
     }
 }
