@@ -38,6 +38,11 @@ public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFac
     @Override
     public abstract IExampleBuilder getExampleBuilder();
 
+    @Override
+    public boolean isHonestModeEnabled() {
+        return false;
+    }
+
     public void setStopWatcher(IStopWatcher sw) {
         mStopWatch = sw;
     }

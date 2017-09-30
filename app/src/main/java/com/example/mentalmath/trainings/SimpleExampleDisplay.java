@@ -9,19 +9,17 @@ import com.example.mentalmath.R;
  * Created by Роман on 27.09.2017.
  */
 
-public class SimpleExampleDisplay implements IExampleDisplay {
+public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay {
 
-    LinearLayout mLayout;
     TextView mExampleView;
     IExampleBuilder mExampleBuilder;
     String mCurrentExample;
 
     public SimpleExampleDisplay(LinearLayout parentLayout, IExampleBuilder builder) {
 
-        mLayout = parentLayout.findViewById(R.layout.example_display_field);
+        super((LinearLayout) parentLayout.findViewById(R.layout.answer_field));
         mExampleView = mLayout.findViewById(R.id.example_view);
         mExampleBuilder = builder;
-        parentLayout.addView(mLayout);
     }
 
     @Override

@@ -4,7 +4,7 @@ package com.example.mentalmath.trainings;
  * Created by Роман on 09.09.2017.
  */
 
-public interface IAnswerField {
+public interface IAnswerField extends IField{
 
     /**
      * prepares fields (e. g. several text fields) for user answer input

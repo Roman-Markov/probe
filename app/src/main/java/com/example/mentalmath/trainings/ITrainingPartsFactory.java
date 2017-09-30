@@ -18,4 +18,5 @@ public interface ITrainingPartsFactory {
 
     public int getAmountOfExamles();
 
+    public boolean isHonestModeEnabled();
 }

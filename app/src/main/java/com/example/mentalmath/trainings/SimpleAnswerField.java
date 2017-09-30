@@ -9,16 +9,14 @@ import com.example.mentalmath.R;
  * Created by Роман on 27.09.2017.
  */
 
-public class SimpleAnswerField implements IAnswerField {
+public class SimpleAnswerField extends ABaseField implements IAnswerField {
 
-    LinearLayout mLayout;
     EditText mAnswerField;
 
     public SimpleAnswerField(LinearLayout parentLayout) {
 
-        mLayout = parentLayout.findViewById(R.layout.answer_field);
+        super((LinearLayout) parentLayout.findViewById(R.layout.answer_field));
         mAnswerField = mLayout.findViewById(R.id.answer_field);
-        parentLayout.addView(mLayout);
     }
 
     @Override
@@ -49,7 +47,17 @@ public class SimpleAnswerField implements IAnswerField {
     }
 
     @Override
-    public void showRightResult(String answer) {
-        mAnswerField.setText(answer);
+    public void showRightResult(String correctAnswer) {
+
+        String userAnswer = mAnswerField.getText().toString();
+        if (userAnswer != null) {
+            if (userAnswer.equals(correctAnswer)) {
+                mAnswerField.setText(userAnswer + '\n' + correctAnswer);
+            } else {
+                // todo add pattern to string resource
+                userAnswer = "<b>" + userAnswer + "<\b>";
+                mAnswerField.setText(userAnswer + '\n' + correctAnswer);
+            }
+        }
     }
 }

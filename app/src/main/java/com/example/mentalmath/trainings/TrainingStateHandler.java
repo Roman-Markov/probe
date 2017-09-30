@@ -34,20 +34,24 @@ public class TrainingStateHandler {
             Button rightButton,
             Button wrongButton){
 
-        mStartButton = startButton;
-        mOkButton = okButton;
-        mPauseButton = pauseButton;
-        mRightButton = rightButton;
-        mWrongButton = wrongButton;
+        mStartButton    = startButton;
+        mOkButton       = okButton;
+        mPauseButton    = pauseButton;
+        mRightButton    = rightButton;
+        mWrongButton    = wrongButton;
 
-        mButtonList.add(mStartButton);
-        mButtonList.add(mOkButton);
-        mButtonList.add(mPauseButton);
-        mButtonList.add(mRightButton);
-        mButtonList.add(mWrongButton);
+        init(train);
+    }
 
-        mCurrentState = new InitialState(train);
-    };
+    public TrainingStateHandler(IHonestTrain train, IControlButtonField buttonField) {
+        mStartButton    = buttonField.getStartButton();
+        mOkButton       = buttonField.getOkButton();
+        mPauseButton    = buttonField.getPauseButton();
+        mRightButton    = buttonField.getRightButton();
+        mWrongButton    = buttonField.getWrongButton();
+
+        init(train);
+    }
 
     public void onClick(View v) {
         mCurrentState.onClick(v);
@@ -59,6 +63,16 @@ public class TrainingStateHandler {
 
     private void setState(TrainingState state) {
         mCurrentState = state;
+    }
+
+    private void init(IHonestTrain train) {
+        mButtonList.add(mStartButton);
+        mButtonList.add(mOkButton);
+        mButtonList.add(mPauseButton);
+        mButtonList.add(mRightButton);
+        mButtonList.add(mWrongButton);
+
+        mCurrentState = new InitialState(train);
     }
 
 

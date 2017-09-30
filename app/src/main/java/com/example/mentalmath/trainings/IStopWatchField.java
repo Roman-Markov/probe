@@ -4,7 +4,7 @@ package com.example.mentalmath.trainings;
  * Created by Роман on 09.09.2017.
  */
 
-public interface IStopWatchField {
+public interface IStopWatchField extends IField {
 
     public void start();
 

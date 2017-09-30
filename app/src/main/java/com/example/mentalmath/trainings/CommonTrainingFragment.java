@@ -2,13 +2,10 @@ package com.example.mentalmath.trainings;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -24,6 +21,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     private IExampleDisplay mExampleDisplay;
     private IAnswerField mAnswerField;
     private ISessionResultField mSessionResult;
+    private IControlButtonField mButtonField;
 
     private int mExampleAmount;
     private int mCounter;
@@ -41,24 +39,15 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         super.onCreateView(inflater, container, onSavedInstanceState);
         View result = inflater.inflate(R.layout.common_training, container, false);
 
-        Button startButton    = result.findViewById(R.id.startButton);
-        Button okButton       = result.findViewById(R.id.okButton);
-        Button pauseButton    = result.findViewById(R.id.pauseButton);
-        Button rightButton    = result.findViewById(R.id.rightButton);
-        Button wrongButton    = result.findViewById(R.id.wrongButton);
+        constructAllFields((LinearLayout) result);
+        addAllToParent((LinearLayout) result);
 
-        mStateHandler = new TrainingStateHandler(this,
-                startButton, okButton, pauseButton, rightButton, wrongButton);
-        ITrainingPartsFactory factory = getTrainingFactory((LinearLayout) result, new SimpleStopWatch());
-
-        mStopWatcherField   = factory.getStopWatcherField();
-        mExampleDisplay     = factory.getExampleDisplay();
-        mAnswerField        = factory.getAnswerField();
-        mSessionResult      = factory.getSessionResultField();
-        mExampleAmount      = factory.getAmountOfExamles();
+        mStateHandler = new TrainingStateHandler(this, mButtonField);
 
         return result;
     }
+
+
 
     public void onClick(View v) {
         mStateHandler.onClick(v);
@@ -127,14 +116,9 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         }
     }
 
-
     @Override
     public boolean shouldProceed() {
-        if (mCounter < mExampleAmount) {
-            return true;
-        } else {
-            return false;
-        }
+        return mCounter < mExampleAmount;
     }
 
     @Override
@@ -145,6 +129,29 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     @Override
     public int getRightAnswerCounter() {
         return mRightCounter;
+    }
+
+    // crate all fields
+    private void constructAllFields(LinearLayout parent) {
+        ITrainingPartsFactory factory = getTrainingFactory(parent, new SimpleStopWatch());
+
+        mStopWatcherField   = factory.getStopWatcherField();
+        mExampleDisplay     = factory.getExampleDisplay();
+        mAnswerField        = factory.getAnswerField();
+        mSessionResult      = factory.getSessionResultField();
+        mButtonField        = new SimpleButtonField(parent);
+
+        mExampleAmount      = factory.getAmountOfExamles();
+        mIsHonestMode       = factory.isHonestModeEnabled();
+    }
+
+    // add all fields in appropriate order
+    private void addAllToParent(LinearLayout result) {
+        result.addView(mStopWatcherField.getLayout());
+        result.addView(mExampleDisplay.getLayout());
+        result.addView(mAnswerField.getLayout());
+        result.addView(mButtonField.getLayout());
+        result.addView(mSessionResult.getLayout());
     }
 
     private void showToast(int stringId) {
@@ -159,7 +166,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         return null;
     }
 
-    //// TODO: 30.09.2017
+    // todo
     private ITrainingPartsFactory getTrainingFactory(LinearLayout parentLayout, IStopWatcher stopWatch) {
         return new ArithmeticTrainingPartsFactory(CommonTrainingFragment.this, parentLayout, stopWatch);
     }

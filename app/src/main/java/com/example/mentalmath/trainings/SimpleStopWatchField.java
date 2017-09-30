@@ -11,11 +11,10 @@ import com.example.mentalmath.R;
  * Created by Роман on 27.09.2017.
  */
 
-public class SimpleStopWatchField implements IStopWatchField {
+public class SimpleStopWatchField extends ABaseField implements IStopWatchField {
 
     Fragment mFragment;
     private IStopWatcher mStopWatcher;
-    private LinearLayout mLayout;
 
     TextView mCommonTrainStopWatch;
     TextView mCurrentTrainStopWatch;
@@ -26,14 +25,12 @@ public class SimpleStopWatchField implements IStopWatchField {
     private long mCurrentTrainStartTime;
 
     public SimpleStopWatchField(Fragment fragment,LinearLayout parentLayout, IStopWatcher sw) {
+        super((LinearLayout) parentLayout.findViewById(R.layout.answer_field));
         mFragment = fragment;
         mStopWatcher = sw;
-        mLayout = parentLayout.findViewById(R.layout.stopwatch_field);
         mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);
         mCurrentTrainStopWatch = mLayout.findViewById(R.id.stopwatch);
         resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
-
-        parentLayout.addView(mLayout);
 
         mUiUpdate = new Runnable() {
             @Override
