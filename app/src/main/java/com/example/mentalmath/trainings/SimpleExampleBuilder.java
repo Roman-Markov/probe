@@ -15,4 +15,9 @@ public class SimpleExampleBuilder implements IExampleBuilder {
         int result = Integer.parseInt(str);
         return result == 2;
     }
+
+    @Override
+    public String getCurrentAnswer() {
+        return "2";
+    }
 }

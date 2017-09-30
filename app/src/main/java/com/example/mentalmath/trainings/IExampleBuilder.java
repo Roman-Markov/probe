@@ -5,6 +5,10 @@ package com.example.mentalmath.trainings;
  */
 
 public interface IExampleBuilder {
+
     String generateExample();
+
     boolean checkResult(String str);
+
+    public String getCurrentAnswer();
 }

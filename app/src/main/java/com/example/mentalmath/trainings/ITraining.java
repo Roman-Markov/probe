@@ -18,11 +18,12 @@ public interface ITraining {
 
     public void stopTrain();
 
+    public boolean shouldProceed();
+
     /**
      * shows wright result comparing with answer form user
-     * @param userAnswer - result from user
      */
-    public void showRightExampleResult(String userAnswer);
+    public void showRightExampleResult();
 
     public void handleResult(String result);
 }

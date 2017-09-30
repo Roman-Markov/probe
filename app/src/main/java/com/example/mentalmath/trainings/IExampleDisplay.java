@@ -11,4 +11,8 @@ public interface IExampleDisplay {
     public void hideExample();
 
     public void showExample();
+
+    public String getCurrentAnswer();
+
+    public IExampleBuilder getExampleBuilder();
 }

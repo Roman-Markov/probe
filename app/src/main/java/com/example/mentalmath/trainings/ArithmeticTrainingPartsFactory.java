@@ -1,5 +1,6 @@
 package com.example.mentalmath.trainings;
 
+import android.app.Fragment;
 import android.widget.LinearLayout;
 
 /**
@@ -8,18 +9,15 @@ import android.widget.LinearLayout;
 
 public class ArithmeticTrainingPartsFactory extends ATrainingPartsAbstractFactory {
 
-    public ArithmeticTrainingPartsFactory(LinearLayout layoutForStopWatcher,
-                                         LinearLayout layoutForExampleDisplay,
-                                         LinearLayout layoutForAnswerField,
-                                         LinearLayout layoutForSessionResultField) {
-        super(layoutForStopWatcher,
-                layoutForExampleDisplay,
-                layoutForAnswerField,
-                layoutForSessionResultField);
+    public ArithmeticTrainingPartsFactory(Fragment fragment, LinearLayout parentLayout,
+                                          IStopWatcher stopWatch) {
+        super(fragment, parentLayout, stopWatch);
     }
 
     @Override
     public IExampleBuilder getExampleBuilder() {
+
+        // todo
         return new SimpleExampleBuilder();
     }
 }

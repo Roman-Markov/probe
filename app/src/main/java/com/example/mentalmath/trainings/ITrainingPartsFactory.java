@@ -16,4 +16,6 @@ public interface ITrainingPartsFactory {
 
     public IExampleBuilder getExampleBuilder();
 
+    public int getAmountOfExamles();
+
 }

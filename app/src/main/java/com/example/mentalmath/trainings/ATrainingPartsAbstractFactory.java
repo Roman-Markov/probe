@@ -42,8 +42,13 @@ public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFac
         mStopWatch = sw;
     }
 
+    public int getAmountOfExamles(){
+        //todo override in subclasses
+        return 2;
+    };
+
     protected IExampleBuilder getBuilder() {
-        //todo add logic or move it to child class
+        //todo add logic or move it to subclass
         return new SimpleExampleBuilder();
     }
 }

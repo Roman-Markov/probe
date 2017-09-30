@@ -2,39 +2,28 @@ package com.example.mentalmath.trainings;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.mentalmath.R;
-
-import java.util.Arrays;
-import java.util.HashSet;
 
 /**
  * Created by Роман on 07.09.2017.
  */
 
-public class CommonTrainingFragment extends Fragment implements ITraining {
+public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     private IStopWatchField mStopWatcherField;
     private IExampleDisplay mExampleDisplay;
     private IAnswerField mAnswerField;
     private ISessionResultField mSessionResult;
-    private IExampleBuilder mExampleBuilder;
-
-    private Button mStartButton;
-    private Button mOkButton;
-    private Button mPauseButton;
-    private Button mRightButton;
-    private Button mWrongButton;
-
-    private HashSet<Button> mButtonList = new HashSet<Button>();
-
 
     private int mExampleAmount;
     private int mCounter;
@@ -44,7 +33,7 @@ public class CommonTrainingFragment extends Fragment implements ITraining {
 
     private String mCurrentAnswer = "";
 
-    private TrainingState mState;
+    private TrainingStateHandler mStateHandler;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,38 +41,40 @@ public class CommonTrainingFragment extends Fragment implements ITraining {
         super.onCreateView(inflater, container, onSavedInstanceState);
         View result = inflater.inflate(R.layout.common_training, container, false);
 
-        mStartButton    = result.findViewById(R.id.startButton);
-        mOkButton       = result.findViewById(R.id.okButton);
-        mPauseButton    = result.findViewById(R.id.pauseButton);
-        mRightButton    = result.findViewById(R.id.rightButton);
-        mWrongButton    = result.findViewById(R.id.wrongButton);
+        Button startButton    = result.findViewById(R.id.startButton);
+        Button okButton       = result.findViewById(R.id.okButton);
+        Button pauseButton    = result.findViewById(R.id.pauseButton);
+        Button rightButton    = result.findViewById(R.id.rightButton);
+        Button wrongButton    = result.findViewById(R.id.wrongButton);
 
-        addButtons(mStartButton, mOkButton, mPauseButton, mRightButton, mWrongButton);
+        mStateHandler = new TrainingStateHandler(this,
+                startButton, okButton, pauseButton, rightButton, wrongButton);
+        ITrainingPartsFactory factory = getTrainingFactory((LinearLayout) result, new SimpleStopWatch());
+
+        mStopWatcherField   = factory.getStopWatcherField();
+        mExampleDisplay     = factory.getExampleDisplay();
+        mAnswerField        = factory.getAnswerField();
+        mSessionResult      = factory.getSessionResultField();
+        mExampleAmount      = factory.getAmountOfExamles();
 
         return result;
     }
 
-    @Override
-    public void onViewCreated(View v, Bundle savedInstanceState) {
-        setState(new InitialState(this));
-    }
-
     public void onClick(View v) {
-        mState.onClick(v);
+        mStateHandler.onClick(v);
     }
 
-    public void setState(TrainingState state) {
-        mState = state;
-        mState.init();
 
-    }
-
+    @Override
     public void startTraining() {
+        mRightCounter = 0;
+        mCounter = 0;
         mStopWatcherField.start();
         mAnswerField.prepareField();
         startExample();
     }
 
+    @Override
     public void startExample() {
         mExampleDisplay.showNewExample();
         mStopWatcherField.startExample();
@@ -95,12 +86,14 @@ public class CommonTrainingFragment extends Fragment implements ITraining {
         mExampleDisplay.hideExample();
     }
 
+    @Override
     public void resume() {
         mStopWatcherField.resume();
         mAnswerField.resume();
         mExampleDisplay.showExample();
     }
 
+    @Override
     public void stopExample() {
         mCounter++;
         mStopWatcherField.stopExample();
@@ -111,16 +104,18 @@ public class CommonTrainingFragment extends Fragment implements ITraining {
         mSessionResult.addExampleResult();
     }
 
+    @Override
     public void stopTrain() {
         mStopWatcherField.stopAll();
         mSessionResult.addCommonResult(getCommonResult());
         mAnswerField.clean();
     }
 
+    @Override
     public void handleResult(String answer) {
         boolean isRight = false;
         if (answer != null) {
-            isRight = mExampleBuilder.checkResult(answer);
+            isRight = mExampleDisplay.getExampleBuilder().checkResult(answer);
             if (isRight) {
                 mRightCounter++;
                 showToast(R.string.right);
@@ -132,6 +127,8 @@ public class CommonTrainingFragment extends Fragment implements ITraining {
         }
     }
 
+
+    @Override
     public boolean shouldProceed() {
         if (mCounter < mExampleAmount) {
             return true;
@@ -140,8 +137,14 @@ public class CommonTrainingFragment extends Fragment implements ITraining {
         }
     }
 
-    public void showRightExampleResult(String result) {
-        mAnswerField.showRightResult(result);
+    @Override
+    public void showRightExampleResult() {
+        mAnswerField.showRightResult(mExampleDisplay.getExampleBuilder().getCurrentAnswer());
+    }
+
+    @Override
+    public int getRightAnswerCounter() {
+        return mRightCounter;
     }
 
     private void showToast(int stringId) {
@@ -156,122 +159,8 @@ public class CommonTrainingFragment extends Fragment implements ITraining {
         return null;
     }
 
-    private void addButtons(Button... buttons) {
-        for (Button b: buttons) {
-            mButtonList.add(b);
-        }
-    }
-
-    abstract class TrainingState {
-        ITraining mOwner;
-        public TrainingState(ITraining train){
-            mOwner = train;
-        }
-        public abstract  void onClick(View v);
-        public abstract void init();
-        protected void logWrongId() {
-            Log.e(getClass().getSimpleName(), "Unexpected button id");
-        }
-        protected void setVisibileButton(Button... buttons) {
-            HashSet<Button> setOfButtons = new HashSet<Button>(Arrays.asList(buttons));
-            for (Button b: mButtonList) {
-                if (setOfButtons.contains(b)) {
-                    b.setVisibility(View.VISIBLE);
-                } else {
-                    b.setVisibility(View.GONE);
-                }
-            }
-        }
-    }
-    class InitialState extends TrainingState {
-        public InitialState(ITraining fragment){
-            super(fragment);
-        }
-        public void init() {
-            setVisibileButton(mStartButton);
-        }
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.startButton:
-
-                    mOwner.startTraining();
-                    setState(new StartedState(CommonTrainingFragment.this));
-                    break;
-                default: logWrongId();
-            }
-        }
-    }
-
-    class StartedState extends TrainingState {
-        public StartedState(ITraining train){
-            super(train);
-        }
-        public void init() {
-            setVisibileButton(mOkButton, mPauseButton);
-        }
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.okButton:
-                    mOwner.stopExample();
-                    if (mIsHonestMode) {
-                        setState(new HonestCheckState(CommonTrainingFragment.this));
-                    } else {
-                        if (shouldProceed()) {
-                            startExample();
-                        } else {
-                            mOwner.stopTrain();
-                            setState(new InitialState(mOwner));
-                        }
-                    }
-                    break;
-                case R.id.pauseButton:
-                    mOwner.pause();
-                    setState(new PausedState(mOwner));
-                    break;
-                default: logWrongId();
-            }
-        }
-    }
-
-    class HonestCheckState extends TrainingState {
-        public HonestCheckState(ITraining train){
-            super(train);
-            init();
-        }
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.rightButton:
-                    mCounter++;
-                case R.id.wrongButton:
-                    setState(new StartedState(CommonTrainingFragment.this));
-                    break;
-                default: logWrongId();
-            }
-        }
-
-        public void init() {
-            pause();
-            setVisibileButton(mRightButton, mWrongButton);
-            showRightExampleResult(mCurrentAnswer);
-        }
-    }
-
-    class PausedState extends TrainingState {
-        public PausedState(ITraining train){
-            super(train);
-        }
-        public void init() {
-            setVisibileButton(mStartButton);
-        }
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.startButton:
-                    mOwner.resume();
-                    setState(new StartedState(mOwner));
-                    break;
-                default:
-                    break;
-            }
-        }
+    //// TODO: 30.09.2017
+    private ITrainingPartsFactory getTrainingFactory(LinearLayout parentLayout, IStopWatcher stopWatch) {
+        return new ArithmeticTrainingPartsFactory(CommonTrainingFragment.this, parentLayout, stopWatch);
     }
 }

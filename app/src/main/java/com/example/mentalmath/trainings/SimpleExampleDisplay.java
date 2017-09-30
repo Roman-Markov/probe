@@ -39,4 +39,14 @@ public class SimpleExampleDisplay implements IExampleDisplay {
     public void showExample() {
         mExampleView.setText(mCurrentExample);
     }
+
+    @Override
+    public String getCurrentAnswer() {
+        return mExampleBuilder.getCurrentAnswer();
+    }
+
+    @Override
+    public IExampleBuilder getExampleBuilder() {
+        return mExampleBuilder;
+    }
 }
