@@ -36,7 +36,7 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
     }
 
     @Override
-    public void showExample() {
+    public void showHiddenExample() {
         mExampleView.setText(mCurrentExample);
     }
 

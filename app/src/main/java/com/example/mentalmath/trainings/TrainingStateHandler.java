@@ -40,7 +40,7 @@ public class TrainingStateHandler {
         mRightButton    = rightButton;
         mWrongButton    = wrongButton;
 
-        init(train);
+        initializeHandler(train);
     }
 
     public TrainingStateHandler(IHonestTrain train, IControlButtonField buttonField) {
@@ -50,7 +50,7 @@ public class TrainingStateHandler {
         mRightButton    = buttonField.getRightButton();
         mWrongButton    = buttonField.getWrongButton();
 
-        init(train);
+        initializeHandler(train);
     }
 
     public void onClick(View v) {
@@ -63,13 +63,14 @@ public class TrainingStateHandler {
 
     private void setState(TrainingState state) {
 
-        Log.d(getClass().getSimpleName(), String.format("change state: %s  --->   %s",
+        Log.e(getClass().getSimpleName(), String.format("change state: %s  --->   %s",
                 mCurrentState.getClass().getSimpleName(),  state.getClass().getSimpleName()));
         mCurrentState = state;
+        mCurrentState.init();
     }
 
-    private void init(IHonestTrain train) {
-        Log.d(getClass().getSimpleName(), "init()");
+    private void initializeHandler(IHonestTrain train) {
+        Log.d(getClass().getSimpleName(), "initializeHandler()");
         mButtonList.add(mStartButton);
         mButtonList.add(mOkButton);
         mButtonList.add(mPauseButton);
@@ -77,6 +78,7 @@ public class TrainingStateHandler {
         mButtonList.add(mWrongButton);
 
         mCurrentState = new InitialState(train);
+        mCurrentState.init();
     }
 
 
@@ -91,8 +93,8 @@ public class TrainingStateHandler {
         protected void logWrongId() {
             Log.e(getClass().getSimpleName(), "Unexpected button id");
         }
-        protected void setVisibileButton(Button... buttons) {
-            HashSet<Button> setOfButtons = new HashSet<Button>(Arrays.asList(buttons));
+        protected void setVisibleButton(Button... buttons) {
+            HashSet<Button> setOfButtons = new HashSet<>(Arrays.asList(buttons));
             for (Button b: mButtonList) {
                 if (setOfButtons.contains(b)) {
                     b.setVisibility(View.VISIBLE);
@@ -107,7 +109,7 @@ public class TrainingStateHandler {
             super(fragment);
         }
         public void init() {
-            setVisibileButton(mStartButton);
+            setVisibleButton(mStartButton);
         }
         public void onClick(View v) {
             switch (v.getId()) {
@@ -126,7 +128,7 @@ public class TrainingStateHandler {
             super(train);
         }
         public void init() {
-            setVisibileButton(mOkButton, mPauseButton);
+            setVisibleButton(mOkButton, mPauseButton);
         }
         public void onClick(View v) {
             switch (v.getId()) {
@@ -171,7 +173,7 @@ public class TrainingStateHandler {
 
         public void init() {
             mOwner.pause();
-            setVisibileButton(mRightButton, mWrongButton);
+            setVisibleButton(mRightButton, mWrongButton);
             mOwner.showRightExampleResult();
         }
     }
@@ -181,7 +183,7 @@ public class TrainingStateHandler {
             super(train);
         }
         public void init() {
-            setVisibileButton(mStartButton);
+            setVisibleButton(mStartButton);
         }
         public void onClick(View v) {
             switch (v.getId()) {

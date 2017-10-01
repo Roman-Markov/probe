@@ -58,7 +58,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void startTraining() {
-        debugLog("Start hole training");
+        errorLog("Start hole training");
         mRightCounter = 0;
         mCounter = 0;
         mStopWatcherField.start();
@@ -68,13 +68,13 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void startExample() {
-        debugLog("Start single example: " + mCounter);
+        errorLog("Start single example: " + mCounter);
         mExampleDisplay.showNewExample();
         mStopWatcherField.startExample();
     }
 
     public void pause () {
-        debugLog("Pause example" + mCounter);
+        errorLog("Pause example" + mCounter);
         mStopWatcherField.pause();
         mAnswerField.pause();
         mExampleDisplay.hideExample();
@@ -82,16 +82,16 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void resume() {
-        debugLog("Resume example" + mCounter);
+        errorLog("Resume example" + mCounter);
         mStopWatcherField.resume();
         mAnswerField.resume();
-        mExampleDisplay.showExample();
+        mExampleDisplay.showHiddenExample();
     }
 
     @Override
     public void stopExample() {
-        debugLog("Stop example" + mCounter);
         mCounter++;
+        errorLog("Stop example" + mCounter);
         mStopWatcherField.stopExample();
         mExampleDisplay.hideExample();
         mCurrentAnswer = mAnswerField.getAnswer();
@@ -102,15 +102,17 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void stopTrain() {
-        debugLog("Stop hole train, counter - " + mCounter + ", right counter - " + mRightCounter);
+        errorLog("Stop hole train, counter - " + mCounter + ", right counter - " + mRightCounter);
         mStopWatcherField.stopAll();
-        mSessionResult.addCommonResult(getCommonResult());
+        mExampleDisplay.hideExample();
         mAnswerField.clean();
+        mSessionResult.addCommonResult(getCommonResult());
+
     }
 
     @Override
     public void handleResult(String answer) {
-        debugLog("Handle result: " + answer);
+        errorLog("Handle result: " + answer);
         boolean isRight = false;
         if (answer != null) {
             isRight = mExampleDisplay.getExampleBuilder().checkResult(answer);
@@ -127,13 +129,13 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public boolean shouldProceed() {
-        debugLog("shouldProceed(): " + mCounter + " < " + mExampleAmount);
+        errorLog("shouldProceed(): " + mCounter + " < " + mExampleAmount);
         return mCounter < mExampleAmount;
     }
 
     @Override
     public void showRightExampleResult() {
-        debugLog("showRightExampleResult(): " + mExampleDisplay.getExampleBuilder().getCurrentAnswer());
+        errorLog("showRightExampleResult(): " + mExampleDisplay.getExampleBuilder().getCurrentAnswer());
         mAnswerField.showRightResult(mExampleDisplay.getExampleBuilder().getCurrentAnswer());
     }
 
@@ -144,7 +146,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     // crate all fields
     private void constructAllFields(LayoutInflater inflater, ViewGroup container) {
-        debugLog("constructAllFields():");
+        errorLog("constructAllFields():");
 
         ITrainingPartsFactory factory = getTrainingFactory(inflater, container, new SimpleStopWatch());
 
@@ -160,7 +162,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     // add all fields in appropriate order
     private void addAllToParent(LinearLayout result) {
-        debugLog("addAllToParent():");
+        errorLog("addAllToParent():");
         result.addView(mStopWatcherField.getLayout());
         result.addView(mExampleDisplay.getLayout());
         result.addView(mAnswerField.getLayout());
@@ -169,7 +171,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     }
 
     private void showToast(int stringId) {
-        debugLog("showToast():");
+        errorLog("showToast():");
         Toast toast = Toast.makeText(getActivity(), stringId, Toast.LENGTH_SHORT);
         // todo create dimension resource for third parameter
         toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 150);
@@ -183,12 +185,8 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     // todo
     private ITrainingPartsFactory getTrainingFactory(LayoutInflater inflater, ViewGroup container, IStopWatch stopWatch) {
-        debugLog("getTrainingFactory():");
+        errorLog("getTrainingFactory():");
         return new ArithmeticTrainingPartsFactory(CommonTrainingFragment.this, inflater, container, stopWatch);
-    }
-
-    private void debugLog(String msg) {
-        Log.d(getClass().getSimpleName(), msg);
     }
 
     private void errorLog(String msg) {
