@@ -62,10 +62,14 @@ public class TrainingStateHandler {
     }
 
     private void setState(TrainingState state) {
+
+        Log.d(getClass().getSimpleName(), String.format("change state: %s  --->   %s",
+                mCurrentState.getClass().getSimpleName(),  state.getClass().getSimpleName()));
         mCurrentState = state;
     }
 
     private void init(IHonestTrain train) {
+        Log.d(getClass().getSimpleName(), "init()");
         mButtonList.add(mStartButton);
         mButtonList.add(mOkButton);
         mButtonList.add(mPauseButton);

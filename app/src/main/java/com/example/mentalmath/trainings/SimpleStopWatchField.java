@@ -25,7 +25,7 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     private long mCurrentTrainStartTime;
 
     public SimpleStopWatchField(Fragment fragment,LinearLayout parentLayout, IStopWatcher sw) {
-        super((LinearLayout) parentLayout.findViewById(R.layout.answer_field));
+        super((LinearLayout) parentLayout.findViewById(R.layout.stopwatch_field));
         mFragment = fragment;
         mStopWatcher = sw;
         mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);

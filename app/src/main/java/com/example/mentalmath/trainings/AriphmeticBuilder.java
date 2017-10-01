@@ -8,7 +8,8 @@ import java.util.Random;
 
 public abstract class AriphmeticBuilder extends BaseExampleBuilder {
 
-    protected long m_result;
+    protected long mResult;
+    protected String mCurrentAnswer;
 
     public AriphmeticBuilder(String name) {
         super(name);
@@ -33,7 +34,11 @@ public abstract class AriphmeticBuilder extends BaseExampleBuilder {
     @Override
     public boolean checkResult(String str) {
         long result = Long.valueOf(str);
-        return result == m_result;
+        return result == mResult;
     }
 
+    @Override
+    public String getCurrentAnswer() {
+        return mCurrentAnswer;
+    }
 }

@@ -17,7 +17,7 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
 
     public SimpleExampleDisplay(LinearLayout parentLayout, IExampleBuilder builder) {
 
-        super((LinearLayout) parentLayout.findViewById(R.layout.answer_field));
+        super((LinearLayout) parentLayout.findViewById(R.layout.example_display_field));
         mExampleView = mLayout.findViewById(R.id.example_view);
         mExampleBuilder = builder;
     }

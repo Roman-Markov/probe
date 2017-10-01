@@ -20,7 +20,8 @@ public class AdditionBuilder extends AriphmeticBuilder {
         long[] result = generateRandoms(m_numberOfDigit1, m_numberOfDigit2);
         long big = result[0];
         long little = result[1];
-        m_result = big + little;
+        mResult = big + little;
+        mCurrentAnswer = Long.toString(mResult);
         return String.format("%d + %d", big, little);
     }
 }

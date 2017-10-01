@@ -19,7 +19,7 @@ public class SimpleButtonField extends ABaseField implements IControlButtonField
 
 
     public SimpleButtonField(LinearLayout parentLayout) {
-        super((LinearLayout) parentLayout.findViewById(R.layout.answer_field));
+        super((LinearLayout) parentLayout.findViewById(R.layout.button_field));
 
         mStartButton    = mLayout.findViewById(R.id.startButton);
         mOkButton       = mLayout.findViewById(R.id.okButton);
