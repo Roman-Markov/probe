@@ -1,5 +1,7 @@
 package com.example.mentalmath.trainings;
 
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,9 +17,9 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
     IExampleBuilder mExampleBuilder;
     String mCurrentExample;
 
-    public SimpleExampleDisplay(LinearLayout parentLayout, IExampleBuilder builder) {
+    public SimpleExampleDisplay (LayoutInflater inflater, ViewGroup container, IExampleBuilder builder) {
 
-        super((LinearLayout) parentLayout.findViewById(R.layout.example_display_field));
+        super(inflater, container, R.layout.example_display_field);
         mExampleView = mLayout.findViewById(R.id.example_view);
         mExampleBuilder = builder;
     }

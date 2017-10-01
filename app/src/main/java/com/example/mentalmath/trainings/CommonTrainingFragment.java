@@ -40,7 +40,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         super.onCreateView(inflater, container, onSavedInstanceState);
         View result = inflater.inflate(R.layout.common_training, container, false);
 
-        constructAllFields((LinearLayout) result);
+        constructAllFields(inflater, container);
         addAllToParent((LinearLayout) result);
 
         mStateHandler = new TrainingStateHandler(this, mButtonField);
@@ -143,19 +143,16 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     }
 
     // crate all fields
-    private void constructAllFields(LinearLayout parent) {
+    private void constructAllFields(LayoutInflater inflater, ViewGroup container) {
         debugLog("constructAllFields():");
 
-        LinearLayout layout = parent.findViewById(R.layout.stopwatch_field);
-        errorLog("layout: " + layout.toString());
-
-        ITrainingPartsFactory factory = getTrainingFactory(parent, new SimpleStopWatch());
+        ITrainingPartsFactory factory = getTrainingFactory(inflater, container, new SimpleStopWatch());
 
         mStopWatcherField   = factory.getStopWatcherField();
         mExampleDisplay     = factory.getExampleDisplay();
         mAnswerField        = factory.getAnswerField();
         mSessionResult      = factory.getSessionResultField();
-        mButtonField        = new SimpleButtonField(parent);
+        mButtonField        = new SimpleButtonField(inflater, container);
 
         mExampleAmount      = factory.getAmountOfExamles();
         mIsHonestMode       = factory.isHonestModeEnabled();
@@ -185,9 +182,9 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     }
 
     // todo
-    private ITrainingPartsFactory getTrainingFactory(LinearLayout parentLayout, IStopWatcher stopWatch) {
+    private ITrainingPartsFactory getTrainingFactory(LayoutInflater inflater, ViewGroup container, IStopWatch stopWatch) {
         debugLog("getTrainingFactory():");
-        return new ArithmeticTrainingPartsFactory(CommonTrainingFragment.this, parentLayout, stopWatch);
+        return new ArithmeticTrainingPartsFactory(CommonTrainingFragment.this, inflater, container, stopWatch);
     }
 
     private void debugLog(String msg) {

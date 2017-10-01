@@ -1,6 +1,8 @@
 package com.example.mentalmath.trainings;
 
 import android.text.Layout;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 /**
@@ -11,8 +13,8 @@ public abstract class ABaseField implements IField{
 
     protected LinearLayout mLayout;
 
-    public ABaseField(LinearLayout layout) {
-        mLayout = layout;
+    public ABaseField(LayoutInflater inflater, ViewGroup container, int rID) {
+        mLayout = (LinearLayout) inflater.inflate(rID, container, false);
     }
 
     @Override

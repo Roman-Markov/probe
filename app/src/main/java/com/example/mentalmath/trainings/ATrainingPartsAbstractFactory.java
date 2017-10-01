@@ -1,7 +1,8 @@
 package com.example.mentalmath.trainings;
 
 import android.app.Fragment;
-import android.widget.LinearLayout;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 
 /**
  * Created by Роман on 27.09.2017.
@@ -9,31 +10,32 @@ import android.widget.LinearLayout;
 
 public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFactory {
 
-    LinearLayout mParentLayout;
     Fragment mFragment;
-
-    IStopWatcher mStopWatch;
+    LayoutInflater mInflater;
+    ViewGroup mViewGroup;
+    IStopWatch mStopWatch;
 
     public ATrainingPartsAbstractFactory(Fragment fragment,
-                                         LinearLayout parentLayout,
-                                         IStopWatcher stopWatch) {
+                                         LayoutInflater inflater, ViewGroup container,
+                                         IStopWatch stopWatch) {
         mFragment = fragment;
-        mParentLayout = parentLayout;
+        mInflater = inflater;
+        mViewGroup = container;
         mStopWatch = stopWatch;
     }
 
     @Override
-    public IStopWatchField getStopWatcherField(){return new SimpleStopWatchField(mFragment, mParentLayout, mStopWatch);}
+    public IStopWatchField getStopWatcherField(){return new SimpleStopWatchField(mFragment, mInflater, mViewGroup, mStopWatch);}
 
     @Override
-    public IExampleDisplay getExampleDisplay(){return new SimpleExampleDisplay(mParentLayout,
+    public IExampleDisplay getExampleDisplay(){return new SimpleExampleDisplay(mInflater, mViewGroup,
             getBuilder());}
 
     @Override
-    public IAnswerField getAnswerField(){return new SimpleAnswerField(mParentLayout);}
+    public IAnswerField getAnswerField(){return new SimpleAnswerField(mInflater, mViewGroup);}
 
     @Override
-    public ISessionResultField getSessionResultField(){return new SimpleSessionResultField(mParentLayout);}
+    public ISessionResultField getSessionResultField(){return new SimpleSessionResultField(mInflater, mViewGroup);}
 
     @Override
     public abstract IExampleBuilder getExampleBuilder();
@@ -43,7 +45,7 @@ public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFac
         return false;
     }
 
-    public void setStopWatcher(IStopWatcher sw) {
+    public void setStopWatcher(IStopWatch sw) {
         mStopWatch = sw;
     }
 

@@ -1,5 +1,7 @@
 package com.example.mentalmath.trainings;
 
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,8 +15,9 @@ public class SimpleSessionResultField extends ABaseField implements ISessionResu
 
     TextView mSessionResultView;
 
-    public SimpleSessionResultField(LinearLayout parentLayout) {
-        super((LinearLayout) parentLayout.findViewById(R.layout.session_result_field));
+    public SimpleSessionResultField (LayoutInflater inflater, ViewGroup container) {
+
+        super(inflater, container, R.layout.session_result_field);
         mSessionResultView = mLayout.findViewById(R.id.sessionResult);
     }
 

@@ -1,5 +1,7 @@
 package com.example.mentalmath.trainings;
 
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -18,8 +20,9 @@ public class SimpleButtonField extends ABaseField implements IControlButtonField
     private Button mWrongButton;
 
 
-    public SimpleButtonField(LinearLayout parentLayout) {
-        super((LinearLayout) parentLayout.findViewById(R.layout.button_field));
+    public SimpleButtonField (LayoutInflater inflater, ViewGroup container) {
+
+        super(inflater, container, R.layout.button_field);
 
         mStartButton    = mLayout.findViewById(R.id.startButton);
         mOkButton       = mLayout.findViewById(R.id.okButton);

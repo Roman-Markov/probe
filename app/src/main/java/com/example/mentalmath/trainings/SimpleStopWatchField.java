@@ -2,7 +2,8 @@ package com.example.mentalmath.trainings;
 
 import android.app.Fragment;
 import android.os.Handler;
-import android.widget.LinearLayout;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.mentalmath.R;
@@ -14,7 +15,7 @@ import com.example.mentalmath.R;
 public class SimpleStopWatchField extends ABaseField implements IStopWatchField {
 
     Fragment mFragment;
-    private IStopWatcher mStopWatcher;
+    private IStopWatch mStopWatcher;
 
     TextView mCommonTrainStopWatch;
     TextView mCurrentTrainStopWatch;
@@ -24,8 +25,9 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
 
     private long mCurrentTrainStartTime;
 
-    public SimpleStopWatchField(Fragment fragment,LinearLayout parentLayout, IStopWatcher sw) {
-        super((LinearLayout) parentLayout.findViewById(R.layout.stopwatch_field));
+    public SimpleStopWatchField (Fragment fragment, LayoutInflater inflater, ViewGroup container, IStopWatch sw) {
+
+        super(inflater, container, R.layout.stopwatch_field);;
         mFragment = fragment;
         mStopWatcher = sw;
         mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);

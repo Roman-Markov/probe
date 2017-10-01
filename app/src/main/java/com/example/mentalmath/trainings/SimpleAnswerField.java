@@ -1,5 +1,7 @@
 package com.example.mentalmath.trainings;
 
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -13,9 +15,9 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
 
     EditText mAnswerField;
 
-    public SimpleAnswerField(LinearLayout parentLayout) {
+    public SimpleAnswerField (LayoutInflater inflater, ViewGroup container) {
 
-        super((LinearLayout) parentLayout.findViewById(R.layout.answer_field));
+        super(inflater, container, R.layout.answer_field);
         mAnswerField = mLayout.findViewById(R.id.answer_field);
     }
 

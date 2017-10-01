@@ -4,7 +4,7 @@ package com.example.mentalmath.trainings;
  * Created by Роман on 27.09.2017.
  */
 
-public class SimpleStopWatch implements IStopWatcher {
+public class SimpleStopWatch implements IStopWatch {
 
     private long m_startTime;
     private int m_timePassed;
