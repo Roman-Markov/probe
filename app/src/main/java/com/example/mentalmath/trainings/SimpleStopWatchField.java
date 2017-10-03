@@ -25,6 +25,8 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
 
     private long mCurrentTrainStartTime;
 
+    private boolean mIsFirstTrainSet = false;
+
     public SimpleStopWatchField (Fragment fragment, LayoutInflater inflater, ViewGroup container, IStopWatch sw) {
 
         super(inflater, container, R.layout.stopwatch_field);;
@@ -45,6 +47,7 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
 
     @Override
     public void start() {
+        mIsFirstTrainSet = true;
         mCurrentTrainStartTime = 0;
         mStopWatcher.start();
         resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
@@ -54,7 +57,14 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
 
     @Override
     public void startExample() {
-        mCurrentTrainStartTime = mStopWatcher.getCurrentTime();
+
+        // to eliminate small difference between stopwatches in the first run
+        if (mIsFirstTrainSet) {
+            mCurrentTrainStartTime = 0;
+            mIsFirstTrainSet = false;
+        } else {
+            mCurrentTrainStartTime = mStopWatcher.getCurrentTime();
+        }
     }
 
     @Override
