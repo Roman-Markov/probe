@@ -33,7 +33,6 @@ public class ChooseSubTrainActivity extends Activity {
             transaction.add(android.R.id.content, mSubTrainFragment).commit();
         } else {
             transaction.replace(android.R.id.content, mSubTrainFragment);
-            transaction.addToBackStack(null);
             transaction.commit();
         }
     }

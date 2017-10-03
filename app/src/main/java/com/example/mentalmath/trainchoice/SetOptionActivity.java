@@ -16,17 +16,15 @@ public class SetOptionActivity extends AppCompatActivity {
 
         int type = getIntent().getIntExtra(Constants.KEY_KIND_OF_OPTIONS, -1);
 
-        PreferenceFragmentCompat mSubTrainFragment = (PreferenceFragmentCompat) ChooseSubTrainFragmentFactory
+        PreferenceFragmentCompat subTrainFragment = ChooseSubTrainFragmentFactory
                 .getSettingsFragment(this, type);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         if (getFragmentManager().findFragmentById(android.R.id.content) == null) {
-            transaction.add(android.R.id.content, mSubTrainFragment).commit();
+            transaction.add(android.R.id.content, subTrainFragment).commit();
         } else {
-            transaction.replace(android.R.id.content, mSubTrainFragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
+            transaction.replace(android.R.id.content, subTrainFragment).commit();
         }
     }
 }

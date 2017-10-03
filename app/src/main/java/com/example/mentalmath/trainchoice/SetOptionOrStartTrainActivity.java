@@ -2,6 +2,7 @@ package com.example.mentalmath.trainchoice;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,24 +16,13 @@ public class SetOptionOrStartTrainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
-            mFragment = (SetOrStartFragment) getFragmentManager().getFragment(savedInstanceState, KEY_FRAGMENT);
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        mFragment = new SetOrStartFragment();
+        if (getFragmentManager().findFragmentById(android.R.id.content) == null) {
+            transaction.add(android.R.id.content, mFragment).commit();
+        } else {
+            transaction.replace(android.R.id.content, mFragment).commit();
         }
-        if (mFragment == null) {
-            mFragment = new SetOrStartFragment();
-
-            if (getFragmentManager().findFragmentById(android.R.id.content) == null) {
-                getFragmentManager().beginTransaction()
-                        .add(android.R.id.content, mFragment)
-                        .commit();
-            }
-        }
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        getFragmentManager().putFragment(outState, KEY_FRAGMENT, mFragment);
-        super.onSaveInstanceState(outState);
     }
 
     //todo rename
@@ -41,7 +31,6 @@ public class SetOptionOrStartTrainActivity extends Activity {
     }
 
     public void showOptions(View v) {
-        mFragment.showOptions(v);
+        mFragment.launchTrain(v);
     }
-
 }
