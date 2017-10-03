@@ -31,6 +31,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     private boolean mIsHonestMode = false;
     private boolean mIsFirstRunning = true;
+    private boolean mIsRunning = false;
 
     private String mCurrentAnswer = "";
 
@@ -59,17 +60,22 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void onStop() {
-        mStopWatcherField.pause();
+        if (mIsRunning) {
+            mStopWatcherField.pause();
+        }
         super.onStop();
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+
         super.onSaveInstanceState(outState);
     }
 
     public void restore(Bundle savedInstanceState) {
-        mStopWatcherField.resume();
+        if (mIsRunning) {
+            mStopWatcherField.resume();
+        }
     }
 
 
@@ -81,6 +87,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     @Override
     public void startTraining() {
         errorLog("Start hole training");
+        mIsRunning = true;
         mRightCounter = 0;
         mCounter = 0;
         mStopWatcherField.start();
@@ -97,6 +104,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     public void pause () {
         errorLog("Pause example" + mCounter);
+        mIsRunning = false;
         mStopWatcherField.pause();
         mAnswerField.pause();
         mExampleDisplay.hideExample();
@@ -105,6 +113,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     @Override
     public void resume() {
         errorLog("Resume example" + mCounter);
+        mIsRunning = true;
         mStopWatcherField.resume();
         mAnswerField.resume();
         mExampleDisplay.showHiddenExample();
@@ -125,6 +134,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     @Override
     public void stopTrain() {
         errorLog("Stop hole train, counter - " + mCounter + ", right counter - " + mRightCounter);
+        mIsRunning = false;
         mStopWatcherField.stopAll();
         mExampleDisplay.hideExample();
         mAnswerField.clean();
