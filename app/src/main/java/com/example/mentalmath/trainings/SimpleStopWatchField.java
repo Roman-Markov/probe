@@ -95,6 +95,7 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     }
 
     private void resetAll() {
+        mHandler.removeCallbacks(mUiUpdate);
         mStopWatcher.stop();
         mCurrentTrainStartTime = 0;
         resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
