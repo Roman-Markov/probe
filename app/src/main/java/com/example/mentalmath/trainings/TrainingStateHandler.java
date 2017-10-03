@@ -157,7 +157,6 @@ public class TrainingStateHandler {
     class HonestCheckState extends TrainingState {
         public HonestCheckState(IHonestTrain train){
             super(train);
-            init();
         }
         public void onClick(View v) {
             switch (v.getId()) {
@@ -165,7 +164,13 @@ public class TrainingStateHandler {
                     int temp = mOwner.getRightAnswerCounter();
                     temp++;
                 case R.id.wrongButton:
-                    setState(new StartedState(mOwner));
+                    if (mOwner.shouldProceed()) {
+                        mOwner.startExample();
+                        setState(new StartedState(mOwner));
+                    } else {
+                        mOwner.stopTrain();
+                        setState(new InitialState(mOwner));
+                    }
                     break;
                 default: logWrongId();
             }

@@ -55,10 +55,10 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
         String userAnswer = mAnswerField.getText().toString();
         if (userAnswer != null) {
             if (userAnswer.equals(correctAnswer)) {
-                mAnswerField.setText(userAnswer + '\n' + correctAnswer);
+                mAnswerField.setText(userAnswer + " || " + correctAnswer);
             } else {
                 // todo add pattern to string resource
-                userAnswer = "<b>" + userAnswer + "<\b>";
+                userAnswer = "<b>" + userAnswer + "<\\b>";
                 mAnswerField.setText(userAnswer + '\n' + correctAnswer);
             }
         }

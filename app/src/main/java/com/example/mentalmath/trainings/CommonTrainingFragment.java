@@ -97,6 +97,8 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void startExample() {
+        mAnswerField.clean();
+        mAnswerField.resume();
         errorLog("Start single example: " + mCounter);
         mExampleDisplay.showNewExample();
         mStopWatcherField.startExample();
@@ -127,7 +129,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mExampleDisplay.hideExample();
         mCurrentAnswer = mAnswerField.getAnswer();
         handleResult(mCurrentAnswer);
-        mAnswerField.clean();
+        // mAnswerField.clean() - it can be here but logic is that when we stop example we probably will want to see answer
         mSessionResult.addExampleResult();
     }
 

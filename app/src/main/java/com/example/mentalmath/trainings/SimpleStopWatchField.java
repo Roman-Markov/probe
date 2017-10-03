@@ -14,11 +14,11 @@ import com.example.mentalmath.R;
 
 public class SimpleStopWatchField extends ABaseField implements IStopWatchField {
 
-    Fragment mFragment;
+    private Fragment mFragment;
     private IStopWatch mStopWatcher;
 
-    TextView mCommonTrainStopWatch;
-    TextView mCurrentTrainStopWatch;
+    private TextView mCommonTrainStopWatch;
+    private TextView mCurrentTrainStopWatch;
 
     private Handler mHandler = new Handler();
     private Runnable mUiUpdate;
@@ -65,6 +65,8 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
         } else {
             mCurrentTrainStartTime = mStopWatcher.getCurrentTime();
         }
+        resetStopWatch(mCurrentTrainStopWatch);
+        resume();
     }
 
     @Override
@@ -81,7 +83,7 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
 
     @Override
     public void stopExample() {
-        resetStopWatch(mCurrentTrainStopWatch);
+        mStopWatcher.pause();
     }
 
     @Override
@@ -89,10 +91,6 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
         resetAll();
     }
 
-
-    private void init() {
-
-    }
 
     private void resetAll() {
         mHandler.removeCallbacks(mUiUpdate);
