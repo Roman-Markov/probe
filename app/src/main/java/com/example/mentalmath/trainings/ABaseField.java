@@ -1,5 +1,6 @@
 package com.example.mentalmath.trainings;
 
+import android.os.Bundle;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -21,4 +22,5 @@ public abstract class ABaseField implements IField{
     public LinearLayout getLayout() {
         return mLayout;
     }
+
 }

@@ -1,5 +1,6 @@
 package com.example.mentalmath.trainings;
 
+import android.os.Bundle;
 import android.text.Layout;
 import android.widget.LinearLayout;
 
@@ -9,5 +10,5 @@ import android.widget.LinearLayout;
 
 public interface IField {
 
-    public LinearLayout getLayout();
+    LinearLayout getLayout();
 }

@@ -23,12 +23,14 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     private IAnswerField mAnswerField;
     private ISessionResultField mSessionResult;
     private IControlButtonField mButtonField;
+    private LinearLayout mParentLayout;
 
     private int mExampleAmount;
     private int mCounter;
     private int mRightCounter;
 
     private boolean mIsHonestMode = false;
+    private boolean mIsFirstRunning = true;
 
     private String mCurrentAnswer = "";
 
@@ -38,17 +40,37 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle onSavedInstanceState) {
         super.onCreateView(inflater, container, onSavedInstanceState);
-        View result = inflater.inflate(R.layout.common_training, container, false);
+        setRetainInstance(true);
+        if (mIsFirstRunning) {
+            mIsFirstRunning = false;
 
-        constructAllFields(inflater, container);
-        addAllToParent((LinearLayout) result);
+            mParentLayout = (LinearLayout) inflater.inflate(R.layout.common_training, container, false);
 
-        mStateHandler = new TrainingStateHandler(this, mButtonField);
-        mStateHandler.setHonestMode(mIsHonestMode);
+            constructAllFields(inflater, container);
+            addAllToParent((LinearLayout) mParentLayout);
+            mStateHandler = new TrainingStateHandler(this, mButtonField);
+            mStateHandler.setHonestMode(mIsHonestMode);
+        } else if (onSavedInstanceState != null){
+            restore(onSavedInstanceState);
+        }
 
-        return result;
+        return mParentLayout;
     }
 
+    @Override
+    public void onStop() {
+        mStopWatcherField.pause();
+        super.onStop();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    public void restore(Bundle savedInstanceState) {
+        mStopWatcherField.resume();
+    }
 
 
     public void onClick(View v) {
@@ -144,7 +166,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         return mRightCounter;
     }
 
-    // crate all fields
+    // crates all fields
     private void constructAllFields(LayoutInflater inflater, ViewGroup container) {
         errorLog("constructAllFields():");
 
@@ -160,7 +182,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mIsHonestMode       = factory.isHonestModeEnabled();
     }
 
-    // add all fields in appropriate order
+    // adds all fields in appropriate order
     private void addAllToParent(LinearLayout result) {
         errorLog("addAllToParent():");
         result.addView(mStopWatcherField.getLayout());

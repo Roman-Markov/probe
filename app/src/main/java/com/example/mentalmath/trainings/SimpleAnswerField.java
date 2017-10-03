@@ -1,5 +1,6 @@
 package com.example.mentalmath.trainings;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -62,4 +63,5 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
             }
         }
     }
+
 }

@@ -60,7 +60,6 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     @Override
     public void resume() {
         mStopWatcher.resume();
-        mHandler.removeCallbacks(mUiUpdate);
         mHandler.post(mUiUpdate);
     }
 
@@ -79,6 +78,7 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     public void stopAll() {
         resetAll();
     }
+
 
     private void init() {
 
