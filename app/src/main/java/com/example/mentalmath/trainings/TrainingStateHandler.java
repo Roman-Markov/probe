@@ -177,7 +177,6 @@ public class TrainingStateHandler {
         }
 
         public void init() {
-            mOwner.pause();
             setVisibleButton(mRightButton, mWrongButton);
             mOwner.showRightExampleResult();
         }

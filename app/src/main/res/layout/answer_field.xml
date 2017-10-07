@@ -3,10 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/answer_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_for_result"
+        android:inputType="numberDecimal"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/right_answer_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_for_result"

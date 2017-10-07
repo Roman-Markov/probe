@@ -10,22 +10,19 @@ import android.view.ViewGroup;
 
 public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFactory {
 
-    Fragment mFragment;
     LayoutInflater mInflater;
     ViewGroup mViewGroup;
     IStopWatch mStopWatch;
 
-    public ATrainingPartsAbstractFactory(Fragment fragment,
-                                         LayoutInflater inflater, ViewGroup container,
+    public ATrainingPartsAbstractFactory(LayoutInflater inflater, ViewGroup container,
                                          IStopWatch stopWatch) {
-        mFragment = fragment;
         mInflater = inflater;
         mViewGroup = container;
         mStopWatch = stopWatch;
     }
 
     @Override
-    public IStopWatchField getStopWatcherField(){return new SimpleStopWatchField(mFragment, mInflater, mViewGroup, mStopWatch);}
+    public IStopWatchField getStopWatcherField(){return new SimpleStopWatchField(mInflater, mViewGroup, mStopWatch);}
 
     @Override
     public IExampleDisplay getExampleDisplay(){return new SimpleExampleDisplay(mInflater, mViewGroup,

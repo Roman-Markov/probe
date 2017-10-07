@@ -14,7 +14,6 @@ import com.example.mentalmath.R;
 
 public class SimpleStopWatchField extends ABaseField implements IStopWatchField {
 
-    private Fragment mFragment;
     private IStopWatch mStopWatcher;
 
     private TextView mCommonTrainStopWatch;
@@ -27,10 +26,9 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
 
     private boolean mIsFirstTrainSet = false;
 
-    public SimpleStopWatchField (Fragment fragment, LayoutInflater inflater, ViewGroup container, IStopWatch sw) {
+    public SimpleStopWatchField (LayoutInflater inflater, ViewGroup container, IStopWatch sw) {
 
         super(inflater, container, R.layout.stopwatch_field);;
-        mFragment = fragment;
         mStopWatcher = sw;
         mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);
         mCurrentTrainStopWatch = mLayout.findViewById(R.id.stopwatch);
@@ -83,7 +81,7 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
 
     @Override
     public void stopExample() {
-        mStopWatcher.pause();
+        pause();
     }
 
     @Override
@@ -109,11 +107,11 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
 
         long totalTimePassed = mStopWatcher.getCurrentTime();
         int[] formattedTime = formatLongMillis(totalTimePassed);
-        String total = String.format(mFragment.getString(R.string.stopwatchFormat), formattedTime[0], formattedTime[1]);
+        String total = String.format(mLayout.getContext().getString(R.string.stopwatchFormat), formattedTime[0], formattedTime[1]);
 
         long currentTrainTimePassed = totalTimePassed - mCurrentTrainStartTime;
         formattedTime = formatLongMillis(currentTrainTimePassed);
-        String result = String.format(mFragment.getString(R.string.stopwatchFormat), formattedTime[0], formattedTime[1]);
+        String result = String.format(mLayout.getContext().getString(R.string.stopwatchFormat), formattedTime[0], formattedTime[1]);
 
         mCommonTrainStopWatch.setText(total);
         mCurrentTrainStopWatch.setText(result);

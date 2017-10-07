@@ -33,8 +33,6 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     private boolean mIsFirstRunning = true;
     private boolean mIsRunning = false;
 
-    private String mCurrentAnswer = "";
-
     private TrainingStateHandler mStateHandler;
 
     @Override
@@ -51,8 +49,8 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
             addAllToParent((LinearLayout) mParentLayout);
             mStateHandler = new TrainingStateHandler(this, mButtonField);
             mStateHandler.setHonestMode(mIsHonestMode);
-        } else if (onSavedInstanceState != null){
-            restore(onSavedInstanceState);
+        } else {
+            restore();
         }
 
         return mParentLayout;
@@ -72,7 +70,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         super.onSaveInstanceState(outState);
     }
 
-    public void restore(Bundle savedInstanceState) {
+    private void restore() {
         if (mIsRunning) {
             mStopWatcherField.resume();
         }
@@ -126,9 +124,11 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mCounter++;
         errorLog("Stop example" + mCounter);
         mStopWatcherField.stopExample();
-        mExampleDisplay.hideExample();
-        mCurrentAnswer = mAnswerField.getAnswer();
-        handleResult(mCurrentAnswer);
+//        mExampleDisplay.hideExample();
+        String currentAnswer = mAnswerField.getAnswer();
+        if (!mIsHonestMode) {
+            handleResult(currentAnswer);
+        }
         // mAnswerField.clean() - it can be here but logic is that when we stop example we probably will want to see answer
         mSessionResult.addExampleResult();
     }
@@ -170,7 +170,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     @Override
     public void showRightExampleResult() {
         errorLog("showRightExampleResult(): " + mExampleDisplay.getExampleBuilder().getCurrentAnswer());
-        mAnswerField.showRightResult(mExampleDisplay.getExampleBuilder().getCurrentAnswer());
+        mAnswerField.showRightResult(mExampleDisplay.getExampleBuilder().getCurrentAnswer(), mIsHonestMode);
     }
 
     @Override
@@ -220,7 +220,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     // todo
     private ITrainingPartsFactory getTrainingFactory(LayoutInflater inflater, ViewGroup container, IStopWatch stopWatch) {
         errorLog("getTrainingFactory():");
-        return new ArithmeticTrainingPartsFactory(CommonTrainingFragment.this, inflater, container, stopWatch);
+        return new ArithmeticTrainingPartsFactory(inflater, container, stopWatch);
     }
 
     private void errorLog(String msg) {

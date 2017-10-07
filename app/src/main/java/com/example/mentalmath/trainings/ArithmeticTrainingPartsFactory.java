@@ -11,9 +11,9 @@ import android.widget.LinearLayout;
 
 public class ArithmeticTrainingPartsFactory extends ATrainingPartsAbstractFactory {
 
-    public ArithmeticTrainingPartsFactory(Fragment fragment, LayoutInflater inflater, ViewGroup container,
+    public ArithmeticTrainingPartsFactory(LayoutInflater inflater, ViewGroup container,
                                           IStopWatch stopWatch) {
-        super(fragment, inflater, container, stopWatch);
+        super(inflater, container, stopWatch);
     }
 
     @Override

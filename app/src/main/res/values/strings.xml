@@ -67,5 +67,8 @@
     <string name="rightButtonText">right</string>
     <string name="wrongButtonText">wrong</string>
     <string name="noanswer">No answer</string>
+    <string name="right_result_format" formatted="false">Your:  %s\nRight: %s</string>
+    <string name="right_answer_format">Right: %s</string>
+    <string name="your">"Your:  "</string>
 
 </resources>
