@@ -39,7 +39,7 @@ public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFac
 
     @Override
     public boolean isHonestModeEnabled() {
-        return true;
+        return false;
     }
 
     public void setStopWatcher(IStopWatch sw) {

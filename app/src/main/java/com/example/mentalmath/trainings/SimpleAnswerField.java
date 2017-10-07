@@ -47,6 +47,7 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
     @Override
     public void prepareField() {
         if(!mIsHonestMode) {
+            mAnswerField.setVisibility(View.VISIBLE);
             mAnswerField.setText("");
             mRightAnswerField.setText("");
             mRightAnswerField.setVisibility(View.GONE);
@@ -82,7 +83,7 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
             mAnswerField.setText("");
             mRightAnswerField.setText("");
             mRightAnswerField.setVisibility(View.GONE);
-        } {
+        } else {
             mAnswerField.setText("");
             mAnswerField.setVisibility(View.GONE);
         }
