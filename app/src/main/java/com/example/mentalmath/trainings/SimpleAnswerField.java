@@ -29,20 +29,31 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
 
     EditText mAnswerField;
     EditText mRightAnswerField;
+    boolean mIsHonestMode;
 
-    public SimpleAnswerField (LayoutInflater inflater, ViewGroup container) {
+    public SimpleAnswerField (LayoutInflater inflater, ViewGroup container, boolean isHonestMode) {
 
         super(inflater, container, R.layout.answer_field);
         mAnswerField = mLayout.findViewById(R.id.answer_field);
         mRightAnswerField = mLayout.findViewById(R.id.right_answer_field);
         mRightAnswerField.setVisibility(View.GONE);
+
+        mIsHonestMode = isHonestMode;
+        if (mIsHonestMode) {
+            mAnswerField.setVisibility(View.GONE);
+        }
     }
 
     @Override
     public void prepareField() {
-        mAnswerField.setText("");
-        mRightAnswerField.setText("");
-        mRightAnswerField.setVisibility(View.GONE);
+        if(!mIsHonestMode) {
+            mAnswerField.setText("");
+            mRightAnswerField.setText("");
+            mRightAnswerField.setVisibility(View.GONE);
+        } else {
+            mAnswerField.setText("");
+            mAnswerField.setEnabled(false);
+        }
     }
 
     @Override
@@ -52,30 +63,38 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
 
     @Override
     public void resume() {
-        mAnswerField.setEnabled(true);
+        if(!mIsHonestMode) {
+            mAnswerField.setEnabled(true);
+        }
     }
 
     @Override
     public String getAnswer() {
-
-        Editable text = mAnswerField.getText();
-        return mAnswerField.getText().toString();
+        if(!mIsHonestMode) {
+            return mAnswerField.getText().toString();
+        } else return "";
     }
 
     @Override
     public void clean() {
-        mAnswerField.setText("");
-        mRightAnswerField.setText("");
-        mRightAnswerField.setVisibility(View.GONE);
+
+        if(!mIsHonestMode) {
+            mAnswerField.setText("");
+            mRightAnswerField.setText("");
+            mRightAnswerField.setVisibility(View.GONE);
+        } {
+            mAnswerField.setText("");
+            mAnswerField.setVisibility(View.GONE);
+        }
     }
 
     @Override
-    public void showRightResult(String correctAnswer, boolean isHonestMode) {
+    public void showRightResult(String correctAnswer) {
         CharSequence userAnswer = mAnswerField.getText().toString();
         if (userAnswer == null) {
             userAnswer = "";
         }
-        if (!isHonestMode) {
+        if (!mIsHonestMode) {
             showUserAndRightResult(correctAnswer, userAnswer);
         } else {
             showOnlyRightResult(correctAnswer);
@@ -83,6 +102,7 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
     }
 
     private void showOnlyRightResult(String correctAnswer) {
+        mAnswerField.setVisibility(View.VISIBLE);
         mAnswerField.setText(String.format(mLayout.getContext()
                 .getString(R.string.right_answer_format), correctAnswer));
         mAnswerField.setEnabled(false);

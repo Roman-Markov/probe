@@ -170,7 +170,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     @Override
     public void showRightExampleResult() {
         errorLog("showRightExampleResult(): " + mExampleDisplay.getExampleBuilder().getCurrentAnswer());
-        mAnswerField.showRightResult(mExampleDisplay.getExampleBuilder().getCurrentAnswer(), mIsHonestMode);
+        mAnswerField.showRightResult(mExampleDisplay.getExampleBuilder().getCurrentAnswer());
     }
 
     @Override

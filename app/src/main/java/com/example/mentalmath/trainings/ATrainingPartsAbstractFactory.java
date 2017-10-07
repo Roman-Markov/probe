@@ -29,7 +29,7 @@ public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFac
             getBuilder());}
 
     @Override
-    public IAnswerField getAnswerField(){return new SimpleAnswerField(mInflater, mViewGroup);}
+    public IAnswerField getAnswerField(){return new SimpleAnswerField(mInflater, mViewGroup, isHonestModeEnabled());}
 
     @Override
     public ISessionResultField getSessionResultField(){return new SimpleSessionResultField(mInflater, mViewGroup);}

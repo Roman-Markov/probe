@@ -36,6 +36,6 @@ public interface IAnswerField extends IField{
      * shows wright result comparing with answer from user
      * @param answer - result from user
      */
-    public void showRightResult(String answer,boolean isHonestMode);
+    public void showRightResult(String answer);
 
 }
