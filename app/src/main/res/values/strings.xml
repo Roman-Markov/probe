@@ -70,5 +70,6 @@
     <string name="right_result_format" formatted="false">Your:  %s\nRight: %s</string>
     <string name="right_answer_format">Right: %s</string>
     <string name="your">"Your:  "</string>
+    <string name="counterFormat" formatted="false">%s/ %s/ %s</string>
 
 </resources>

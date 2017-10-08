@@ -2,15 +2,18 @@ package com.example.mentalmath.trainings;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mentalmath.R;
+import com.example.mentalmath.core.Helper;
 
 /**
  * Created by Роман on 07.09.2017.
@@ -24,6 +27,8 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     private ISessionResultField mSessionResult;
     private IControlButtonField mButtonField;
     private LinearLayout mParentLayout;
+
+    private TextView mCounterView;
 
     private int mExampleAmount;
     private int mCounter;
@@ -47,6 +52,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
             constructAllFields(inflater, container);
             addAllToParent((LinearLayout) mParentLayout);
+            mCounterView = ((SimpleButtonField) mButtonField).getCounterView();
             mStateHandler = new TrainingStateHandler(this, mButtonField);
             mStateHandler.setHonestMode(mIsHonestMode);
         } else {
@@ -90,6 +96,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mCounter = 0;
         mStopWatcherField.start();
         mAnswerField.prepareField();
+        setCounterView();
         startExample();
     }
 
@@ -131,6 +138,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         }
         // mAnswerField.clean() - it can be here but logic is that when we stop example we probably will want to see answer
         mSessionResult.addExampleResult();
+        setCounterView();
     }
 
     @Override
@@ -176,6 +184,22 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     @Override
     public int getRightAnswerCounter() {
         return mRightCounter;
+    }
+
+    private void setCounterView() {
+        String amount = Integer.toString(mExampleAmount);
+        String counter = Integer.toString(mCounter);
+        CharSequence rightCounter = Integer.toString(mRightCounter);
+        String result = String.format(getString(R.string.counterFormat), amount, counter, rightCounter);
+        CharSequence commonResult = result;
+
+        if (mRightCounter != mCounter) {
+            CharSequence start = result.subSequence(0, result.lastIndexOf(Integer.toString(mRightCounter)));
+            rightCounter = Helper.paintString(rightCounter, R.color.red, mCounterView);
+            commonResult = Helper.insertStringToStart(start, (SpannableStringBuilder) rightCounter);
+        }
+
+        mCounterView.setText(commonResult);
     }
 
     // crates all fields

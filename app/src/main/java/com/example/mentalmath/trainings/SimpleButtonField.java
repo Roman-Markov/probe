@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.mentalmath.R;
 
@@ -29,6 +30,7 @@ public class SimpleButtonField extends ABaseField implements IControlButtonField
         mPauseButton    = mLayout.findViewById(R.id.pauseButton);
         mRightButton    = mLayout.findViewById(R.id.rightButton);
         mWrongButton    = mLayout.findViewById(R.id.wrongButton);
+
     }
 
     @Override
@@ -54,6 +56,10 @@ public class SimpleButtonField extends ABaseField implements IControlButtonField
     @Override
     public Button getWrongButton() {
         return mWrongButton;
+    }
+
+    public TextView getCounterView() {
+        return mLayout.findViewById(R.id.counter_view);
     }
 
 }

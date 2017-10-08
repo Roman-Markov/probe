@@ -3,15 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:gravity="end">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/counter_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_mid1"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/pauseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/pause"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:text="@string/pause" />
 
     <Button
         android:id="@+id/okButton"
@@ -48,5 +65,7 @@
         android:text="@string/wrongButtonText"
         android:visibility="gone"
         android:onClick="onClick"/>
+
+
 
 </LinearLayout>
