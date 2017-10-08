@@ -214,7 +214,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     // todo
     private String getCommonResult() {
-        return null;
+        return "";
     }
 
     // todo

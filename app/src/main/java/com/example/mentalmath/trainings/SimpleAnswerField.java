@@ -35,6 +35,7 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
 
         super(inflater, container, R.layout.answer_field);
         mAnswerField = mLayout.findViewById(R.id.answer_field);
+        mAnswerField.setEnabled(false);
         mRightAnswerField = mLayout.findViewById(R.id.right_answer_field);
         mRightAnswerField.setVisibility(View.GONE);
 
@@ -81,6 +82,7 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
 
         if(!mIsHonestMode) {
             mAnswerField.setText("");
+            mAnswerField.setEnabled(false);
             mRightAnswerField.setText("");
             mRightAnswerField.setVisibility(View.GONE);
         } else {
@@ -126,5 +128,4 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
         mRightAnswerField.setVisibility(View.VISIBLE);
         mRightAnswerField.setText(rightAnswer);
     }
-
 }

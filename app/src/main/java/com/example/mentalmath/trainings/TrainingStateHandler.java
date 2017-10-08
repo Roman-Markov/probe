@@ -66,7 +66,6 @@ public class TrainingStateHandler {
         Log.e(getClass().getSimpleName(), String.format("change state: %s  --->   %s",
                 mCurrentState.getClass().getSimpleName(),  state.getClass().getSimpleName()));
         mCurrentState = state;
-        mCurrentState.init();
     }
 
     private void initializeHandler(IHonestTrain train) {
@@ -78,15 +77,13 @@ public class TrainingStateHandler {
         mButtonList.add(mWrongButton);
 
         mCurrentState = new InitialState(train);
-        mCurrentState.init();
     }
-
-
 
     abstract class TrainingState {
         IHonestTrain mOwner;
         public TrainingState(IHonestTrain train){
             mOwner = train;
+            init();
         }
         public abstract  void onClick(View v);
         public abstract void init();
@@ -134,15 +131,11 @@ public class TrainingStateHandler {
             switch (v.getId()) {
                 case R.id.okButton:
                     mOwner.stopExample();
+                    mOwner.showRightExampleResult();
                     if (mIsHonestMode) {
                         setState(new HonestCheckState(mOwner));
                     } else {
-                        if (mOwner.shouldProceed()) {
-                            mOwner.startExample();
-                        } else {
-                            mOwner.stopTrain();
-                            setState(new InitialState(mOwner));
-                        }
+                        setState(new ShowAnswersAfterSetState(mOwner));
                     }
                     break;
                 case R.id.pauseButton:
@@ -178,7 +171,7 @@ public class TrainingStateHandler {
 
         public void init() {
             setVisibleButton(mRightButton, mWrongButton);
-            mOwner.showRightExampleResult();
+
         }
     }
 
@@ -186,14 +179,39 @@ public class TrainingStateHandler {
         public PausedState(IHonestTrain train){
             super(train);
         }
-        public void init() {
-            setVisibleButton(mStartButton);
-        }
+        public void init() { setVisibleButton(mStartButton); }
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.startButton:
                     mOwner.resume();
                     setState(new StartedState(mOwner));
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    class ShowAnswersAfterSetState extends TrainingState {
+        public ShowAnswersAfterSetState(IHonestTrain train){
+            super(train);
+        }
+        public void init() {
+            if (mOwner.shouldProceed()) {
+                setVisibleButton(mStartButton);
+            } else {
+                setVisibleButton(mOkButton);
+            }
+        }
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.startButton:
+                    mOwner.startExample();
+                    setState(new StartedState(mOwner));
+                    break;
+                case R.id.okButton:
+                    mOwner.stopTrain();
+                    setState(new InitialState(mOwner));
                     break;
                 default:
                     break;
