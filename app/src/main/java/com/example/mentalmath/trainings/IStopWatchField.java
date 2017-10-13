@@ -17,4 +17,9 @@ public interface IStopWatchField extends IField {
     public void stopExample();
 
     public void stopAll();
+
+    public String getCurrentExampleTime();
+
+    public String getTotalTime();
+
 }

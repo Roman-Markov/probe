@@ -1,6 +1,5 @@
 package com.example.mentalmath.trainings;
 
-import android.app.Fragment;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -8,19 +7,25 @@ import android.widget.TextView;
 
 import com.example.mentalmath.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Роман on 27.09.2017.
  */
 
 public class SimpleStopWatchField extends ABaseField implements IStopWatchField {
 
-    private IStopWatch mStopWatcher;
+    private IStopWatch mStopWatch;
 
     private TextView mCommonTrainStopWatch;
     private TextView mCurrentTrainStopWatch;
 
     private Handler mHandler = new Handler();
     private Runnable mUiUpdate;
+
+    private SimpleDateFormat mTimeFormat = new SimpleDateFormat("mm:ss:SS");
+    private Date mDate = new Date();
 
     private long mCurrentTrainStartTime;
 
@@ -29,7 +34,7 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     public SimpleStopWatchField (LayoutInflater inflater, ViewGroup container, IStopWatch sw) {
 
         super(inflater, container, R.layout.stopwatch_field);;
-        mStopWatcher = sw;
+        mStopWatch = sw;
         mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);
         mCurrentTrainStopWatch = mLayout.findViewById(R.id.stopwatch);
         resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
@@ -47,7 +52,7 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     public void start() {
         mIsFirstTrainSet = true;
         mCurrentTrainStartTime = 0;
-        mStopWatcher.start();
+        mStopWatch.start();
         resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
         mHandler.removeCallbacks(mUiUpdate);
         mHandler.post(mUiUpdate);
@@ -61,7 +66,7 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
             mCurrentTrainStartTime = 0;
             mIsFirstTrainSet = false;
         } else {
-            mCurrentTrainStartTime = mStopWatcher.getCurrentTime();
+            mCurrentTrainStartTime = mStopWatch.getCurrentTime();
         }
         resetStopWatch(mCurrentTrainStopWatch);
         resume();
@@ -69,13 +74,13 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
 
     @Override
     public void resume() {
-        mStopWatcher.resume();
+        mStopWatch.resume();
         mHandler.post(mUiUpdate);
     }
 
     @Override
     public void pause() {
-        mStopWatcher.pause();
+        mStopWatch.pause();
         mHandler.removeCallbacks(mUiUpdate);
     }
 
@@ -89,10 +94,19 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
         resetAll();
     }
 
+    @Override
+    public String getCurrentExampleTime() {
+        return mCurrentTrainStopWatch.getText().toString();
+    }
+
+    @Override
+    public String getTotalTime() {
+        return mCommonTrainStopWatch.getText().toString();
+    }
 
     private void resetAll() {
         mHandler.removeCallbacks(mUiUpdate);
-        mStopWatcher.stop();
+        mStopWatch.stop();
         mCurrentTrainStartTime = 0;
         resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
     }
@@ -105,27 +119,15 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
 
     private void updateUI() {
 
-        long totalTimePassed = mStopWatcher.getCurrentTime();
-        int[] formattedTime = formatLongMillis(totalTimePassed);
-        String total = String.format(mLayout.getContext().getString(R.string.stopwatchFormat), formattedTime[0], formattedTime[1]);
+        long totalTimePassed = mStopWatch.getCurrentTime();
+        mDate.setTime(totalTimePassed);
+        String total = mTimeFormat.format(mDate);
 
         long currentTrainTimePassed = totalTimePassed - mCurrentTrainStartTime;
-        formattedTime = formatLongMillis(currentTrainTimePassed);
-        String result = String.format(mLayout.getContext().getString(R.string.stopwatchFormat), formattedTime[0], formattedTime[1]);
+        mDate.setTime(currentTrainTimePassed);
+        String result = mTimeFormat.format(mDate);
 
         mCommonTrainStopWatch.setText(total);
         mCurrentTrainStopWatch.setText(result);
-    }
-
-    /**
-     * Formats long mils to itn[2]{sec, santisecs};
-     * @param mils - passed time in milliseconds
-     * @return itn[2]{sec, santisecs}
-     */
-    private int[] formatLongMillis(long mils) {
-        int[] time = new int[2];
-        time[0] = (int) (mils/1000);
-        time[1] = (int) ((int) (mils%1000)/10);
-        return time;
     }
 }

@@ -15,6 +15,13 @@ import android.widget.Toast;
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
 
+import java.text.DateFormat;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
 /**
  * Created by Роман on 07.09.2017.
  */
@@ -96,6 +103,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mCounter = 0;
         mStopWatcherField.start();
         mAnswerField.prepareField();
+        mSessionResult.reset();
         setCounterView();
         startExample();
     }
@@ -137,8 +145,11 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
             handleResult(currentAnswer);
         }
         // mAnswerField.clean() - it can be here but logic is that when we stop example we probably will want to see answer
-        mSessionResult.addExampleResult();
+
         setCounterView();
+        if (!shouldProceed()) {
+            mSessionResult.addCommonResult(formTotalResult());
+        }
     }
 
     @Override
@@ -148,8 +159,6 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mStopWatcherField.stopAll();
         mExampleDisplay.hideExample();
         mAnswerField.clean();
-        mSessionResult.addCommonResult(getCommonResult());
-
     }
 
     @Override
@@ -167,6 +176,8 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         } else {
             showToast(R.string.noanswer);
         }
+        String time = mStopWatcherField.getCurrentExampleTime();
+        mSessionResult.addExampleResult(time, isRight);
     }
 
     @Override
@@ -237,8 +248,28 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     }
 
     // todo
-    private String getCommonResult() {
-        return "";
+    private String formTotalResult() {
+//        SimpleDateFormat timeFormat = new SimpleDateFormat("mm:ss:SS");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("mm:ss:SS");
+        timeFormat.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+        Date total = timeFormat.parse(mStopWatcherField.getTotalTime(), new ParsePosition(0));
+        long totalTime = total.getTime();
+        long averageTime = 0;
+
+        if (mRightCounter != 0) {
+            averageTime = totalTime / mRightCounter;
+        }
+        Date average = new Date(averageTime);
+        average.setTime(averageTime);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Result:\n");
+
+        sb.append(String.format(getString(R.string.rightAnswers),
+                mRightCounter, mExampleAmount));
+        sb.append(String.format(getString(R.string.totalTime), mStopWatcherField.getTotalTime()));
+        sb.append(String.format(getString(R.string.averageTime), timeFormat.format(average)));
+        return sb.toString();
     }
 
     // todo

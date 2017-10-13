@@ -6,7 +6,7 @@ package com.example.mentalmath.trainings;
 
 public interface ISessionResultField extends IField {
 
-    public void addExampleResult();
+    public void addExampleResult(String time, boolean isRight);
 
     public void addCommonResult (String commonResult);
 
