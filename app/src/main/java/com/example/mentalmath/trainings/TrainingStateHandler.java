@@ -152,11 +152,15 @@ public class TrainingStateHandler {
             super(train);
         }
         public void onClick(View v) {
+            String result = new String();
             switch (v.getId()) {
                 case R.id.rightButton:
-                    int temp = mOwner.getRightAnswerCounter();
-                    temp++;
+                    result = IHonestTrain.RIGHT;
                 case R.id.wrongButton:
+                    if (! IHonestTrain.RIGHT.equals(result)) {
+                        result = IHonestTrain.WRONG;
+                    }
+                    mOwner.handleResult(result);
                     if (mOwner.shouldProceed()) {
                         mOwner.startExample();
                         setState(new StartedState(mOwner));

@@ -36,23 +36,27 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
     public SimpleAnswerField (LayoutInflater inflater, ViewGroup container, boolean isHonestMode) {
 
         super(inflater, container, R.layout.answer_field);
+
         mAnswerField = mLayout.findViewById(R.id.answer_field);
-        mAnswerField.setEnabled(false);
+
+        mIsHonestMode = isHonestMode;
+        if (mIsHonestMode) {
+            mAnswerField.setVisibility(View.GONE);
+        } else {
+            mAnswerField.setEnabled(false);
+        }
 
         mUserAnswerField = mLayout.findViewById(R.id.user_answer);
         mUserAnswerField.setVisibility(View.GONE);
 
         mRightAnswerField = mLayout.findViewById(R.id.right_answer);
         mRightAnswerField.setVisibility(View.GONE);
-
-        mIsHonestMode = isHonestMode;
-        if (mIsHonestMode) {
-            mAnswerField.setVisibility(View.GONE);
-        }
     }
 
     @Override
     public void prepareField() {
+        mRightAnswerField.setText("");
+        mRightAnswerField.setVisibility(View.GONE);
         if(!mIsHonestMode) {
             mAnswerField.setVisibility(View.VISIBLE);
             mAnswerField.setText("");
@@ -60,13 +64,6 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
 
             mUserAnswerField.setText("");
             mUserAnswerField.setVisibility(View.GONE);
-
-            mRightAnswerField.setText("");
-            mRightAnswerField.setVisibility(View.GONE);
-        } else {
-            mAnswerField.setText("");
-            mAnswerField.setHint(mLayout.getContext().getString(R.string.hint_for_result));
-            mAnswerField.setEnabled(false);
         }
     }
 
@@ -104,9 +101,8 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
             mRightAnswerField.setText("");
             mRightAnswerField.setVisibility(View.GONE);
         } else {
-            mAnswerField.setText("");
-            mAnswerField.setHint("");
-            mAnswerField.setVisibility(View.GONE);
+            mRightAnswerField.setText("");
+            mRightAnswerField.setVisibility(View.GONE);
         }
     }
 
@@ -124,21 +120,19 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
     }
 
     private void showOnlyRightResult(String correctAnswer) {
-        mAnswerField.setVisibility(View.VISIBLE);
-        mAnswerField.setText(String.format(mLayout.getContext()
-                .getString(R.string.right_answer_format), correctAnswer));
-        mAnswerField.setEnabled(false);
+        String rightAnswer = String.format(mLayout.getContext().getString(R.string.right_answer_format), correctAnswer);
+        mRightAnswerField.setVisibility(View.VISIBLE);
+        mRightAnswerField.setText(rightAnswer);
     }
 
     private void showUserAndRightResult(String correctAnswer, CharSequence userAnswer) {
         if (! userAnswer.equals(correctAnswer)) {
             userAnswer = Helper.paintString(userAnswer, R.color.red, mLayout);
         }
+        String begin = mLayout.getContext().getString(R.string.your);
         if (userAnswer instanceof SpannableStringBuilder) {
-            String begin = mLayout.getContext().getString(R.string.your);
             userAnswer = new SpannableStringBuilder().append(begin).append(userAnswer);
         } else {
-            String begin = mLayout.getContext().getString(R.string.your);
             userAnswer = begin + userAnswer;
         }
         mAnswerField.setVisibility(View.GONE);

@@ -101,6 +101,10 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void startExample() {
+        if (mIsHonestMode) {
+            // on honest mode training counter should update after stopExample()
+            setCounterView();
+        }
         mAnswerField.clean();
         mAnswerField.resume();
         mIsRunning = true;
@@ -136,12 +140,12 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 //        mExampleDisplay.hideExample();
         String currentAnswer = mAnswerField.getAnswer();
         if (!mIsHonestMode) {
-            handleResult(currentAnswer);
+            handleResultInternally(currentAnswer);
+            setCounterView();
         }
         // mAnswerField.clean() - it can be here but logic is that when we stop example we probably will want to see answer
 
-        setCounterView();
-        if (!shouldProceed()) {
+        if (!shouldProceed() && !mIsHonestMode) {
             mSessionResult.addCommonResult(formTotalResult());
         }
     }
@@ -149,9 +153,15 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     @Override
     public void stopTrain() {
         errorLog("Stop hole train, counter - " + mCounter + ", right counter - " + mRightCounter);
+        if (mIsHonestMode) {
+            // startExample() will not be invoked, hence updating train counters must be here
+            setCounterView();
+            mSessionResult.addCommonResult(formTotalResult());
+        } else {
+            mExampleDisplay.hideExample();
+        }
         mIsRunning = false;
         mStopWatcherField.stopAll();
-        mExampleDisplay.hideExample();
         mAnswerField.clean();
     }
 
@@ -160,15 +170,18 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         errorLog("Handle result: " + answer);
         boolean isRight = false;
         if (answer != null) {
-            isRight = mExampleDisplay.getExampleBuilder().checkResult(answer);
-            if (isRight) {
-                mRightCounter++;
-                showToast(R.string.right);
+            if (mIsHonestMode) {
+                if (IHonestTrain.RIGHT.equals(answer)) {
+                    isRight = true;
+                    mRightCounter++;
+                } else {
+                    isRight = false;
+                }
             } else {
-                showToast(R.string.wrong);
+                errorLog("This method should be called in honest mode only");
             }
         } else {
-            showToast(R.string.noanswer);
+            throw new NullPointerException("passed result is equals null");
         }
         String time = mStopWatcherField.getCurrentExampleTime();
         mSessionResult.addExampleResult(time, isRight);
@@ -186,9 +199,30 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mAnswerField.showRightResult(mExampleDisplay.getExampleBuilder().getCurrentAnswer());
     }
 
-    @Override
-    public int getRightAnswerCounter() {
-        return mRightCounter;
+    private void handleResultInternally(String answer) {
+        errorLog("Handle result internally: " + answer);
+        boolean isRight = false;
+        if (answer != null) {
+            if (mIsHonestMode) {
+                if ("right".equals(answer)) {
+                    isRight = true;
+                } else {
+                    isRight = false;
+                }
+            } else {
+                isRight = mExampleDisplay.getExampleBuilder().checkResult(answer);
+            }
+            if (isRight) {
+                mRightCounter++;
+                showToast(R.string.right);
+            } else {
+                showToast(R.string.wrong);
+            }
+        } else {
+            showToast(R.string.noanswer);
+        }
+        String time = mStopWatcherField.getCurrentExampleTime();
+        mSessionResult.addExampleResult(time, isRight);
     }
 
     private void setCounterView() {

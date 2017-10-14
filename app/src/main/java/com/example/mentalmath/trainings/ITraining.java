@@ -24,6 +24,4 @@ public interface ITraining {
      * shows wright result comparing with answer form user
      */
     public void showRightExampleResult();
-
-    public void handleResult(String result);
 }
