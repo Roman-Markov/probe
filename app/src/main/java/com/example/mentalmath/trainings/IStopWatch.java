@@ -16,4 +16,5 @@ public interface IStopWatch {
 
     public long getCurrentTime();
 
+    public void setCurrentTime(long time);
 }

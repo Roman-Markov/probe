@@ -7,7 +7,7 @@ package com.example.mentalmath.trainings;
 public class SimpleStopWatch implements IStopWatch {
 
     private long m_startTime;
-    private int m_timePassed;
+    private long m_timePassed;
     private boolean isRunning = false;
 
 
@@ -38,12 +38,17 @@ public class SimpleStopWatch implements IStopWatch {
 
     @Override
     public long getCurrentTime() {
-        int timePassed = 0;
+        long timePassed = 0;
         if (isRunning) {
             timePassed = (int) (System.currentTimeMillis() - m_startTime) + m_timePassed;
         } else {
             timePassed = m_timePassed;
         }
         return timePassed;
+    }
+
+    @Override
+    public void setCurrentTime(long time) {
+        m_timePassed = time;
     }
 }

@@ -7,8 +7,10 @@ import android.widget.TextView;
 
 import com.example.mentalmath.R;
 
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by Роман on 27.09.2017.
@@ -28,6 +30,13 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     private Date mDate = new Date();
 
     private long mCurrentTrainStartTime;
+
+    /**
+     * Sometimes rounding value of time leads to sum of example time differ from total time.
+     * In order to avoid this sum of example time will be accumulated here and than passed to
+     * stopwatch and set it's current time.
+     */
+    private long mAdjustmentTime;
 
     private boolean mIsFirstTrainSet = false;
 
@@ -52,6 +61,7 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     public void start() {
         mIsFirstTrainSet = true;
         mCurrentTrainStartTime = 0;
+        mAdjustmentTime = 0;
         mStopWatch.start();
         resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
         mHandler.removeCallbacks(mUiUpdate);
@@ -86,7 +96,19 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
 
     @Override
     public void stopExample() {
+        /* Sometimes rounding value of time leads to sum of example time slightly differ from total time.
+         * In order to avoid this sum of example time will be accumulated here and than passed to
+         * stopwatch and set it's current time.
+         */
+        SimpleDateFormat timeFormat = new SimpleDateFormat("mm:ss:SS");
+        timeFormat.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+        Date currentTiime = timeFormat.parse(mCurrentTrainStopWatch.getText().toString(), new ParsePosition(0));
+        long current = currentTiime.getTime();
+        mAdjustmentTime += current;
+
         pause();
+
+        mStopWatch.setCurrentTime(mAdjustmentTime);
     }
 
     @Override
