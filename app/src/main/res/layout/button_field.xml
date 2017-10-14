@@ -18,7 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="@dimen/text_size_mid1"/>
+            android:textSize="@dimen/text_size_mid1"
+            android:paddingLeft="@dimen/st_padding"
+            android:paddingStart="@dimen/st_padding"/>
 
     </LinearLayout>
 

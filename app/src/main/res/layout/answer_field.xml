@@ -13,11 +13,23 @@
         android:inputType="numberDecimal"
         android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/right_answer_field"
+    <TextView
+        android:id="@+id/user_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
         android:textSize="18sp"
+        android:paddingLeft="@dimen/st_padding"
+        android:paddingStart="@dimen/st_padding"
+        android:paddingBottom="@dimen/st_padding"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/right_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:paddingLeft="@dimen/st_padding"
+        android:paddingStart="@dimen/st_padding"
+        android:paddingBottom="@dimen/st_padding"
         android:visibility="gone"/>
 </LinearLayout>

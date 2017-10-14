@@ -2,4 +2,5 @@
 <resources>
     <dimen name="text_size_mid1">18sp</dimen>
     <dimen name="padleft_mid1">10sp</dimen>
+    <dimen name="st_padding">8dp</dimen>
 </resources>

@@ -20,6 +20,7 @@ import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
 
 import android.text.Editable;
+import android.widget.TextView;
 
 /**
  * Created by Роман on 27.09.2017.
@@ -28,7 +29,8 @@ import android.text.Editable;
 public class SimpleAnswerField extends ABaseField implements IAnswerField {
 
     EditText mAnswerField;
-    EditText mRightAnswerField;
+    TextView mUserAnswerField;
+    TextView mRightAnswerField;
     boolean mIsHonestMode;
 
     public SimpleAnswerField (LayoutInflater inflater, ViewGroup container, boolean isHonestMode) {
@@ -36,7 +38,11 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
         super(inflater, container, R.layout.answer_field);
         mAnswerField = mLayout.findViewById(R.id.answer_field);
         mAnswerField.setEnabled(false);
-        mRightAnswerField = mLayout.findViewById(R.id.right_answer_field);
+
+        mUserAnswerField = mLayout.findViewById(R.id.user_answer);
+        mUserAnswerField.setVisibility(View.GONE);
+
+        mRightAnswerField = mLayout.findViewById(R.id.right_answer);
         mRightAnswerField.setVisibility(View.GONE);
 
         mIsHonestMode = isHonestMode;
@@ -51,6 +57,10 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
             mAnswerField.setVisibility(View.VISIBLE);
             mAnswerField.setText("");
             mAnswerField.setHint(mLayout.getContext().getString(R.string.hint_for_result));
+
+            mUserAnswerField.setText("");
+            mUserAnswerField.setVisibility(View.GONE);
+
             mRightAnswerField.setText("");
             mRightAnswerField.setVisibility(View.GONE);
         } else {
@@ -68,6 +78,7 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
     @Override
     public void resume() {
         if(!mIsHonestMode) {
+            mAnswerField.setVisibility(View.VISIBLE);
             mAnswerField.setEnabled(true);
         }
     }
@@ -86,6 +97,10 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
             mAnswerField.setText("");
             mAnswerField.setHint("");
             mAnswerField.setEnabled(false);
+
+            mUserAnswerField.setText("");
+            mUserAnswerField.setVisibility(View.GONE);
+
             mRightAnswerField.setText("");
             mRightAnswerField.setVisibility(View.GONE);
         } else {
@@ -126,7 +141,10 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
             String begin = mLayout.getContext().getString(R.string.your);
             userAnswer = begin + userAnswer;
         }
-        mAnswerField.setText(userAnswer);
+        mAnswerField.setVisibility(View.GONE);
+
+        mUserAnswerField.setVisibility(View.VISIBLE);
+        mUserAnswerField.setText(userAnswer);
 
         String rightAnswer = String.format(mLayout.getContext().getString(R.string.right_answer_format), correctAnswer);
         mRightAnswerField.setVisibility(View.VISIBLE);
