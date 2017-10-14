@@ -50,10 +50,12 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
         if(!mIsHonestMode) {
             mAnswerField.setVisibility(View.VISIBLE);
             mAnswerField.setText("");
+            mAnswerField.setHint(mLayout.getContext().getString(R.string.hint_for_result));
             mRightAnswerField.setText("");
             mRightAnswerField.setVisibility(View.GONE);
         } else {
             mAnswerField.setText("");
+            mAnswerField.setHint(mLayout.getContext().getString(R.string.hint_for_result));
             mAnswerField.setEnabled(false);
         }
     }
@@ -82,11 +84,13 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
 
         if(!mIsHonestMode) {
             mAnswerField.setText("");
+            mAnswerField.setHint("");
             mAnswerField.setEnabled(false);
             mRightAnswerField.setText("");
             mRightAnswerField.setVisibility(View.GONE);
         } else {
             mAnswerField.setText("");
+            mAnswerField.setHint("");
             mAnswerField.setVisibility(View.GONE);
         }
     }

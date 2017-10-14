@@ -18,8 +18,6 @@ public class TrainingActivity extends Activity {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         if (getFragmentManager().findFragmentById(android.R.id.content) == null) {
             transaction.add(android.R.id.content, mFragment).commit();
-        } else {
-            transaction.replace(android.R.id.content, mFragment).commit();
         }
     }
 

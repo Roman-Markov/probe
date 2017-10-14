@@ -234,8 +234,8 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
 
         sb.append(String.format(getString(R.string.rightAnswers),
                 m_rightCounter, getNumberOfExamples()));
-        sb.append(String.format(getString(R.string.totalTime), total));
-        sb.append(String.format(getString(R.string.averageTime), doubleInTime(averageTime)));
+        sb.append(String.format(getString(R.string.totalTimeFormat), total));
+        sb.append(String.format(getString(R.string.averageTimeFormat), doubleInTime(averageTime)));
         return sb.toString();
     }
 

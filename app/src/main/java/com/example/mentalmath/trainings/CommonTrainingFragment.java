@@ -15,11 +15,9 @@ import android.widget.Toast;
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
 
-import java.text.DateFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import java.util.TimeZone;
 
 /**
@@ -51,21 +49,22 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle onSavedInstanceState) {
         super.onCreateView(inflater, container, onSavedInstanceState);
-        setRetainInstance(true);
+
         if (mIsFirstRunning) {
+            errorLog("first running");
+            setRetainInstance(true);
             mIsFirstRunning = false;
 
             mParentLayout = (LinearLayout) inflater.inflate(R.layout.common_training, container, false);
 
             constructAllFields(inflater, container);
-            addAllToParent((LinearLayout) mParentLayout);
+            addAllToParent(mParentLayout);
             mCounterView = ((SimpleButtonField) mButtonField).getCounterView();
             mStateHandler = new TrainingStateHandler(this, mButtonField);
             mStateHandler.setHonestMode(mIsHonestMode);
         } else {
             restore();
         }
-
         return mParentLayout;
     }
 
@@ -77,23 +76,15 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         super.onStop();
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-        super.onSaveInstanceState(outState);
-    }
-
     private void restore() {
         if (mIsRunning) {
             mStopWatcherField.resume();
         }
     }
 
-
     public void onClick(View v) {
         mStateHandler.onClick(v);
     }
-
 
     @Override
     public void startTraining() {
@@ -117,6 +108,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mStopWatcherField.startExample();
     }
 
+    @Override
     public void pause () {
         errorLog("Pause example" + mCounter);
         mIsRunning = false;
@@ -249,7 +241,14 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     // todo
     private String formTotalResult() {
-//        SimpleDateFormat timeFormat = new SimpleDateFormat("mm:ss:SS");
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(getString(R.string.resultHeaderFormat));
+
+        sb.append(String.format(getString(R.string.rightAnswers),
+                mRightCounter, mExampleAmount));
+        sb.append(String.format(getString(R.string.totalTimeFormat), mStopWatcherField.getTotalTime()));
+
         SimpleDateFormat timeFormat = new SimpleDateFormat("mm:ss:SS");
         timeFormat.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
         Date total = timeFormat.parse(mStopWatcherField.getTotalTime(), new ParsePosition(0));
@@ -259,16 +258,13 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         if (mRightCounter != 0) {
             averageTime = totalTime / mRightCounter;
         }
-        Date average = new Date(averageTime);
-        average.setTime(averageTime);
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("Result:\n");
-
-        sb.append(String.format(getString(R.string.rightAnswers),
-                mRightCounter, mExampleAmount));
-        sb.append(String.format(getString(R.string.totalTime), mStopWatcherField.getTotalTime()));
-        sb.append(String.format(getString(R.string.averageTime), timeFormat.format(average)));
+        if (averageTime != 0) {
+            Date average = new Date(averageTime);
+            average.setTime(averageTime);
+            sb.append(String.format(getString(R.string.averageTimeFormat), timeFormat.format(average)));
+        } else {
+            sb.append(String.format(getString(R.string.averageTimeFormat), "----"));
+        }
         return sb.toString();
     }
 

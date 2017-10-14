@@ -17,8 +17,8 @@
 
     <string name="initTime">0:00</string>
     <string name="rightAnswers" formatted="false">Right answers: %d/%d\n</string>
-    <string name="totalTime" formatted="false">Total time:    %s\n</string>
-    <string name="averageTime" formatted="false">"Average time: %s\n</string>
+    <string name="totalTimeFormat" formatted="false">"Total time:        %s\n"</string>
+    <string name="averageTimeFormat" formatted="false">"Average time:   %s\n"</string>
     <string name="stopwatchFormat" formatted="false">%d:%02d</string>
     <string name="noRightAnswers">There are no right answers</string>
     <string name="show_n_x_m">Show N * M</string>
@@ -67,9 +67,11 @@
     <string name="rightButtonText">right</string>
     <string name="wrongButtonText">wrong</string>
     <string name="noanswer">No answer</string>
-    <string name="right_result_format" formatted="false">Your:  %s\nRight: %s</string>
-    <string name="right_answer_format">Right: %s</string>
+    <string name="right_result_format" formatted="false">"Your:  %s\nRight: %s"</string>
+    <string name="right_answer_format">"Right: %s"</string>
     <string name="your">"Your:  "</string>
-    <string name="counterFormat" formatted="false">%s/ %s/ %s</string>
+    <string name="counterFormat" formatted="false">"%s/ %s/ %s"</string>
+    <string name="exampleResultFormat" formatted="false">"%d:      %s      %s"</string>
+    <string name="resultHeaderFormat" formatted="false">"Result:\n"</string>
 
 </resources>

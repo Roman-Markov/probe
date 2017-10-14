@@ -17,8 +17,8 @@
 
     <string name="initTime">0:00</string>
     <string name="rightAnswers" formatted="false">Правильных ответов: %d/%d\n</string>
-    <string name="totalTime" formatted="false">Общее время:    %s\n</string>
-    <string name="averageTime" formatted="false">"Среднее время: %s\n</string>
+    <string name="totalTimeFormat" formatted="false">Общее время:    %s\n</string>
+    <string name="averageTimeFormat" formatted="false">"Среднее время: %s\n</string>
     <string name="stopwatchFormat" formatted="false">%d:%02d</string>
     <string name="noRightAnswers">Нет верных ответов</string>
     <string name="show_n_x_m">Показать N * M</string>
