@@ -103,6 +103,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     public void startExample() {
         mAnswerField.clean();
         mAnswerField.resume();
+        mIsRunning = true;
         errorLog("Start single example: " + mCounter);
         mExampleDisplay.showNewExample();
         mStopWatcherField.startExample();
@@ -111,8 +112,8 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     @Override
     public void pause () {
         errorLog("Pause example" + mCounter);
-        mIsRunning = false;
         mStopWatcherField.pause();
+        mIsRunning = false;
         mAnswerField.pause();
         mExampleDisplay.hideExample();
     }
@@ -131,6 +132,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mCounter++;
         errorLog("Stop example" + mCounter);
         mStopWatcherField.stopExample();
+        mIsRunning = false;
 //        mExampleDisplay.hideExample();
         String currentAnswer = mAnswerField.getAnswer();
         if (!mIsHonestMode) {
