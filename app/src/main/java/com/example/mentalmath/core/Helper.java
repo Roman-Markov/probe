@@ -6,6 +6,7 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.example.mentalmath.R;
 
@@ -39,5 +40,23 @@ public class Helper {
         temp.append(begin);
         temp.append(origin);
         return temp;
+    }
+
+    public static void shiftChildren(LinearLayout layout, View view, int pos) {
+        if (layout.getChildCount() == 0) {
+            layout.addView(view);
+        } else {
+            View cursor = layout.getChildAt(pos);
+            layout.addView(view, pos);
+            for (int i = pos + 1; i < layout.getChildCount(); i++) {
+                View temp = layout.getChildAt(i);
+                // cursor points to View, which has a parent, though it was overlayed another View on it's position
+                layout.removeView(cursor);
+                layout.addView(cursor, i);
+                cursor = temp;
+            }
+            layout.removeView(cursor);
+            layout.addView(cursor);
+        }
     }
 }
