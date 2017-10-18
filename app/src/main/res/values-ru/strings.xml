@@ -42,7 +42,7 @@
     <string name="isntSet">Настройки для текущей тренировки ещё не установлены. Для регулировки нажмите кнопку "Настройки".</string>
 
     <!-- ListPreference with kinds of addition trainings -->
-    <string name="additionKindDialogtTitle">Вид тренировки</string>
+    <string name="additionKindDialogTitle">Вид тренировки</string>
     <string name="additionKindSummary">Выберите разновидность тренировки</string>
     <string name="additionKindTitle">Сложность</string>
 

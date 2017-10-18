@@ -1,5 +1,6 @@
 package com.example.mentalmath.core;
 
+import android.content.Context;
 import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.text.Spannable;
@@ -15,6 +16,8 @@ import com.example.mentalmath.R;
  */
 
 public class Helper {
+
+    public static Context mGlobalContext;
 
     public static int getColorById(@ColorRes int resourceId, View v) {
         int color;

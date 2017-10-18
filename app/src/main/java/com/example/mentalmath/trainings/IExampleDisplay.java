@@ -10,9 +10,11 @@ public interface IExampleDisplay extends IField {
 
     public void hideExample();
 
+    public void showExample();
+
     public void showHiddenExample();
 
     public String getCurrentAnswer();
 
-    public IExampleBuilder getExampleBuilder();
+    public boolean checkResult(String userAnswer);
 }

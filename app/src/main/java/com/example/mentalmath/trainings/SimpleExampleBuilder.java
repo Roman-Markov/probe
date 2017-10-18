@@ -19,7 +19,6 @@ public class SimpleExampleBuilder implements IExampleBuilder {
             try {
                 result = Integer.parseInt(str);
             } catch (NumberFormatException e) {
-                Log.e(getClass().getSimpleName(), "Format of string is not a number: " + str);
                 return false;
             }
             return result == 2;

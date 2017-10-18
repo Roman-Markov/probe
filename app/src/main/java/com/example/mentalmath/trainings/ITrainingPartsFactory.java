@@ -16,7 +16,7 @@ public interface ITrainingPartsFactory {
 
     public IExampleBuilder getExampleBuilder();
 
-    public int getAmountOfExamles();
+    public int getAmountOfExamples();
 
     public boolean isHonestModeEnabled();
 }

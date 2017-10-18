@@ -31,6 +31,6 @@ public class SetOptionOrStartTrainActivity extends Activity {
     }
 
     public void showOptions(View v) {
-        mFragment.launchTrain(v);
+        mFragment.showOptions(v);
     }
 }

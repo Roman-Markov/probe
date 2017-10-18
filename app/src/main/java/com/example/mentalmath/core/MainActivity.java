@@ -17,6 +17,7 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        init();
 
         if (getFragmentManager().findFragmentById(android.R.id.content) == null) {
             getFragmentManager().beginTransaction().add(android.R.id.content,
@@ -26,5 +27,9 @@ public class MainActivity extends Activity {
 
     public void launchTrain(View v) {
         ((MainFragment) getFragmentManager().findFragmentById(android.R.id.content)).launchTrain(v);
+    }
+
+    private void init() {
+        Helper.mGlobalContext = this.getApplicationContext();
     }
 }

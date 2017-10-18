@@ -4,15 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/lib-auto">
 
     <ListPreference
-        android:key="additionKindList"
+        android:key="@string/additionKindListKey"
         android:title="@string/additionKindTitle"
         android:summary="@string/additionKindSummary"
-        android:dialogTitle="@string/additionKindDialogtTitle"
+        android:dialogTitle="@string/additionKindDialogTitle"
         android:entries="@array/additionTrainString"
         android:entryValues="@array/additionTrainId"/>
 
     <SeekBarPreference
-        android:key="additionQuantity"
+        android:key="@string/additionQuantityKey"
         android:title="@string/trainingNumber"
         android:summary="@string/trainingNumberSummary"
         android:min="1"
@@ -20,7 +20,7 @@
         android:defaultValue="1"/>
 
     <ListPreference
-        android:key="additionFormatList"
+        android:key="@string/additionFormatListKey"
         android:title="@string/formatListTitle"
         android:summary="@string/formatListSummary"
         android:dialogTitle="@string/formatListDialogTitle"
@@ -28,7 +28,7 @@
         android:entryValues="@array/formatExampleId"/>
 
     <ListPreference
-        android:key="additionVisTimeList"
+        android:key="@string/additionVisTimeListKey"
         android:title="@string/visTimeListTitle"
         android:summary="@string/visTimeSummary"
         android:dialogTitle="@string/visTimeDialogTitle"
@@ -36,7 +36,7 @@
         android:entryValues="@array/visTimeId"/>
 
     <CheckBoxPreference
-        android:key="additionCbHonestMode"
+        android:key="@string/additionCbHonestModeKey"
         android:title="@string/cbHonestModeTitle"
         android:summary="@string/cbHonestModeSummary"/>
 

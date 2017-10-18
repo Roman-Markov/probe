@@ -1,6 +1,9 @@
 package com.example.mentalmath.trainings;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -10,23 +13,23 @@ import android.view.ViewGroup;
 
 public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFactory {
 
-    LayoutInflater mInflater;
-    ViewGroup mViewGroup;
-    IStopWatch mStopWatch;
+    protected LayoutInflater mInflater;
+    protected ViewGroup mViewGroup;
+    protected SharedPreferences mPrefs;
 
     public ATrainingPartsAbstractFactory(LayoutInflater inflater, ViewGroup container,
-                                         IStopWatch stopWatch) {
+                                         Activity activity) {
         mInflater = inflater;
         mViewGroup = container;
-        mStopWatch = stopWatch;
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(activity);
     }
 
     @Override
-    public IStopWatchField getStopWatcherField(){return new SimpleStopWatchField(mInflater, mViewGroup, mStopWatch);}
+    public IStopWatchField getStopWatcherField(){return new SimpleStopWatchField(mInflater, mViewGroup, new SimpleStopWatch());}
 
     @Override
     public IExampleDisplay getExampleDisplay(){return new SimpleExampleDisplay(mInflater, mViewGroup,
-            getBuilder());}
+            getExampleBuilder());}
 
     @Override
     public IAnswerField getAnswerField(){return new SimpleAnswerField(mInflater, mViewGroup, isHonestModeEnabled());}
@@ -35,24 +38,19 @@ public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFac
     public ISessionResultField getSessionResultField(){return new SimpleSessionResultField(mInflater, mViewGroup);}
 
     @Override
-    public abstract IExampleBuilder getExampleBuilder();
+    public IExampleBuilder getExampleBuilder() {
+        return new SimpleExampleBuilder();
+    };
 
     @Override
     public boolean isHonestModeEnabled() {
         return true;
     }
 
-    public void setStopWatcher(IStopWatch sw) {
-        mStopWatch = sw;
-    }
-
-    public int getAmountOfExamles(){
+    @Override
+    public int getAmountOfExamples(){
         //todo override in subclasses
         return 2;
     };
 
-    protected IExampleBuilder getBuilder() {
-        //todo add logic or move it to subclass
-        return new SimpleExampleBuilder();
-    }
 }

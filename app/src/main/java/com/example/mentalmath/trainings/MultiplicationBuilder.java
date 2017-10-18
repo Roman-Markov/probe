@@ -4,7 +4,7 @@ package com.example.mentalmath.trainings;
  * Created by Роман on 18.08.2017.
  */
 
-public class MultiplicationBuilder extends AriphmeticBuilder {
+public class MultiplicationBuilder extends ArithmeticBuilder {
 
     private int mNumberOfDigit1;
     private int mNumberOfDigit2;

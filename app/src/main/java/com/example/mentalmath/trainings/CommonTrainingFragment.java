@@ -1,5 +1,6 @@
 package com.example.mentalmath.trainings;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
@@ -128,7 +129,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mIsRunning = true;
         mStopWatcherField.resume();
         mAnswerField.resume();
-        mExampleDisplay.showHiddenExample();
+        mExampleDisplay.showExample();
     }
 
     @Override
@@ -136,6 +137,9 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mCounter++;
         errorLog("Stop example" + mCounter);
         mStopWatcherField.stopExample();
+        // in case when example will be invisible after some time due to user prefs
+        mExampleDisplay.showHiddenExample();
+
         mIsRunning = false;
 //        mExampleDisplay.hideExample();
         String currentAnswer = mAnswerField.getAnswer();
@@ -195,8 +199,8 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void showRightExampleResult() {
-        errorLog("showRightExampleResult(): " + mExampleDisplay.getExampleBuilder().getCurrentAnswer());
-        mAnswerField.showRightResult(mExampleDisplay.getExampleBuilder().getCurrentAnswer());
+        errorLog("showRightExampleResult(): " + mExampleDisplay.getCurrentAnswer());
+        mAnswerField.showRightResult(mExampleDisplay.getCurrentAnswer());
     }
 
     private void handleResultInternally(String answer) {
@@ -210,7 +214,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
                     isRight = false;
                 }
             } else {
-                isRight = mExampleDisplay.getExampleBuilder().checkResult(answer);
+                isRight = mExampleDisplay.checkResult(answer);
             }
             if (isRight) {
                 mRightCounter++;
@@ -245,7 +249,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     private void constructAllFields(LayoutInflater inflater, ViewGroup container) {
         errorLog("constructAllFields():");
 
-        ITrainingPartsFactory factory = getTrainingFactory(inflater, container, new SimpleStopWatch());
+        ITrainingPartsFactory factory = getTrainingFactory(inflater, container, getActivity());
 
         mStopWatcherField   = factory.getStopWatcherField();
         mExampleDisplay     = factory.getExampleDisplay();
@@ -253,7 +257,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mSessionResult      = factory.getSessionResultField();
         mButtonField        = new SimpleButtonField(inflater, container);
 
-        mExampleAmount      = factory.getAmountOfExamles();
+        mExampleAmount      = factory.getAmountOfExamples();
         mIsHonestMode       = factory.isHonestModeEnabled();
     }
 
@@ -305,9 +309,9 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     }
 
     // todo
-    private ITrainingPartsFactory getTrainingFactory(LayoutInflater inflater, ViewGroup container, IStopWatch stopWatch) {
+    private ITrainingPartsFactory getTrainingFactory(LayoutInflater inflater, ViewGroup container, Activity activity) {
         errorLog("getTrainingFactory():");
-        return new ArithmeticTrainingPartsFactory(inflater, container, stopWatch);
+        return new ArithmeticTrainingPartsFactory(inflater, container, activity);
     }
 
     private void errorLog(String msg) {
