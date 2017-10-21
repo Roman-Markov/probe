@@ -1,5 +1,6 @@
 package com.example.mentalmath.trainings;
 
+import android.app.Fragment;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
     private boolean mIsShouldShowExample = true;
 
     private Handler mHandler = new Handler();
+    private Runnable mGuiUpdater;
 
     public SimpleExampleDisplay (LayoutInflater inflater, ViewGroup container, IExampleBuilder builder) {
 
@@ -93,7 +95,7 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
         mCurrentExample = mExampleBuilder.generateExample();
         mExampleView.setText(mCurrentExample);
         if (mVisibilityTime != 0) {
-            mHandler.postDelayed(new Runnable() {
+            mGuiUpdater = new Runnable() {
                 @Override
                 public void run() {
                     synchronized (SimpleExampleDisplay.this) {
@@ -101,7 +103,8 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
                         hideExample();
                     }
                 }
-            }, mVisibilityTime * 1000);
+            };
+            mHandler.postDelayed(mGuiUpdater, mVisibilityTime * 1000);
         }
     }
 
@@ -129,6 +132,22 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
 
     public boolean checkResult(String userAnswer) {
         return mExampleBuilder.checkResult(userAnswer);
+    }
+
+    /**
+     * should be called in {@link Fragment#onStop()}
+     */
+    public void onStrop() {
+        mHandler.removeCallbacks(mGuiUpdater);
+    }
+
+    /**
+     * should be called in {@link Fragment#onStart()}
+     */
+    public void onStart() {
+        // common time of visibility will be in this case more than set by user
+        // but more likely that user don't expect thing which lead to calling onStop() and onStart()
+        mHandler.postDelayed(mGuiUpdater, mVisibilityTime * 1000);
     }
 
 }

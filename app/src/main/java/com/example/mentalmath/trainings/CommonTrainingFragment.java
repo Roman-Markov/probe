@@ -63,8 +63,6 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
             mCounterView = ((SimpleButtonField) mButtonField).getCounterView();
             mStateHandler = new TrainingStateHandler(this, mButtonField);
             mStateHandler.setHonestMode(mIsHonestMode);
-        } else {
-            restore();
         }
         return mParentLayout;
     }
@@ -73,8 +71,18 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     public void onStop() {
         if (mIsRunning) {
             mStopWatcherField.pause();
+            ((SimpleExampleDisplay) mExampleDisplay).onStrop();
         }
         super.onStop();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // was moved here from onCreateView() because when screen is switch off
+        // method onCreateView() will not be called and stopwatch couldn't resume itself
+        restore();
+        ((SimpleExampleDisplay) mExampleDisplay).onStart();
     }
 
     private void restore() {
