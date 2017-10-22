@@ -145,8 +145,8 @@
     <string name="formatListDialogTitle">Choose format:</string>
 
     <!-- Values of ListPreference with kinds of example format -->
-    <string name="formatAsRow">"1234 + 1234"</string>
-    <string name="formatAsColumn">" 1234\n+\n 1234"</string>
+    <string name="formatAsRow">row</string>
+    <string name="formatAsColumn">column</string>
 
     <!-- IDs of ListPreference with kinds of example format -->
     <string name="formatAsRowId">rowId</string>
@@ -208,6 +208,17 @@
     <!-- Types of example format -->
     <string name="rowFormat" formatted="false">"%d + %d"</string>
     <string name="columnFormat" formatted="false">" %d\n+\n %d"</string>
+    <string name="currentSettings">"Current settings:\n"</string>
+
+    <!-- Strings for displaying current settings of training -->
+          <string name="kind">"Kind:       "</string>
+          <string name="type">"Type:       "</string>
+        <string name="amount">"Amount: "</string>
+    <string name="visibility">"Visibility: "</string>
+        <string name="format">"Format:   "</string>
+    <string name="honestMode">"Honest:   "</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
 
 
 </resources>

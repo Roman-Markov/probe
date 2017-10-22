@@ -9,7 +9,7 @@ import com.example.mentalmath.core.Constants;
 
 /**
  * According to arguments passed in Intents currently may contain fragments: {@link
- * ChooseArithmeticFragment}, {@link ChooseArithmeticFragment}, {@link ChooseEquationsFragment},
+ * ChooseArithmeticFragment}, {@link ChooseEquationsFragment},
  * {@link ChooseLinearEquationsFragment},{@link ChoosePolinomialsFragment}. These fragments
  * clarify the appropriate subtrain and launch activity for training itself or launch one more
  * activity for choice sub subtrain.

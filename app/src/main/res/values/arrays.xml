@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="additionTrainId">
+    <string-array name="additionTrainStringId">
         <item>@string/id_p5_5</item>
         <item>@string/id_p69_5</item>
         <item>@string/id_p69_69</item>

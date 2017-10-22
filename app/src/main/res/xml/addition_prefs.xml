@@ -8,7 +8,7 @@
         android:summary="@string/additionKindSummary"
         android:dialogTitle="@string/additionKindDialogTitle"
         android:entries="@array/additionTrainString"
-        android:entryValues="@array/additionTrainId"
+        android:entryValues="@array/additionTrainStringId"
         android:defaultValue="@string/id_p5_5"/>
 
     <ListPreference

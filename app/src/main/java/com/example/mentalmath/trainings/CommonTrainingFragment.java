@@ -319,7 +319,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     // todo
     private ITrainingPartsFactory getTrainingFactory(LayoutInflater inflater, ViewGroup container, Activity activity) {
         errorLog("getTrainingFactory():");
-        return new ArithmeticTrainingPartsFactory(inflater, container, activity);
+        return new AdditionFactory(inflater, container, activity);
     }
 
     private void errorLog(String msg) {

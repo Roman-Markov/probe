@@ -12,13 +12,19 @@ import com.example.mentalmath.core.Helper;
  * Created by Роман on 27.09.2017.
  */
 
-public class ArithmeticTrainingPartsFactory extends ATrainingPartsAbstractFactory {
+public class AdditionFactory extends ATrainingPartsAbstractFactory {
 
-    private static final String KIND_KEY;
-    private static final String AMOUNT_KEY;
-    private static final String FORMAT_KEY;
-    private static final String VISTIME_KEY;
-    private static final String HONESTMODE_KEY;
+    public static final String KIND_KEY;
+    public static final String AMOUNT_KEY;
+    public static final String FORMAT_KEY;
+    public static final String VISTIME_KEY;
+    public static final String HONESTMODE_KEY;
+
+    public static final String DEF_VAL_FOR_KIND;
+    public static final String DEF_VAL_FOR_AMOUNT;
+    public static final String DEF_VAL_FOR_FORMAT;
+    public static final String DEF_VAL_FOR_VISTIME;
+    public static final String DEF_VAL_FOR_HONESTMODE;
 
     private static final String ROW = "row";
     private static final String COLUMN = "column";
@@ -30,10 +36,16 @@ public class ArithmeticTrainingPartsFactory extends ATrainingPartsAbstractFactor
         FORMAT_KEY = Helper.mGlobalContext.getString(R.string.additionFormatListKey);
         VISTIME_KEY = Helper.mGlobalContext.getString(R.string.additionVisTimeListKey);
         HONESTMODE_KEY = Helper.mGlobalContext.getString(R.string.additionCbHonestModeKey);
+
+        DEF_VAL_FOR_KIND = Helper.mGlobalContext.getString(R.string.id_p5_5);;
+        DEF_VAL_FOR_AMOUNT = Helper.mGlobalContext.getString(R.string.id1);;
+        DEF_VAL_FOR_FORMAT = Helper.mGlobalContext.getString(R.string.formatAsRowId);;
+        DEF_VAL_FOR_VISTIME = Helper.mGlobalContext.getString(R.string.visTimeAlwaysId);;
+        DEF_VAL_FOR_HONESTMODE = Helper.mGlobalContext.getString(R.string.additionKindListKey);;
     }
 
-    public ArithmeticTrainingPartsFactory(LayoutInflater inflater, ViewGroup container,
-                                          Activity activity) {
+    public AdditionFactory(LayoutInflater inflater, ViewGroup container,
+                           Activity activity) {
         super(inflater, container, activity);
     }
 
