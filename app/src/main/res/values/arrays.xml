@@ -38,45 +38,93 @@
         <item>@string/p12n_12n</item>
     </string-array>
 
+    <!-- Value of list preference number of trainings  -->
+    <string-array name="numberOfExamplesStrings">
+        <item>@string/num1</item>
+        <item>@string/num2</item>
+        <item>@string/num3</item>
+        <item>@string/num4</item>
+        <item>@string/num5</item>
+        <item>@string/num6</item>
+        <item>@string/num7</item>
+        <item>@string/num8</item>
+        <item>@string/num9</item>
+        <item>@string/num10</item>
+        <item>@string/num11</item>
+        <item>@string/num12</item>
+        <item>@string/num13</item>
+        <item>@string/num14</item>
+        <item>@string/num15</item>
+        <item>@string/num16</item>
+        <item>@string/num17</item>
+        <item>@string/num18</item>
+        <item>@string/num19</item>
+        <item>@string/num20</item>
+    </string-array>
+
+    <!-- ID of list preference number of trainings  -->
+    <string-array name="numberOfExamplesStringsId">
+        <item>@string/id1</item>
+        <item>@string/id2</item>
+        <item>@string/id3</item>
+        <item>@string/id4</item>
+        <item>@string/id5</item>
+        <item>@string/id6</item>
+        <item>@string/id7</item>
+        <item>@string/id8</item>
+        <item>@string/id9</item>
+        <item>@string/id10</item>
+        <item>@string/id11</item>
+        <item>@string/id12</item>
+        <item>@string/id13</item>
+        <item>@string/id14</item>
+        <item>@string/id15</item>
+        <item>@string/id16</item>
+        <item>@string/id17</item>
+        <item>@string/id18</item>
+        <item>@string/id19</item>
+        <item>@string/id20</item>
+    </string-array>
+
 
     <!-- format of example output -->
     <string-array name="formatExample">
-        <item>1234 + 1234</item>
-        <item> 1234\n+\n 1234</item>
+        <item>@string/formatAsRow</item>
+        <item>@string/formatAsColumn</item>
     </string-array>
     <string-array name="formatExampleId">
-        <item>row</item>
-        <item>column</item>
+        <item>@string/formatAsRowId</item>
+        <item>@string/formatAsColumnId</item>
     </string-array>
 
     <!-- time of example visibility -->
     <string-array name="visTime">
-        <item>always</item>
-        <item>30 sec</item>
-        <item>20 sec</item>
-        <item>15 sec</item>
-        <item>12 sec</item>
-        <item>10 sec</item>
-        <item>8 sec</item>
-        <item>6 sec</item>
-        <item>4 sec</item>
-        <item>3 sec</item>
-        <item>2 sec</item>
-        <item>1 sec</item>
+        <item>@string/visTimeAlways</item>
+        <item>@string/visTime30sec</item>
+        <item>@string/visTime20sec</item>
+        <item>@string/visTime15sec</item>
+        <item>@string/visTime12sec</item>
+        <item>@string/visTime10sec</item>
+        <item>@string/visTime8sec</item>
+        <item>@string/visTime6sec</item>
+        <item>@string/visTime4sec</item>
+        <item>@string/visTime3sec</item>
+        <item>@string/visTime2sec</item>
+        <item>@string/visTime1sec</item>
     </string-array>
     <string-array name="visTimeId">
-        <item>always</item>
-        <item>30sec</item>
-        <item>20sec</item>
-        <item>15sec</item>
-        <item>12sec</item>
-        <item>10sec</item>
-        <item>8sec</item>
-        <item>6sec</item>
-        <item>4sec</item>
-        <item>3sec</item>
-        <item>2sec</item>
-        <item>1sec</item>
+        <item>@string/visTimeAlwaysId</item>
+        <item>@string/visTime30secId</item>
+        <item>@string/visTime20secId</item>
+        <item>@string/visTime15secId</item>
+        <item>@string/visTime12secId</item>
+        <item>@string/visTime10secId</item>
+        <item>@string/visTime8secId</item>
+        <item>@string/visTime6secId</item>
+        <item>@string/visTime4secid</item>
+        <item>@string/visTime3secId</item>
+        <item>@string/visTime2secId</item>
+        <item>@string/visTime1secId</item>
     </string-array>
 
 </resources>

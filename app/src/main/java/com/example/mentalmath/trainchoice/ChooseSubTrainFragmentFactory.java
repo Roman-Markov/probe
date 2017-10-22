@@ -2,7 +2,7 @@ package com.example.mentalmath.trainchoice;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.support.v7.preference.PreferenceFragmentCompat;
+import android.preference.PreferenceFragment;
 import android.util.Log;
 
 import com.example.mentalmath.core.Constants;
@@ -33,26 +33,17 @@ public class ChooseSubTrainFragmentFactory {
         }
     }
 
-    public static PreferenceFragmentCompat getSettingsFragment(Context ctxt, int type) {
+    public static PreferenceFragment getSettingsFragment(Context ctxt, int type) {
         switch (type) {
 
             case Constants.I_KIND_ARITH_ADDITION:
-                return new TuneAdditionFragment();
+                return new SetOptionActivity.TuneAdditionFragment();
             case Constants.I_KIND_ARITH_SUBTRACTION:
-                return new TuneSubtractionFragment();
+                return new SetOptionActivity.TuneSubtractionFragment();
             case Constants.I_KIND_ARITH_MULTIPLICATION:
-                return new TuneMultiplicationFragment();
+                return new SetOptionActivity.TuneMultiplicationFragment();
             case Constants.I_KIND_ARITH_DIVISION:
-                return new TuneDivisionFragment();
-
-//            case Constants.I_ADDTION_OPTIONS:
-//                return new TuneAdditionFragment();
-//            case Constants.I_SUBTRACTION_OPTIONS:
-//                return new TuneSubtractionFragment();
-//            case Constants.I_MULTIPLICATION_OPTIONS:
-//                return new TuneMultiplicationFragment();
-//            case Constants.I_DIVISION_OPTIONS:
-//                return new TuneDivisionFragment();
+                return new SetOptionActivity.TuneDivisionFragment();
 
             default:
                 //todo handle more smartly

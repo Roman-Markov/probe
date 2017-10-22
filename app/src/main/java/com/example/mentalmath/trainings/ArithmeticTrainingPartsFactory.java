@@ -1,12 +1,9 @@
 package com.example.mentalmath.trainings;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.Fragment;
-import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
@@ -81,6 +78,13 @@ public class ArithmeticTrainingPartsFactory extends ATrainingPartsAbstractFactor
 
     @Override
     public int getAmountOfExamples(){
-        return mPrefs.getInt(AMOUNT_KEY, 1);
-    };
+        String prefAmount = mPrefs.getString(AMOUNT_KEY, "1");
+        try {
+            int amount = Integer.parseInt(prefAmount);
+            return amount;
+        } catch (NumberFormatException e) {
+            Log.e(getClass().getSimpleName(), "Wrong format of number: " + prefAmount);
+            return 1;
+        }
+    }
 }

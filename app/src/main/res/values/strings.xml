@@ -41,43 +41,12 @@
     <string name="setOptions">OPTIONS</string>
     <string name="isntSet">Settings for current training isn\'t set yet. Press OPTIONS button to tune training.</string>
 
+    <!--=========================================================================================-->
     <!-- ListPreference with kinds of addition trainings -->
     <string name="additionKindListKey">additionKindList</string>
     <string name="additionKindDialogTitle">Kind of training</string>
     <string name="additionKindSummary">Choose a kind of training</string>
     <string name="additionKindTitle">Complexity</string>
-
-    <!-- SeekBar Preference with number of trainings -->
-    <string name="additionQuantityKey">additionQuantity</string>
-    <string name="trainingNumber">Number of examples</string>
-    <string name="trainingNumberSummary">Number of examples per training set</string>
-
-    <!-- ListPreference with kinds of example format -->
-    <string name="additionFormatListKey">additionFormatList</string>
-    <string name="formatListTitle">Type of format</string>
-    <string name="formatListSummary">Choose format of example: row or column.</string>
-    <string name="formatListDialogTitle">Choose format:</string>
-
-    <!-- ListPreference with times of example visibility -->
-    <string name="additionVisTimeListKey">additionVisTimeList</string>
-    <string name="visTimeListTitle">Time of example visibility</string>
-    <string name="visTimeSummary">Less time more skills</string>
-    <string name="visTimeDialogTitle">Choose time:</string>
-
-    <!-- CheckBoxPreference to choose honest mode -->
-    <string name="additionCbHonestModeKey">additionCbHonestMode</string>
-    <string name="cbHonestModeTitle">Honest mode</string>
-    <string name="cbHonestModeSummary">You don\'t type answer and save your time</string>
-
-    <string name="rightButtonText">right</string>
-    <string name="wrongButtonText">wrong</string>
-    <string name="noanswer">No answer</string>
-    <string name="right_result_format" formatted="false">"Your:  %s\nRight: %s"</string>
-    <string name="right_answer_format">"Right: %s"</string>
-    <string name="your">"Your:  "</string>
-    <string name="counterFormat" formatted="false">"%s/ %s/ %s"</string>
-    <string name="exampleResultFormat" formatted="false">"%d:      %s      %s"</string>
-    <string name="resultHeaderFormat" formatted="false">"Result:\n"</string>
 
     <!-- Value of list preference of addition kinds of training  -->
     <string name="p5_5">1-5 + 1-5</string>
@@ -116,7 +85,127 @@
     <string name="id_p11n_11n">11n_p_11n</string>
     <string name="id_p12n_12n">12n_p_12n</string>
 
+    <!--=========================================================================================-->
+    <!-- ListPreference with number of trainings -->
+    <string name="additionQuantityKey">additionQuantity</string>
+    <string name="trainingNumber">Number of examples</string>
+    <string name="trainingNumberSummary">Number of examples per training set</string>
+    <string name="amountListDialogTitle">Amount:</string>
 
+    <!-- Value of list preference number of trainings  -->
+    <string name="num1">"1"</string>
+    <string name="num2">"2"</string>
+    <string name="num3">"3"</string>
+    <string name="num4">"4"</string>
+    <string name="num5">"5"</string>
+    <string name="num6">"6"</string>
+    <string name="num7">"7"</string>
+    <string name="num8">"8"</string>
+    <string name="num9">"9"</string>
+    <string name="num10">"10"</string>
+    <string name="num11">"11"</string>
+    <string name="num12">"12"</string>
+    <string name="num13">"13"</string>
+    <string name="num14">"14"</string>
+    <string name="num15">"15"</string>
+    <string name="num16">"16"</string>
+    <string name="num17">"17"</string>
+    <string name="num18">"18"</string>
+    <string name="num19">"19"</string>
+    <string name="num20">"20"</string>
+
+    <!-- ID of list preference number of training  -->
+
+    <string name="id1">"n1"</string>
+    <string name="id2">"n2"</string>
+    <string name="id3">"n3"</string>
+    <string name="id4">"n4"</string>
+    <string name="id5">"n5"</string>
+    <string name="id6">"n6"</string>
+    <string name="id7">"n7"</string>
+    <string name="id8">"n8"</string>
+    <string name="id9">"n9"</string>
+    <string name="id10">"n10"</string>
+    <string name="id11">"n11"</string>
+    <string name="id12">"n12"</string>
+    <string name="id13">"n13"</string>
+    <string name="id14">"n14"</string>
+    <string name="id15">"n15"</string>
+    <string name="id16">"n16"</string>
+    <string name="id17">"n17"</string>
+    <string name="id18">"n18"</string>
+    <string name="id19">"n19"</string>
+    <string name="id20">"n20"</string>
+
+    <!--=========================================================================================-->
+    <!-- ListPreference with kinds of example format -->
+    <string name="additionFormatListKey">additionFormatList</string>
+    <string name="formatListTitle">Type of format</string>
+    <string name="formatListSummary">Choose format of example: row or column.</string>
+    <string name="formatListDialogTitle">Choose format:</string>
+
+    <!-- Values of ListPreference with kinds of example format -->
+    <string name="formatAsRow">"1234 + 1234"</string>
+    <string name="formatAsColumn">" 1234\n+\n 1234"</string>
+
+    <!-- IDs of ListPreference with kinds of example format -->
+    <string name="formatAsRowId">rowId</string>
+    <string name="formatAsColumnId">columnId</string>
+
+    <!--=========================================================================================-->
+    <!-- ListPreference with times of example visibility -->
+    <string name="additionVisTimeListKey">additionVisTimeList</string>
+    <string name="visTimeListTitle">Time of example visibility</string>
+    <string name="visTimeSummary">Less time more skills</string>
+    <string name="visTimeDialogTitle">Choose time:</string>
+
+    <!-- Values of ListPreference with times of example visibility -->
+    <string name="visTimeAlways">always</string>
+    <string name="visTime30sec">30 sec</string>
+    <string name="visTime20sec">20 sec</string>
+    <string name="visTime15sec">15 sec</string>
+    <string name="visTime12sec">12 sec</string>
+    <string name="visTime10sec">10 sec</string>
+    <string name="visTime8sec">8 sec</string>
+    <string name="visTime6sec">6 sec</string>
+    <string name="visTime4sec">4 sec</string>
+    <string name="visTime3sec">3 sec</string>
+    <string name="visTime2sec">2 sec</string>
+    <string name="visTime1sec">1 sec</string>
+
+    <!-- IDs of ListPreference with times of example visibility -->
+    <string name="visTimeAlwaysId">always</string>
+    <string name="visTime30secId">30sec</string>
+    <string name="visTime20secId">20sec</string>
+    <string name="visTime15secId">15sec</string>
+    <string name="visTime12secId">12sec</string>
+    <string name="visTime10secId">10sec</string>
+    <string name="visTime8secId">8sec</string>
+    <string name="visTime6secId">6sec</string>
+    <string name="visTime4secid">4sec</string>
+    <string name="visTime3secId">3sec</string>
+    <string name="visTime2secId">2sec</string>
+    <string name="visTime1secId">1sec</string>
+
+    <!--=========================================================================================-->
+    <!-- CheckBoxPreference to choose honest mode -->
+    <string name="additionCbHonestModeKey">additionCbHonestMode</string>
+    <string name="cbHonestModeTitle">Honest mode</string>
+    <string name="cbHonestModeSummary">You don\'t type answer and save your time</string>
+
+    <string name="rightButtonText">right</string>
+    <string name="wrongButtonText">wrong</string>
+    <string name="noanswer">No answer</string>
+    <string name="right_result_format" formatted="false">"Your:  %s\nRight: %s"</string>
+    <string name="right_answer_format">"Right: %s"</string>
+    <string name="your">"Your:  "</string>
+    <string name="counterFormat" formatted="false">"%s/ %s/ %s"</string>
+    <string name="exampleResultFormat" formatted="false">"%d:      %s      %s"</string>
+    <string name="resultHeaderFormat" formatted="false">"Result:\n"</string>
+
+
+
+    <!-- Types of example format -->
     <string name="rowFormat" formatted="false">"%d + %d"</string>
     <string name="columnFormat" formatted="false">" %d\n+\n %d"</string>
 

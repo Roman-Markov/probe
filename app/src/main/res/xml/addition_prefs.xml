@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.preference.PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/lib-auto">
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListPreference
         android:key="@string/additionKindListKey"
@@ -9,15 +8,17 @@
         android:summary="@string/additionKindSummary"
         android:dialogTitle="@string/additionKindDialogTitle"
         android:entries="@array/additionTrainString"
-        android:entryValues="@array/additionTrainId"/>
+        android:entryValues="@array/additionTrainId"
+        android:defaultValue="@string/id_p5_5"/>
 
-    <SeekBarPreference
+    <ListPreference
         android:key="@string/additionQuantityKey"
         android:title="@string/trainingNumber"
         android:summary="@string/trainingNumberSummary"
-        android:min="1"
-        android:max="20"
-        android:defaultValue="1"/>
+        android:dialogTitle="@string/amountListDialogTitle"
+        android:entries="@array/numberOfExamplesStrings"
+        android:entryValues="@array/numberOfExamplesStringsId"
+        android:defaultValue="@string/id1"/>
 
     <ListPreference
         android:key="@string/additionFormatListKey"
@@ -25,7 +26,8 @@
         android:summary="@string/formatListSummary"
         android:dialogTitle="@string/formatListDialogTitle"
         android:entries="@array/formatExample"
-        android:entryValues="@array/formatExampleId"/>
+        android:entryValues="@array/formatExampleId"
+        android:defaultValue="@string/formatAsRowId"/>
 
     <ListPreference
         android:key="@string/additionVisTimeListKey"
@@ -33,7 +35,8 @@
         android:summary="@string/visTimeSummary"
         android:dialogTitle="@string/visTimeDialogTitle"
         android:entries="@array/visTime"
-        android:entryValues="@array/visTimeId"/>
+        android:entryValues="@array/visTimeId"
+        android:defaultValue="@string/visTimeAlwaysId"/>
 
     <CheckBoxPreference
         android:key="@string/additionCbHonestModeKey"
@@ -41,4 +44,4 @@
         android:summary="@string/cbHonestModeSummary"/>
 
 
-</android.support.v7.preference.PreferenceScreen>
+</PreferenceScreen>
