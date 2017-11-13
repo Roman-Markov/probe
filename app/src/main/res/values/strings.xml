@@ -211,14 +211,17 @@
     <string name="currentSettings">"Current settings:\n"</string>
 
     <!-- Strings for displaying current settings of training -->
-          <string name="kind">"Kind:       "</string>
-          <string name="type">"Type:       "</string>
-        <string name="amount">"Amount: "</string>
-    <string name="visibility">"Visibility: "</string>
-        <string name="format">"Format:   "</string>
-    <string name="honestMode">"Honest:   "</string>
+    <string name="kind">"Kind:"</string>
+    <string name="type">"Type:"</string>
+    <string name="amount">"Amount:"</string>
+    <string name="visibility">"Visibility:"</string>
+    <string name="format">"Format:"</string>
+    <string name="honestMode">"Honest:"</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
+
+
+    <string name="settingsFormat">"%1$-12s"</string>
 
 
 </resources>

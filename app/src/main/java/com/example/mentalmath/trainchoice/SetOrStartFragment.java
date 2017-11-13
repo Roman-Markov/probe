@@ -129,7 +129,9 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
 
     private void showCurrentAdditionSettings(TextView tv) {
 
-        tv.append(Helper.insertStringToStart(getString(R.string.kind), Helper.paintString(
+
+        String temp = getString(R.string.settingsFormat, getString(R.string.kind));
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(
                 getString(R.string.addition), R.color.green, tv))
                 .append("\n"));
 
@@ -140,23 +142,23 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
         String vistime = mVisTimePrefMap.get(pref.getString(AdditionFactory.VISTIME_KEY, AdditionFactory.DEF_VAL_FOR_VISTIME));
         String format = mFormatPrefMap.get(pref.getString(AdditionFactory.FORMAT_KEY, AdditionFactory.DEF_VAL_FOR_FORMAT));
 
-        tv.append(Helper.insertStringToStart(getString(R.string.type), Helper.paintString(
-                type, R.color.green, tv))
+        temp = getString(R.string.settingsFormat, getString(R.string.type));
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(type, R.color.green, tv))
                 .append("\n"));
-        tv.append(Helper.insertStringToStart(getString(R.string.amount), Helper.paintString(
-                amount, R.color.green, tv))
+        temp = getString(R.string.settingsFormat, getString(R.string.format));
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(amount, R.color.green, tv))
                 .append("\n"));
-        tv.append(Helper.insertStringToStart(getString(R.string.visibility), Helper.paintString(
-                vistime, R.color.green, tv))
+        temp = getString(R.string.settingsFormat, getString(R.string.visibility));
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(vistime, R.color.green, tv))
                 .append("\n"));
-        tv.append(Helper.insertStringToStart(getString(R.string.format), Helper.paintString(
-                format, R.color.green, tv))
+        temp = getString(R.string.settingsFormat, getString(R.string.format));
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(format, R.color.green, tv))
                 .append("\n"));
 
         Boolean isHonest = pref.getBoolean(AdditionFactory.HONESTMODE_KEY, false);
         String honestMode = isHonest? getString(R.string.yes) : getString(R.string.no);
-        tv.append(Helper.insertStringToStart(getString(R.string.honestMode), Helper.paintString(
-                honestMode, R.color.green, tv))
+        temp = getString(R.string.settingsFormat, getString(R.string.honestMode));
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(honestMode, R.color.green, tv))
                 .append("\n"));
 
     }
