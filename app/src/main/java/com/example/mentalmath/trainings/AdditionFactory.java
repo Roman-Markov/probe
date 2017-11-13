@@ -26,8 +26,8 @@ public class AdditionFactory extends ATrainingPartsAbstractFactory {
     public static final String DEF_VAL_FOR_VISTIME;
     public static final String DEF_VAL_FOR_HONESTMODE;
 
-    private static final String ROW = "row";
-    private static final String COLUMN = "column";
+    private static final String ROW = "rowId";
+    private static final String COLUMN = "columnId";
 
 
     static {

@@ -111,9 +111,9 @@ public class AdditionBuilder extends ArithmeticBuilder {
         mResult = big + little;
         mCurrentAnswer = Long.toString(mResult);
         if (mFormat == ROW_FORMAT) {
-            return String.format(Helper.mGlobalContext.getString(R.string.rowFormat), big, little);
+            return Helper.mGlobalContext.getString(R.string.rowFormat, big, little);
         } else {
-            return String.format(Helper.mGlobalContext.getString(R.string.columnFormat), big, little);
+            return Helper.mGlobalContext.getString(R.string.columnFormat, big, little);
         }
     }
 }
