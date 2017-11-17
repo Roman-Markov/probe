@@ -277,21 +277,21 @@
     <string name="m12n_12n">10"&#185;""&#185;"-10"&#185;""&#178;" - 10"&#185;""&#185;"-10"&#185;""&#178;"</string>
 
     <!-- ID of list preference of subtraction kinds of training  -->
-    <string name="id_m5_5">1-5_p_1-5</string>
-    <string name="id_m69_5">6-9_p_1-5</string>
-    <string name="id_m69_69">6-9_p_6-9</string>
-    <string name="id_m2n_1n">2n_p_1n</string>
-    <string name="id_m2n_2n">2n_p_2n</string>
-    <string name="id_m3n_2n">3n_p_2n</string>
-    <string name="id_m3n_3n">3n_p_3n</string>
-    <string name="id_m4n_4n">4n_p_4n</string>
-    <string name="id_m5n_5n">5n_p_5n</string>
-    <string name="id_m6n_6n">6n_p_6n</string>
-    <string name="id_m7n_7n">7n_p_7n</string>
-    <string name="id_m8n_8n">8n_p_8n</string>
-    <string name="id_m9n_9n">9n_p_9n</string>
-    <string name="id_m10n_10n">10n_p_10n</string>
-    <string name="id_m11n_11n">11n_p_11n</string>
-    <string name="id_m12n_12n">12n_p_12n</string>
+    <string name="id_m5_5">1-5_m_1-5</string>
+    <string name="id_m69_5">6-9_m_1-5</string>
+    <string name="id_m69_69">6-9_m_6-9</string>
+    <string name="id_m2n_1n">2n_m_1n</string>
+    <string name="id_m2n_2n">2n_m_2n</string>
+    <string name="id_m3n_2n">3n_m_2n</string>
+    <string name="id_m3n_3n">3n_m_3n</string>
+    <string name="id_m4n_4n">4n_m_4n</string>
+    <string name="id_m5n_5n">5n_m_5n</string>
+    <string name="id_m6n_6n">6n_m_6n</string>
+    <string name="id_m7n_7n">7n_m_7n</string>
+    <string name="id_m8n_8n">8n_m_8n</string>
+    <string name="id_m9n_9n">9n_m_9n</string>
+    <string name="id_m10n_10n">10n_m_10n</string>
+    <string name="id_m11n_11n">11n_m_11n</string>
+    <string name="id_m12n_12n">12n_m_12n</string>
 
 </resources>
