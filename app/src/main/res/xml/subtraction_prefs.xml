@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="@string/subtractionKindListKey"
+        android:title="@string/subtractionKindTitle"
+        android:summary="@string/subtractionKindSummary"
+        android:dialogTitle="@string/subtractionKindDialogTitle"
+        android:entries="@array/subtractionTrainString"
+        android:entryValues="@array/subtractionTrainStringId"
+        android:defaultValue="@string/id_m5_5"/>
+
+    <ListPreference
+        android:key="@string/subtractionQuantityKey"
+        android:title="@string/trainingNumber"
+        android:summary="@string/trainingNumberSummary"
+        android:dialogTitle="@string/amountListDialogTitle"
+        android:entries="@array/numberOfExamplesStrings"
+        android:entryValues="@array/numberOfExamplesStringsId"
+        android:defaultValue="@string/id1"/>
+
+    <ListPreference
+        android:key="@string/subtractionFormatListKey"
+        android:title="@string/formatListTitle"
+        android:summary="@string/formatListSummary"
+        android:dialogTitle="@string/formatListDialogTitle"
+        android:entries="@array/formatExample"
+        android:entryValues="@array/formatExampleId"
+        android:defaultValue="@string/formatAsRowId"/>
+
+    <ListPreference
+        android:key="@string/subtractionVisTimeListKey"
+        android:title="@string/visTimeListTitle"
+        android:summary="@string/visTimeSummary"
+        android:dialogTitle="@string/visTimeDialogTitle"
+        android:entries="@array/visTime"
+        android:entryValues="@array/visTimeId"
+        android:defaultValue="@string/visTimeAlwaysId"/>
+
+    <CheckBoxPreference
+        android:key="@string/subtractionCbHonestModeKey"
+        android:title="@string/cbHonestModeTitle"
+        android:summary="@string/cbHonestModeSummary"/>
+
+
+</PreferenceScreen>

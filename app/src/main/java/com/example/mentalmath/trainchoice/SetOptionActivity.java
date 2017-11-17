@@ -2,8 +2,10 @@ package com.example.mentalmath.trainchoice;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.util.Log;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Constants;
@@ -17,8 +19,7 @@ public class SetOptionActivity extends Activity {
 
         int type = getIntent().getIntExtra(Constants.KEY_KIND_OF_OPTIONS, -1);
 
-        PreferenceFragment subTrainFragment = ChooseSubTrainFragmentFactory
-                .getSettingsFragment(this, type);
+        PreferenceFragment subTrainFragment = getSettingsFragment(type);
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
@@ -29,11 +30,43 @@ public class SetOptionActivity extends Activity {
         }
     }
 
-    /**
-     * Created by Роман on 27.08.2017.
-     * Shows kind of addition trainings.
-     */
+    public PreferenceFragment getSettingsFragment(int type) {
+        switch (type) {
+
+            case Constants.I_KIND_ARITH_ADDITION:
+                return new SetOptionActivity.TuneAdditionFragment();
+            case Constants.I_KIND_ARITH_SUBTRACTION:
+                return new SetOptionActivity.TuneSubtractionFragment();
+            case Constants.I_KIND_ARITH_MULTIPLICATION:
+                return new SetOptionActivity.TuneMultiplicationFragment();
+            case Constants.I_KIND_ARITH_DIVISION:
+                return new SetOptionActivity.TuneDivisionFragment();
+
+            default:
+                //todo handle more smartly
+                Log.e("TrainingFragmentFactory", "Unknown type of training fragment:" + type);
+                return null;
+        }
+    }
+
+
     public static class TuneAdditionFragment extends PreferenceFragment  {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.addition_prefs);
+        }
+    }
+
+    public static class TuneSubtractionFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.subtraction_prefs);
+        }
+    }
+    
+    public static class TuneMultiplicationFragment extends PreferenceFragment {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -49,19 +82,4 @@ public class SetOptionActivity extends Activity {
         }
     }
 
-    public static class TuneMultiplicationFragment extends PreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.addition_prefs);
-        }
-    }
-
-    public static class TuneSubtractionFragment extends PreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.addition_prefs);
-        }
-    }
 }

@@ -53,6 +53,7 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
                 mDescriptionInflater = new AdditionDescriptionInflater(Constants.I_KIND_ARITH_ADDITION);
                 break;
             case Constants.I_KIND_ARITH_SUBTRACTION:
+                mDescriptionInflater = new SubtractionDescriptionInflater(Constants.I_KIND_ARITH_SUBTRACTION);
                 break;
             case Constants.I_KIND_ARITH_MULTIPLICATION:
                 break;

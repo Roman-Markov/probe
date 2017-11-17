@@ -1,43 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="additionTrainStringId">
-        <item>@string/id_p5_5</item>
-        <item>@string/id_p69_5</item>
-        <item>@string/id_p69_69</item>
-        <item>@string/id_p2n_1n</item>
-        <item>@string/id_p2n_2n</item>
-        <item>@string/id_p3n_2n</item>
-        <item>@string/id_p3n_3n</item>
-        <item>@string/id_p4n_4n</item>
-        <item>@string/id_p5n_5n</item>
-        <item>@string/id_p6n_6n</item>
-        <item>@string/id_p7n_7n</item>
-        <item>@string/id_p8n_8n</item>
-        <item>@string/id_p9n_9n</item>
-        <item>@string/id_p10n_10n</item>
-        <item>@string/id_p11n_11n</item>
-        <item>@string/id_p12n_12n</item>
-    </string-array>
-
-    <string-array name="additionTrainString">
-        <item>@string/p5_5</item>
-        <item>@string/p69_5</item>
-        <item>@string/p69_69</item>
-        <item>@string/p2n_n</item>
-        <item>@string/p2n_2n</item>
-        <item>@string/p3n_2n</item>
-        <item>@string/p3n_3n</item>
-        <item>@string/p4n_4n</item>
-        <item>@string/p5n_5n</item>
-        <item>@string/p6n_6n</item>
-        <item>@string/p7n_7n</item>
-        <item>@string/p8n_8n</item>
-        <item>@string/p9n_9n</item>
-        <item>@string/p10n_10n</item>
-        <item>@string/p11n_11n</item>
-        <item>@string/p12n_12n</item>
-    </string-array>
-
     <!-- Value of list preference number of trainings  -->
     <string-array name="numberOfExamplesStrings">
         <item>@string/num1</item>
@@ -125,6 +87,84 @@
         <item>@string/visTime3secId</item>
         <item>@string/visTime2secId</item>
         <item>@string/visTime1secId</item>
+    </string-array>
+
+    <!--=============                        Addition kinds                     ================ -->
+    <string-array name="additionTrainStringId">
+        <item>@string/id_p5_5</item>
+        <item>@string/id_p69_5</item>
+        <item>@string/id_p69_69</item>
+        <item>@string/id_p2n_1n</item>
+        <item>@string/id_p2n_2n</item>
+        <item>@string/id_p3n_2n</item>
+        <item>@string/id_p3n_3n</item>
+        <item>@string/id_p4n_4n</item>
+        <item>@string/id_p5n_5n</item>
+        <item>@string/id_p6n_6n</item>
+        <item>@string/id_p7n_7n</item>
+        <item>@string/id_p8n_8n</item>
+        <item>@string/id_p9n_9n</item>
+        <item>@string/id_p10n_10n</item>
+        <item>@string/id_p11n_11n</item>
+        <item>@string/id_p12n_12n</item>
+    </string-array>
+
+    <string-array name="additionTrainString">
+        <item>@string/p5_5</item>
+        <item>@string/p69_5</item>
+        <item>@string/p69_69</item>
+        <item>@string/p2n_n</item>
+        <item>@string/p2n_2n</item>
+        <item>@string/p3n_2n</item>
+        <item>@string/p3n_3n</item>
+        <item>@string/p4n_4n</item>
+        <item>@string/p5n_5n</item>
+        <item>@string/p6n_6n</item>
+        <item>@string/p7n_7n</item>
+        <item>@string/p8n_8n</item>
+        <item>@string/p9n_9n</item>
+        <item>@string/p10n_10n</item>
+        <item>@string/p11n_11n</item>
+        <item>@string/p12n_12n</item>
+    </string-array>
+
+    <!--=============                        Subtraction kinds                     ================ -->
+    <string-array name="subtractionTrainStringId">
+        <item>@string/id_m5_5</item>
+        <item>@string/id_m69_5</item>
+        <item>@string/id_m69_69</item>
+        <item>@string/id_m2n_1n</item>
+        <item>@string/id_m2n_2n</item>
+        <item>@string/id_m3n_2n</item>
+        <item>@string/id_m3n_3n</item>
+        <item>@string/id_m4n_4n</item>
+        <item>@string/id_m5n_5n</item>
+        <item>@string/id_m6n_6n</item>
+        <item>@string/id_m7n_7n</item>
+        <item>@string/id_m8n_8n</item>
+        <item>@string/id_m9n_9n</item>
+        <item>@string/id_m10n_10n</item>
+        <item>@string/id_m11n_11n</item>
+        <item>@string/id_m12n_12n</item>
+    </string-array>
+
+    <string-array name="subtractionTrainString">
+        <item>@string/m5_5</item>
+        <item>@string/m69_5</item>
+        <item>@string/m69_69</item>
+        <item>@string/m2n_n</item>
+        <item>@string/m2n_2n</item>
+        <item>@string/m3n_2n</item>
+        <item>@string/m3n_3n</item>
+        <item>@string/m4n_4n</item>
+        <item>@string/m5n_5n</item>
+        <item>@string/m6n_6n</item>
+        <item>@string/m7n_7n</item>
+        <item>@string/m8n_8n</item>
+        <item>@string/m9n_9n</item>
+        <item>@string/m10n_10n</item>
+        <item>@string/m11n_11n</item>
+        <item>@string/m12n_12n</item>
     </string-array>
 
 </resources>

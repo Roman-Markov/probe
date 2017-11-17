@@ -32,25 +32,4 @@ public class ChooseSubTrainFragmentFactory {
                 return new ChooseArithmeticFragment();
         }
     }
-
-    public static PreferenceFragment getSettingsFragment(Context ctxt, int type) {
-        switch (type) {
-
-            case Constants.I_KIND_ARITH_ADDITION:
-                return new SetOptionActivity.TuneAdditionFragment();
-            case Constants.I_KIND_ARITH_SUBTRACTION:
-                return new SetOptionActivity.TuneSubtractionFragment();
-            case Constants.I_KIND_ARITH_MULTIPLICATION:
-                return new SetOptionActivity.TuneMultiplicationFragment();
-            case Constants.I_KIND_ARITH_DIVISION:
-                return new SetOptionActivity.TuneDivisionFragment();
-
-            default:
-                //todo handle more smartly
-                Log.e("TrainingFragmentFactory", "Unknown type of training fragment:" + type);
-                return null;
-        }
-    }
-
-
 }

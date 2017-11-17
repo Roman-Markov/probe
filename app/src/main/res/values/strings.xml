@@ -11,6 +11,8 @@
     <string name="ok">OK</string>
     <string name="start">START</string>
     <string name="pause">PAUSE</string>
+    <string name="rightButtonText">right</string>
+    <string name="wrongButtonText">wrong</string>
 
     <string name="right">Right!</string>
     <string name="wrong">Wrong!</string>
@@ -42,52 +44,34 @@
     <string name="isntSet">Settings for current training isn\'t set yet. Press OPTIONS button to tune training.</string>
 
     <!--=========================================================================================-->
-    <!-- ListPreference with kinds of addition trainings -->
-    <string name="additionKindListKey">additionKindList</string>
-    <string name="additionKindDialogTitle">Kind of training</string>
-    <string name="additionKindSummary">Choose a kind of training</string>
-    <string name="additionKindTitle">Complexity</string>
+    <!--========                                                                          =======-->
+    <!--========        Common strings for various kinds of trainings preferences         =======-->
+    <!--========                                                                          =======-->
+    <!--=========================================================================================-->
+    <!-- Strings for displaying current settings of training -->
+    <string name="displayingSettingsFormat">"%1$-12s"</string>
 
-    <!-- Value of list preference of addition kinds of training  -->
-    <string name="p5_5">1-5 + 1-5</string>
-    <string name="p69_5">6-9 + 1-5</string>
-    <string name="p69_69">6-9 + 6-9</string>
-    <string name="p2n_n">10-100 + 1-10</string>
-    <string name="p2n_2n">10-100 + 10-100</string>
-    <string name="p3n_2n">100-1000 + 10-100</string>
-    <string name="p3n_3n">100-1000 + 100-1000</string>
-    <string name="p4n_4n">1000-10000 + 1000-10000</string>
-    <string name="p5n_5n">10"&#8308;"-10"&#8309;" + 10"&#8308;"-10"&#8309;"</string>
-    <string name="p6n_6n">10"&#8309;"-10"&#8310;" + 10"&#8309;"-10"&#8310;"</string>
-    <string name="p7n_7n">10"&#8310;"-10"&#8311;" + 10"&#8310;"-10"&#8311;"</string>
-    <string name="p8n_8n">10"&#8311;"-10"&#8312;" + 10"&#8311;"-10"&#8312;"</string>
-    <string name="p9n_9n">10"&#8312;"-10"&#8313;" + 10"&#8312;"-10"&#8313;"</string>
-    <string name="p10n_10n">10"&#8313;"-10"&#185;""&#8304;" + 10"&#8313;"-10"&#185;""&#8304;"</string>
-    <string name="p11n_11n">10"&#185;""&#8304;"-10"&#185;""&#185;" + 10"&#185;""&#8304;"-10"&#185;""&#185;"</string>
-    <string name="p12n_12n">10"&#185;""&#185;"-10"&#185;""&#178;" + 10"&#185;""&#185;"-10"&#185;""&#178;"</string>
-
-    <!-- ID of list preference of addition kinds of training  -->
-
-    <string name="id_p5_5">1-5_p_1-5</string>
-    <string name="id_p69_5">6-9_p_1-5</string>
-    <string name="id_p69_69">6-9_p_6-9</string>
-    <string name="id_p2n_1n">2n_p_1n</string>
-    <string name="id_p2n_2n">2n_p_2n</string>
-    <string name="id_p3n_2n">3n_p_2n</string>
-    <string name="id_p3n_3n">3n_p_3n</string>
-    <string name="id_p4n_4n">4n_p_4n</string>
-    <string name="id_p5n_5n">5n_p_5n</string>
-    <string name="id_p6n_6n">6n_p_6n</string>
-    <string name="id_p7n_7n">7n_p_7n</string>
-    <string name="id_p8n_8n">8n_p_8n</string>
-    <string name="id_p9n_9n">9n_p_9n</string>
-    <string name="id_p10n_10n">10n_p_10n</string>
-    <string name="id_p11n_11n">11n_p_11n</string>
-    <string name="id_p12n_12n">12n_p_12n</string>
+    <string name="currentSettings">"Current settings:\n"</string>
+    <string name="kind">"Kind:"</string>
+    <string name="type">"Type:"</string>
+    <string name="amount">"Amount:"</string>
+    <string name="visibility">"Visibility:"</string>
+    <string name="format">"Format:"</string>
+    <string name="honestMode">"Honest:"</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
 
     <!--=========================================================================================-->
+    <!-- Strings for fragments which showes training itself -->
+    <string name="noanswer">No answer</string>
+    <string name="right_result_format" formatted="false">"Your:  %s\nRight: %s"</string>
+    <string name="right_answer_format">"Right: %s"</string>
+    <string name="your">"Your:  "</string>
+    <string name="counterFormat" formatted="false">"%s/ %s/ %s"</string>
+    <string name="exampleResultFormat" formatted="false">"%d:      %s      %s"</string>
+    <string name="resultHeaderFormat" formatted="false">"Result:\n"</string>
+    <!--=========================================================================================-->
     <!-- ListPreference with number of trainings -->
-    <string name="additionQuantityKey">additionQuantity</string>
     <string name="trainingNumber">Number of examples</string>
     <string name="trainingNumberSummary">Number of examples per training set</string>
     <string name="amountListDialogTitle">Amount:</string>
@@ -115,7 +99,6 @@
     <string name="num20">"20"</string>
 
     <!-- ID of list preference number of training  -->
-
     <string name="id1">"n1"</string>
     <string name="id2">"n2"</string>
     <string name="id3">"n3"</string>
@@ -139,7 +122,6 @@
 
     <!--=========================================================================================-->
     <!-- ListPreference with kinds of example format -->
-    <string name="additionFormatListKey">additionFormatList</string>
     <string name="formatListTitle">Type of format</string>
     <string name="formatListSummary">Choose format of example: row or column.</string>
     <string name="formatListDialogTitle">Choose format:</string>
@@ -154,7 +136,6 @@
 
     <!--=========================================================================================-->
     <!-- ListPreference with times of example visibility -->
-    <string name="additionVisTimeListKey">additionVisTimeList</string>
     <string name="visTimeListTitle">Time of example visibility</string>
     <string name="visTimeSummary">Less time more skills</string>
     <string name="visTimeDialogTitle">Choose time:</string>
@@ -187,39 +168,130 @@
     <string name="visTime2secId">2sec</string>
     <string name="visTime1secId">1sec</string>
 
-    <!--=========================================================================================-->
     <!-- CheckBoxPreference to choose honest mode -->
-    <string name="additionCbHonestModeKey">additionCbHonestMode</string>
     <string name="cbHonestModeTitle">Honest mode</string>
     <string name="cbHonestModeSummary">You don\'t type answer and save your time</string>
 
-    <string name="rightButtonText">right</string>
-    <string name="wrongButtonText">wrong</string>
-    <string name="noanswer">No answer</string>
-    <string name="right_result_format" formatted="false">"Your:  %s\nRight: %s"</string>
-    <string name="right_answer_format">"Right: %s"</string>
-    <string name="your">"Your:  "</string>
-    <string name="counterFormat" formatted="false">"%s/ %s/ %s"</string>
-    <string name="exampleResultFormat" formatted="false">"%d:      %s      %s"</string>
-    <string name="resultHeaderFormat" formatted="false">"Result:\n"</string>
-
-
+    <!--=========================================================================================-->
+    <!--========                                                                          =======-->
+    <!--========       Keys for common preferences strings for various trainings          =======-->
+    <!--========                                                                          =======-->
+    <!--=========================================================================================-->
 
     <!-- Types of example format -->
-    <string name="rowFormat">%1$d + %2$d</string>
-    <string name="columnFormat">" %1$d\n+\n %2$d"</string>
-    <string name="currentSettings">"Current settings:\n"</string>
+    <string name="additionQuantityKey">additionQuantity</string>
+    <string name="additionFormatListKey">additionFormatList</string>
+    <string name="additionVisTimeListKey">additionVisTimeList</string>
+    <string name="additionCbHonestModeKey">additionCbHonestMode</string>
 
-    <!-- Strings for displaying current settings of training -->
-    <string name="displayingSettingsFormat">"%1$-12s"</string>
+    <!-- Types of example format -->
+    <string name="additionRowFormat">%1$d + %2$d</string>
+    <string name="additionColumnFormat">" %1$d\n+\n %2$d"</string>
 
-    <string name="kind">"Kind:"</string>
-    <string name="type">"Type:"</string>
-    <string name="amount">"Amount:"</string>
-    <string name="visibility">"Visibility:"</string>
-    <string name="format">"Format:"</string>
-    <string name="honestMode">"Honest:"</string>
-    <string name="yes">yes</string>
-    <string name="no">no</string>
+    <!--============                     Subtraction                            =================-->
+    <string name="subtractionQuantityKey">subtractionQuantity</string>
+    <string name="subtractionFormatListKey">additionFormatList</string>
+    <string name="subtractionCbHonestModeKey">subtractionCbHonestMode</string>
+    <string name="subtractionVisTimeListKey">subtractionVisTimeList</string>
+
+    <!-- Types of example format -->
+    <string name="subtractionRowFormat">%1$d - %2$d</string>
+    <string name="subtractionColumnFormat">" %1$d\n-\n %2$d"</string>
+
+    <!--=========================================================================================-->
+    <!--========                                                                          =======-->
+    <!--========                  Addition trainings preferences strings                  =======-->
+    <!--========                                                                          =======-->
+    <!--=========================================================================================-->
+
+    <!-- ListPreference with kinds of addition trainings -->
+    <string name="additionKindListKey">additionKindList</string>
+    <string name="additionKindDialogTitle">Kind of training</string>
+    <string name="additionKindSummary">Choose a kind of training</string>
+    <string name="additionKindTitle">Complexity</string>
+
+    <!-- Value of list preference of addition kinds of training  -->
+    <string name="p5_5">1-5 + 1-5</string>
+    <string name="p69_5">6-9 + 1-5</string>
+    <string name="p69_69">6-9 + 6-9</string>
+    <string name="p2n_n">10-100 + 1-10</string>
+    <string name="p2n_2n">10-100 + 10-100</string>
+    <string name="p3n_2n">100-1000 + 10-100</string>
+    <string name="p3n_3n">100-1000 + 100-1000</string>
+    <string name="p4n_4n">1000-10000 + 1000-10000</string>
+    <string name="p5n_5n">10"&#8308;"-10"&#8309;" + 10"&#8308;"-10"&#8309;"</string>
+    <string name="p6n_6n">10"&#8309;"-10"&#8310;" + 10"&#8309;"-10"&#8310;"</string>
+    <string name="p7n_7n">10"&#8310;"-10"&#8311;" + 10"&#8310;"-10"&#8311;"</string>
+    <string name="p8n_8n">10"&#8311;"-10"&#8312;" + 10"&#8311;"-10"&#8312;"</string>
+    <string name="p9n_9n">10"&#8312;"-10"&#8313;" + 10"&#8312;"-10"&#8313;"</string>
+    <string name="p10n_10n">10"&#8313;"-10"&#185;""&#8304;" + 10"&#8313;"-10"&#185;""&#8304;"</string>
+    <string name="p11n_11n">10"&#185;""&#8304;"-10"&#185;""&#185;" + 10"&#185;""&#8304;"-10"&#185;""&#185;"</string>
+    <string name="p12n_12n">10"&#185;""&#185;"-10"&#185;""&#178;" + 10"&#185;""&#185;"-10"&#185;""&#178;"</string>
+
+    <!-- ID of list preference of addition kinds of training  -->
+    <string name="id_p5_5">1-5_p_1-5</string>
+    <string name="id_p69_5">6-9_p_1-5</string>
+    <string name="id_p69_69">6-9_p_6-9</string>
+    <string name="id_p2n_1n">2n_p_1n</string>
+    <string name="id_p2n_2n">2n_p_2n</string>
+    <string name="id_p3n_2n">3n_p_2n</string>
+    <string name="id_p3n_3n">3n_p_3n</string>
+    <string name="id_p4n_4n">4n_p_4n</string>
+    <string name="id_p5n_5n">5n_p_5n</string>
+    <string name="id_p6n_6n">6n_p_6n</string>
+    <string name="id_p7n_7n">7n_p_7n</string>
+    <string name="id_p8n_8n">8n_p_8n</string>
+    <string name="id_p9n_9n">9n_p_9n</string>
+    <string name="id_p10n_10n">10n_p_10n</string>
+    <string name="id_p11n_11n">11n_p_11n</string>
+    <string name="id_p12n_12n">12n_p_12n</string>
+
+    <!--=========================================================================================-->
+    <!--========                                                                          =======-->
+    <!--========                 Subtraction trainings preferences strings                =======-->
+    <!--========                                                                          =======-->
+    <!--=========================================================================================-->
+
+    <!-- ListPreference with kinds of subtraction trainings -->
+    <string name="subtractionKindListKey">subtractionKindList</string>
+    <string name="subtractionKindDialogTitle">Kind of training</string>
+    <string name="subtractionKindSummary">Choose a kind of training</string>
+    <string name="subtractionKindTitle">Complexity</string>
+
+    <!-- Value of list preference of subtraction kinds of training  -->
+    <string name="m5_5">1-5 - 1-5</string>
+    <string name="m69_5">6-9 - 1-5</string>
+    <string name="m69_69">6-9 - 6-9</string>
+    <string name="m2n_n">10-100 - 1-10</string>
+    <string name="m2n_2n">10-100 - 10-100</string>
+    <string name="m3n_2n">100-1000 - 10-100</string>
+    <string name="m3n_3n">100-1000 - 100-1000</string>
+    <string name="m4n_4n">1000-10000 - 1000-10000</string>
+    <string name="m5n_5n">10"&#8308;"-10"&#8309;" - 10"&#8308;"-10"&#8309;"</string>
+    <string name="m6n_6n">10"&#8309;"-10"&#8310;" - 10"&#8309;"-10"&#8310;"</string>
+    <string name="m7n_7n">10"&#8310;"-10"&#8311;" - 10"&#8310;"-10"&#8311;"</string>
+    <string name="m8n_8n">10"&#8311;"-10"&#8312;" - 10"&#8311;"-10"&#8312;"</string>
+    <string name="m9n_9n">10"&#8312;"-10"&#8313;" - 10"&#8312;"-10"&#8313;"</string>
+    <string name="m10n_10n">10"&#8313;"-10"&#185;""&#8304;" - 10"&#8313;"-10"&#185;""&#8304;"</string>
+    <string name="m11n_11n">10"&#185;""&#8304;"-10"&#185;""&#185;" - 10"&#185;""&#8304;"-10"&#185;""&#185;"</string>
+    <string name="m12n_12n">10"&#185;""&#185;"-10"&#185;""&#178;" - 10"&#185;""&#185;"-10"&#185;""&#178;"</string>
+
+    <!-- ID of list preference of subtraction kinds of training  -->
+    <string name="id_m5_5">1-5_p_1-5</string>
+    <string name="id_m69_5">6-9_p_1-5</string>
+    <string name="id_m69_69">6-9_p_6-9</string>
+    <string name="id_m2n_1n">2n_p_1n</string>
+    <string name="id_m2n_2n">2n_p_2n</string>
+    <string name="id_m3n_2n">3n_p_2n</string>
+    <string name="id_m3n_3n">3n_p_3n</string>
+    <string name="id_m4n_4n">4n_p_4n</string>
+    <string name="id_m5n_5n">5n_p_5n</string>
+    <string name="id_m6n_6n">6n_p_6n</string>
+    <string name="id_m7n_7n">7n_p_7n</string>
+    <string name="id_m8n_8n">8n_p_8n</string>
+    <string name="id_m9n_9n">9n_p_9n</string>
+    <string name="id_m10n_10n">10n_p_10n</string>
+    <string name="id_m11n_11n">11n_p_11n</string>
+    <string name="id_m12n_12n">12n_p_12n</string>
 
 </resources>
