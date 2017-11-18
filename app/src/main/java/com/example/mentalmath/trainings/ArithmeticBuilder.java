@@ -16,12 +16,48 @@ public abstract class ArithmeticBuilder extends BaseExampleBuilder {
 
     protected int mFormat;
 
+    protected long mNumberOfDigit1;
+    protected long mNumberOfDigit2;
+
+    protected long mFirstLowBound;
+    protected long mFirstHighBound;
+
+    protected long mSecondLowBound;
+    protected long mSecondHighBound;
+
     public ArithmeticBuilder(String name) {
         super(name);
     }
 
+    ArithmeticBuilder(int n, int m, String name) {
+        super(name);
+        mNumberOfDigit1 = n;
+        mNumberOfDigit2 = m;
+    }
+
+    ArithmeticBuilder(long firstLowBound, long firstHighBound,
+                          long secondLowBound, long secondHighBound, String name) {
+        super(name);
+        mFirstLowBound = firstLowBound;
+        mFirstHighBound = firstHighBound;
+        mSecondLowBound = secondLowBound;
+        mSecondHighBound = secondHighBound;
+    }
+
     public void setFormat(int format) {
         mFormat = format;
+    }
+
+    public long[] getNumbersForExample() {
+        long[] result = new long[2];
+        if (mNumberOfDigit1 > 0 && mNumberOfDigit2 > 0) {
+            result = generateRandoms(mNumberOfDigit1, mNumberOfDigit2);
+        } else if (mFirstHighBound > 0 && mSecondHighBound > 0) {
+            result = generateRandomFromRange(mFirstLowBound, mFirstHighBound, mSecondLowBound, mSecondHighBound);
+        } else {
+            Log.e(getClass().getSimpleName(), "Can't generate example.");
+        }
+        return result;
     }
 
     protected long[] generateRandoms(long... digitNumber) {

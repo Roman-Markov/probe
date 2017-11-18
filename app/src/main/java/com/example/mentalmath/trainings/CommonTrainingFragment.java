@@ -326,7 +326,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
             case SetOrStartFragment.I_KIND_ARITH_SUBTRACTION:
                 return new SubtractionFactory(inflater, container, activity);
             case SetOrStartFragment.I_KIND_ARITH_MULTIPLICATION:
-                // return new AdditionFactory(inflater, container, activity);
+                return new MultiplicationFactory(inflater, container, activity);
             case SetOrStartFragment.I_KIND_ARITH_DIVISION:
                 // return new AdditionFactory(inflater, container, activity);
             default:

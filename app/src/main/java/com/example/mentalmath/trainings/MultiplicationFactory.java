@@ -12,7 +12,7 @@ import com.example.mentalmath.core.Helper;
  * Created by Роман on 27.09.2017.
  */
 
-public class AdditionFactory extends ATrainingPartsAbstractFactory {
+public class MultiplicationFactory extends ATrainingPartsAbstractFactory {
 
     public static final String KIND_KEY;
     public static final String AMOUNT_KEY;
@@ -31,44 +31,38 @@ public class AdditionFactory extends ATrainingPartsAbstractFactory {
 
 
     static {
-        KIND_KEY = Helper.mGlobalContext.getString(R.string.additionKindListKey);
-        AMOUNT_KEY = Helper.mGlobalContext.getString(R.string.additionQuantityKey);
-        FORMAT_KEY = Helper.mGlobalContext.getString(R.string.additionFormatListKey);
-        VISTIME_KEY = Helper.mGlobalContext.getString(R.string.additionVisTimeListKey);
-        HONESTMODE_KEY = Helper.mGlobalContext.getString(R.string.additionCbHonestModeKey);
+        KIND_KEY = Helper.mGlobalContext.getString(R.string.multiplicationKindListKey);
+        AMOUNT_KEY = Helper.mGlobalContext.getString(R.string.multiplicationQuantityKey);
+        FORMAT_KEY = Helper.mGlobalContext.getString(R.string.multiplicationFormatListKey);
+        VISTIME_KEY = Helper.mGlobalContext.getString(R.string.multiplicationVisTimeListKey);
+        HONESTMODE_KEY = Helper.mGlobalContext.getString(R.string.multiplicationCbHonestModeKey);
 
-        DEF_VAL_FOR_KIND = Helper.mGlobalContext.getString(R.string.id_p5_5);;
+        DEF_VAL_FOR_KIND = Helper.mGlobalContext.getString(R.string.id_x5_5);;
         DEF_VAL_FOR_AMOUNT = Helper.mGlobalContext.getString(R.string.id1);;
         DEF_VAL_FOR_FORMAT = Helper.mGlobalContext.getString(R.string.formatAsRowId);;
         DEF_VAL_FOR_VISTIME = Helper.mGlobalContext.getString(R.string.visTimeAlwaysId);;
         DEF_VAL_FOR_HONESTMODE = Helper.mGlobalContext.getString(R.string.no);;
     }
 
-    public AdditionFactory(LayoutInflater inflater, ViewGroup container,
-                           Activity activity) {
+    public MultiplicationFactory(LayoutInflater inflater, ViewGroup container,
+                              Activity activity) {
         super(inflater, container, activity);
     }
 
     @Override
     public IExampleDisplay getExampleDisplay(){
         SimpleExampleDisplay display = new SimpleExampleDisplay(mInflater, mViewGroup,
-            getExampleBuilder());
+                getExampleBuilder());
         String visTime = mPrefs.getString(VISTIME_KEY, "always");
         display.setVisibilityTime(visTime);
         return display;
     }
 
     @Override
-    public IAnswerField getAnswerField(){return new SimpleAnswerField(mInflater, mViewGroup, isHonestModeEnabled());}
-
-    @Override
-    public ISessionResultField getSessionResultField(){return new SimpleSessionResultField(mInflater, mViewGroup);}
-
-    @Override
     public IExampleBuilder getExampleBuilder() {
 
         String kind = mPrefs.getString(KIND_KEY, "simple");
-        AdditionBuilder builder =(AdditionBuilder) AdditionBuilder.create(kind);
+        MultiplicationBuilder builder =(MultiplicationBuilder) MultiplicationBuilder.create(kind);
         String format = mPrefs.getString(FORMAT_KEY, "row");
         int formatType = IExampleBuilder.ROW_FORMAT;
         switch (format) {

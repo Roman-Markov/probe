@@ -167,4 +167,31 @@
         <item>@string/m12n_12n</item>
     </string-array>
 
+    <!--=============                  Multiplication kinds                     ================ -->
+    <string-array name="multiplicationTrainStringId">
+        <item>@string/id_x5_5</item>
+        <item>@string/id_x69_5</item>
+        <item>@string/id_x69_69</item>
+        <item>@string/id_x2n_1n</item>
+        <item>@string/id_x2n_2n</item>
+        <item>@string/id_x3n_2n</item>
+        <item>@string/id_x3n_3n</item>
+        <item>@string/id_x4n_4n</item>
+        <item>@string/id_x5n_5n</item>
+        <item>@string/id_x6n_6n</item>
+    </string-array>
+
+    <string-array name="multiplicationTrainString">
+        <item>@string/x5_5</item>
+        <item>@string/x69_5</item>
+        <item>@string/x69_69</item>
+        <item>@string/x2n_n</item>
+        <item>@string/x2n_2n</item>
+        <item>@string/x3n_2n</item>
+        <item>@string/x3n_3n</item>
+        <item>@string/x4n_4n</item>
+        <item>@string/x5n_5n</item>
+        <item>@string/x6n_6n</item>
+    </string-array>
+
 </resources>

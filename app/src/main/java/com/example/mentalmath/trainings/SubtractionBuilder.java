@@ -28,7 +28,7 @@ public class SubtractionBuilder extends ArithmeticBuilder {
     public final static String M12N_12N_ID = "12n_m_12n";
 
 
-    public static IExampleBuilder getSubtractionBuilder(String id) {
+    public static IExampleBuilder create(String id) {
         switch (id) {
             case M15_15_ID:
                 return new SubtractionBuilder(1, 5, 1, 5, M15_15_ID);
@@ -69,41 +69,18 @@ public class SubtractionBuilder extends ArithmeticBuilder {
         }
     }
 
-    private long mNumberOfDigit1;
-    private long mNumberOfDigit2;
-
-    private long mFirstLowBound;
-    private long mFirstHighBound;
-
-    private long mSecondLowBound;
-    private long mSecondHighBound;
-
-
     SubtractionBuilder(int n, int m, String name) {
-        super(name);
-        mNumberOfDigit1 = n;
-        mNumberOfDigit2 = m;
+        super(n, m, name);
     }
 
     SubtractionBuilder(long firstLowBound, long firstHighBound,
                     long secondLowBound, long secondHighBound, String name) {
-        super(name);
-        mFirstLowBound = firstLowBound;
-        mFirstHighBound = firstHighBound;
-        mSecondLowBound = secondLowBound;
-        mSecondHighBound = secondHighBound;
+        super(firstLowBound, firstHighBound, secondLowBound, secondHighBound, name);
     }
 
     @Override
     public String generateExample() {
-        long[] result = new long[2];
-        if (mNumberOfDigit1 > 0 && mNumberOfDigit2 > 0) {
-            result = generateRandoms(mNumberOfDigit1, mNumberOfDigit2);
-        }  else if (mFirstHighBound > 0 && mSecondHighBound > 0) {
-            result = generateRandomFromRange(mFirstLowBound, mFirstHighBound, mSecondLowBound, mSecondHighBound);
-        } else {
-            Log.e(getClass().getSimpleName(), "Can't generate example.");
-        }
+        long[] result = getNumbersForExample();
         long big = result[1];
         long little = result[0];
         mResult = big - little;

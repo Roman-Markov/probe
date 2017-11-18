@@ -69,7 +69,7 @@ public class SetOptionActivity extends Activity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.addition_prefs);
+            addPreferencesFromResource(R.xml.multiplication_prefs);
         }
     }
 

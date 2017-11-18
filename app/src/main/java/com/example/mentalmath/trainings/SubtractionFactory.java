@@ -41,7 +41,7 @@ public class SubtractionFactory extends ATrainingPartsAbstractFactory {
         DEF_VAL_FOR_AMOUNT = Helper.mGlobalContext.getString(R.string.id1);;
         DEF_VAL_FOR_FORMAT = Helper.mGlobalContext.getString(R.string.formatAsRowId);;
         DEF_VAL_FOR_VISTIME = Helper.mGlobalContext.getString(R.string.visTimeAlwaysId);;
-        DEF_VAL_FOR_HONESTMODE = Helper.mGlobalContext.getString(R.string.subtractionKindListKey);;
+        DEF_VAL_FOR_HONESTMODE = Helper.mGlobalContext.getString(R.string.no);;
     }
 
     public SubtractionFactory(LayoutInflater inflater, ViewGroup container,
@@ -62,7 +62,7 @@ public class SubtractionFactory extends ATrainingPartsAbstractFactory {
     public IExampleBuilder getExampleBuilder() {
 
         String kind = mPrefs.getString(KIND_KEY, "simple");
-        SubtractionBuilder builder =(SubtractionBuilder) SubtractionBuilder.getSubtractionBuilder(kind);
+        SubtractionBuilder builder =(SubtractionBuilder) SubtractionBuilder.create(kind);
         String format = mPrefs.getString(FORMAT_KEY, "row");
         int formatType = IExampleBuilder.ROW_FORMAT;
         switch (format) {

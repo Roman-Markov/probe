@@ -62,6 +62,7 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
                 mDescriptionInflater = new SubtractionDescriptionInflater(I_KIND_ARITH_SUBTRACTION);
                 break;
             case I_KIND_ARITH_MULTIPLICATION:
+                mDescriptionInflater = new MultiplicationDescriptionInflater(I_KIND_ARITH_MULTIPLICATION);
                 break;
             case I_KIND_ARITH_DIVISION:
                 break;

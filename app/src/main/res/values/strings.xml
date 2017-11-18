@@ -190,13 +190,23 @@
 
     <!--============                     Subtraction                            =================-->
     <string name="subtractionQuantityKey">subtractionQuantity</string>
-    <string name="subtractionFormatListKey">additionFormatList</string>
+    <string name="subtractionFormatListKey">subtractionFormatList</string>
     <string name="subtractionCbHonestModeKey">subtractionCbHonestMode</string>
     <string name="subtractionVisTimeListKey">subtractionVisTimeList</string>
 
     <!-- Types of example format -->
     <string name="subtractionRowFormat">%1$d - %2$d</string>
     <string name="subtractionColumnFormat">" %1$d\n-\n %2$d"</string>
+
+    <!--============                  Multiplication                            =================-->
+    <string name="multiplicationQuantityKey">multiplicationQuantity</string>
+    <string name="multiplicationFormatListKey">multiplicationFormatList</string>
+    <string name="multiplicationCbHonestModeKey">multiplicationCbHonestMode</string>
+    <string name="multiplicationVisTimeListKey">multiplicationVisTimeList</string>
+
+    <!-- Types of example format -->
+    <string name="multiplicationRowFormat">%1$d * %2$d</string>
+    <string name="multiplicationColumnFormat">" %1$d\n*\n %2$d"</string>
 
     <!--=========================================================================================-->
     <!--========                                                                          =======-->
@@ -293,5 +303,41 @@
     <string name="id_m10n_10n">10n_m_10n</string>
     <string name="id_m11n_11n">11n_m_11n</string>
     <string name="id_m12n_12n">12n_m_12n</string>
+
+    <!--=========================================================================================-->
+    <!--========                                                                          =======-->
+    <!--========              Multiplication trainings preferences strings                =======-->
+    <!--========                                                                          =======-->
+    <!--=========================================================================================-->
+
+    <!-- ListPreference with kinds of multiplication trainings -->
+    <string name="multiplicationKindListKey">multiplicationKindList</string>
+    <string name="multiplicationKindDialogTitle">Kind of training</string>
+    <string name="multiplicationKindSummary">Choose a kind of training</string>
+    <string name="multiplicationKindTitle">Complexity</string>
+
+    <!-- Value of list preference of multiplication kinds of training  -->
+    <string name="x5_5">1-5 x 1-5</string>
+    <string name="x69_5">6-9 x 1-5</string>
+    <string name="x69_69">6-9 x 6-9</string>
+    <string name="x2n_n">10-100 x 1-10</string>
+    <string name="x2n_2n">10-100 x 10-100</string>
+    <string name="x3n_2n">100-1000 x 10-100</string>
+    <string name="x3n_3n">100-1000 x 100-1000</string>
+    <string name="x4n_4n">1000-10000 x 1000-10000</string>
+    <string name="x5n_5n">10"&#8308;"-10"&#8309;" x 10"&#8308;"-10"&#8309;"</string>
+    <string name="x6n_6n">10"&#8309;"-10"&#8310;" x 10"&#8309;"-10"&#8310;"</string>
+
+    <!-- ID of list preference of multiplication kinds of training  -->
+    <string name="id_x5_5">1-5_x_1-5</string>
+    <string name="id_x69_5">6-9_x_1-5</string>
+    <string name="id_x69_69">6-9_x_6-9</string>
+    <string name="id_x2n_1n">2n_x_1n</string>
+    <string name="id_x2n_2n">2n_x_2n</string>
+    <string name="id_x3n_2n">3n_x_2n</string>
+    <string name="id_x3n_3n">3n_x_3n</string>
+    <string name="id_x4n_4n">4n_x_4n</string>
+    <string name="id_x5n_5n">5n_x_5n</string>
+    <string name="id_x6n_6n">6n_x_6n</string>
 
 </resources>

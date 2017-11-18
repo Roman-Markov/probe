@@ -97,6 +97,7 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
         mCurrentExample = mExampleBuilder.generateExample();
         mExampleView.setText(mCurrentExample);
         if (mVisibilityTime != 0) {
+            // remove previous gui updaters to avoid hiding example in unexpected time
             if (mGuiUpdater != null) {
                 mHandler.removeCallbacks(mGuiUpdater);
             }

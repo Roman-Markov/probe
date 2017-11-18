@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="@string/multiplicationKindListKey"
+        android:title="@string/multiplicationKindTitle"
+        android:summary="@string/multiplicationKindSummary"
+        android:dialogTitle="@string/multiplicationKindDialogTitle"
+        android:entries="@array/multiplicationTrainString"
+        android:entryValues="@array/multiplicationTrainStringId"
+        android:defaultValue="@string/id_x5_5"/>
+
+    <ListPreference
+        android:key="@string/multiplicationQuantityKey"
+        android:title="@string/trainingNumber"
+        android:summary="@string/trainingNumberSummary"
+        android:dialogTitle="@string/amountListDialogTitle"
+        android:entries="@array/numberOfExamplesStrings"
+        android:entryValues="@array/numberOfExamplesStringsId"
+        android:defaultValue="@string/id1"/>
+
+    <ListPreference
+        android:key="@string/multiplicationFormatListKey"
+        android:title="@string/formatListTitle"
+        android:summary="@string/formatListSummary"
+        android:dialogTitle="@string/formatListDialogTitle"
+        android:entries="@array/formatExample"
+        android:entryValues="@array/formatExampleId"
+        android:defaultValue="@string/formatAsRowId"/>
+
+    <ListPreference
+        android:key="@string/multiplicationVisTimeListKey"
+        android:title="@string/visTimeListTitle"
+        android:summary="@string/visTimeSummary"
+        android:dialogTitle="@string/visTimeDialogTitle"
+        android:entries="@array/visTime"
+        android:entryValues="@array/visTimeId"
+        android:defaultValue="@string/visTimeAlwaysId"/>
+
+    <CheckBoxPreference
+        android:key="@string/multiplicationCbHonestModeKey"
+        android:title="@string/cbHonestModeTitle"
+        android:summary="@string/cbHonestModeSummary"/>
+
+
+</PreferenceScreen>
