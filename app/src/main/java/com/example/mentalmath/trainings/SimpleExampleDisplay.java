@@ -34,6 +34,7 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
     private String mCurrentExample;
     private int mVisibilityTime = 0;
     private boolean mIsShouldShowExample = true;
+    private boolean mIsShouldHideExample = true;
 
     private Handler mHandler = new Handler();
     private Runnable mGuiUpdater;
@@ -92,15 +93,21 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
 
     @Override
     public void showNewExample() {
+        mIsShouldHideExample = true;
         mCurrentExample = mExampleBuilder.generateExample();
         mExampleView.setText(mCurrentExample);
         if (mVisibilityTime != 0) {
+            if (mGuiUpdater != null) {
+                mHandler.removeCallbacks(mGuiUpdater);
+            }
             mGuiUpdater = new Runnable() {
                 @Override
                 public void run() {
                     synchronized (SimpleExampleDisplay.this) {
-                        mIsShouldShowExample = false;
-                        hideExample();
+                        if (mIsShouldHideExample) {
+                            mIsShouldShowExample = false;
+                            hideExample();
+                        }
                     }
                 }
             };
@@ -121,8 +128,9 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
     }
 
     @Override
-    public void showHiddenExample() {
+    public synchronized void showHiddenExample() {
         mExampleView.setText(mCurrentExample);
+        mIsShouldHideExample = false;
     }
 
     @Override

@@ -63,8 +63,11 @@ public abstract class ArithmeticBuilder extends BaseExampleBuilder {
             return null;
         }
         long[] result = new long[2];
+
         result[0] = rnd(firstLowBound, firstHighBound);
         result[1] = rnd(secondLowBound, secondHighBound);
+
+        swapBigLittle(result);
 
         return result;
     }
