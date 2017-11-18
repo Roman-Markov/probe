@@ -2,7 +2,6 @@ package com.example.mentalmath.trainchoice;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.preference.PreferenceFragment;
 import android.util.Log;
 
 import com.example.mentalmath.core.Constants;
@@ -15,7 +14,7 @@ public class ChooseSubTrainFragmentFactory {
 
     public static Fragment getFragmentByType(Context ctxt, int type) {
         switch (type) {
-            case Constants.I_KIND_ARITHMETICS:
+            case SetOrStartFragment.I_KIND_ARITHMETICS:
                 return new ChooseArithmeticFragment();
             case Constants.I_KIND_EQUATIONS:
                 return new ChooseEquationsFragment();

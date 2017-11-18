@@ -32,20 +32,20 @@ public class ChooseArithmeticFragment extends ChooseSubTrainFragment {
         int kind = -1;
         switch (v.getId()) {
             case R.id.addition:
-                kind = Constants.I_KIND_ARITH_ADDITION;
+                kind = SetOrStartFragment.I_KIND_ARITH_ADDITION;
                 break;
             case R.id.subtraction:
-                kind = Constants.I_KIND_ARITH_SUBTRACTION;
+                kind = SetOrStartFragment.I_KIND_ARITH_SUBTRACTION;
                 break;
             case R.id.multiplication:
-                kind = Constants.I_KIND_ARITH_MULTIPLICATION;
+                kind = SetOrStartFragment.I_KIND_ARITH_MULTIPLICATION;
                 break;
             case R.id.division:
-                kind = Constants.I_KIND_ARITH_DIVISION;
+                kind = SetOrStartFragment.I_KIND_ARITH_DIVISION;
                 break;
             default:
                 // todo: handle more smartly this case
-                kind = Constants.I_KIND_ARITHMETICS;
+                kind = SetOrStartFragment.I_KIND_ARITHMETICS;
                 Log.e(getClass().getSimpleName(), "Unknown type of training fragment:");
         }
         Intent i = new Intent(getActivity(), SetOptionOrStartTrainActivity.class);

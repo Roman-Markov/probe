@@ -20,6 +20,12 @@ import com.example.mentalmath.trainings.TrainingActivity;
 
 public class SetOrStartFragment extends ChooseSubTrainFragment {
 
+    public static final int I_KIND_ARITHMETICS = 0;
+    public static final int I_KIND_ARITH_ADDITION = 1;
+    public static final int I_KIND_ARITH_SUBTRACTION = 2;
+    public static final int I_KIND_ARITH_MULTIPLICATION = 3;
+    public static final int I_KIND_ARITH_DIVISION = 4;
+
     private IDescriptionInflater mDescriptionInflater;
 
     private TextView mTextView;
@@ -49,15 +55,15 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
     private void init(int optionKind) {
 
         switch (optionKind) {
-            case Constants.I_KIND_ARITH_ADDITION:
-                mDescriptionInflater = new AdditionDescriptionInflater(Constants.I_KIND_ARITH_ADDITION);
+            case I_KIND_ARITH_ADDITION:
+                mDescriptionInflater = new AdditionDescriptionInflater(I_KIND_ARITH_ADDITION);
                 break;
-            case Constants.I_KIND_ARITH_SUBTRACTION:
-                mDescriptionInflater = new SubtractionDescriptionInflater(Constants.I_KIND_ARITH_SUBTRACTION);
+            case I_KIND_ARITH_SUBTRACTION:
+                mDescriptionInflater = new SubtractionDescriptionInflater(I_KIND_ARITH_SUBTRACTION);
                 break;
-            case Constants.I_KIND_ARITH_MULTIPLICATION:
+            case I_KIND_ARITH_MULTIPLICATION:
                 break;
-            case Constants.I_KIND_ARITH_DIVISION:
+            case I_KIND_ARITH_DIVISION:
                 break;
             default:
                 Log.e(getClass().getSimpleName(), "Unknown type of arithmetic training: " + optionKind);
@@ -72,7 +78,7 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
             case R.id.start:
                 i = new Intent(getActivity(), TrainingActivity.class);
                 //hardcoded yet
-                i.putExtra(Constants.KEY_KIND_OF_TRAININGS, ExampleBuilderFactory.N_PLUS_M);
+                i.putExtra(Constants.KEY_KIND_OF_TRAININGS, mDescriptionInflater.getKind());
                 break;
             default:
                 Log.e(getClass().getSimpleName(), "Unknown id of button.");

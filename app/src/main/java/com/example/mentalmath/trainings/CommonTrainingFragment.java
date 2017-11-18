@@ -14,7 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mentalmath.R;
+import com.example.mentalmath.core.Constants;
 import com.example.mentalmath.core.Helper;
+import com.example.mentalmath.trainchoice.SetOrStartFragment;
 
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -52,13 +54,14 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         super.onCreateView(inflater, container, onSavedInstanceState);
 
         if (mIsFirstRunning) {
+            int kind = getActivity().getIntent().getIntExtra(Constants.KEY_KIND_OF_TRAININGS, -1);
             errorLog("first running");
             setRetainInstance(true);
             mIsFirstRunning = false;
 
             mParentLayout = (LinearLayout) inflater.inflate(R.layout.common_training, container, false);
 
-            constructAllFields(inflater, container);
+            constructAllFields(inflater, container, kind);
             addAllToParent(mParentLayout);
             mCounterView = ((SimpleButtonField) mButtonField).getCounterView();
             mStateHandler = new TrainingStateHandler(this, mButtonField);
@@ -254,10 +257,10 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     }
 
     // crates all fields
-    private void constructAllFields(LayoutInflater inflater, ViewGroup container) {
+    private void constructAllFields(LayoutInflater inflater, ViewGroup container, int kind) {
         errorLog("constructAllFields():");
 
-        ITrainingPartsFactory factory = getTrainingFactory(inflater, container, getActivity());
+        ITrainingPartsFactory factory = getTrainingFactory(inflater, container, getActivity(), kind);
 
         mStopWatcherField   = factory.getStopWatcherField();
         mExampleDisplay     = factory.getExampleDisplay();
@@ -316,9 +319,19 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         return sb.toString();
     }
 
-    // todo
-    private ITrainingPartsFactory getTrainingFactory(LayoutInflater inflater, ViewGroup container, Activity activity) {
-        errorLog("getTrainingFactory():");
+    private ITrainingPartsFactory getTrainingFactory(LayoutInflater inflater, ViewGroup container, Activity activity, int kind) {
+        switch (kind) {
+            case SetOrStartFragment.I_KIND_ARITH_ADDITION:
+                return new AdditionFactory(inflater, container, activity);
+            case SetOrStartFragment.I_KIND_ARITH_SUBTRACTION:
+                return new SubtractionFactory(inflater, container, activity);
+            case SetOrStartFragment.I_KIND_ARITH_MULTIPLICATION:
+                // return new AdditionFactory(inflater, container, activity);
+            case SetOrStartFragment.I_KIND_ARITH_DIVISION:
+                // return new AdditionFactory(inflater, container, activity);
+            default:
+                errorLog("Unknown type of training: " + kind);
+        }
         return new AdditionFactory(inflater, container, activity);
     }
 

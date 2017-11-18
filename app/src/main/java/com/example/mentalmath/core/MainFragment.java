@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.trainchoice.ChooseSubTrainActivity;
+import com.example.mentalmath.trainchoice.SetOrStartFragment;
 
 /**
  * Fragments which is dynamically attached to {@link MainActivity} to show choice of types of
@@ -43,7 +44,7 @@ public class MainFragment extends Fragment {
         int kind = 0;
         switch (v.getId()) {
             case R.id.ariphmetics:
-                kind = Constants.I_KIND_ARITHMETICS;
+                kind = SetOrStartFragment.I_KIND_ARITHMETICS;
                 break;
             case R.id.equations:
                 kind = Constants.I_KIND_EQUATIONS;
@@ -59,7 +60,7 @@ public class MainFragment extends Fragment {
                 break;
             default:
                 //todo: handle more smartly this case
-                kind = Constants.I_KIND_ARITHMETICS;
+                kind = SetOrStartFragment.I_KIND_ARITHMETICS;
                 Log.e(getClass().getSimpleName(), "Unknown type of training fragment:");
         }
 

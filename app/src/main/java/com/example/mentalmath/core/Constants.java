@@ -9,12 +9,6 @@ public interface Constants {
     public static final String KEY_KIND_OF_TRAININGS = "train";
     public static final String KEY_KIND_OF_OPTIONS = "option";
 
-    public static final int I_KIND_ARITHMETICS = 0;
-    public static final int I_KIND_ARITH_ADDITION = 1;
-    public static final int I_KIND_ARITH_SUBTRACTION = 2;
-    public static final int I_KIND_ARITH_MULTIPLICATION = 3;
-    public static final int I_KIND_ARITH_DIVISION = 4;
-
     public static final int I_KIND_EQUATIONS = 100;
     public static final int I_KIND_MATRIX = 200;
     public static final int I_KIND_MULTI_EQUATIONS = 300;

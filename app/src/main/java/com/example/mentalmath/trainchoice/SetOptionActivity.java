@@ -2,7 +2,6 @@ package com.example.mentalmath.trainchoice;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.util.Log;
@@ -33,13 +32,13 @@ public class SetOptionActivity extends Activity {
     public PreferenceFragment getSettingsFragment(int type) {
         switch (type) {
 
-            case Constants.I_KIND_ARITH_ADDITION:
+            case SetOrStartFragment.I_KIND_ARITH_ADDITION:
                 return new SetOptionActivity.TuneAdditionFragment();
-            case Constants.I_KIND_ARITH_SUBTRACTION:
+            case SetOrStartFragment.I_KIND_ARITH_SUBTRACTION:
                 return new SetOptionActivity.TuneSubtractionFragment();
-            case Constants.I_KIND_ARITH_MULTIPLICATION:
+            case SetOrStartFragment.I_KIND_ARITH_MULTIPLICATION:
                 return new SetOptionActivity.TuneMultiplicationFragment();
-            case Constants.I_KIND_ARITH_DIVISION:
+            case SetOrStartFragment.I_KIND_ARITH_DIVISION:
                 return new SetOptionActivity.TuneDivisionFragment();
 
             default:

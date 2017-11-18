@@ -99,26 +99,26 @@
     <string name="num20">"20"</string>
 
     <!-- ID of list preference number of training  -->
-    <string name="id1">"n1"</string>
-    <string name="id2">"n2"</string>
-    <string name="id3">"n3"</string>
-    <string name="id4">"n4"</string>
-    <string name="id5">"n5"</string>
-    <string name="id6">"n6"</string>
-    <string name="id7">"n7"</string>
-    <string name="id8">"n8"</string>
-    <string name="id9">"n9"</string>
-    <string name="id10">"n10"</string>
-    <string name="id11">"n11"</string>
-    <string name="id12">"n12"</string>
-    <string name="id13">"n13"</string>
-    <string name="id14">"n14"</string>
-    <string name="id15">"n15"</string>
-    <string name="id16">"n16"</string>
-    <string name="id17">"n17"</string>
-    <string name="id18">"n18"</string>
-    <string name="id19">"n19"</string>
-    <string name="id20">"n20"</string>
+    <string name="id1">"1"</string>
+    <string name="id2">"2"</string>
+    <string name="id3">"3"</string>
+    <string name="id4">"4"</string>
+    <string name="id5">"5"</string>
+    <string name="id6">"6"</string>
+    <string name="id7">"7"</string>
+    <string name="id8">"8"</string>
+    <string name="id9">"9"</string>
+    <string name="id10">"10"</string>
+    <string name="id11">"11"</string>
+    <string name="id12">"12"</string>
+    <string name="id13">"13"</string>
+    <string name="id14">"14"</string>
+    <string name="id15">"15"</string>
+    <string name="id16">"16"</string>
+    <string name="id17">"17"</string>
+    <string name="id18">"18"</string>
+    <string name="id19">"19"</string>
+    <string name="id20">"20"</string>
 
     <!--=========================================================================================-->
     <!-- ListPreference with kinds of example format -->
