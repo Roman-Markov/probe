@@ -46,6 +46,9 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
         mStopWatch = sw;
         mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);
         mCurrentTrainStopWatch = mLayout.findViewById(R.id.stopwatch);
+        // TODO replace with settings which disable stopwatches
+        mCommonTrainStopWatch.setTextColor(mCommonTrainStopWatch.getDrawingCacheBackgroundColor());
+        mCurrentTrainStopWatch.setTextColor(mCurrentTrainStopWatch.getDrawingCacheBackgroundColor());
         resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
 
         mUiUpdate = new Runnable() {

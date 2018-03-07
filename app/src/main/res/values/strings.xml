@@ -186,7 +186,7 @@
 
     <!-- Types of example format -->
     <string name="additionRowFormat">%1$d + %2$d</string>
-    <string name="additionColumnFormat">" %1$d\n+\n %2$d"</string>
+    <string name="additionColumnFormat">" %1$d +\n %2$d"</string>
 
     <!--============                     Subtraction                            =================-->
     <string name="subtractionQuantityKey">subtractionQuantity</string>
@@ -196,7 +196,7 @@
 
     <!-- Types of example format -->
     <string name="subtractionRowFormat">%1$d - %2$d</string>
-    <string name="subtractionColumnFormat">" %1$d\n-\n %2$d"</string>
+    <string name="subtractionColumnFormat">" %1$d -\n %2$d"</string>
 
     <!--============                  Multiplication                            =================-->
     <string name="multiplicationQuantityKey">multiplicationQuantity</string>
@@ -206,7 +206,7 @@
 
     <!-- Types of example format -->
     <string name="multiplicationRowFormat">%1$d * %2$d</string>
-    <string name="multiplicationColumnFormat">" %1$d\n*\n %2$d"</string>
+    <string name="multiplicationColumnFormat">" %1$d *\n %2$d"</string>
 
     <!--=========================================================================================-->
     <!--========                                                                          =======-->
