@@ -30,7 +30,7 @@
     <string name="show_nnn_p_mm">Показать NNN + MM</string>
     <string name="show_nnn_p_mmm">Показать NNN + MMM</string>
     <string name="equations">Equations</string>
-    <string name="ariphmetic">Арифметические операции</string>
+    <string name="arithmetic">Арифметические операции</string>
     <string name="matrix">Операции с матрицами</string>
     <string name="multi_equation">Уравнения с несколькими неизвестными</string>
     <string name="polynomial">Операции с многочленами</string>

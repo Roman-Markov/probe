@@ -16,7 +16,6 @@ import android.widget.Toast;
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Constants;
 import com.example.mentalmath.core.Helper;
-import com.example.mentalmath.trainchoice.SetOrStartFragment;
 
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -321,13 +320,13 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     private ITrainingPartsFactory getTrainingFactory(LayoutInflater inflater, ViewGroup container, Activity activity, int kind) {
         switch (kind) {
-            case SetOrStartFragment.I_KIND_ARITH_ADDITION:
+            case Constants.I_KIND_ARITH_ADDITION:
                 return new AdditionFactory(inflater, container, activity);
-            case SetOrStartFragment.I_KIND_ARITH_SUBTRACTION:
+            case Constants.I_KIND_ARITH_SUBTRACTION:
                 return new SubtractionFactory(inflater, container, activity);
-            case SetOrStartFragment.I_KIND_ARITH_MULTIPLICATION:
+            case Constants.I_KIND_ARITH_MULTIPLICATION:
                 return new MultiplicationFactory(inflater, container, activity);
-            case SetOrStartFragment.I_KIND_ARITH_DIVISION:
+            case Constants.I_KIND_ARITH_DIVISION:
                 // return new AdditionFactory(inflater, container, activity);
             default:
                 errorLog("Unknown type of training: " + kind);

@@ -13,18 +13,13 @@ import com.example.mentalmath.core.Constants;
 import com.example.mentalmath.trainings.ExampleBuilderFactory;
 import com.example.mentalmath.trainings.TrainingActivity;
 
+import static com.example.mentalmath.core.Constants.*;
 
 /**
  * Created by Роман on 31.08.2017.
  */
 
 public class SetOrStartFragment extends ChooseSubTrainFragment {
-
-    public static final int I_KIND_ARITHMETICS = 0;
-    public static final int I_KIND_ARITH_ADDITION = 1;
-    public static final int I_KIND_ARITH_SUBTRACTION = 2;
-    public static final int I_KIND_ARITH_MULTIPLICATION = 3;
-    public static final int I_KIND_ARITH_DIVISION = 4;
 
     private IDescriptionInflater mDescriptionInflater;
 

@@ -1,47 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:stretchColumns="1">
+    android:orientation="vertical"
+    android:gravity="center_vertical">
 
-    <TableRow>
-        <Button android:text="@string/start"
-            android:onClick="launchTrain"
-            android:id="@+id/ariphmetics"/>
-        <TextView android:text="@string/ariphmetic"
-            android:textSize="@dimen/text_size_mid1"/>
-    </TableRow>
+        <Button
+            android:id="@+id/arithmetic"
+            style="@style/KindOfTrainButton"
+            android:text="@string/arithmetic"/>
 
-    <TableRow>
-        <Button android:text="@string/start"
-            android:onClick="launchTrain"
-            android:id="@+id/equations"/>
-        <TextView android:text="@string/equations"
-            android:textSize="@dimen/text_size_mid1" />
-    </TableRow>
 
-    <TableRow>
-        <Button android:text="@string/start"
-            android:onClick="launchTrain"
-            android:id="@+id/matrix"/>
-        <TextView android:text="@string/matrix"
-            android:textSize="@dimen/text_size_mid1"/>
-    </TableRow>
+        <Button
+            android:id="@+id/equations"
+            style="@style/KindOfTrainButton"
+            android:text="@string/equations"/>
 
-    <TableRow>
-        <Button android:text="@string/start"
-            android:onClick="launchTrain"
-            android:id="@+id/multi_equations"/>
-        <TextView android:text="@string/multi_equation"
-            android:textSize="@dimen/text_size_mid1"/>
-    </TableRow>
 
-    <TableRow>
-        <Button android:text="@string/start"
-            android:onClick="launchTrain"
-            android:id="@+id/polynomials"/>
-        <TextView android:text="@string/polynomial"
-            android:textSize="@dimen/text_size_mid1"/>
-    </TableRow>
+        <Button
+            android:id="@+id/matrix"
+            style="@style/KindOfTrainButton"
+            android:text="@string/matrix"/>
 
-</TableLayout>
+        <Button
+            android:id="@+id/multi_equations"
+            style="@style/KindOfTrainButton"
+            android:text="@string/multi_equation"/>
+
+        <Button
+            android:id="@+id/polynomials"
+            style="@style/KindOfTrainButton"
+            android:text="@string/polynomial"/>
+
+</LinearLayout>

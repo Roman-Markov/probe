@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- there is default variant -->
+    <style name="KindOfTrainButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_for_centralized_button</item>
+        <item name="android:layout_marginLeft">@dimen/margin_for_centralized_button</item>
+        <item name="android:layout_marginEnd">@dimen/margin_for_centralized_button</item>
+        <item name="android:layout_marginRight">@dimen/margin_for_centralized_button</item>
+        <item name="android:layout_marginBottom">@dimen/margin_between_button</item>
+        <item name="android:padding">@dimen/padding_around_button</item>
+    </style>
+</resources>

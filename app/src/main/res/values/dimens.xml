@@ -3,4 +3,7 @@
     <dimen name="text_size_mid1">18sp</dimen>
     <dimen name="padleft_mid1">10sp</dimen>
     <dimen name="st_padding">8dp</dimen>
+    <dimen name="margin_for_centralized_button">20dp</dimen>
+    <dimen name="margin_between_button">25dp</dimen>
+    <dimen name="padding_around_button">10dp</dimen>
 </resources>
