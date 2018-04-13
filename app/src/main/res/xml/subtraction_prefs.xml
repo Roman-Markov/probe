@@ -43,5 +43,10 @@
         android:title="@string/cbHonestModeTitle"
         android:summary="@string/cbHonestModeSummary"/>
 
+    <CheckBoxPreference
+        android:key="@string/subtractionCbShowStopwatchKey"
+        android:title="@string/cbShowStopwatchTitle"
+        android:summary="@string/cbShowStopwatchSummary"/>
+
 
 </PreferenceScreen>

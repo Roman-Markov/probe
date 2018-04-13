@@ -13,6 +13,10 @@ import com.example.mentalmath.core.Constants;
 import com.example.mentalmath.trainings.ExampleBuilderFactory;
 import com.example.mentalmath.trainings.TrainingActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 import static com.example.mentalmath.core.Constants.*;
 
 /**
@@ -23,7 +27,9 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
 
     private IDescriptionInflater mDescriptionInflater;
 
-    private TextView mTextView;
+    @BindView(R.id.description)
+    TextView mTextView;
+    private Unbinder unbinder;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,8 +42,7 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
     public View onCreateView (LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.set_or_start, container, false);
-        mTextView = v.findViewById(R.id.description);
-
+        unbinder = ButterKnife.bind(this, v);
         return v;
     }
 
@@ -45,6 +50,12 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
     public void onStart() {
         mDescriptionInflater.fillDescription(mTextView);
         super.onStart();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     private void init(int optionKind) {

@@ -64,6 +64,12 @@ public class AdditionDescriptionInflater extends ADescriptionInflater {
         temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.honestMode));
         tv.append(Helper.insertStringToStart(temp, Helper.paintString(honestMode, R.color.green, tv))
                 .append("\n"));
+
+        Boolean showStopwatch = pref.getBoolean(AdditionFactory.STOPWATCH_MODE_KEY, false);
+        String stopwatchMode = showStopwatch? mResources.getString(R.string.visible) : mResources.getString(R.string.notVisible);
+        temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.stopwatchMode));
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(stopwatchMode, R.color.green, tv))
+                .append("\n"));
     }
 
     @Override
