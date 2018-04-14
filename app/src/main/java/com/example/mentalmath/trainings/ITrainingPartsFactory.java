@@ -6,17 +6,19 @@ package com.example.mentalmath.trainings;
 
 public interface ITrainingPartsFactory {
 
-    public IStopWatchField getStopWatcherField();
+    IStopWatchField getStopWatcherField();
 
-    public IExampleDisplay getExampleDisplay();
+    IExampleDisplay getExampleDisplay();
 
-    public IAnswerField getAnswerField();
+    IAnswerField getAnswerField();
 
-    public ISessionResultField getSessionResultField();
+    ISessionResultField getSessionResultField();
 
-    public IExampleBuilder getExampleBuilder();
+    IExampleBuilder getExampleBuilder();
 
-    public int getAmountOfExamples();
+    int getAmountOfExamples();
 
-    public boolean isHonestModeEnabled();
+    boolean isHonestModeEnabled();
+
+    boolean isStopwatchVisible();
 }

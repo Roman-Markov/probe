@@ -59,13 +59,13 @@ public class AdditionDescriptionInflater extends ADescriptionInflater {
         tv.append(Helper.insertStringToStart(temp, Helper.paintString(format, R.color.green, tv))
                 .append("\n"));
 
-        Boolean isHonest = pref.getBoolean(AdditionFactory.HONESTMODE_KEY, false);
+        Boolean isHonest = pref.getBoolean(AdditionFactory.HONESTMODE_KEY, AdditionFactory.DEF_VAL_FOR_HONESTMODE);
         String honestMode = isHonest? mResources.getString(R.string.yes) : mResources.getString(R.string.no);
         temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.honestMode));
         tv.append(Helper.insertStringToStart(temp, Helper.paintString(honestMode, R.color.green, tv))
                 .append("\n"));
 
-        Boolean showStopwatch = pref.getBoolean(AdditionFactory.STOPWATCH_MODE_KEY, false);
+        Boolean showStopwatch = pref.getBoolean(AdditionFactory.STOPWATCH_MODE_KEY, AdditionFactory.DEF_VAL_FOR_STOPWATCHMODE);
         String stopwatchMode = showStopwatch? mResources.getString(R.string.visible) : mResources.getString(R.string.notVisible);
         temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.stopwatchMode));
         tv.append(Helper.insertStringToStart(temp, Helper.paintString(stopwatchMode, R.color.green, tv))

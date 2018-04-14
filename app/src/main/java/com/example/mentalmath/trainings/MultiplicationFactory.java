@@ -19,12 +19,14 @@ public class MultiplicationFactory extends ATrainingPartsAbstractFactory {
     public static final String FORMAT_KEY;
     public static final String VISTIME_KEY;
     public static final String HONESTMODE_KEY;
+    public static final String STOPWATCH_MODE_KEY;
 
     public static final String DEF_VAL_FOR_KIND;
     public static final String DEF_VAL_FOR_AMOUNT;
     public static final String DEF_VAL_FOR_FORMAT;
     public static final String DEF_VAL_FOR_VISTIME;
-    public static final String DEF_VAL_FOR_HONESTMODE;
+    public static final boolean DEF_VAL_FOR_HONESTMODE;
+    public static final boolean DEF_VAL_FOR_STOPWATCHMODE;
 
     private static final String ROW = "rowId";
     private static final String COLUMN = "columnId";
@@ -36,12 +38,14 @@ public class MultiplicationFactory extends ATrainingPartsAbstractFactory {
         FORMAT_KEY = Helper.mGlobalContext.getString(R.string.multiplicationFormatListKey);
         VISTIME_KEY = Helper.mGlobalContext.getString(R.string.multiplicationVisTimeListKey);
         HONESTMODE_KEY = Helper.mGlobalContext.getString(R.string.multiplicationCbHonestModeKey);
+        STOPWATCH_MODE_KEY = Helper.mGlobalContext.getString(R.string.multiplicationCbShowStopwatchKey);
 
-        DEF_VAL_FOR_KIND = Helper.mGlobalContext.getString(R.string.id_x5_5);;
-        DEF_VAL_FOR_AMOUNT = Helper.mGlobalContext.getString(R.string.id1);;
-        DEF_VAL_FOR_FORMAT = Helper.mGlobalContext.getString(R.string.formatAsRowId);;
-        DEF_VAL_FOR_VISTIME = Helper.mGlobalContext.getString(R.string.visTimeAlwaysId);;
-        DEF_VAL_FOR_HONESTMODE = Helper.mGlobalContext.getString(R.string.no);;
+        DEF_VAL_FOR_KIND = Helper.mGlobalContext.getString(R.string.id_x5_5);
+        DEF_VAL_FOR_AMOUNT = Helper.mGlobalContext.getString(R.string.id1);
+        DEF_VAL_FOR_FORMAT = Helper.mGlobalContext.getString(R.string.formatAsRowId);
+        DEF_VAL_FOR_VISTIME = Helper.mGlobalContext.getString(R.string.visTimeAlwaysId);
+        DEF_VAL_FOR_HONESTMODE = false;
+        DEF_VAL_FOR_STOPWATCHMODE = true;
     }
 
     public MultiplicationFactory(LayoutInflater inflater, ViewGroup container,
@@ -80,6 +84,11 @@ public class MultiplicationFactory extends ATrainingPartsAbstractFactory {
     @Override
     public boolean isHonestModeEnabled() {
         return mPrefs.getBoolean(HONESTMODE_KEY, false);
+    }
+
+    @Override
+    public boolean isStopwatchVisible() {
+        return mPrefs.getBoolean(STOPWATCH_MODE_KEY, true);
     }
 
     @Override

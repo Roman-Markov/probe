@@ -77,6 +77,7 @@ public class SetOptionActivity extends Activity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            // // TODO: 14.04.2018 replace with appropriate xml file
             addPreferencesFromResource(R.xml.addition_prefs);
         }
     }

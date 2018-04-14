@@ -25,7 +25,7 @@ public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFac
     }
 
     @Override
-    public IStopWatchField getStopWatcherField(){return new SimpleStopWatchField(mInflater, mViewGroup, new SimpleStopWatch());}
+    public IStopWatchField getStopWatcherField(){return new SimpleStopWatchField(isStopwatchVisible(), mInflater, mViewGroup, new SimpleStopWatch());}
 
     @Override
     public IExampleDisplay getExampleDisplay(){return new SimpleExampleDisplay(mInflater, mViewGroup,
@@ -44,6 +44,11 @@ public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFac
 
     @Override
     public boolean isHonestModeEnabled() {
+        return false;
+    }
+
+    @Override
+    public boolean isStopwatchVisible() {
         return true;
     }
 
