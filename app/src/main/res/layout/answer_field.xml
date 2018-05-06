@@ -11,13 +11,13 @@
         android:layout_height="wrap_content"
         android:hint="@string/hint_for_result"
         android:inputType="numberDecimal"
-        android:textSize="18sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/user_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:paddingLeft="@dimen/st_padding"
         android:paddingStart="@dimen/st_padding"
         android:paddingBottom="@dimen/st_padding"
@@ -27,7 +27,7 @@
         android:id="@+id/right_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:paddingLeft="@dimen/st_padding"
         android:paddingStart="@dimen/st_padding"
         android:paddingBottom="@dimen/st_padding"

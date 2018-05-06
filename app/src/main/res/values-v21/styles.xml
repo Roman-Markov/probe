@@ -1,10 +1,10 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Base application theme.
     <style name="AppTheme" parent="android:Theme.Material">
-        <!-- Customize your theme here. -->
+         Customize your theme here.
 
-    </style>
+    </style> -->
 
     <!-- Custom Preference Theme inherits from the v14 support library Material Theme -->
     <style name="AppPreferenceTheme" parent="@style/Theme.AppCompat">
