@@ -41,7 +41,14 @@
     <CheckBoxPreference
         android:key="@string/additionCbHonestModeKey"
         android:title="@string/cbHonestModeTitle"
-        android:summary="@string/cbHonestModeSummary"/>
+        android:summary="@string/cbHonestModeSummary"
+        android:defaultValue="false"/>
+
+    <CheckBoxPreference
+        android:key="@string/additionCbShowStopwatchKey"
+        android:title="@string/cbShowStopwatchTitle"
+        android:summary="@string/cbShowStopwatchSummary"
+        android:defaultValue="true"/>
 
 
 </PreferenceScreen>

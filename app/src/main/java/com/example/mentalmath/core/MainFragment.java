@@ -10,10 +10,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.trainchoice.ChooseSubTrainActivity;
-import com.example.mentalmath.trainchoice.SetOrStartFragment;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 
 /**
  * Fragments which is dynamically attached to {@link MainActivity} to show choice of types of
@@ -21,6 +26,9 @@ import com.example.mentalmath.trainchoice.SetOrStartFragment;
  * it can start {@link ChooseSubTrainActivity} and pass it kind of training.
  */
 public class MainFragment extends Fragment {
+
+    private Unbinder unbinder;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,16 +43,16 @@ public class MainFragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.main_choice, container, false);
-
+        unbinder = ButterKnife.bind(this, result);
         return result;
     }
 
-
+    @OnClick ({R.id.arithmetic, R.id.polynomials, R.id.matrix, R.id.equations, R.id.multi_equations})
     public void launchTrain(View v) {
         int kind = 0;
         switch (v.getId()) {
-            case R.id.ariphmetics:
-                kind = SetOrStartFragment.I_KIND_ARITHMETICS;
+            case R.id.arithmetic:
+                kind = Constants.I_KIND_ARITHMETIC;
                 break;
             case R.id.equations:
                 kind = Constants.I_KIND_EQUATIONS;
@@ -60,7 +68,7 @@ public class MainFragment extends Fragment {
                 break;
             default:
                 //todo: handle more smartly this case
-                kind = SetOrStartFragment.I_KIND_ARITHMETICS;
+                kind = Constants.I_KIND_ARITHMETIC;
                 Log.e(getClass().getSimpleName(), "Unknown type of training fragment:");
         }
 
@@ -82,5 +90,11 @@ public class MainFragment extends Fragment {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }

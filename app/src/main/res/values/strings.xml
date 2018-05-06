@@ -32,7 +32,7 @@
     <string name="show_nnn_p_mm">Show NNN + MM</string>
     <string name="show_nnn_p_mmm">Show NNN + MMM</string>
     <string name="equations">Equations</string>
-    <string name="ariphmetic">Ariphmetic operations</string>
+    <string name="arithmetic">Ariphmetic operations</string>
     <string name="matrix">Operations with matrix</string>
     <string name="multi_equation">Equation with multiple variables</string>
     <string name="polynomial">Operations with polynomials</string>
@@ -60,6 +60,9 @@
     <string name="honestMode">"Honest:"</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
+    <string name="stopwatchMode">"Stopwatch:"</string>
+    <string name="visible">visible</string>
+    <string name="notVisible">not visible</string>
 
     <!--=========================================================================================-->
     <!-- Strings for fragments which showes training itself -->
@@ -172,17 +175,23 @@
     <string name="cbHonestModeTitle">Honest mode</string>
     <string name="cbHonestModeSummary">You don\'t type answer and save your time</string>
 
+    <!-- CheckBoxPreference to choose whether to show stopwatch -->
+    <string name="cbShowStopwatchTitle">Stopwatch visibility</string>
+    <string name="cbShowStopwatchSummary">Show stopwatch in training</string>
+
     <!--=========================================================================================-->
     <!--========                                                                          =======-->
     <!--========       Keys for common preferences strings for various trainings          =======-->
     <!--========                                                                          =======-->
     <!--=========================================================================================-->
 
-    <!-- Types of example format -->
+    <!--============                     Addition                               =================-->
     <string name="additionQuantityKey">additionQuantity</string>
     <string name="additionFormatListKey">additionFormatList</string>
     <string name="additionVisTimeListKey">additionVisTimeList</string>
     <string name="additionCbHonestModeKey">additionCbHonestMode</string>
+    <string name="additionCbShowStopwatchKey">additionCbShowStopwatch</string>
+
 
     <!-- Types of example format -->
     <string name="additionRowFormat">%1$d + %2$d</string>
@@ -193,20 +202,23 @@
     <string name="subtractionFormatListKey">subtractionFormatList</string>
     <string name="subtractionCbHonestModeKey">subtractionCbHonestMode</string>
     <string name="subtractionVisTimeListKey">subtractionVisTimeList</string>
+    <string name="subtractionCbShowStopwatchKey">subtractionCbShowStopwatch</string>
+
 
     <!-- Types of example format -->
     <string name="subtractionRowFormat">%1$d - %2$d</string>
-    <string name="subtractionColumnFormat">" %1$d\n-\n %2$d"</string>
+    <string name="subtractionColumnFormat">" %1$d -\n %2$d"</string>
 
     <!--============                  Multiplication                            =================-->
     <string name="multiplicationQuantityKey">multiplicationQuantity</string>
     <string name="multiplicationFormatListKey">multiplicationFormatList</string>
     <string name="multiplicationCbHonestModeKey">multiplicationCbHonestMode</string>
     <string name="multiplicationVisTimeListKey">multiplicationVisTimeList</string>
+    <string name="multiplicationCbShowStopwatchKey">multiplicationCbShowStopwatch</string>
 
     <!-- Types of example format -->
     <string name="multiplicationRowFormat">%1$d * %2$d</string>
-    <string name="multiplicationColumnFormat">" %1$d\n*\n %2$d"</string>
+    <string name="multiplicationColumnFormat">" %1$d *\n %2$d"</string>
 
     <!--=========================================================================================-->
     <!--========                                                                          =======-->

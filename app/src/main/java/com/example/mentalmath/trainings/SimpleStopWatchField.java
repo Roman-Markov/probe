@@ -1,6 +1,8 @@
 package com.example.mentalmath.trainings;
 
+import android.content.SharedPreferences;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -34,18 +36,23 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     /**
      * Sometimes rounding value of time leads to sum of example time differ from total time.
      * In order to avoid this sum of example time will be accumulated here and than passed to
-     * stopwatch and set it's current time.
+     * stopwatch (mCommonTrainStopWatch) and sets it's current time.
      */
     private long mAdjustmentTime;
 
     private boolean mIsFirstTrainSet = false;
 
-    public SimpleStopWatchField (LayoutInflater inflater, ViewGroup container, IStopWatch sw) {
+    public SimpleStopWatchField (boolean isStopwatchVisible, LayoutInflater inflater, ViewGroup container, IStopWatch sw) {
 
-        super(inflater, container, R.layout.stopwatch_field);;
+        super(inflater, container, R.layout.stopwatch_field);
         mStopWatch = sw;
         mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);
         mCurrentTrainStopWatch = mLayout.findViewById(R.id.stopwatch);
+        // TODO: 14.04.2018 replace with more smart logic which doesn't shows stopwatch field itself
+        if (!isStopwatchVisible) {
+            mCommonTrainStopWatch.setTextColor(mCommonTrainStopWatch.getDrawingCacheBackgroundColor());
+            mCurrentTrainStopWatch.setTextColor(mCurrentTrainStopWatch.getDrawingCacheBackgroundColor());
+        }
         resetStopWatch(mCommonTrainStopWatch, mCurrentTrainStopWatch);
 
         mUiUpdate = new Runnable() {

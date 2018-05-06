@@ -32,13 +32,13 @@ public class SetOptionActivity extends Activity {
     public PreferenceFragment getSettingsFragment(int type) {
         switch (type) {
 
-            case SetOrStartFragment.I_KIND_ARITH_ADDITION:
+            case Constants.I_KIND_ARITH_ADDITION:
                 return new SetOptionActivity.TuneAdditionFragment();
-            case SetOrStartFragment.I_KIND_ARITH_SUBTRACTION:
+            case Constants.I_KIND_ARITH_SUBTRACTION:
                 return new SetOptionActivity.TuneSubtractionFragment();
-            case SetOrStartFragment.I_KIND_ARITH_MULTIPLICATION:
+            case Constants.I_KIND_ARITH_MULTIPLICATION:
                 return new SetOptionActivity.TuneMultiplicationFragment();
-            case SetOrStartFragment.I_KIND_ARITH_DIVISION:
+            case Constants.I_KIND_ARITH_DIVISION:
                 return new SetOptionActivity.TuneDivisionFragment();
 
             default:
@@ -77,6 +77,7 @@ public class SetOptionActivity extends Activity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            // // TODO: 14.04.2018 replace with appropriate xml file
             addPreferencesFromResource(R.xml.addition_prefs);
         }
     }

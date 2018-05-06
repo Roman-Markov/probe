@@ -1,8 +1,11 @@
 package com.example.mentalmath.trainchoice;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.mentalmath.core.Constants;
@@ -25,7 +28,7 @@ public class ChooseSubTrainActivity extends Activity {
 
         int type = getIntent().getIntExtra(Constants.KEY_KIND_OF_TRAININGS, -1);
 
-        mSubTrainFragment = (ChooseSubTrainFragment) ChooseSubTrainFragmentFactory.getFragmentByType(this, type);
+        mSubTrainFragment = (ChooseSubTrainFragment) getFragmentByType(type);
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
@@ -37,8 +40,23 @@ public class ChooseSubTrainActivity extends Activity {
         }
     }
 
-    public void launchTrain(View v) {
-        mSubTrainFragment.launchTrain(v);
+    public static Fragment getFragmentByType(int type) {
+        switch (type) {
+            case Constants.I_KIND_ARITHMETIC:
+                return new ChooseArithmeticFragment();
+            case Constants.I_KIND_EQUATIONS:
+                return new ChooseEquationsFragment();
+            case Constants.I_KIND_MATRIX:
+                return new ChooseMatrixFragment();
+            case Constants.I_KIND_MULTI_EQUATIONS:
+                return new ChooseLinearEquationsFragment();
+            case Constants.I_KIND_POLYNOMIALS:
+                return new ChoosePolinomialsFragment();
+
+            default:
+                Log.e("TrainingFragmentFactory", "Unknown type of training fragment:" + type);
+                return new ChooseArithmeticFragment();
+        }
     }
 
 }

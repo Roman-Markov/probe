@@ -4,10 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:layout_gravity="center_vertical"
+        android:gravity="top"
+        android:textSize="@dimen/text_size_mid1"
+        android:typeface="monospace"
+        android:padding="10dp"/>
     <Button
         android:id="@+id/set_options"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_gravity="bottom"
+        style="@style/LaunchAndSettingsButton"
         android:text="@string/setOptions"
         android:onClick="showOptions"/>
 
@@ -15,15 +28,11 @@
         android:id="@+id/start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_gravity="bottom"
+        style="@style/LaunchAndSettingsButton"
+        android:layout_marginBottom="40dp"
         android:text="@string/start"
         android:onClick="launchTrain"/>
-
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_mid1"
-        android:typeface="monospace"
-        android:padding="10dp"/>
 
 </LinearLayout>

@@ -13,6 +13,11 @@ import com.example.mentalmath.core.Constants;
 import com.example.mentalmath.trainings.ExampleBuilderFactory;
 import com.example.mentalmath.trainings.TrainingActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
+import static com.example.mentalmath.core.Constants.*;
 
 /**
  * Created by Роман on 31.08.2017.
@@ -20,15 +25,11 @@ import com.example.mentalmath.trainings.TrainingActivity;
 
 public class SetOrStartFragment extends ChooseSubTrainFragment {
 
-    public static final int I_KIND_ARITHMETICS = 0;
-    public static final int I_KIND_ARITH_ADDITION = 1;
-    public static final int I_KIND_ARITH_SUBTRACTION = 2;
-    public static final int I_KIND_ARITH_MULTIPLICATION = 3;
-    public static final int I_KIND_ARITH_DIVISION = 4;
-
     private IDescriptionInflater mDescriptionInflater;
 
-    private TextView mTextView;
+    @BindView(R.id.description)
+    TextView mTextView;
+    private Unbinder unbinder;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,7 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
     public View onCreateView (LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.set_or_start, container, false);
-        mTextView = v.findViewById(R.id.description);
-
+        unbinder = ButterKnife.bind(this, v);
         return v;
     }
 
@@ -50,6 +50,12 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
     public void onStart() {
         mDescriptionInflater.fillDescription(mTextView);
         super.onStart();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     private void init(int optionKind) {
