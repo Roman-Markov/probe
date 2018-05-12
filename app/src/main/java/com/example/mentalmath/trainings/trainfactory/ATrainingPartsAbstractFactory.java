@@ -1,4 +1,4 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainings.trainfactory;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -6,6 +6,19 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
+import com.example.mentalmath.trainings.IAnswerField;
+import com.example.mentalmath.trainings.IExampleBuilder;
+import com.example.mentalmath.trainings.IExampleDisplay;
+import com.example.mentalmath.trainings.ISessionResultField;
+import com.example.mentalmath.trainings.IStopWatchField;
+import com.example.mentalmath.trainings.ITrainingPartsFactory;
+import com.example.mentalmath.trainings.SimpleAnswerField;
+import com.example.mentalmath.trainings.SimpleExampleBuilder;
+import com.example.mentalmath.trainings.SimpleExampleDisplay;
+import com.example.mentalmath.trainings.SimpleSessionResultField;
+import com.example.mentalmath.trainings.SimpleStopWatch;
+import com.example.mentalmath.trainings.SimpleStopWatchField;
 
 /**
  * Created by Роман on 27.09.2017.
@@ -36,6 +49,7 @@ public abstract class ATrainingPartsAbstractFactory implements ITrainingPartsFac
 
     @Override
     public ISessionResultField getSessionResultField(){return new SimpleSessionResultField(mInflater, mViewGroup);}
+
 
     @Override
     public IExampleBuilder getExampleBuilder() {

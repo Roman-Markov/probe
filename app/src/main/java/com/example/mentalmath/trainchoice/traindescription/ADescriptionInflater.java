@@ -1,4 +1,4 @@
-package com.example.mentalmath.trainchoice;
+package com.example.mentalmath.trainchoice.traindescription;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,12 +6,11 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.support.annotation.ArrayRes;
-import android.support.annotation.IdRes;
 import android.widget.TextView;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
-import com.example.mentalmath.trainings.AdditionFactory;
+import com.example.mentalmath.trainchoice.IDescriptionInflater;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -59,10 +58,9 @@ abstract class ADescriptionInflater implements IDescriptionInflater {
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(mContext);
 
-        String type = mKindPrefMap.get(pref.getString(getKindKey(), getDefValForKind()));
-        temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.type));
-        tv.append(Helper.insertStringToStart(temp, Helper.paintString(type, R.color.green, tv))
-                .append("\n"));
+        addComplexityKindDescription(tv);
+
+        addSpecificDescription(tv);
 
         String amount = mAmountPrefMap.get(pref.getString(getAmountKey(), getDefValForAmount()));
         temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.amount));
@@ -92,7 +90,7 @@ abstract class ADescriptionInflater implements IDescriptionInflater {
                 .append("\n"));
     }
 
-    private void fillMaps() {
+    protected void fillMaps() {
         String[] listOfValues;
         String[] listOfIds;
 
@@ -113,10 +111,23 @@ abstract class ADescriptionInflater implements IDescriptionInflater {
         fillPrefMap(listOfIds, listOfValues, mFormatPrefMap);
     }
 
-    private <T> void fillPrefMap(T[] listOfIds, T[] listOfValues, Map<T, T> mPrefMap) {
+    protected <T> void fillPrefMap(T[] listOfIds, T[] listOfValues, Map<T, T> mPrefMap) {
         for(int i = 0; i < listOfIds.length; i++) {
             mPrefMap.put(listOfIds[i], listOfValues[i]);
         }
+    }
+
+    protected void addComplexityKindDescription(TextView tv) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(mContext);
+
+        String type = mKindPrefMap.get(pref.getString(getKindKey(), getDefValForKind()));
+        String temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.type));
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(type, R.color.green, tv))
+                .append("\n"));
+    }
+
+    protected void addSpecificDescription(TextView tv) {
+        // do nothing
     }
 
     //==============================================================================================

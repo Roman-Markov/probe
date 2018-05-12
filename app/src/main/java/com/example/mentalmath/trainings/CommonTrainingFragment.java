@@ -16,6 +16,9 @@ import android.widget.Toast;
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Constants;
 import com.example.mentalmath.core.Helper;
+import com.example.mentalmath.trainings.trainfactory.AdditionFactory;
+import com.example.mentalmath.trainings.trainfactory.MultiplicationFactory;
+import com.example.mentalmath.trainings.trainfactory.SubtractionFactory;
 
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;

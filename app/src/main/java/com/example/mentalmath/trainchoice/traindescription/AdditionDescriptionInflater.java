@@ -1,16 +1,7 @@
-package com.example.mentalmath.trainchoice;
-
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.annotation.IdRes;
-import android.widget.TextView;
+package com.example.mentalmath.trainchoice.traindescription;
 
 import com.example.mentalmath.R;
-import com.example.mentalmath.core.Helper;
-import com.example.mentalmath.trainings.AdditionFactory;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.example.mentalmath.trainings.trainfactory.AdditionFactory;
 
 /**
  * Created by Роман on 13.11.2017.

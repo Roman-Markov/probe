@@ -10,7 +10,10 @@ import android.widget.TextView;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Constants;
-import com.example.mentalmath.trainings.ExampleBuilderFactory;
+import com.example.mentalmath.trainchoice.traindescription.AdditionDescriptionInflater;
+import com.example.mentalmath.trainchoice.traindescription.DivisionDescriptionInflater;
+import com.example.mentalmath.trainchoice.traindescription.MultiplicationDescriptionInflater;
+import com.example.mentalmath.trainchoice.traindescription.SubtractionDescriptionInflater;
 import com.example.mentalmath.trainings.TrainingActivity;
 
 import butterknife.BindView;
@@ -71,6 +74,7 @@ public class SetOrStartFragment extends ChooseSubTrainFragment {
                 mDescriptionInflater = new MultiplicationDescriptionInflater(I_KIND_ARITH_MULTIPLICATION);
                 break;
             case I_KIND_ARITH_DIVISION:
+                mDescriptionInflater = new DivisionDescriptionInflater(I_KIND_ARITH_DIVISION);
                 break;
             default:
                 Log.e(getClass().getSimpleName(), "Unknown type of arithmetic training: " + optionKind);
