@@ -29,7 +29,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    def androidSupportLibs = '26.1.0';
+    def androidSupportLibs = '27.0.0';
     compile "com.android.support:support-v13:${androidSupportLibs}"
     compile "com.android.support:preference-v7:${androidSupportLibs}"
     compile "com.android.support:preference-v14:${androidSupportLibs}"
