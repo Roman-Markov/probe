@@ -1,4 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="@string/dividendRangeListKey"
+        android:title="@string/dividendKindDialogTitle"
+        android:summary="@string/dividendKindSummary"
+        android:dialogTitle="@string/dividendKindDialogTitle"
+        android:entries="@array/divisionNumber"
+        android:entryValues="@array/dividendId"
+        android:defaultValue="@string/id_dividend_1_9"/>
+
+    <ListPreference
+        android:key="@string/divisorRangeListKey"
+        android:title="@string/divisorKindDialogTitle"
+        android:summary="@string/divisorKindSummary"
+        android:dialogTitle="@string/divisorKindDialogTitle"
+        android:entries="@array/divisionNumber"
+        android:entryValues="@array/divisorId"
+        android:defaultValue="@string/id_divisor_1_9"/>
+
+    <CheckBoxPreference
+        android:key="@string/divisionCbWithReminderKey"
+        android:title="@string/cbWithRemainderTitle"
+        android:summary="@string/cbWithRemainderSummary"
+        android:defaultValue="false"/>
+
+    <ListPreference
+        android:key="@string/divisionQuantityKey"
+        android:title="@string/trainingNumber"
+        android:summary="@string/trainingNumberSummary"
+        android:dialogTitle="@string/amountListDialogTitle"
+        android:entries="@array/numberOfExamplesStrings"
+        android:entryValues="@array/numberOfExamplesStringsId"
+        android:defaultValue="@string/id1"/>
+
+    <ListPreference
+        android:key="@string/divisionFormatListKey"
+        android:title="@string/formatListTitle"
+        android:summary="@string/formatListSummary"
+        android:dialogTitle="@string/formatListDialogTitle"
+        android:entries="@array/formatExample"
+        android:entryValues="@array/formatExampleId"
+        android:defaultValue="@string/formatAsRowId"/>
+
+    <ListPreference
+        android:key="@string/divisionVisTimeListKey"
+        android:title="@string/visTimeListTitle"
+        android:summary="@string/visTimeSummary"
+        android:dialogTitle="@string/visTimeDialogTitle"
+        android:entries="@array/visTime"
+        android:entryValues="@array/visTimeId"
+        android:defaultValue="@string/visTimeAlwaysId"/>
+
+    <CheckBoxPreference
+        android:key="@string/divisionCbHonestModeKey"
+        android:title="@string/cbHonestModeTitle"
+        android:summary="@string/cbHonestModeSummary"
+        android:defaultValue="false"/>
+
+    <CheckBoxPreference
+        android:key="@string/divisionCbShowStopwatchKey"
+        android:title="@string/cbShowStopwatchTitle"
+        android:summary="@string/cbShowStopwatchSummary"
+        android:defaultValue="true"/>
 
 </PreferenceScreen>

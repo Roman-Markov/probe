@@ -64,8 +64,12 @@
     <string name="visible">visible</string>
     <string name="notVisible">not visible</string>
 
+    <string name="dividend">Dividend</string>
+    <string name="divisor">Divisor</string>
+    <string name="reminderMode">Reminder:</string>
+
     <!--=========================================================================================-->
-    <!-- Strings for fragments which showes training itself -->
+    <!-- Strings for fragments which shows training itself -->
     <string name="noanswer">No answer</string>
     <string name="right_result_format" formatted="false">"Your:  %s\nRight: %s"</string>
     <string name="right_answer_format">"Right: %s"</string>
@@ -220,6 +224,17 @@
     <string name="multiplicationRowFormat">%1$d * %2$d</string>
     <string name="multiplicationColumnFormat">" %1$d *\n %2$d"</string>
 
+    <!--============                      Division                              =================-->
+    <string name="divisionQuantityKey">divisionQuantity</string>
+    <string name="divisionFormatListKey">divisionFormatList</string>
+    <string name="divisionCbHonestModeKey">divisionCbHonestMode</string>
+    <string name="divisionVisTimeListKey">divisionVisTimeList</string>
+    <string name="divisionCbShowStopwatchKey">divisionCbShowStopwatch</string>
+
+    <!-- Types of example format -->
+    <string name="divisionRowFormat">%1$d : %2$d</string>
+    <string name="divisionColumnFormat">" %1$d :\n %2$d"</string>
+
     <!--=========================================================================================-->
     <!--========                                                                          =======-->
     <!--========                  Addition trainings preferences strings                  =======-->
@@ -351,5 +366,80 @@
     <string name="id_x4n_4n">4n_x_4n</string>
     <string name="id_x5n_5n">5n_x_5n</string>
     <string name="id_x6n_6n">6n_x_6n</string>
+
+    <!--=========================================================================================-->
+    <!--========                                                                          =======-->
+    <!--========                  Division trainings preferences strings                  =======-->
+    <!--========                                                                          =======-->
+    <!--=========================================================================================-->
+
+    <!-- ListPreference with kinds of Division trainings -->
+    <string name="dividendRangeListKey">dividendRangeListKey</string>
+    <string name="divisorRangeListKey">divisorRangeListKey</string>
+    <string name="divisionCbWithReminderKey">Key</string>
+
+    <string name="dividendKindDialogTitle">Range of dividend</string>
+    <string name="dividendKindSummary">Choose a range of dividend</string>
+    <string name="dividendKindTitle">Dividend</string>
+
+    <string name="divisorKindDialogTitle">Range of divisor</string>
+    <string name="divisorKindSummary">Choose a range of divisor</string>
+    <string name="divisorKindTitle">Divisor</string>
+
+    <string name="divisionCbWithRemainder">divisionCbWithRemainder</string>
+
+    <!-- Value of list preference of Division kinds of training  -->
+    <string name="d1_9">1-5</string>
+    <string name="d2n">10-100</string>
+    <string name="d3n">100-1000</string>
+    <string name="d4n">1000-10000</string>
+    <string name="d5n">10"&#8308;"-10"&#8309;"</string>
+    <string name="d6n">10"&#8309;"-10"&#8310;"</string>
+    <string name="d7n">10"&#8310;"-10"&#8311;"</string>
+    <string name="d8n">10"&#8311;"-10"&#8312;"</string>
+    <string name="d9n">10"&#8312;"-10"&#8313;"</string>
+    <string name="d10n">10"&#8313;"-10"&#185;""&#8304;"</string>
+    <string name="d11n">10"&#185;""&#8304;"-10"&#185;""&#185;"</string>
+    <string name="d12n">10"&#185;""&#185;"-10"&#185;""&#178;"</string>
+
+    <!-- ID of list preference of dividends for division kinds of training  -->
+    <string name="id_dividend_1_9">dividend_1-5</string>
+    <string name="id_dividend_2n">dividend_2n</string>
+    <string name="id_dividend_3n">dividend_3n</string>
+    <string name="id_dividend_4n">dividend_4n</string>
+    <string name="id_dividend_5n">dividend_5n</string>
+    <string name="id_dividend_6n">dividend_6n</string>
+    <string name="id_dividend_7n">dividend_7n</string>
+    <string name="id_dividend_8n">dividend_8n</string>
+    <string name="id_dividend_9n">dividend_9n</string>
+    <string name="id_dividend_10n">dividend_10n</string>
+    <string name="id_dividend_11n">dividend_11n</string>
+    <string name="id_dividend_12n">dividend_12n</string>
+
+    <!-- ID of list preference of divisors for division kinds of training  -->
+    <string name="id_divisor_1_9">divisor_1-5</string>
+    <string name="id_divisor_2n">divisor_2n</string>
+    <string name="id_divisor_3n">divisor_3n</string>
+    <string name="id_divisor_4n">divisor_4n</string>
+    <string name="id_divisor_5n">divisor_5n</string>
+    <string name="id_divisor_6n">divisor_6n</string>
+    <string name="id_divisor_7n">divisor_7n</string>
+    <string name="id_divisor_8n">divisor_8n</string>
+    <string name="id_divisor_9n">divisor_9n</string>
+    <string name="id_divisor_10n">divisor_10n</string>
+    <string name="id_divisor_11n">divisor_11n</string>
+    <string name="id_divisor_12n">divisor_12n</string>
+
+    <!-- CheckBoxPreference to choose whether to show division with reminder -->
+    <string name="cbWithRemainderTitle">With reminder</string>
+    <string name="cbWithRemainderSummary">Division with reminder</string>
+
+    <!--=========================================================================================-->
+    <!--=========================================================================================-->
+    <!--=========================================================================================-->
+
+    <string name="dividend_is_not_specified">Dividend value is not specified</string>
+    <string name="divisor_more_than_dividend">Divisor should be less than or equals to dividend</string>
+
 
 </resources>

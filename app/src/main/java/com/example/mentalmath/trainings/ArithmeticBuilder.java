@@ -25,10 +25,6 @@ public abstract class ArithmeticBuilder extends BaseExampleBuilder {
     protected long mSecondLowBound;
     protected long mSecondHighBound;
 
-    public ArithmeticBuilder(String name) {
-        super(name);
-    }
-
     ArithmeticBuilder(int n, int m, String name) {
         super(name);
         mNumberOfDigit1 = n;

@@ -194,4 +194,50 @@
         <item>@string/x6n_6n</item>
     </string-array>
 
+    <!--=============                     Division kinds                        ================ -->
+    <string-array name="dividendId">
+        <item>@string/id_dividend_1_9</item>
+        <item>@string/id_dividend_2n</item>
+        <item>@string/id_dividend_3n</item>
+        <item>@string/id_dividend_4n</item>
+        <item>@string/id_dividend_5n</item>
+        <item>@string/id_dividend_6n</item>
+        <item>@string/id_dividend_7n</item>
+        <item>@string/id_dividend_8n</item>
+        <item>@string/id_dividend_9n</item>
+        <item>@string/id_dividend_10n</item>
+        <item>@string/id_dividend_11n</item>
+        <item>@string/id_dividend_12n</item>
+    </string-array>
+
+    <string-array name="divisorId">
+        <item>@string/id_divisor_1_9</item>
+        <item>@string/id_divisor_2n</item>
+        <item>@string/id_divisor_3n</item>
+        <item>@string/id_divisor_4n</item>
+        <item>@string/id_divisor_5n</item>
+        <item>@string/id_divisor_6n</item>
+        <item>@string/id_divisor_7n</item>
+        <item>@string/id_divisor_8n</item>
+        <item>@string/id_divisor_9n</item>
+        <item>@string/id_divisor_10n</item>
+        <item>@string/id_divisor_11n</item>
+        <item>@string/id_divisor_12n</item>
+    </string-array>
+
+    <string-array name="divisionNumber">
+        <item>@string/d1_9</item>
+        <item>@string/d2n</item>
+        <item>@string/d3n</item>
+        <item>@string/d4n</item>
+        <item>@string/d5n</item>
+        <item>@string/d6n</item>
+        <item>@string/d7n</item>
+        <item>@string/d8n</item>
+        <item>@string/d9n</item>
+        <item>@string/d10n</item>
+        <item>@string/d11n</item>
+        <item>@string/d12n</item>
+    </string-array>
+
 </resources>
