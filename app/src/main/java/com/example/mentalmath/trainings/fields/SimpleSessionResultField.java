@@ -1,4 +1,4 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainings.fields;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -8,6 +8,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.mentalmath.R;
+import com.example.mentalmath.trainings.ABaseField;
+import com.example.mentalmath.trainings.ISessionResultField;
 
 import java.util.ArrayList;
 

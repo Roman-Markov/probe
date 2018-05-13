@@ -7,10 +7,12 @@ import android.view.ViewGroup;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
-import com.example.mentalmath.trainings.examplegenerator.AdditionBuilder;
+import com.example.mentalmath.trainings.IAnswerField;
 import com.example.mentalmath.trainings.IExampleBuilder;
 import com.example.mentalmath.trainings.IExampleDisplay;
-import com.example.mentalmath.trainings.SimpleExampleDisplay;
+import com.example.mentalmath.trainings.fields.DivisionAnswerField;
+import com.example.mentalmath.trainings.fields.SimpleExampleDisplay;
+import com.example.mentalmath.trainings.examplegenerator.DivisionBuilder;
 
 /**
  * Created by Роман on 12.05.2018.
@@ -32,6 +34,12 @@ public class DivisionFactory extends ATrainingPartsAbstractFactory {
     public static final String DEF_VAL_FOR_AMOUNT;
     public static final String DEF_VAL_FOR_FORMAT;
     public static final String DEF_VAL_FOR_VISTIME;
+
+    @Override
+    public IAnswerField getAnswerField() {
+        return new DivisionAnswerField(mInflater, mViewGroup, isHonestModeEnabled());
+    }
+
     public static final boolean DEF_VAL_FOR_HONESTMODE;
     public static final boolean DEF_VAL_FOR_STOPWATCHMODE;
     public static final boolean DEF_VAL_FOR_REMINDER_MODE;
@@ -80,8 +88,9 @@ public class DivisionFactory extends ATrainingPartsAbstractFactory {
     public IExampleBuilder getExampleBuilder() {
 
         // TODO: 12.05.2018 replace with normal division builder
-        String kind = mPrefs.getString(DIVIDEND_KEY, "simple");
-        AdditionBuilder builder =(AdditionBuilder) AdditionBuilder.create(kind);
+        String dividend = mPrefs.getString(DIVIDEND_KEY, "simple");
+        String divisor = mPrefs.getString(DIVISOR_KEY, "simple");
+        DivisionBuilder builder =(DivisionBuilder) DivisionBuilder.create(dividend, divisor);
         String format = mPrefs.getString(FORMAT_KEY, "row");
         int formatType = IExampleBuilder.ROW_FORMAT;
         switch (format) {

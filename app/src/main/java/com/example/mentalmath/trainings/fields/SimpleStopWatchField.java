@@ -1,4 +1,4 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainings.fields;
 
 import android.content.SharedPreferences;
 import android.os.Handler;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.mentalmath.R;
+import com.example.mentalmath.trainings.ABaseField;
+import com.example.mentalmath.trainings.IStopWatch;
+import com.example.mentalmath.trainings.IStopWatchField;
 
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;

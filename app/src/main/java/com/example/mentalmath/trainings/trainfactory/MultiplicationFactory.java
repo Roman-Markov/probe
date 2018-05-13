@@ -10,7 +10,7 @@ import com.example.mentalmath.core.Helper;
 import com.example.mentalmath.trainings.IExampleBuilder;
 import com.example.mentalmath.trainings.IExampleDisplay;
 import com.example.mentalmath.trainings.examplegenerator.MultiplicationBuilder;
-import com.example.mentalmath.trainings.SimpleExampleDisplay;
+import com.example.mentalmath.trainings.fields.SimpleExampleDisplay;
 
 /**
  * Created by Роман on 27.09.2017.

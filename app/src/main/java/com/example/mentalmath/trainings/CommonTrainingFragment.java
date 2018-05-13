@@ -16,7 +16,10 @@ import android.widget.Toast;
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Constants;
 import com.example.mentalmath.core.Helper;
+import com.example.mentalmath.trainings.fields.SimpleButtonField;
+import com.example.mentalmath.trainings.fields.SimpleExampleDisplay;
 import com.example.mentalmath.trainings.trainfactory.AdditionFactory;
+import com.example.mentalmath.trainings.trainfactory.DivisionFactory;
 import com.example.mentalmath.trainings.trainfactory.MultiplicationFactory;
 import com.example.mentalmath.trainings.trainfactory.SubtractionFactory;
 
@@ -212,23 +215,24 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void showRightExampleResult() {
-        errorLog("showRightExampleResult(): " + mExampleDisplay.getCurrentAnswer());
-        mAnswerField.showRightResult(mExampleDisplay.getCurrentAnswer());
+        errorLog("showRightExampleResult(): " + mExampleDisplay.getCurrentRightAnswer());
+        mAnswerField.showRightResult(mExampleDisplay.getCurrentRightAnswer());
     }
 
+    /**
+     * should not be called in honest mode state
+     * @param answer
+     */
     private void handleResultInternally(String answer) {
+        if (mIsHonestMode) {
+            errorLog("handleResultInternally() should not be called in honest mode state");
+            return;
+        }
         errorLog("Handle result internally: " + answer);
         boolean isRight = false;
         if (answer != null) {
-            if (mIsHonestMode) {
-                if ("right".equals(answer)) {
-                    isRight = true;
-                } else {
-                    isRight = false;
-                }
-            } else {
-                isRight = mExampleDisplay.checkResult(answer);
-            }
+            isRight = mExampleDisplay.checkResult(answer);
+
             if (isRight) {
                 mRightCounter++;
                 showToast(R.string.right);
@@ -330,7 +334,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
             case Constants.I_KIND_ARITH_MULTIPLICATION:
                 return new MultiplicationFactory(inflater, container, activity);
             case Constants.I_KIND_ARITH_DIVISION:
-                // return new AdditionFactory(inflater, container, activity);
+                return new DivisionFactory(inflater, container, activity);
             default:
                 errorLog("Unknown type of training: " + kind);
         }

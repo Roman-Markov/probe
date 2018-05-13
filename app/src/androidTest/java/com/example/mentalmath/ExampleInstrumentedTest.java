@@ -49,7 +49,6 @@ public class ExampleInstrumentedTest {
 
         builder = new DivisionBuilder(4, 4, "division");
         for (int i = 0; i < 100; i++) {
-
             result = builder.generateExample();
             values = result.split(":");
             dividendString = values[0].trim();
@@ -93,6 +92,28 @@ public class ExampleInstrumentedTest {
 
             String answer = Long.toString(divResult) + DivisionBuilder.SPLITTER + Long.toString(reminder);
             assertTrue("Result of division must be right", builder.checkResult(answer));
+        }
+
+        builder = new DivisionBuilder(1, 1, "division");
+        for (int i = 0; i < 100; i++) {
+            result = builder.generateExample();
+            values = result.split(":");
+            dividendString = values[0].trim();
+            divisorString = values[1].trim();
+            assertEquals("Unexpected dividend length: " + dividendString + ":" +  divisorString,
+                    1, dividendString.length());
+            assertEquals("Unexpected divisor length: " + dividendString + ":" +  divisorString,
+                    1, divisorString.length());
+            dividend = Long.decode(values[0].trim());
+            divisor = Long.decode(values[1].trim());
+
+            long divResult = dividend / divisor;
+            long reminder = dividend % divisor;
+
+            String answer = Long.toString(divResult) + DivisionBuilder.SPLITTER + Long.toString(reminder);
+            boolean isRight = builder.checkResult(answer);
+            assertTrue("Result of division must be right: "  + dividendString + ":" +  divisorString,
+                    builder.checkResult(answer));
         }
     }
 

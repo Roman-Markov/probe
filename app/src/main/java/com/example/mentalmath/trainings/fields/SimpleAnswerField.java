@@ -1,4 +1,4 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainings.fields;
 
 import android.app.Fragment;
 import android.graphics.Color;
@@ -18,6 +18,8 @@ import android.widget.LinearLayout;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
+import com.example.mentalmath.trainings.ABaseField;
+import com.example.mentalmath.trainings.IAnswerField;
 
 import android.text.Editable;
 import android.widget.TextView;

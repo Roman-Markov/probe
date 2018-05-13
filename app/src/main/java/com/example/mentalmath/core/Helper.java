@@ -34,13 +34,12 @@ public class Helper {
         return color;
     }
 
-    public static SpannableStringBuilder paintString(CharSequence str, @ColorRes int rId, View v) {
+    public static SpannableStringBuilder paintString(final CharSequence str, @ColorRes int rId, View v) {
         SpannableStringBuilder tempSpannable = new SpannableStringBuilder(str);
 
         int color = Helper.getColorById(rId, v);
         tempSpannable.setSpan(new ForegroundColorSpan(color), 0, tempSpannable.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-        str = tempSpannable;
-        return (SpannableStringBuilder) str;
+        return tempSpannable;
     }
 
     public static SpannableStringBuilder insertStringToStart(CharSequence begin, SpannableStringBuilder origin) {
@@ -50,7 +49,7 @@ public class Helper {
         return temp;
     }
 
-    public static SpannableStringBuilder insertStringToEnd(SpannableStringBuilder origin, CharSequence end) {
+    public static SpannableStringBuilder insertStringToEnd(final SpannableStringBuilder origin, CharSequence end) {
         SpannableStringBuilder temp = new SpannableStringBuilder();
         temp.append(origin);
         temp.append(end);

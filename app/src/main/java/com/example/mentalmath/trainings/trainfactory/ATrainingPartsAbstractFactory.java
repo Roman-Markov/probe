@@ -1,7 +1,6 @@
 package com.example.mentalmath.trainings.trainfactory;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -13,12 +12,12 @@ import com.example.mentalmath.trainings.IExampleDisplay;
 import com.example.mentalmath.trainings.ISessionResultField;
 import com.example.mentalmath.trainings.IStopWatchField;
 import com.example.mentalmath.trainings.ITrainingPartsFactory;
-import com.example.mentalmath.trainings.SimpleAnswerField;
+import com.example.mentalmath.trainings.fields.SimpleAnswerField;
 import com.example.mentalmath.trainings.SimpleExampleBuilder;
-import com.example.mentalmath.trainings.SimpleExampleDisplay;
-import com.example.mentalmath.trainings.SimpleSessionResultField;
+import com.example.mentalmath.trainings.fields.SimpleExampleDisplay;
+import com.example.mentalmath.trainings.fields.SimpleSessionResultField;
 import com.example.mentalmath.trainings.SimpleStopWatch;
-import com.example.mentalmath.trainings.SimpleStopWatchField;
+import com.example.mentalmath.trainings.fields.SimpleStopWatchField;
 
 /**
  * Created by Роман on 27.09.2017.

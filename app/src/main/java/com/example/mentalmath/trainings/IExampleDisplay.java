@@ -14,7 +14,7 @@ public interface IExampleDisplay extends IField {
 
     public void showHiddenExample();
 
-    public String getCurrentAnswer();
+    public String getCurrentRightAnswer();
 
     public boolean checkResult(String userAnswer);
 }

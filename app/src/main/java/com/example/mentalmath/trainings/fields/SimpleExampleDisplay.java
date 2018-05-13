@@ -1,13 +1,15 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainings.fields;
 
 import android.app.Fragment;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.mentalmath.R;
+import com.example.mentalmath.trainings.ABaseField;
+import com.example.mentalmath.trainings.IExampleBuilder;
+import com.example.mentalmath.trainings.IExampleDisplay;
 
 /**
  * Created by Роман on 27.09.2017.
@@ -135,7 +137,7 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
     }
 
     @Override
-    public String getCurrentAnswer() {
+    public String getCurrentRightAnswer() {
         return mExampleBuilder.getCurrentAnswer();
     }
 
