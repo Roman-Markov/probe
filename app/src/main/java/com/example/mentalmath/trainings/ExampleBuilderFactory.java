@@ -1,5 +1,9 @@
 package com.example.mentalmath.trainings;
 
+import com.example.mentalmath.trainings.examplegenerator.AdditionBuilder;
+import com.example.mentalmath.trainings.examplegenerator.BaseExampleBuilder;
+import com.example.mentalmath.trainings.examplegenerator.MultiplicationBuilder;
+
 /**
  * Created by Роман on 23.08.2017.
  */

@@ -1,9 +1,8 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainings.examplegenerator;
 
 import android.util.Log;
 
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * Created by Роман on 24.08.2017.
@@ -116,7 +115,7 @@ public abstract class ArithmeticBuilder extends BaseExampleBuilder {
 
     @Override
     public boolean checkResult(String str) {
-        long result = 0;
+        long result;
         try {
             result = Long.valueOf(str);
         } catch (NumberFormatException e) {

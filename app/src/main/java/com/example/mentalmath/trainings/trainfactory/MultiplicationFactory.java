@@ -9,7 +9,7 @@ import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
 import com.example.mentalmath.trainings.IExampleBuilder;
 import com.example.mentalmath.trainings.IExampleDisplay;
-import com.example.mentalmath.trainings.MultiplicationBuilder;
+import com.example.mentalmath.trainings.examplegenerator.MultiplicationBuilder;
 import com.example.mentalmath.trainings.SimpleExampleDisplay;
 
 /**

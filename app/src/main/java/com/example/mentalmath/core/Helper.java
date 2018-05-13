@@ -1,15 +1,20 @@
 package com.example.mentalmath.core;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Build;
+import android.support.annotation.ArrayRes;
 import android.support.annotation.ColorRes;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.mentalmath.R;
+
+import io.reactivex.internal.functions.ObjectHelper;
 
 /**
  * Created by Роман on 07.10.2017.
@@ -68,5 +73,25 @@ public class Helper {
             layout.removeView(cursor);
             layout.addView(cursor);
         }
+    }
+
+    public static int getIndexFromStringArray(String[] array, String value) {
+        ObjectHelper.requireNonNull(array, "Array can not be null");
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(value)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static int getIndexFromStringArray(int arrayId, String value) {
+        String[] array = new String[0];
+        try {
+            array = mGlobalContext.getResources().getStringArray(arrayId);
+        } catch (Resources.NotFoundException e) {
+            Log.e("getIndexFromStringArray", "Array resource is not found for id: " + arrayId);
+        }
+        return getIndexFromStringArray(array, value);
     }
 }

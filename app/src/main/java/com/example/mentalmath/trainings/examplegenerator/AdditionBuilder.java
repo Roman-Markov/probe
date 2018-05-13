@@ -1,9 +1,11 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainings.examplegenerator;
 
 import android.util.Log;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
+import com.example.mentalmath.trainings.IExampleBuilder;
+import com.example.mentalmath.trainings.SimpleExampleBuilder;
 
 /**
  * Created by Роман on 24.08.2017.
@@ -28,7 +30,6 @@ public class AdditionBuilder extends ArithmeticBuilder {
     public final static String A10N_10N_ID = "10n_p_10n";
     public final static String A11N_11N_ID = "11n_p_11n";
     public final static String A12N_12N_ID = "12n_p_12n";
-
 
     public static IExampleBuilder create(String id) {
         switch (id) {
@@ -71,14 +72,15 @@ public class AdditionBuilder extends ArithmeticBuilder {
         }
     }
 
-    AdditionBuilder(int n, int m, String name) {
+    public AdditionBuilder(int n, int m, String name) {
         super(n, m, name);
     }
 
-    AdditionBuilder(long firstLowBound, long firstHighBound,
-                       long secondLowBound, long secondHighBound, String name) {
+    public AdditionBuilder(long firstLowBound, long firstHighBound,
+                    long secondLowBound, long secondHighBound, String name) {
         super(firstLowBound, firstHighBound, secondLowBound, secondHighBound, name);
     }
+
 
     @Override
     public String generateExample() {
@@ -87,7 +89,7 @@ public class AdditionBuilder extends ArithmeticBuilder {
         long little = result[0];
         mResult = big + little;
         mCurrentAnswer = Long.toString(mResult);
-        if (mFormat == ROW_FORMAT) {
+        if (mFormat == IExampleBuilder.ROW_FORMAT) {
             return Helper.mGlobalContext.getString(R.string.additionRowFormat, big, little);
         } else {
             return Helper.mGlobalContext.getString(R.string.additionColumnFormat, big, little);

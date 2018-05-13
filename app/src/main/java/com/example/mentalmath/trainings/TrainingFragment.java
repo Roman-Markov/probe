@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.mentalmath.core.Constants;
 import com.example.mentalmath.core.DataBaseHelper;
 import com.example.mentalmath.R;
+import com.example.mentalmath.trainings.examplegenerator.BaseExampleBuilder;
 
 import java.util.Date;
 

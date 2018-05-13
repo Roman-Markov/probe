@@ -1,10 +1,11 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainings.examplegenerator;
 
 import android.util.Log;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
-
+import com.example.mentalmath.trainings.IExampleBuilder;
+import com.example.mentalmath.trainings.SimpleExampleBuilder;
 
 
 public class SubtractionBuilder extends ArithmeticBuilder {

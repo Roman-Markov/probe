@@ -1,5 +1,7 @@
 package com.example.mentalmath;
 
+import com.example.mentalmath.trainings.examplegenerator.DivisionBuilder;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;

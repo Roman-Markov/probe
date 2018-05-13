@@ -1,10 +1,11 @@
-package com.example.mentalmath.trainings;
+package com.example.mentalmath.trainings.examplegenerator;
 
 import android.util.Log;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
-
+import com.example.mentalmath.trainings.IExampleBuilder;
+import com.example.mentalmath.trainings.SimpleExampleBuilder;
 
 
 public class MultiplicationBuilder extends ArithmeticBuilder {
@@ -51,11 +52,11 @@ public class MultiplicationBuilder extends ArithmeticBuilder {
         }
     }
 
-    MultiplicationBuilder(int n, int m, String name) {
+    public MultiplicationBuilder(int n, int m, String name) {
         super(n, m, name);
     }
 
-    MultiplicationBuilder(long firstLowBound, long firstHighBound,
+    public MultiplicationBuilder(long firstLowBound, long firstHighBound,
                     long secondLowBound, long secondHighBound, String name) {
         super(firstLowBound, firstHighBound, secondLowBound, secondHighBound, name);
     }

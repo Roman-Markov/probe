@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Helper;
-import com.example.mentalmath.trainings.AdditionBuilder;
+import com.example.mentalmath.trainings.examplegenerator.AdditionBuilder;
 import com.example.mentalmath.trainings.IAnswerField;
 import com.example.mentalmath.trainings.IExampleBuilder;
 import com.example.mentalmath.trainings.IExampleDisplay;
