@@ -29,7 +29,7 @@ public class DivisionDescriptionInflater extends ADescriptionInflater {
 
         String dividendRange = mKindPrefMap.get(pref.getString(mResources.getString(R.string.dividendRangeListKey), DivisionFactory.DEF_VAL_FOR_DIVIDEND));
         String temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.dividend));
-        tv.append(Helper.insertStringToStart(temp, Helper.paintString(dividendRange, R.color.green, tv))
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(dividendRange, R.color.descriptionColor, tv))
                 .append("\n"));
 
         String divisorRange = mKindOfDivisorPrefMap.get(pref.getString(mResources.getString(R.string.divisorRangeListKey), DivisionFactory.DEF_VAL_FOR_DIVISOR));
@@ -38,7 +38,7 @@ public class DivisionDescriptionInflater extends ADescriptionInflater {
             divisorRange = DivisionFactory.DEF_VAL_FOR_DIVISOR;
         }
         temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.divisor));
-        tv.append(Helper.insertStringToStart(temp, Helper.paintString(divisorRange, R.color.green, tv))
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(divisorRange, R.color.descriptionColor, tv))
                 .append("\n"));
     }
 
@@ -49,7 +49,7 @@ public class DivisionDescriptionInflater extends ADescriptionInflater {
         Boolean withReminder = pref.getBoolean(mResources.getString(R.string.divisionCbWithReminderKey), DivisionFactory.DEF_VAL_FOR_REMINDER_MODE);
         String reminderMode = withReminder ? mResources.getString(R.string.yes) : mResources.getString(R.string.no);
         String temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.reminderMode));
-        tv.append(Helper.insertStringToStart(temp, Helper.paintString(reminderMode, R.color.green, tv))
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(reminderMode, R.color.descriptionColor, tv))
                 .append("\n"));
     }
 

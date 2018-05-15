@@ -53,7 +53,7 @@ abstract class ADescriptionInflater implements IDescriptionInflater {
 
         String temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.kind));
         tv.append(Helper.insertStringToStart(temp, Helper.paintString(
-                getTrainingKind(), R.color.green, tv))
+                getTrainingKind(), R.color.descriptionColor, tv))
                 .append("\n"));
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(mContext);
@@ -62,31 +62,32 @@ abstract class ADescriptionInflater implements IDescriptionInflater {
 
         addSpecificDescription(tv);
 
+        // TODO: 15.05.2018 replace with field which change on preference changing
         String amount = mAmountPrefMap.get(pref.getString(getAmountKey(), getDefValForAmount()));
         temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.amount));
-        tv.append(Helper.insertStringToStart(temp, Helper.paintString(amount, R.color.green, tv))
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(amount, R.color.descriptionColor, tv))
                 .append("\n"));
 
         String vistime = mVisTimePrefMap.get(pref.getString(getVisTimeKey(), getDefValForVisTime()));
         temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.visibility));
-        tv.append(Helper.insertStringToStart(temp, Helper.paintString(vistime, R.color.green, tv))
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(vistime, R.color.descriptionColor, tv))
                 .append("\n"));
 
         String format = mFormatPrefMap.get(pref.getString(getFormatKey(), getDefValForFormat()));
         temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.format));
-        tv.append(Helper.insertStringToStart(temp, Helper.paintString(format, R.color.green, tv))
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(format, R.color.descriptionColor, tv))
                 .append("\n"));
 
         Boolean isHonest = pref.getBoolean(getHonestModeKey(), getDefValForHonestMode());
         String honestMode = isHonest? mResources.getString(R.string.yes) : mResources.getString(R.string.no);
         temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.honestMode));
-        tv.append(Helper.insertStringToStart(temp, Helper.paintString(honestMode, R.color.green, tv))
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(honestMode, R.color.descriptionColor, tv))
                 .append("\n"));
 
         Boolean showStopwatch = pref.getBoolean(getStopwatchModeKey(), getDefValForStopWatchMode());
         String stopwatchMode = showStopwatch? mResources.getString(R.string.visible) : mResources.getString(R.string.notVisible);
         temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.stopwatchMode));
-        tv.append(Helper.insertStringToStart(temp, Helper.paintString(stopwatchMode, R.color.green, tv))
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(stopwatchMode, R.color.descriptionColor, tv))
                 .append("\n"));
     }
 
@@ -122,7 +123,7 @@ abstract class ADescriptionInflater implements IDescriptionInflater {
 
         String type = mKindPrefMap.get(pref.getString(getKindKey(), getDefValForKind()));
         String temp = mResources.getString(R.string.displayingSettingsFormat, mResources.getString(R.string.type));
-        tv.append(Helper.insertStringToStart(temp, Helper.paintString(type, R.color.green, tv))
+        tv.append(Helper.insertStringToStart(temp, Helper.paintString(type, R.color.descriptionColor, tv))
                 .append("\n"));
     }
 

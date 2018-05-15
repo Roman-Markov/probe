@@ -186,7 +186,7 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             }
             String begin = mLayout.getContext().getString(R.string.your_result);
             if (userString != null && userString instanceof SpannableStringBuilder) {
-                userString = new SpannableStringBuilder().append(begin).append(userAnswer);
+                userString = new SpannableStringBuilder().append(begin).append(userString);
             } else {
                 userString = begin + userAnswer;
             }
@@ -195,7 +195,8 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             mUserResultTextView.setVisibility(View.VISIBLE);
             mUserResultTextView.setText(userString);
 
-            String rightAnswer = String.format(mLayout.getContext().getString(R.string.right_answer_format), correctAnswer);
+            String rightAnswer = String.format(mLayout.getContext().getString(
+                    R.string.right_answer_format), correctAnswer);
             mRightResultTextView.setVisibility(View.VISIBLE);
             mRightResultTextView.setText(rightAnswer);
         }
@@ -298,7 +299,7 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             }
             String begin = mLayout.getContext().getString(R.string.your_reminder);
             if (userString != null && userString instanceof SpannableStringBuilder) {
-                userString = new SpannableStringBuilder().append(begin).append(userAnswer);
+                userString = new SpannableStringBuilder().append(begin).append(userString);
             } else {
                 userString = begin + userAnswer;
             }

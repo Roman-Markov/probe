@@ -41,8 +41,18 @@ public class DivisionBuilder extends ArithmeticBuilder {
     @Override
     public boolean checkResult(String str) {
         String[] values = str.split(SPLITTER);
-        Long result = Long.decode(values[0].trim());
-        Long reminder = Long.decode(values[1].trim());
+        if (values.length < 2) {
+            return false;
+        }
+        Long result = null;
+        Long reminder = null;
+        try {
+            result = Long.decode(values[0].trim());
+            reminder = Long.decode(values[1].trim());
+        } catch (NumberFormatException e) {
+            Log.e("DivisionBuilder", e.getMessage());
+            return false;
+        }
         return result == mResult && reminder == mReminder;
     }
 
