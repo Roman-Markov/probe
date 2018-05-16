@@ -47,25 +47,25 @@ public class MainFragment extends Fragment {
         return result;
     }
 
-    @OnClick ({R.id.arithmetic, R.id.polynomials, R.id.matrix, R.id.equations, R.id.multi_equations})
+    @OnClick ({R.id.arithmetic,/* R.id.polynomials, R.id.matrix, R.id.equations, R.id.multi_equations*/})
     public void launchTrain(View v) {
         int kind = 0;
         switch (v.getId()) {
             case R.id.arithmetic:
                 kind = Constants.I_KIND_ARITHMETIC;
                 break;
-            case R.id.equations:
-                kind = Constants.I_KIND_EQUATIONS;
-                break;
-            case R.id.matrix:
-                kind = Constants.I_KIND_MATRIX;
-                break;
-            case R.id.multi_equations:
-                kind = Constants.I_KIND_MULTI_EQUATIONS;
-                break;
-            case R.id.polynomials:
-                kind = Constants.I_KIND_POLYNOMIALS;
-                break;
+//            case R.id.equations:
+//                kind = Constants.I_KIND_EQUATIONS;
+//                break;
+//            case R.id.matrix:
+//                kind = Constants.I_KIND_MATRIX;
+//                break;
+//            case R.id.multi_equations:
+//                kind = Constants.I_KIND_MULTI_EQUATIONS;
+//                break;
+//            case R.id.polynomials:
+//                kind = Constants.I_KIND_POLYNOMIALS;
+//                break;
             default:
                 //todo: handle more smartly this case
                 kind = Constants.I_KIND_ARITHMETIC;

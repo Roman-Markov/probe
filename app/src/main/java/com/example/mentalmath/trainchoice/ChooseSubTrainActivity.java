@@ -12,8 +12,7 @@ import com.example.mentalmath.core.Constants;
 
 /**
  * According to arguments passed in Intents currently may contain fragments: {@link
- * ChooseArithmeticFragment}, {@link ChooseEquationsFragment},
- * {@link ChooseLinearEquationsFragment},{@link ChoosePolinomialsFragment}. These fragments
+ * ChooseArithmeticFragment}. These fragments
  * clarify the appropriate subtrain and launch activity for training itself or launch one more
  * activity for choice sub subtrain.
  */
@@ -44,14 +43,14 @@ public class ChooseSubTrainActivity extends Activity {
         switch (type) {
             case Constants.I_KIND_ARITHMETIC:
                 return new ChooseArithmeticFragment();
-            case Constants.I_KIND_EQUATIONS:
-                return new ChooseEquationsFragment();
-            case Constants.I_KIND_MATRIX:
-                return new ChooseMatrixFragment();
-            case Constants.I_KIND_MULTI_EQUATIONS:
-                return new ChooseLinearEquationsFragment();
-            case Constants.I_KIND_POLYNOMIALS:
-                return new ChoosePolinomialsFragment();
+//            case Constants.I_KIND_EQUATIONS:
+//                return new ChooseEquationsFragment();
+//            case Constants.I_KIND_MATRIX:
+//                return new ChooseMatrixFragment();
+//            case Constants.I_KIND_MULTI_EQUATIONS:
+//                return new ChooseLinearEquationsFragment();
+//            case Constants.I_KIND_POLYNOMIALS:
+//                return new ChoosePolinomialsFragment();
 
             default:
                 Log.e("TrainingFragmentFactory", "Unknown type of training fragment:" + type);

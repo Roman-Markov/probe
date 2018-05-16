@@ -12,25 +12,25 @@
             android:text="@string/arithmetic"/>
 
 
-        <Button
-            android:id="@+id/equations"
-            style="@style/KindOfTrainButton"
-            android:text="@string/equations"/>
+        <!--<Button-->
+            <!--android:id="@+id/equations"-->
+            <!--style="@style/KindOfTrainButton"-->
+            <!--android:text="@string/equations"/>-->
 
 
-        <Button
-            android:id="@+id/matrix"
-            style="@style/KindOfTrainButton"
-            android:text="@string/matrix"/>
+        <!--<Button-->
+            <!--android:id="@+id/matrix"-->
+            <!--style="@style/KindOfTrainButton"-->
+            <!--android:text="@string/matrix"/>-->
 
-        <Button
-            android:id="@+id/multi_equations"
-            style="@style/KindOfTrainButton"
-            android:text="@string/multi_equation"/>
+        <!--<Button-->
+            <!--android:id="@+id/multi_equations"-->
+            <!--style="@style/KindOfTrainButton"-->
+            <!--android:text="@string/multi_equation"/>-->
 
-        <Button
-            android:id="@+id/polynomials"
-            style="@style/KindOfTrainButton"
-            android:text="@string/polynomial"/>
+        <!--<Button-->
+            <!--android:id="@+id/polynomials"-->
+            <!--style="@style/KindOfTrainButton"-->
+            <!--android:text="@string/polynomial"/>-->
 
 </LinearLayout>
