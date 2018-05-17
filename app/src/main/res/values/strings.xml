@@ -5,7 +5,7 @@
     <string name="show_nnn_x_mm">Show NNN * MM</string>
     <string name="app_name">Mental Math</string>
     <string name="hint_for_result">enter result here</string>
-    <string name="hint_for_reminder">enter reminder here</string>
+    <!--<string name="hint_for_reminder">enter reminder here</string>-->
     <string name="statistics">Statistics</string>
 
     <!-- Buttons text -->
@@ -443,5 +443,7 @@
 
     <string name="dividend_is_not_specified">Dividend value is not specified</string>
     <string name="divisor_more_than_dividend">Divisor should be less than or equals to dividend</string>
+    <string name="result">Result:</string>
+    <string name="reminder">Reminder:</string>
 
 </resources>

@@ -6,25 +6,29 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/result_answer_field"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_for_result"
-        android:inputType="number"
-        android:textSize="24sp" />
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/result_answer_hint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/st_padding"
+            android:paddingStart="@dimen/st_padding"
+            android:textSize="24sp"
+            android:text="@string/result"
+            tools:text="@string/result"/>
 
-    <TextView
-        android:id="@+id/user_result_answer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:paddingLeft="@dimen/st_padding"
-        android:paddingStart="@dimen/st_padding"
-        android:paddingBottom="@dimen/st_padding"
-        android:visibility="gone"
-        tools:visibility="visible"
-        tools:text="112"/>
+        <EditText
+            android:id="@+id/result_answer_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:inputType="number"
+            android:textSize="24sp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/right_result_answer"
@@ -38,27 +42,34 @@
         tools:visibility="visible"
         tools:text="112"/>
 
-    <EditText
-        android:id="@+id/reminder_answer_field"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_for_reminder"
-        android:inputType="number"
-        android:textSize="24sp"
-        android:visibility="gone"
-        tools:visibility="visible"/>
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/user_reminder_answer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:paddingLeft="@dimen/st_padding"
-        android:paddingStart="@dimen/st_padding"
-        android:paddingBottom="@dimen/st_padding"
-        android:visibility="gone"
-        tools:visibility="visible"
-        tools:text="12"/>
+        <TextView
+            android:id="@+id/reminder_answer_hint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/st_padding"
+            android:paddingStart="@dimen/st_padding"
+            android:textSize="24sp"
+            android:text="@string/reminder"
+            tools:text="@string/reminder"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+        <EditText
+            android:id="@+id/reminder_answer_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:inputType="number"
+            android:textSize="24sp"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/right_reminder_answer"

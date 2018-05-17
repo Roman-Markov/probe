@@ -25,13 +25,13 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
 
     @BindView(R.id.result_answer_field)
     EditText mEditTextForResult;
+    @BindView (R.id.result_answer_hint)
+    TextView mTextViewForResult;
+
     @BindView(R.id.reminder_answer_field)
     EditText mEditTextForReminder;
-
-    @BindView(R.id.user_result_answer)
-    TextView mUserResultTextView;
-    @BindView(R.id.user_reminder_answer)
-    TextView mUserReminderTextView;
+    @BindView (R.id.reminder_answer_hint)
+    TextView mTextViewForReminder;
 
     @BindView(R.id.right_result_answer)
     TextView mRightResultTextView;
@@ -101,11 +101,11 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
         @Override
         public void init() {
             if (mIsHonestMode) {
+                mTextViewForResult.setVisibility(View.GONE);
                 mEditTextForResult.setVisibility(View.GONE);
             } else {
                 mEditTextForResult.setEnabled(false);
             }
-            mUserResultTextView.setVisibility(View.GONE);
             mRightResultTextView.setVisibility(View.GONE);
         }
 
@@ -116,10 +116,6 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             if(!mIsHonestMode) {
                 mEditTextForResult.setVisibility(View.VISIBLE);
                 mEditTextForResult.setText("");
-                mEditTextForResult.setHint(mLayout.getContext().getString(R.string.hint_for_result));
-
-                mUserResultTextView.setText("");
-                mUserResultTextView.setVisibility(View.GONE);
             }
         }
 
@@ -131,7 +127,6 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
         @Override
         public void resume() {
             if(!mIsHonestMode) {
-                mEditTextForResult.setVisibility(View.VISIBLE);
                 mEditTextForResult.setEnabled(true);
             }
         }
@@ -147,11 +142,7 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
         public void clean() {
             if(!mIsHonestMode) {
                 mEditTextForResult.setText("");
-                mEditTextForResult.setHint("");
                 mEditTextForResult.setEnabled(false);
-
-                mUserResultTextView.setText("");
-                mUserResultTextView.setVisibility(View.GONE);
 
                 mRightResultTextView.setText("");
                 mRightResultTextView.setVisibility(View.GONE);
@@ -174,7 +165,7 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
         }
 
         protected void showOnlyRightResult(final String correctAnswer) {
-            String rightAnswer = String.format(mLayout.getContext().getString(R.string.right_answer_format), correctAnswer);
+            String rightAnswer = mLayout.getContext().getString(R.string.result) + " " +  correctAnswer;
             mRightResultTextView.setVisibility(View.VISIBLE);
             mRightResultTextView.setText(rightAnswer);
         }
@@ -183,17 +174,12 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             CharSequence userString = null;
             if (! userAnswer.equals(correctAnswer)) {
                 userString = Helper.paintString(userAnswer, R.color.red, mLayout);
-            }
-            String begin = mLayout.getContext().getString(R.string.your_result);
-            if (userString != null && userString instanceof SpannableStringBuilder) {
-                userString = new SpannableStringBuilder().append(begin).append(userString);
             } else {
-                userString = begin + userAnswer;
+                userString = Helper.paintString(userAnswer, R.color.resultTextColor, mLayout);;
             }
-            mEditTextForResult.setVisibility(View.GONE);
 
-            mUserResultTextView.setVisibility(View.VISIBLE);
-            mUserResultTextView.setText(userString);
+            mEditTextForResult.setText(userString);
+            mEditTextForResult.setEnabled(false);
 
             String rightAnswer = String.format(mLayout.getContext().getString(
                     R.string.right_answer_format), correctAnswer);
@@ -209,11 +195,12 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             super.init();
             if (mIsHonestMode) {
                 mEditTextForReminder.setVisibility(View.GONE);
+                mTextViewForReminder.setVisibility(View.GONE);
             } else {
                 mEditTextForReminder.setVisibility(View.VISIBLE);
                 mEditTextForReminder.setEnabled(false);
+                mTextViewForReminder.setVisibility(View.VISIBLE);
             }
-            mUserReminderTextView.setVisibility(View.GONE);
             mRightReminderAnswerField.setVisibility(View.GONE);
         }
 
@@ -225,10 +212,7 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             if(!mIsHonestMode) {
                 mEditTextForReminder.setVisibility(View.VISIBLE);
                 mEditTextForReminder.setText("");
-                mEditTextForReminder.setHint(mLayout.getContext().getString(R.string.hint_for_reminder));
-
-                mUserReminderTextView.setText("");
-                mUserReminderTextView.setVisibility(View.GONE);
+                mTextViewForReminder.setVisibility(View.VISIBLE);
             }
         }
 
@@ -242,7 +226,6 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
         public void resume() {
             super.resume();
             if(!mIsHonestMode) {
-                mEditTextForReminder.setVisibility(View.VISIBLE);
                 mEditTextForReminder.setEnabled(true);
             }
         }
@@ -262,11 +245,7 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             mRightReminderAnswerField.setVisibility(View.GONE);
             if(!mIsHonestMode) {
                 mEditTextForReminder.setText("");
-                mEditTextForReminder.setHint("");
                 mEditTextForReminder.setEnabled(false);
-
-                mUserReminderTextView.setText("");
-                mUserReminderTextView.setVisibility(View.GONE);
             }
         }
 
@@ -287,7 +266,7 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
         }
 
         protected void showOnlyRightResult(String correctAnswer) {
-            String rightAnswer = String.format(mLayout.getContext().getString(R.string.right_answer_format), correctAnswer);
+            String rightAnswer = mLayout.getContext().getString(R.string.reminder) + " " +  correctAnswer;;
             mRightReminderAnswerField.setVisibility(View.VISIBLE);
             mRightReminderAnswerField.setText(rightAnswer);
         }
@@ -296,17 +275,12 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             CharSequence userString = null;
             if (! userAnswer.equals(correctAnswer)) {
                 userString = Helper.paintString(userAnswer, R.color.red, mLayout);
-            }
-            String begin = mLayout.getContext().getString(R.string.your_reminder);
-            if (userString != null && userString instanceof SpannableStringBuilder) {
-                userString = new SpannableStringBuilder().append(begin).append(userString);
             } else {
-                userString = begin + userAnswer;
+                userString = Helper.paintString(userAnswer, R.color.resultTextColor, mLayout);;
             }
-            mEditTextForReminder.setVisibility(View.GONE);
 
-            mUserReminderTextView.setVisibility(View.VISIBLE);
-            mUserReminderTextView.setText(userString);
+            mEditTextForReminder.setText(userString);
+            mEditTextForReminder.setEnabled(false);
 
             String rightAnswer = String.format(mLayout.getContext().getString(R.string.right_answer_format), correctAnswer);
             mRightReminderAnswerField.setVisibility(View.VISIBLE);

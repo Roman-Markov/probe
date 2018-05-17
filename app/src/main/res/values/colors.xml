@@ -3,4 +3,5 @@
     <color name="red">#FF7799</color>
     <color name="green">#559955</color>
     <color name="descriptionColor">#FF000000</color>
+    <color name="resultTextColor">#FF000000</color>
 </resources>

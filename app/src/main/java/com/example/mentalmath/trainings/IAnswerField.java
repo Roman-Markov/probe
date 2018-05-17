@@ -8,6 +8,7 @@ public interface IAnswerField extends IField{
 
     /**
      * prepares fields (e. g. several text fields) for user answer input
+     * before set of exercises.
      */
     public void prepareField();
 
