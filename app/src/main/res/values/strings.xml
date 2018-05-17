@@ -445,5 +445,6 @@
     <string name="divisor_more_than_dividend">Divisor should be less than or equals to dividend</string>
     <string name="result">Result:</string>
     <string name="reminder">Reminder:</string>
+    <string name="rightHint">Right:</string>
 
 </resources>
