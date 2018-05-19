@@ -10,6 +10,8 @@ public interface ITrainingPartsFactory {
 
     IExampleDisplay getExampleDisplay();
 
+    IControlButtonField getButtonField();
+
     IAnswerField getAnswerField();
 
     ISessionResultField getSessionResultField();

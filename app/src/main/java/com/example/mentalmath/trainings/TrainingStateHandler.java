@@ -53,6 +53,15 @@ public class TrainingStateHandler {
         initializeHandler(train);
     }
 
+    public void setButtonField(IControlButtonField buttonField) {
+        mStartButton    = buttonField.getStartButton();
+        mOkButton       = buttonField.getOkButton();
+        mPauseButton    = buttonField.getPauseButton();
+        mRightButton    = buttonField.getRightButton();
+        mWrongButton    = buttonField.getWrongButton();
+        initButtonList();
+    }
+
     public void onClick(View v) {
         mCurrentState.onClick(v);
     }
@@ -70,13 +79,16 @@ public class TrainingStateHandler {
 
     private void initializeHandler(IHonestTrain train) {
         Log.d(getClass().getSimpleName(), "initializeHandler()");
+        initButtonList();
+        mCurrentState = new InitialState(train);
+    }
+
+    private void initButtonList() {
         mButtonList.add(mStartButton);
         mButtonList.add(mOkButton);
         mButtonList.add(mPauseButton);
         mButtonList.add(mRightButton);
         mButtonList.add(mWrongButton);
-
-        mCurrentState = new InitialState(train);
     }
 
     abstract class TrainingState {

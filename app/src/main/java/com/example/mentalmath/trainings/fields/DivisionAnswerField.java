@@ -16,6 +16,7 @@ import com.example.mentalmath.trainings.examplegenerator.DivisionBuilder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by Роман on 13.05.2018.
@@ -43,6 +44,8 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
     @BindView(R.id.right_reminder_answer)
     TextView mRightReminderAnswerField;
 
+    private Unbinder unbinder;
+
     boolean mIsHonestMode;
 
     private DivisionAnswerState state;
@@ -52,13 +55,20 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
         super(inflater, container, R.layout.division_answer_field);
         mIsHonestMode = isHonestMode;
 
-        ButterKnife.bind(this, mLayout);
+        unbinder = ButterKnife.bind(this, mLayout);
 
         boolean withReminder = PreferenceManager.getDefaultSharedPreferences(Helper.mGlobalContext)
                 .getBoolean(Helper.mGlobalContext.getString(R.string.divisionCbWithReminderKey), false);
         state = withReminder? new WithReminder() : new SimpleState();
 
         state.init();
+    }
+
+    @Override
+    public void resetFields(ViewGroup layout) {
+        mLayout = layout;
+        unbinder.unbind();
+        unbinder = ButterKnife.bind(this, mLayout);
     }
 
     @Override

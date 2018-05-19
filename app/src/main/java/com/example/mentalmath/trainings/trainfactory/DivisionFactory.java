@@ -76,15 +76,6 @@ public class DivisionFactory extends ATrainingPartsAbstractFactory {
     }
 
     @Override
-    public IExampleDisplay getExampleDisplay(){
-        SimpleExampleDisplay display = new SimpleExampleDisplay(mInflater, mViewGroup,
-                getExampleBuilder());
-        String visTime = mPrefs.getString(VISTIME_KEY, "always");
-        display.setVisibilityTime(visTime);
-        return display;
-    }
-
-    @Override
     public IExampleBuilder getExampleBuilder() {
 
         // TODO: 12.05.2018 replace with normal division builder
@@ -103,27 +94,25 @@ public class DivisionFactory extends ATrainingPartsAbstractFactory {
         }
         builder.setFormat(formatType);
         return builder;
-    };
-
-    @Override
-    public boolean isHonestModeEnabled() {
-        return mPrefs.getBoolean(HONESTMODE_KEY, false);
     }
 
     @Override
-    public boolean isStopwatchVisible() {
-        return mPrefs.getBoolean(STOPWATCH_MODE_KEY, true);
+    protected String getVisTimeKey() {
+        return VISTIME_KEY;
     }
 
     @Override
-    public int getAmountOfExamples(){
-        String prefAmount = mPrefs.getString(AMOUNT_KEY, "1");
-        try {
-            int amount = Integer.parseInt(prefAmount);
-            return amount;
-        } catch (NumberFormatException e) {
-            Log.e(getClass().getSimpleName(), "Wrong format of number: " + prefAmount);
-            return 1;
-        }
+    protected String getHonestModeKey() {
+        return HONESTMODE_KEY;
+    }
+
+    @Override
+    protected String getStopWatchModeKey() {
+        return STOPWATCH_MODE_KEY;
+    }
+
+    @Override
+    protected String getAmountKey() {
+        return AMOUNT_KEY;
     }
 }

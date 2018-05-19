@@ -34,6 +34,8 @@ import java.util.TimeZone;
 
 public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
+    public static final String TAG = "CommonTrainingFragment";
+
     private IStopWatchField mStopWatcherField;
     private IExampleDisplay mExampleDisplay;
     private IAnswerField mAnswerField;
@@ -58,20 +60,24 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
                              Bundle onSavedInstanceState) {
         super.onCreateView(inflater, container, onSavedInstanceState);
 
+
+        int kind = getActivity().getIntent().getIntExtra(Constants.KEY_KIND_OF_TRAININGS, -1);
+        setRetainInstance(true);
+
+        mParentLayout = (LinearLayout) inflater.inflate(R.layout.common_training, container, false);
+
         if (mIsFirstRunning) {
-            int kind = getActivity().getIntent().getIntExtra(Constants.KEY_KIND_OF_TRAININGS, -1);
             errorLog("first running");
-            setRetainInstance(true);
-            mIsFirstRunning = false;
-
-            mParentLayout = (LinearLayout) inflater.inflate(R.layout.common_training, container, false);
-
-            constructAllFields(inflater, container, kind);
-            addAllToParent(mParentLayout);
+            constructAllFields(inflater, mParentLayout, kind);
+//            addAllToParent(mParentLayout);
             mCounterView = ((SimpleButtonField) mButtonField).getCounterView();
             mStateHandler = new TrainingStateHandler(this, mButtonField);
             mStateHandler.setHonestMode(mIsHonestMode);
+            mIsFirstRunning = false;
+        } else {
+            resetAllFields(mParentLayout);
         }
+
         return mParentLayout;
     }
 
@@ -272,21 +278,37 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mExampleDisplay     = factory.getExampleDisplay();
         mAnswerField        = factory.getAnswerField();
         mSessionResult      = factory.getSessionResultField();
-        mButtonField        = new SimpleButtonField(inflater, container);
+        mButtonField        = factory.getButtonField();
 
         mExampleAmount      = factory.getAmountOfExamples();
         mIsHonestMode       = factory.isHonestModeEnabled();
     }
 
-    // adds all fields in appropriate order
-    private void addAllToParent(LinearLayout result) {
-        errorLog("addAllToParent():");
-        result.addView(mStopWatcherField.getLayout());
-        result.addView(mExampleDisplay.getLayout());
-        result.addView(mAnswerField.getLayout());
-        result.addView(mButtonField.getLayout());
-        result.addView(mSessionResult.getLayout());
+    private void resetAllFields(LinearLayout layout) {
+        mStopWatcherField.resetFields(layout);
+        mExampleDisplay.resetFields(layout);
+        mAnswerField.resetFields(layout);
+        mSessionResult.resetFields(layout);
+        mButtonField.resetFields(layout);
+
+        mStateHandler.setButtonField(mButtonField);
+
+        CharSequence text = mCounterView.getText();
+        int visibility = mCounterView.getVisibility();
+        mCounterView = ((SimpleButtonField) mButtonField).getCounterView();
+        mCounterView.setVisibility(visibility);
+        mCounterView.setText(text);
     }
+
+    // adds all fields in appropriate order
+//    private void addAllToParent(LinearLayout result) {
+//        errorLog("addAllToParent():");
+//        result.addView(mStopWatcherField.getLayout());
+//        result.addView(mExampleDisplay.getLayout());
+//        result.addView(mAnswerField.getLayout());
+//        result.addView(mButtonField.getLayout());
+//        result.addView(mSessionResult.getLayout());
+//    }
 
     private void showToast(int stringId) {
         errorLog("showToast():");

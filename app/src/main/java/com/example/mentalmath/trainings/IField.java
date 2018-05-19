@@ -1,8 +1,6 @@
 package com.example.mentalmath.trainings;
 
-import android.os.Bundle;
-import android.text.Layout;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
 
 /**
  * Created by Роман on 30.09.2017.
@@ -10,5 +8,7 @@ import android.widget.LinearLayout;
 
 public interface IField {
 
-    LinearLayout getLayout();
+    ViewGroup getLayout();
+
+    void resetFields(ViewGroup layout);
 }

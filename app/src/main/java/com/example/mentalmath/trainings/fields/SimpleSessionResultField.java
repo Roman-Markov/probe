@@ -28,13 +28,43 @@ public class SimpleSessionResultField extends ABaseField implements ISessionResu
     int mExampleCounter;
 
     public SimpleSessionResultField (LayoutInflater inflater, ViewGroup container) {
-
         super(inflater, container, R.layout.session_result_field);
+        init();
+    }
+
+    public SimpleSessionResultField (ViewGroup container) {
+        super(container, R.id.sessionResultField);
+        init();
+    }
+
+    private void init() {
         mSessionResultView = mLayout.findViewById(R.id.sessionResult);
         mListView = mLayout.findViewById(R.id.list);
         mAdapter = new ArrayAdapter<> (mLayout.getContext(), android.R.layout.simple_list_item_1, mList);
         mListView.setAdapter(mAdapter);
     }
+
+    @Override
+    public void resetFields(ViewGroup layout) {
+        mLayout = layout;
+        int visibility = mListView.getVisibility();
+        mListView = mLayout.findViewById(R.id.list);
+        mListView.setVisibility(visibility);
+        mListView.setAdapter(mAdapter);
+
+        visibility = mSessionResultView.getVisibility();
+        CharSequence text = mSessionResultView.getText();
+        mSessionResultView = mLayout.findViewById(R.id.sessionResult);
+        mSessionResultView.setVisibility(visibility);
+        mSessionResultView.setText(text);
+        //mAdapter = (ArrayAdapter<String>) mListView.getAdapter();
+//        if (mAdapter == null) {
+//            mAdapter = new ArrayAdapter<> (mLayout.getContext(), android.R.layout.simple_list_item_1, mList);
+//        }
+//        mListView.setAdapter(mAdapter);
+    }
+
+
 
     @Override
     public void addExampleResult(String time, boolean isRight) {

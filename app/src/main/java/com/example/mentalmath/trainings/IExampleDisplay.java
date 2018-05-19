@@ -14,6 +14,8 @@ public interface IExampleDisplay extends IField {
 
     public void showHiddenExample();
 
+    void setVisibilityTime(String timeOfVisibility);
+
     public String getCurrentRightAnswer();
 
     public boolean checkResult(String userAnswer);

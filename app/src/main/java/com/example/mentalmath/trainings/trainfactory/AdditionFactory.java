@@ -63,21 +63,6 @@ public class AdditionFactory extends ATrainingPartsAbstractFactory {
     }
 
     @Override
-    public IExampleDisplay getExampleDisplay(){
-        SimpleExampleDisplay display = new SimpleExampleDisplay(mInflater, mViewGroup,
-            getExampleBuilder());
-        String visTime = mPrefs.getString(VISTIME_KEY, "always");
-        display.setVisibilityTime(visTime);
-        return display;
-    }
-
-    @Override
-    public IAnswerField getAnswerField(){return new SimpleAnswerField(mInflater, mViewGroup, isHonestModeEnabled());}
-
-    @Override
-    public ISessionResultField getSessionResultField(){return new SimpleSessionResultField(mInflater, mViewGroup);}
-
-    @Override
     public IExampleBuilder getExampleBuilder() {
 
         String kind = mPrefs.getString(KIND_KEY, "simple");
@@ -94,22 +79,25 @@ public class AdditionFactory extends ATrainingPartsAbstractFactory {
         }
         builder.setFormat(formatType);
         return builder;
-    };
-
-    @Override
-    public boolean isHonestModeEnabled() {
-        return mPrefs.getBoolean(HONESTMODE_KEY, false);
     }
 
     @Override
-    public int getAmountOfExamples(){
-        String prefAmount = mPrefs.getString(AMOUNT_KEY, "1");
-        try {
-            int amount = Integer.parseInt(prefAmount);
-            return amount;
-        } catch (NumberFormatException e) {
-            Log.e(getClass().getSimpleName(), "Wrong format of number: " + prefAmount);
-            return 1;
-        }
+    protected String getVisTimeKey() {
+        return VISTIME_KEY;
+    }
+
+    @Override
+    protected String getHonestModeKey() {
+        return HONESTMODE_KEY;
+    }
+
+    @Override
+    protected String getStopWatchModeKey() {
+        return STOPWATCH_MODE_KEY;
+    }
+
+    @Override
+    protected String getAmountKey() {
+        return AMOUNT_KEY;
     }
 }

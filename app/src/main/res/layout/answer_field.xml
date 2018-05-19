@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/answerField"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -11,7 +13,9 @@
         android:layout_height="wrap_content"
         android:hint="@string/hint_for_result"
         android:inputType="number"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:visibility="gone"
+        tools:text="2134"/>
 
     <TextView
         android:id="@+id/user_answer"
@@ -21,7 +25,9 @@
         android:paddingLeft="@dimen/st_padding"
         android:paddingStart="@dimen/st_padding"
         android:paddingBottom="@dimen/st_padding"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="2134"/>
 
     <TextView
         android:id="@+id/right_answer"
@@ -31,5 +37,7 @@
         android:paddingLeft="@dimen/st_padding"
         android:paddingStart="@dimen/st_padding"
         android:paddingBottom="@dimen/st_padding"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="2134"/>
 </LinearLayout>

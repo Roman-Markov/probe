@@ -4,4 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include layout="@layout/stopwatch_field"/>
+
+    <include layout="@layout/example_display_field"/>
+
+    <include layout="@layout/answer_field"/>
+
+    <include layout="@layout/button_field"/>
+
+    <include layout="@layout/session_result_field"/>
+
 </LinearLayout>

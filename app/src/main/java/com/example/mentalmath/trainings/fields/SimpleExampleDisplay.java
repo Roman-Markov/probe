@@ -44,9 +44,30 @@ public class SimpleExampleDisplay extends ABaseField implements IExampleDisplay 
     public SimpleExampleDisplay (LayoutInflater inflater, ViewGroup container, IExampleBuilder builder) {
 
         super(inflater, container, R.layout.example_display_field);
+        init(builder);
+    }
+
+    public SimpleExampleDisplay (ViewGroup container, IExampleBuilder builder) {
+
+        super(container, R.id.exampleDisplayField);
+        init(builder);
+    }
+
+    private void init(IExampleBuilder builder) {
         mExampleView = mLayout.findViewById(R.id.example_view);
         mExampleBuilder = builder;
     }
+
+    @Override
+    public void resetFields(ViewGroup layout) {
+        mLayout = layout;
+        int visibility = mExampleView.getVisibility();
+        CharSequence text = mExampleView.getText().toString();
+        mExampleView = mLayout.findViewById(R.id.example_view);
+        mExampleView.setVisibility(visibility);
+        mExampleView.setText(text);
+    }
+
 
     /**
      * Sets time of example visibility in seconds

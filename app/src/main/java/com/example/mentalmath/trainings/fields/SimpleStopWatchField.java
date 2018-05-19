@@ -3,6 +3,7 @@ package com.example.mentalmath.trainings.fields;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import com.example.mentalmath.trainings.ABaseField;
 import com.example.mentalmath.trainings.IStopWatch;
 import com.example.mentalmath.trainings.IStopWatchField;
 
+import java.nio.charset.Charset;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -48,7 +50,17 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     public SimpleStopWatchField (boolean isStopwatchVisible, LayoutInflater inflater, ViewGroup container, IStopWatch sw) {
 
         super(inflater, container, R.layout.stopwatch_field);
-        mStopWatch = sw;
+        init(sw, isStopwatchVisible);
+    }
+
+    public SimpleStopWatchField (boolean isStopwatchVisible, ViewGroup container, IStopWatch sw) {
+
+        super(container, R.id.stopWatchField);
+        init(sw, isStopwatchVisible);
+    }
+
+    private void init(IStopWatch stopWatch, boolean isStopwatchVisible) {
+        mStopWatch = stopWatch;
         mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);
         mCurrentTrainStopWatch = mLayout.findViewById(R.id.stopwatch);
         // TODO: 14.04.2018 replace with more smart logic which doesn't shows stopwatch field itself
@@ -65,6 +77,17 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
                 mHandler.postDelayed(this, 10);
             }
         };
+    }
+
+    @Override
+    public void resetFields(ViewGroup layout) {
+        mLayout = layout;
+        int visibility = mCommonTrainStopWatch.getVisibility();
+        mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);
+        mCommonTrainStopWatch.setVisibility(visibility);
+        visibility = mCurrentTrainStopWatch.getVisibility();
+        mCurrentTrainStopWatch = mLayout.findViewById(R.id.stopwatch);
+        mCurrentTrainStopWatch.setVisibility(visibility);
     }
 
     @Override

@@ -1,25 +1,28 @@
 package com.example.mentalmath.trainings;
 
+import android.text.Layout;
+import android.view.ViewGroup;
+
 /**
  * Created by Роман on 09.09.2017.
  */
 
 public interface IStopWatchField extends IField {
 
-    public void start();
+    void start();
 
-    public void startExample();
+    void startExample();
 
-    public void resume();
+    void resume();
 
-    public void pause();
+    void pause();
 
-    public void stopExample();
+    void stopExample();
 
-    public void stopAll();
+    void stopAll();
 
-    public String getCurrentExampleTime();
+    String getCurrentExampleTime();
 
-    public String getTotalTime();
+    String getTotalTime();
 
 }

@@ -36,9 +36,16 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
     boolean mIsHonestMode;
 
     public SimpleAnswerField (LayoutInflater inflater, ViewGroup container, boolean isHonestMode) {
-
         super(inflater, container, R.layout.answer_field);
+        init(isHonestMode);
+    }
 
+    public SimpleAnswerField (ViewGroup container, boolean isHonestMode) {
+        super(container, R.id.answerField);
+        init(isHonestMode);
+    }
+
+    private void init(boolean isHonestMode) {
         mAnswerField = mLayout.findViewById(R.id.answer_field);
 
         mIsHonestMode = isHonestMode;
@@ -53,6 +60,28 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
 
         mRightAnswerField = mLayout.findViewById(R.id.right_answer);
         mRightAnswerField.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void resetFields(ViewGroup layout) {
+        mLayout = layout;
+        boolean isEnabled = mAnswerField.isEnabled();
+        int visibility = mAnswerField.getVisibility();
+        mAnswerField = mLayout.findViewById(R.id.answer_field);
+        mAnswerField.setEnabled(isEnabled);
+        mAnswerField.setVisibility(visibility);
+
+        visibility = mUserAnswerField.getVisibility();
+        CharSequence text = mUserAnswerField.getText();
+        mUserAnswerField = mLayout.findViewById(R.id.user_answer);
+        mUserAnswerField.setVisibility(visibility);
+        mUserAnswerField.setText(text);
+
+        visibility = mRightAnswerField.getVisibility();
+        text = mRightAnswerField.getText();
+        mRightAnswerField = mLayout.findViewById(R.id.right_answer);
+        mRightAnswerField.setVisibility(visibility);
+        mRightAnswerField.setText(text);
     }
 
     @Override
