@@ -3,7 +3,6 @@ package com.example.mentalmath.trainings;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.IntegerRes;
 import android.support.annotation.LayoutRes;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
@@ -18,7 +17,6 @@ import android.widget.Toast;
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Constants;
 import com.example.mentalmath.core.Helper;
-import com.example.mentalmath.core.Utils;
 import com.example.mentalmath.trainings.fields.SimpleButtonField;
 import com.example.mentalmath.trainings.fields.SimpleExampleDisplay;
 import com.example.mentalmath.trainings.trainfactory.AdditionFactory;
@@ -245,7 +243,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void hideInputMethod() {
-        Utils.hideKeyBoard(getActivity());
+        Helper.hideKeyBoard(getActivity());
     }
 
     @Override

@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.mentalmath.R;
-import com.example.mentalmath.core.Utils;
 
 import java.util.Arrays;
 import java.util.HashSet;

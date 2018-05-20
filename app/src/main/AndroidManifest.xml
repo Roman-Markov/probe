@@ -23,8 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".core.ChoiceStatisticsActivity"/>
-        <activity android:name=".core.StaticsticsActivity"/>
         <activity android:name=".trainchoice.ChooseSubTrainActivity"/>
         <activity android:name=".trainings.TrainingActivity"
             android:windowSoftInputMode="stateUnchanged|adjustResize"/>

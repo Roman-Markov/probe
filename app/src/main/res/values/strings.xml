@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="show_nn_x_m">Show NN * M</string>
-    <string name="show_nn_x_mm">Show NN * MM</string>
-    <string name="show_nnn_x_mm">Show NNN * MM</string>
     <string name="app_name">Mental Math</string>
     <string name="hint_for_result">enter result here</string>
     <!--<string name="hint_for_reminder">enter reminder here</string>-->
-    <string name="statistics">Statistics</string>
 
     <!-- Buttons text -->
     <string name="ok">OK</string>
@@ -24,14 +20,6 @@
     <string name="averageTimeFormat" formatted="false">"Average time:   %s\n"</string>
     <string name="stopwatchFormat" formatted="false">%d:%02d</string>
     <string name="noRightAnswers">There are no right answers</string>
-    <string name="show_n_x_m">Show N * M</string>
-    <string name="show_nnn_x_m">Show NNN * M</string>
-    <string name="show_nnn_x_mmm">Show NNN * MMM</string>
-    <string name="show_n_p_m">Show N + M</string>
-    <string name="show_nn_p_m">Show NN + M</string>
-    <string name="show_nn_p_mm">Show NN + MM</string>
-    <string name="show_nnn_p_mm">Show NNN + MM</string>
-    <string name="show_nnn_p_mmm">Show NNN + MMM</string>
     <string name="equations">Equations</string>
     <string name="arithmetic">Ariphmetic operations</string>
     <string name="matrix">Operations with matrix</string>

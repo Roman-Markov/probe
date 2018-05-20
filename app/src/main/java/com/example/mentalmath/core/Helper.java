@@ -1,18 +1,17 @@
 package com.example.mentalmath.core;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.annotation.ArrayRes;
 import android.support.annotation.ColorRes;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
-
-import com.example.mentalmath.R;
 
 import io.reactivex.internal.functions.ObjectHelper;
 
@@ -92,5 +91,16 @@ public class Helper {
             Log.e("getIndexFromStringArray", "Array resource is not found for id: " + arrayId);
         }
         return getIndexFromStringArray(array, value);
+    }
+
+    public static void hideKeyBoard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService
+                (Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            View focusView = activity.getCurrentFocus();
+            if (focusView != null) {
+                imm.hideSoftInputFromWindow(focusView.getWindowToken(), 0);
+            }
+        }
     }
 }
