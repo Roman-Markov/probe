@@ -1,35 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="show_nn_x_m">Показать NN * M</string>
-    <string name="show_nn_x_mm">Показать NN * MM</string>
-    <string name="show_nnn_x_mm">Показать NNN * MM</string>
     <string name="app_name">Ментальная Математика</string>
     <string name="hint_for_result">введите результат</string>
-    <string name="statistics">Статистика</string>
 
     <!-- Buttons text -->
-    <string name="ok">ДОБРО</string>
     <string name="start">СТАРТ</string>
     <string name="pause">ПАУЗА</string>
 
-    <string name="right">ВЕРНО!</string>
-    <string name="wrong">ОШИБКА!</string>
+    <string name="right">Верно!</string>
+    <string name="wrong">Ошибка!</string>
 
-    <string name="initTime">0:00</string>
     <string name="rightAnswers" formatted="false">Правильных ответов: %d/%d\n</string>
     <string name="totalTimeFormat" formatted="false">Общее время:    %s\n</string>
     <string name="averageTimeFormat" formatted="false">"Среднее время: %s\n</string>
-    <string name="stopwatchFormat" formatted="false">%d:%02d</string>
     <string name="noRightAnswers">Нет верных ответов</string>
-    <string name="show_n_x_m">Показать N * M</string>
-    <string name="show_nnn_x_m">Показать NNN * M</string>
-    <string name="show_nnn_x_mmm">Показать NNN * MMM</string>
-    <string name="show_n_p_m">Показать N + M</string>
-    <string name="show_nn_p_m">Показать NN + M</string>
-    <string name="show_nn_p_mm">Показать NN + MM</string>
-    <string name="show_nnn_p_mm">Показать NNN + MM</string>
-    <string name="show_nnn_p_mmm">Показать NNN + MMM</string>
-    <string name="equations">Equations</string>
+    <string name="equations">Уравнения</string>
     <string name="arithmetic">Арифметические операции</string>
     <string name="matrix">Операции с матрицами</string>
     <string name="multi_equation">Уравнения с несколькими неизвестными</string>
@@ -39,6 +24,7 @@
     <string name="multiplication">умножение</string>
     <string name="division">деление</string>
     <string name="setOptions">Настройки</string>
+    <string name="currentSettings">"Текущие настройки:\n"</string>
     <string name="isntSet">Настройки для текущей тренировки ещё не установлены. Для регулировки нажмите кнопку "Настройки".</string>
 
     <!-- ListPreference with kinds of addition trainings -->
@@ -57,11 +43,71 @@
 
     <!-- ListPreference with times of example visibility -->
     <string name="visTimeListTitle">Время видимости примера</string>
-    <string name="visTimeSummary">Меньше времени больше навыков</string>
+    <string name="visTimeSummary">Меньше времени больше умений</string>
     <string name="visTimeDialogTitle">Выберите время:</string>
 
     <!-- CheckBoxPreference to choose honest mode -->
     <string name="cbHonestModeTitle">Честный режим</string>
     <string name="cbHonestModeSummary">Не набирая ответы вы экономите время</string>
+    <string name="rightButtonText">верно</string>
+    <string name="wrongButtonText">ошибка</string>
+    <string name="kind">Вид:</string>
+    <string name="type">Тип:</string>
+    <string name="amount">Количество:</string>
+    <string name="visibility">Видимость:</string>
+    <string name="format">Формат:</string>
+    <string name="honestMode">Честный:</string>
+    <string name="yes">да</string>
+    <string name="no">нет</string>
+    <string name="stopwatchMode">Секундомер</string>
+    <string name="visible">видимый</string>
+    <string name="notVisible">невидимый</string>
+    <string name="dividend">Делимое</string>
+    <string name="divisor">Делитель</string>
+    <string name="reminderMode">Остаток</string>
+    <string name="noanswer">Нет ответа</string>
+    <string name="your">Ваш:</string>
+    <string name="your_result">Ваш результат:</string>
+    <string name="your_reminder">Ваш остаток:</string>
+    <string name="amountListDialogTitle">Количество:</string>
+    <string name="formatAsRow">ряд</string>
+    <string name="formatAsColumn">колонка</string>
+    <string name="visTimeAlways">всегда</string>
+    <string name="visTime30sec">30 сек</string>
+    <string name="visTime20sec">20 сек</string>
+    <string name="visTime15sec">15 сек</string>
+    <string name="visTime12sec">12 сек</string>
+    <string name="visTime10sec">10 сек</string>
+    <string name="visTime8sec">8 сек</string>
+    <string name="visTime6sec">6 сек</string>
+    <string name="visTime4sec">4 сек</string>
+    <string name="visTime3sec">3 сек</string>
+    <string name="visTime2sec">2 сек</string>
+    <string name="visTime1sec">1 сек</string>
+    <string name="cbShowStopwatchTitle">Видимость секундомера:</string>
+    <string name="cbShowStopwatchSummary">Отобразить секундомер в тренировке</string>
+    <string name="subtractionKindDialogTitle">Вид тренировки</string>
+    <string name="subtractionKindSummary">Выберите тип тренировки</string>
+    <string name="subtractionKindTitle">Сложность</string>
+    <string name="multiplicationKindDialogTitle">Вид тренировки</string>
+    <string name="multiplicationKindSummary">Выберите тип тренировки</string>
+    <string name="multiplicationKindTitle">Сложность</string>
+    <string name="dividendKindDialogTitle">Диапазон делимого</string>
+    <string name="dividendKindSummary">Выберите диапазон делимого</string>
+    <string name="dividendKindTitle">Делимое</string>
+    <string name="divisorKindDialogTitle">Диапазон делителя</string>
+    <string name="divisorKindSummary">Выберите диапазон делителя</string>
+    <string name="divisorKindTitle">Делитель</string>
+    <string name="cbWithRemainderTitle">С остатком</string>
+    <string name="cbWithRemainderSummary">Деление с остатком</string>
+    <string name="dividend_is_not_specified">Значение делимого не выставлено</string>
+    <string name="divisor_more_than_dividend">Делитель должен быть меньше или равен делимому</string>
+    <string name="result">Результат:</string>
+    <string name="reminder">Остаток:</string>
+    <string name="rightHint">Верно:</string>
+    <string name="trainResult">Результат тренировки:</string>
+    <string name="ok">Добро</string>
+    <string name="right_result_format" formatted="false">"Ваш:  %s\nПравильный: %s"</string>
+    <string name="right_answer_format">"Правильный: %s"</string>
 
 </resources>

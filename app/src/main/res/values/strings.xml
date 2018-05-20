@@ -14,11 +14,11 @@
     <string name="right">Right!</string>
     <string name="wrong">Wrong!</string>
 
-    <string name="initTime">00:00:00</string>
+    <string name="initTime" translatable="false">00:00:00</string>
     <string name="rightAnswers" formatted="false">Right answers: %d/%d\n</string>
     <string name="totalTimeFormat" formatted="false">"Total time:        %s\n"</string>
     <string name="averageTimeFormat" formatted="false">"Average time:   %s\n"</string>
-    <string name="stopwatchFormat" formatted="false">%d:%02d</string>
+    <string name="stopwatchFormat" formatted="false" translatable="false">%d:%02d</string>
     <string name="noRightAnswers">There are no right answers</string>
     <string name="equations">Equations</string>
     <string name="arithmetic">Ariphmetic operations</string>
@@ -38,7 +38,7 @@
     <!--========                                                                          =======-->
     <!--=========================================================================================-->
     <!-- Strings for displaying current settings of training -->
-    <string name="displayingSettingsFormat">"%1$-12s"</string>
+    <string name="displayingSettingsFormat" translatable="false">"%1$-12s"</string>
 
     <string name="currentSettings">"Current settings:\n"</string>
     <string name="kind">"Kind:"</string>
@@ -65,8 +65,8 @@
     <string name="your">"Your:  "</string>
     <string name="your_result">Your result:</string>
     <string name="your_reminder">Your reminder:</string>
-    <string name="counterFormat" formatted="false">"%s/ %s/ %s"</string>
-    <string name="exampleResultFormat" formatted="false">"%d:     %s     %s"</string>
+    <string name="counterFormat" formatted="false" translatable="false">"%s/ %s/ %s"</string>
+    <string name="exampleResultFormat" formatted="false" translatable="false">"%d:     %s     %s"</string>
     <!--<string name="resultHeaderFormat" formatted="false">"Result:\n"</string>-->
     <!--=========================================================================================-->
     <!-- ListPreference with number of trainings -->
@@ -75,48 +75,48 @@
     <string name="amountListDialogTitle">Amount:</string>
 
     <!-- Value of list preference number of trainings  -->
-    <string name="num1">"1"</string>
-    <string name="num2">"2"</string>
-    <string name="num3">"3"</string>
-    <string name="num4">"4"</string>
-    <string name="num5">"5"</string>
-    <string name="num6">"6"</string>
-    <string name="num7">"7"</string>
-    <string name="num8">"8"</string>
-    <string name="num9">"9"</string>
-    <string name="num10">"10"</string>
-    <string name="num11">"11"</string>
-    <string name="num12">"12"</string>
-    <string name="num13">"13"</string>
-    <string name="num14">"14"</string>
-    <string name="num15">"15"</string>
-    <string name="num16">"16"</string>
-    <string name="num17">"17"</string>
-    <string name="num18">"18"</string>
-    <string name="num19">"19"</string>
-    <string name="num20">"20"</string>
+    <string name="num1" translatable="false">"1"</string>
+    <string name="num2" translatable="false">"2"</string>
+    <string name="num3" translatable="false">"3"</string>
+    <string name="num4" translatable="false">"4"</string>
+    <string name="num5" translatable="false">"5"</string>
+    <string name="num6" translatable="false">"6"</string>
+    <string name="num7" translatable="false">"7"</string>
+    <string name="num8" translatable="false">"8"</string>
+    <string name="num9" translatable="false">"9"</string>
+    <string name="num10" translatable="false">"10"</string>
+    <string name="num11" translatable="false">"11"</string>
+    <string name="num12" translatable="false">"12"</string>
+    <string name="num13" translatable="false">"13"</string>
+    <string name="num14" translatable="false">"14"</string>
+    <string name="num15" translatable="false">"15"</string>
+    <string name="num16" translatable="false">"16"</string>
+    <string name="num17" translatable="false">"17"</string>
+    <string name="num18" translatable="false">"18"</string>
+    <string name="num19" translatable="false">"19"</string>
+    <string name="num20" translatable="false">"20"</string>
 
     <!-- ID of list preference number of training  -->
-    <string name="id1">"1"</string>
-    <string name="id2">"2"</string>
-    <string name="id3">"3"</string>
-    <string name="id4">"4"</string>
-    <string name="id5">"5"</string>
-    <string name="id6">"6"</string>
-    <string name="id7">"7"</string>
-    <string name="id8">"8"</string>
-    <string name="id9">"9"</string>
-    <string name="id10">"10"</string>
-    <string name="id11">"11"</string>
-    <string name="id12">"12"</string>
-    <string name="id13">"13"</string>
-    <string name="id14">"14"</string>
-    <string name="id15">"15"</string>
-    <string name="id16">"16"</string>
-    <string name="id17">"17"</string>
-    <string name="id18">"18"</string>
-    <string name="id19">"19"</string>
-    <string name="id20">"20"</string>
+    <string name="id1" translatable="false">"1"</string>
+    <string name="id2" translatable="false">"2"</string>
+    <string name="id3" translatable="false">"3"</string>
+    <string name="id4" translatable="false">"4"</string>
+    <string name="id5" translatable="false">"5"</string>
+    <string name="id6" translatable="false">"6"</string>
+    <string name="id7" translatable="false">"7"</string>
+    <string name="id8" translatable="false">"8"</string>
+    <string name="id9" translatable="false">"9"</string>
+    <string name="id10" translatable="false">"10"</string>
+    <string name="id11" translatable="false">"11"</string>
+    <string name="id12" translatable="false">"12"</string>
+    <string name="id13" translatable="false">"13"</string>
+    <string name="id14" translatable="false">"14"</string>
+    <string name="id15" translatable="false">"15"</string>
+    <string name="id16" translatable="false">"16"</string>
+    <string name="id17" translatable="false">"17"</string>
+    <string name="id18" translatable="false">"18"</string>
+    <string name="id19" translatable="false">"19"</string>
+    <string name="id20" translatable="false">"20"</string>
 
     <!--=========================================================================================-->
     <!-- ListPreference with kinds of example format -->
@@ -129,8 +129,8 @@
     <string name="formatAsColumn">column</string>
 
     <!-- IDs of ListPreference with kinds of example format -->
-    <string name="formatAsRowId">rowId</string>
-    <string name="formatAsColumnId">columnId</string>
+    <string name="formatAsRowId" translatable="false">rowId</string>
+    <string name="formatAsColumnId" translatable="false">columnId</string>
 
     <!--=========================================================================================-->
     <!-- ListPreference with times of example visibility -->
@@ -153,18 +153,18 @@
     <string name="visTime1sec">1 sec</string>
 
     <!-- IDs of ListPreference with times of example visibility -->
-    <string name="visTimeAlwaysId">always</string>
-    <string name="visTime30secId">30sec</string>
-    <string name="visTime20secId">20sec</string>
-    <string name="visTime15secId">15sec</string>
-    <string name="visTime12secId">12sec</string>
-    <string name="visTime10secId">10sec</string>
-    <string name="visTime8secId">8sec</string>
-    <string name="visTime6secId">6sec</string>
-    <string name="visTime4secid">4sec</string>
-    <string name="visTime3secId">3sec</string>
-    <string name="visTime2secId">2sec</string>
-    <string name="visTime1secId">1sec</string>
+    <string name="visTimeAlwaysId" translatable="false">always</string>
+    <string name="visTime30secId" translatable="false">30sec</string>
+    <string name="visTime20secId" translatable="false">20sec</string>
+    <string name="visTime15secId" translatable="false">15sec</string>
+    <string name="visTime12secId" translatable="false">12sec</string>
+    <string name="visTime10secId" translatable="false">10sec</string>
+    <string name="visTime8secId" translatable="false">8sec</string>
+    <string name="visTime6secId" translatable="false">6sec</string>
+    <string name="visTime4secid" translatable="false">4sec</string>
+    <string name="visTime3secId" translatable="false">3sec</string>
+    <string name="visTime2secId" translatable="false">2sec</string>
+    <string name="visTime1secId" translatable="false">1sec</string>
 
     <!-- CheckBoxPreference to choose honest mode -->
     <string name="cbHonestModeTitle">Honest mode</string>
@@ -181,50 +181,50 @@
     <!--=========================================================================================-->
 
     <!--============                     Addition                               =================-->
-    <string name="additionQuantityKey">additionQuantity</string>
-    <string name="additionFormatListKey">additionFormatList</string>
-    <string name="additionVisTimeListKey">additionVisTimeList</string>
-    <string name="additionCbHonestModeKey">additionCbHonestMode</string>
-    <string name="additionCbShowStopwatchKey">additionCbShowStopwatch</string>
+    <string name="additionQuantityKey" translatable="false">additionQuantity</string>
+    <string name="additionFormatListKey" translatable="false">additionFormatList</string>
+    <string name="additionVisTimeListKey" translatable="false">additionVisTimeList</string>
+    <string name="additionCbHonestModeKey" translatable="false">additionCbHonestMode</string>
+    <string name="additionCbShowStopwatchKey" translatable="false">additionCbShowStopwatch</string>
 
 
     <!-- Types of example format -->
-    <string name="additionRowFormat">%1$d + %2$d</string>
-    <string name="additionColumnFormat">" %1$d +\n %2$d"</string>
+    <string name="additionRowFormat" translatable="false">%1$d + %2$d</string>
+    <string name="additionColumnFormat" translatable="false">" %1$d +\n %2$d"</string>
 
     <!--============                     Subtraction                            =================-->
-    <string name="subtractionQuantityKey">subtractionQuantity</string>
-    <string name="subtractionFormatListKey">subtractionFormatList</string>
-    <string name="subtractionCbHonestModeKey">subtractionCbHonestMode</string>
-    <string name="subtractionVisTimeListKey">subtractionVisTimeList</string>
-    <string name="subtractionCbShowStopwatchKey">subtractionCbShowStopwatch</string>
+    <string name="subtractionQuantityKey" translatable="false">subtractionQuantity</string>
+    <string name="subtractionFormatListKey" translatable="false">subtractionFormatList</string>
+    <string name="subtractionCbHonestModeKey" translatable="false">subtractionCbHonestMode</string>
+    <string name="subtractionVisTimeListKey" translatable="false">subtractionVisTimeList</string>
+    <string name="subtractionCbShowStopwatchKey" translatable="false">subtractionCbShowStopwatch</string>
 
 
     <!-- Types of example format -->
-    <string name="subtractionRowFormat">%1$d - %2$d</string>
-    <string name="subtractionColumnFormat">" %1$d -\n %2$d"</string>
+    <string name="subtractionRowFormat" translatable="false">%1$d - %2$d</string>
+    <string name="subtractionColumnFormat" translatable="false">" %1$d -\n %2$d"</string>
 
     <!--============                  Multiplication                            =================-->
-    <string name="multiplicationQuantityKey">multiplicationQuantity</string>
-    <string name="multiplicationFormatListKey">multiplicationFormatList</string>
-    <string name="multiplicationCbHonestModeKey">multiplicationCbHonestMode</string>
-    <string name="multiplicationVisTimeListKey">multiplicationVisTimeList</string>
-    <string name="multiplicationCbShowStopwatchKey">multiplicationCbShowStopwatch</string>
+    <string name="multiplicationQuantityKey" translatable="false">multiplicationQuantity</string>
+    <string name="multiplicationFormatListKey" translatable="false">multiplicationFormatList</string>
+    <string name="multiplicationCbHonestModeKey" translatable="false">multiplicationCbHonestMode</string>
+    <string name="multiplicationVisTimeListKey" translatable="false">multiplicationVisTimeList</string>
+    <string name="multiplicationCbShowStopwatchKey" translatable="false">multiplicationCbShowStopwatch</string>
 
     <!-- Types of example format -->
-    <string name="multiplicationRowFormat">%1$d * %2$d</string>
-    <string name="multiplicationColumnFormat">" %1$d *\n %2$d"</string>
+    <string name="multiplicationRowFormat" translatable="false">%1$d * %2$d</string>
+    <string name="multiplicationColumnFormat" translatable="false">" %1$d *\n %2$d"</string>
 
     <!--============                      Division                              =================-->
-    <string name="divisionQuantityKey">divisionQuantity</string>
-    <string name="divisionFormatListKey">divisionFormatList</string>
-    <string name="divisionCbHonestModeKey">divisionCbHonestMode</string>
-    <string name="divisionVisTimeListKey">divisionVisTimeList</string>
-    <string name="divisionCbShowStopwatchKey">divisionCbShowStopwatch</string>
+    <string name="divisionQuantityKey" translatable="false">divisionQuantity</string>
+    <string name="divisionFormatListKey" translatable="false">divisionFormatList</string>
+    <string name="divisionCbHonestModeKey" translatable="false">divisionCbHonestMode</string>
+    <string name="divisionVisTimeListKey" translatable="false">divisionVisTimeList</string>
+    <string name="divisionCbShowStopwatchKey" translatable="false">divisionCbShowStopwatch</string>
 
     <!-- Types of example format -->
-    <string name="divisionRowFormat">%1$d : %2$d</string>
-    <string name="divisionColumnFormat">" %1$d :\n %2$d"</string>
+    <string name="divisionRowFormat" translatable="false">%1$d : %2$d</string>
+    <string name="divisionColumnFormat" translatable="false">" %1$d :\n %2$d"</string>
 
     <!--=========================================================================================-->
     <!--========                                                                          =======-->
@@ -233,46 +233,46 @@
     <!--=========================================================================================-->
 
     <!-- ListPreference with kinds of addition trainings -->
-    <string name="additionKindListKey">additionKindList</string>
+    <string name="additionKindListKey" translatable="false">additionKindList</string>
     <string name="additionKindDialogTitle">Kind of training</string>
     <string name="additionKindSummary">Choose a kind of training</string>
     <string name="additionKindTitle">Complexity</string>
 
     <!-- Value of list preference of addition kinds of training  -->
-    <string name="p5_5">1-5 + 1-5</string>
-    <string name="p69_5">6-9 + 1-5</string>
-    <string name="p69_69">6-9 + 6-9</string>
-    <string name="p2n_n">10-100 + 1-10</string>
-    <string name="p2n_2n">10-100 + 10-100</string>
-    <string name="p3n_2n">100-1000 + 10-100</string>
-    <string name="p3n_3n">100-1000 + 100-1000</string>
-    <string name="p4n_4n">1000-10000 + 1000-10000</string>
-    <string name="p5n_5n">10"&#8308;"-10"&#8309;" + 10"&#8308;"-10"&#8309;"</string>
-    <string name="p6n_6n">10"&#8309;"-10"&#8310;" + 10"&#8309;"-10"&#8310;"</string>
-    <string name="p7n_7n">10"&#8310;"-10"&#8311;" + 10"&#8310;"-10"&#8311;"</string>
-    <string name="p8n_8n">10"&#8311;"-10"&#8312;" + 10"&#8311;"-10"&#8312;"</string>
-    <string name="p9n_9n">10"&#8312;"-10"&#8313;" + 10"&#8312;"-10"&#8313;"</string>
-    <string name="p10n_10n">10"&#8313;"-10"&#185;""&#8304;" + 10"&#8313;"-10"&#185;""&#8304;"</string>
-    <string name="p11n_11n">10"&#185;""&#8304;"-10"&#185;""&#185;" + 10"&#185;""&#8304;"-10"&#185;""&#185;"</string>
-    <string name="p12n_12n">10"&#185;""&#185;"-10"&#185;""&#178;" + 10"&#185;""&#185;"-10"&#185;""&#178;"</string>
+    <string name="p5_5" translatable="false">1-5 + 1-5</string>
+    <string name="p69_5" translatable="false">6-9 + 1-5</string>
+    <string name="p69_69" translatable="false">6-9 + 6-9</string>
+    <string name="p2n_n" translatable="false">10-100 + 1-10</string>
+    <string name="p2n_2n" translatable="false">10-100 + 10-100</string>
+    <string name="p3n_2n" translatable="false">100-1000 + 10-100</string>
+    <string name="p3n_3n" translatable="false">100-1000 + 100-1000</string>
+    <string name="p4n_4n" translatable="false">1000-10000 + 1000-10000</string>
+    <string name="p5n_5n" translatable="false">10"&#8308;"-10"&#8309;" + 10"&#8308;"-10"&#8309;"</string>
+    <string name="p6n_6n" translatable="false">10"&#8309;"-10"&#8310;" + 10"&#8309;"-10"&#8310;"</string>
+    <string name="p7n_7n" translatable="false">10"&#8310;"-10"&#8311;" + 10"&#8310;"-10"&#8311;"</string>
+    <string name="p8n_8n" translatable="false">10"&#8311;"-10"&#8312;" + 10"&#8311;"-10"&#8312;"</string>
+    <string name="p9n_9n" translatable="false">10"&#8312;"-10"&#8313;" + 10"&#8312;"-10"&#8313;"</string>
+    <string name="p10n_10n" translatable="false">10"&#8313;"-10"&#185;""&#8304;" + 10"&#8313;"-10"&#185;""&#8304;"</string>
+    <string name="p11n_11n" translatable="false">10"&#185;""&#8304;"-10"&#185;""&#185;" + 10"&#185;""&#8304;"-10"&#185;""&#185;"</string>
+    <string name="p12n_12n" translatable="false">10"&#185;""&#185;"-10"&#185;""&#178;" + 10"&#185;""&#185;"-10"&#185;""&#178;"</string>
 
     <!-- ID of list preference of addition kinds of training  -->
-    <string name="id_p5_5">1-5_p_1-5</string>
-    <string name="id_p69_5">6-9_p_1-5</string>
-    <string name="id_p69_69">6-9_p_6-9</string>
-    <string name="id_p2n_1n">2n_p_1n</string>
-    <string name="id_p2n_2n">2n_p_2n</string>
-    <string name="id_p3n_2n">3n_p_2n</string>
-    <string name="id_p3n_3n">3n_p_3n</string>
-    <string name="id_p4n_4n">4n_p_4n</string>
-    <string name="id_p5n_5n">5n_p_5n</string>
-    <string name="id_p6n_6n">6n_p_6n</string>
-    <string name="id_p7n_7n">7n_p_7n</string>
-    <string name="id_p8n_8n">8n_p_8n</string>
-    <string name="id_p9n_9n">9n_p_9n</string>
-    <string name="id_p10n_10n">10n_p_10n</string>
-    <string name="id_p11n_11n">11n_p_11n</string>
-    <string name="id_p12n_12n">12n_p_12n</string>
+    <string name="id_p5_5" translatable="false">1-5_p_1-5</string>
+    <string name="id_p69_5" translatable="false">6-9_p_1-5</string>
+    <string name="id_p69_69" translatable="false">6-9_p_6-9</string>
+    <string name="id_p2n_1n" translatable="false">2n_p_1n</string>
+    <string name="id_p2n_2n" translatable="false">2n_p_2n</string>
+    <string name="id_p3n_2n" translatable="false">3n_p_2n</string>
+    <string name="id_p3n_3n" translatable="false">3n_p_3n</string>
+    <string name="id_p4n_4n" translatable="false">4n_p_4n</string>
+    <string name="id_p5n_5n" translatable="false">5n_p_5n</string>
+    <string name="id_p6n_6n" translatable="false">6n_p_6n</string>
+    <string name="id_p7n_7n" translatable="false">7n_p_7n</string>
+    <string name="id_p8n_8n" translatable="false">8n_p_8n</string>
+    <string name="id_p9n_9n" translatable="false">9n_p_9n</string>
+    <string name="id_p10n_10n" translatable="false">10n_p_10n</string>
+    <string name="id_p11n_11n" translatable="false">11n_p_11n</string>
+    <string name="id_p12n_12n" translatable="false">12n_p_12n</string>
 
     <!--=========================================================================================-->
     <!--========                                                                          =======-->
@@ -281,46 +281,46 @@
     <!--=========================================================================================-->
 
     <!-- ListPreference with kinds of subtraction trainings -->
-    <string name="subtractionKindListKey">subtractionKindList</string>
+    <string name="subtractionKindListKey" translatable="false">subtractionKindList</string>
     <string name="subtractionKindDialogTitle">Kind of training</string>
     <string name="subtractionKindSummary">Choose a kind of training</string>
     <string name="subtractionKindTitle">Complexity</string>
 
     <!-- Value of list preference of subtraction kinds of training  -->
-    <string name="m5_5">1-5 - 1-5</string>
-    <string name="m69_5">6-9 - 1-5</string>
-    <string name="m69_69">6-9 - 6-9</string>
-    <string name="m2n_n">10-100 - 1-10</string>
-    <string name="m2n_2n">10-100 - 10-100</string>
-    <string name="m3n_2n">100-1000 - 10-100</string>
-    <string name="m3n_3n">100-1000 - 100-1000</string>
-    <string name="m4n_4n">1000-10000 - 1000-10000</string>
-    <string name="m5n_5n">10"&#8308;"-10"&#8309;" - 10"&#8308;"-10"&#8309;"</string>
-    <string name="m6n_6n">10"&#8309;"-10"&#8310;" - 10"&#8309;"-10"&#8310;"</string>
-    <string name="m7n_7n">10"&#8310;"-10"&#8311;" - 10"&#8310;"-10"&#8311;"</string>
-    <string name="m8n_8n">10"&#8311;"-10"&#8312;" - 10"&#8312;"-10"&#8313;"</string>
-    <string name="m10n_10n">10"&#8313;"-10"&#185;""&#8304;" -&#8311;"-10"&#8312;"</string>
-    <string name="m9n_9n">10"&#8312;"-10"&#8313;" - 10" 10"&#8313;"-10"&#185;""&#8304;"</string>
-    <string name="m11n_11n">10"&#185;""&#8304;"-10"&#185;""&#185;" - 10"&#185;""&#8304;"-10"&#185;""&#185;"</string>
-    <string name="m12n_12n">10"&#185;""&#185;"-10"&#185;""&#178;" - 10"&#185;""&#185;"-10"&#185;""&#178;"</string>
+    <string name="m5_5" translatable="false">1-5 - 1-5</string>
+    <string name="m69_5" translatable="false">6-9 - 1-5</string>
+    <string name="m69_69" translatable="false">6-9 - 6-9</string>
+    <string name="m2n_n" translatable="false">10-100 - 1-10</string>
+    <string name="m2n_2n" translatable="false">10-100 - 10-100</string>
+    <string name="m3n_2n" translatable="false">100-1000 - 10-100</string>
+    <string name="m3n_3n" translatable="false">100-1000 - 100-1000</string>
+    <string name="m4n_4n" translatable="false">1000-10000 - 1000-10000</string>
+    <string name="m5n_5n" translatable="false">10"&#8308;"-10"&#8309;" - 10"&#8308;"-10"&#8309;"</string>
+    <string name="m6n_6n" translatable="false">10"&#8309;"-10"&#8310;" - 10"&#8309;"-10"&#8310;"</string>
+    <string name="m7n_7n" translatable="false">10"&#8310;"-10"&#8311;" - 10"&#8310;"-10"&#8311;"</string>
+    <string name="m8n_8n" translatable="false">10"&#8311;"-10"&#8312;" - 10"&#8312;"-10"&#8313;"</string>
+    <string name="m10n_10n" translatable="false">10"&#8313;"-10"&#185;""&#8304;" -&#8311;"-10"&#8312;"</string>
+    <string name="m9n_9n" translatable="false">10"&#8312;"-10"&#8313;" - 10" 10"&#8313;"-10"&#185;""&#8304;"</string>
+    <string name="m11n_11n" translatable="false">10"&#185;""&#8304;"-10"&#185;""&#185;" - 10"&#185;""&#8304;"-10"&#185;""&#185;"</string>
+    <string name="m12n_12n" translatable="false">10"&#185;""&#185;"-10"&#185;""&#178;" - 10"&#185;""&#185;"-10"&#185;""&#178;"</string>
 
     <!-- ID of list preference of subtraction kinds of training  -->
-    <string name="id_m5_5">1-5_m_1-5</string>
-    <string name="id_m69_5">6-9_m_1-5</string>
-    <string name="id_m69_69">6-9_m_6-9</string>
-    <string name="id_m2n_1n">2n_m_1n</string>
-    <string name="id_m2n_2n">2n_m_2n</string>
-    <string name="id_m3n_2n">3n_m_2n</string>
-    <string name="id_m3n_3n">3n_m_3n</string>
-    <string name="id_m4n_4n">4n_m_4n</string>
-    <string name="id_m5n_5n">5n_m_5n</string>
-    <string name="id_m6n_6n">6n_m_6n</string>
-    <string name="id_m7n_7n">7n_m_7n</string>
-    <string name="id_m8n_8n">8n_m_8n</string>
-    <string name="id_m9n_9n">9n_m_9n</string>
-    <string name="id_m10n_10n">10n_m_10n</string>
-    <string name="id_m11n_11n">11n_m_11n</string>
-    <string name="id_m12n_12n">12n_m_12n</string>
+    <string name="id_m5_5" translatable="false">1-5_m_1-5</string>
+    <string name="id_m69_5" translatable="false">6-9_m_1-5</string>
+    <string name="id_m69_69" translatable="false">6-9_m_6-9</string>
+    <string name="id_m2n_1n" translatable="false">2n_m_1n</string>
+    <string name="id_m2n_2n" translatable="false">2n_m_2n</string>
+    <string name="id_m3n_2n" translatable="false">3n_m_2n</string>
+    <string name="id_m3n_3n" translatable="false">3n_m_3n</string>
+    <string name="id_m4n_4n" translatable="false">4n_m_4n</string>
+    <string name="id_m5n_5n" translatable="false">5n_m_5n</string>
+    <string name="id_m6n_6n" translatable="false">6n_m_6n</string>
+    <string name="id_m7n_7n" translatable="false">7n_m_7n</string>
+    <string name="id_m8n_8n" translatable="false">8n_m_8n</string>
+    <string name="id_m9n_9n" translatable="false">9n_m_9n</string>
+    <string name="id_m10n_10n" translatable="false">10n_m_10n</string>
+    <string name="id_m11n_11n" translatable="false">11n_m_11n</string>
+    <string name="id_m12n_12n" translatable="false">12n_m_12n</string>
 
     <!--=========================================================================================-->
     <!--========                                                                          =======-->
@@ -329,34 +329,34 @@
     <!--=========================================================================================-->
 
     <!-- ListPreference with kinds of multiplication trainings -->
-    <string name="multiplicationKindListKey">multiplicationKindList</string>
+    <string name="multiplicationKindListKey" translatable="false">multiplicationKindList</string>
     <string name="multiplicationKindDialogTitle">Kind of training</string>
     <string name="multiplicationKindSummary">Choose a kind of training</string>
     <string name="multiplicationKindTitle">Complexity</string>
 
     <!-- Value of list preference of multiplication kinds of training  -->
-    <string name="x5_5">1-5 x 1-5</string>
-    <string name="x69_5">6-9 x 1-5</string>
-    <string name="x69_69">6-9 x 6-9</string>
-    <string name="x2n_n">10-100 x 1-10</string>
-    <string name="x2n_2n">10-100 x 10-100</string>
-    <string name="x3n_2n">100-1000 x 10-100</string>
-    <string name="x3n_3n">100-1000 x 100-1000</string>
-    <string name="x4n_4n">1000-10000 x 1000-10000</string>
-    <string name="x5n_5n">10"&#8308;"-10"&#8309;" x 10"&#8308;"-10"&#8309;"</string>
-    <string name="x6n_6n">10"&#8309;"-10"&#8310;" x 10"&#8309;"-10"&#8310;"</string>
+    <string name="x5_5" translatable="false">1-5 x 1-5</string>
+    <string name="x69_5" translatable="false">6-9 x 1-5</string>
+    <string name="x69_69" translatable="false">6-9 x 6-9</string>
+    <string name="x2n_n" translatable="false">10-100 x 1-10</string>
+    <string name="x2n_2n" translatable="false">10-100 x 10-100</string>
+    <string name="x3n_2n" translatable="false">100-1000 x 10-100</string>
+    <string name="x3n_3n" translatable="false">100-1000 x 100-1000</string>
+    <string name="x4n_4n" translatable="false">1000-10000 x 1000-10000</string>
+    <string name="x5n_5n" translatable="false">10"&#8308;"-10"&#8309;" x 10"&#8308;"-10"&#8309;"</string>
+    <string name="x6n_6n" translatable="false">10"&#8309;"-10"&#8310;" x 10"&#8309;"-10"&#8310;"</string>
 
     <!-- ID of list preference of multiplication kinds of training  -->
-    <string name="id_x5_5">1-5_x_1-5</string>
-    <string name="id_x69_5">6-9_x_1-5</string>
-    <string name="id_x69_69">6-9_x_6-9</string>
-    <string name="id_x2n_1n">2n_x_1n</string>
-    <string name="id_x2n_2n">2n_x_2n</string>
-    <string name="id_x3n_2n">3n_x_2n</string>
-    <string name="id_x3n_3n">3n_x_3n</string>
-    <string name="id_x4n_4n">4n_x_4n</string>
-    <string name="id_x5n_5n">5n_x_5n</string>
-    <string name="id_x6n_6n">6n_x_6n</string>
+    <string name="id_x5_5" translatable="false">1-5_x_1-5</string>
+    <string name="id_x69_5" translatable="false">6-9_x_1-5</string>
+    <string name="id_x69_69" translatable="false">6-9_x_6-9</string>
+    <string name="id_x2n_1n" translatable="false">2n_x_1n</string>
+    <string name="id_x2n_2n" translatable="false">2n_x_2n</string>
+    <string name="id_x3n_2n" translatable="false">3n_x_2n</string>
+    <string name="id_x3n_3n" translatable="false">3n_x_3n</string>
+    <string name="id_x4n_4n" translatable="false">4n_x_4n</string>
+    <string name="id_x5n_5n" translatable="false">5n_x_5n</string>
+    <string name="id_x6n_6n" translatable="false">6n_x_6n</string>
 
     <!--=========================================================================================-->
     <!--========                                                                          =======-->
@@ -365,9 +365,9 @@
     <!--=========================================================================================-->
 
     <!-- ListPreference with kinds of Division trainings -->
-    <string name="dividendRangeListKey">dividendRangeListKey</string>
-    <string name="divisorRangeListKey">divisorRangeListKey</string>
-    <string name="divisionCbWithReminderKey">Key</string>
+    <string name="dividendRangeListKey" translatable="false">dividendRangeListKey</string>
+    <string name="divisorRangeListKey" translatable="false">divisorRangeListKey</string>
+    <string name="divisionCbWithReminderKey" translatable="false">divisionCbWithReminderKey</string>
 
     <string name="dividendKindDialogTitle">Range of dividend</string>
     <string name="dividendKindSummary">Choose a range of dividend</string>
@@ -377,49 +377,49 @@
     <string name="divisorKindSummary">Choose a range of divisor</string>
     <string name="divisorKindTitle">Divisor</string>
 
-    <string name="divisionCbWithRemainder">divisionCbWithRemainder</string>
+    <string name="divisionCbWithRemainder" translatable="false">divisionCbWithRemainder</string>
 
     <!-- Value of list preference of Division kinds of training  -->
-    <string name="d1_9">1-9</string>
-    <string name="d2n">10-100</string>
-    <string name="d3n">100-1000</string>
-    <string name="d4n">1000-10000</string>
-    <string name="d5n">10"&#8308;"-10"&#8309;"</string>
-    <string name="d6n">10"&#8309;"-10"&#8310;"</string>
-    <string name="d7n">10"&#8310;"-10"&#8311;"</string>
-    <string name="d8n">10"&#8311;"-10"&#8312;"</string>
-    <string name="d9n">10"&#8312;"-10"&#8313;"</string>
-    <string name="d10n">10"&#8313;"-10"&#185;""&#8304;"</string>
-    <string name="d11n">10"&#185;""&#8304;"-10"&#185;""&#185;"</string>
-    <string name="d12n">10"&#185;""&#185;"-10"&#185;""&#178;"</string>
+    <string name="d1_9" translatable="false">1-9</string>
+    <string name="d2n" translatable="false">10-100</string>
+    <string name="d3n" translatable="false">100-1000</string>
+    <string name="d4n" translatable="false">1000-10000</string>
+    <string name="d5n" translatable="false">10"&#8308;"-10"&#8309;"</string>
+    <string name="d6n" translatable="false">10"&#8309;"-10"&#8310;"</string>
+    <string name="d7n" translatable="false">10"&#8310;"-10"&#8311;"</string>
+    <string name="d8n" translatable="false">10"&#8311;"-10"&#8312;"</string>
+    <string name="d9n" translatable="false">10"&#8312;"-10"&#8313;"</string>
+    <string name="d10n" translatable="false">10"&#8313;"-10"&#185;""&#8304;"</string>
+    <string name="d11n" translatable="false">10"&#185;""&#8304;"-10"&#185;""&#185;"</string>
+    <string name="d12n" translatable="false">10"&#185;""&#185;"-10"&#185;""&#178;"</string>
 
     <!-- ID of list preference of dividends for division kinds of training  -->
-    <string name="id_dividend_1_9">dividend_1-5</string>
-    <string name="id_dividend_2n">dividend_2n</string>
-    <string name="id_dividend_3n">dividend_3n</string>
-    <string name="id_dividend_4n">dividend_4n</string>
-    <string name="id_dividend_5n">dividend_5n</string>
-    <string name="id_dividend_6n">dividend_6n</string>
-    <string name="id_dividend_7n">dividend_7n</string>
-    <string name="id_dividend_8n">dividend_8n</string>
-    <string name="id_dividend_9n">dividend_9n</string>
-    <string name="id_dividend_10n">dividend_10n</string>
-    <string name="id_dividend_11n">dividend_11n</string>
-    <string name="id_dividend_12n">dividend_12n</string>
+    <string name="id_dividend_1_9" translatable="false">dividend_1-5</string>
+    <string name="id_dividend_2n" translatable="false">dividend_2n</string>
+    <string name="id_dividend_3n" translatable="false">dividend_3n</string>
+    <string name="id_dividend_4n" translatable="false">dividend_4n</string>
+    <string name="id_dividend_5n" translatable="false">dividend_5n</string>
+    <string name="id_dividend_6n" translatable="false">dividend_6n</string>
+    <string name="id_dividend_7n" translatable="false">dividend_7n</string>
+    <string name="id_dividend_8n" translatable="false">dividend_8n</string>
+    <string name="id_dividend_9n" translatable="false">dividend_9n</string>
+    <string name="id_dividend_10n" translatable="false">dividend_10n</string>
+    <string name="id_dividend_11n" translatable="false">dividend_11n</string>
+    <string name="id_dividend_12n" translatable="false">dividend_12n</string>
 
     <!-- ID of list preference of divisors for division kinds of training  -->
-    <string name="id_divisor_1_9">divisor_1-5</string>
-    <string name="id_divisor_2n">divisor_2n</string>
-    <string name="id_divisor_3n">divisor_3n</string>
-    <string name="id_divisor_4n">divisor_4n</string>
-    <string name="id_divisor_5n">divisor_5n</string>
-    <string name="id_divisor_6n">divisor_6n</string>
-    <string name="id_divisor_7n">divisor_7n</string>
-    <string name="id_divisor_8n">divisor_8n</string>
-    <string name="id_divisor_9n">divisor_9n</string>
-    <string name="id_divisor_10n">divisor_10n</string>
-    <string name="id_divisor_11n">divisor_11n</string>
-    <string name="id_divisor_12n">divisor_12n</string>
+    <string name="id_divisor_1_9" translatable="false">divisor_1-5</string>
+    <string name="id_divisor_2n" translatable="false">divisor_2n</string>
+    <string name="id_divisor_3n" translatable="false">divisor_3n</string>
+    <string name="id_divisor_4n" translatable="false">divisor_4n</string>
+    <string name="id_divisor_5n" translatable="false">divisor_5n</string>
+    <string name="id_divisor_6n" translatable="false">divisor_6n</string>
+    <string name="id_divisor_7n" translatable="false">divisor_7n</string>
+    <string name="id_divisor_8n" translatable="false">divisor_8n</string>
+    <string name="id_divisor_9n" translatable="false">divisor_9n</string>
+    <string name="id_divisor_10n" translatable="false">divisor_10n</string>
+    <string name="id_divisor_11n" translatable="false">divisor_11n</string>
+    <string name="id_divisor_12n" translatable="false">divisor_12n</string>
 
     <!-- CheckBoxPreference to choose whether to show division with reminder -->
     <string name="cbWithRemainderTitle">With reminder</string>

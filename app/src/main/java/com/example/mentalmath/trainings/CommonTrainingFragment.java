@@ -59,6 +59,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle onSavedInstanceState) {
+        Log.d(TAG,"Create view");
         super.onCreateView(inflater, container, onSavedInstanceState);
         setRetainInstance(true);
 
@@ -68,9 +69,8 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mParentLayout = (LinearLayout) inflater.inflate(layoutId, container, false);
 
         if (mIsFirstRunning) {
-            errorLog("first running");
+            Log.d(TAG,"first running");
             constructAllFields(inflater, mParentLayout, kind);
-//            addAllToParent(mParentLayout);
             mCounterView = ((SimpleButtonField) mButtonField).getCounterView();
             mStateHandler = new TrainingStateHandler(this, mButtonField);
             mStateHandler.setHonestMode(mIsHonestMode);
@@ -92,7 +92,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
             case Constants.I_KIND_ARITH_DIVISION:
                 return R.layout.division_training;
             default:
-                errorLog("Unknown type of training: " + kind);
+                Log.e(TAG,"Unknown type of training: " + kind);
                 return R.layout.common_training;
         }
     }
@@ -116,6 +116,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     }
 
     private void restore() {
+        Log.d(TAG,"restore():");
         if (mIsRunning) {
             mStopWatcherField.resume();
         }
@@ -127,7 +128,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void startTraining() {
-        errorLog("Start hole training");
+        Log.d(TAG,"Start hole training");
         mIsRunning = true;
         mRightCounter = 0;
         mCounter = 0;
@@ -147,14 +148,14 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mAnswerField.clean();
         mAnswerField.resume();
         mIsRunning = true;
-        errorLog("Start single example: " + mCounter);
+        Log.d(TAG,"Start single example: " + mCounter);
         mExampleDisplay.showNewExample();
         mStopWatcherField.startExample();
     }
 
     @Override
     public void pause () {
-        errorLog("Pause example" + mCounter);
+        Log.d(TAG,"Pause example" + mCounter);
         mStopWatcherField.pause();
         mIsRunning = false;
         mAnswerField.pause();
@@ -163,7 +164,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void resume() {
-        errorLog("Resume example" + mCounter);
+        Log.d(TAG,"Resume example" + mCounter);
         mIsRunning = true;
         mStopWatcherField.resume();
         mAnswerField.resume();
@@ -173,7 +174,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     @Override
     public void stopExample() {
         mCounter++;
-        errorLog("Stop example" + mCounter);
+        Log.d(TAG,"Stop example" + mCounter);
         mStopWatcherField.stopExample();
         // in case when example will be invisible after some time due to user prefs
         mExampleDisplay.showHiddenExample();
@@ -194,7 +195,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void stopTrain() {
-        errorLog("Stop hole train, counter - " + mCounter + ", right counter - " + mRightCounter);
+        Log.d(TAG,"Stop hole train, counter - " + mCounter + ", right counter - " + mRightCounter);
         if (mIsHonestMode) {
             // startExample() will not be invoked, hence updating train counters must be here
             setCounterView();
@@ -209,7 +210,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public void handleResult(String answer) {
-        errorLog("Handle result: " + answer);
+        Log.d(TAG,"Handle result: " + answer);
         boolean isRight = false;
         if (answer != null) {
             if (mIsHonestMode) {
@@ -220,7 +221,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
                     isRight = false;
                 }
             } else {
-                errorLog("This method should be called in honest mode only");
+                Log.e(TAG,"This method should be called in honest mode only");
             }
         } else {
             throw new NullPointerException("passed result is equals null");
@@ -231,13 +232,13 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     @Override
     public boolean shouldProceed() {
-        errorLog("shouldProceed(): " + mCounter + " < " + mExampleAmount);
+        Log.d(TAG,"shouldProceed(): " + mCounter + " < " + mExampleAmount);
         return mCounter < mExampleAmount;
     }
 
     @Override
     public void showRightExampleResult() {
-        errorLog("showRightExampleResult(): " + mExampleDisplay.getCurrentRightAnswer());
+        Log.d(TAG,"showRightExampleResult(): " + mExampleDisplay.getCurrentRightAnswer());
         mAnswerField.showRightResult(mExampleDisplay.getCurrentRightAnswer());
     }
 
@@ -257,10 +258,10 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
      */
     private void handleResultInternally(String answer) {
         if (mIsHonestMode) {
-            errorLog("handleResultInternally() should not be called in honest mode state");
+            Log.e(TAG,"handleResultInternally() should not be called in honest mode state");
             return;
         }
-        errorLog("Handle result internally: " + answer);
+        Log.d(TAG,"Handle result internally: " + answer);
         boolean isRight = false;
         if (answer != null) {
             isRight = mExampleDisplay.checkResult(answer);
@@ -296,7 +297,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
 
     // crates all fields
     private void constructAllFields(LayoutInflater inflater, ViewGroup container, int kind) {
-        errorLog("constructAllFields():");
+        Log.d(TAG,"constructAllFields():");
 
         ITrainingPartsFactory factory = getTrainingFactory(inflater, container, getActivity(), kind);
 
@@ -311,6 +312,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     }
 
     private void resetAllFields(LinearLayout layout) {
+        Log.d(TAG,"resetAllFields():");
         mStopWatcherField.resetFields(layout);
         mExampleDisplay.resetFields(layout);
         mAnswerField.resetFields(layout);
@@ -326,18 +328,7 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mCounterView.setText(text);
     }
 
-    // adds all fields in appropriate order
-//    private void addAllToParent(LinearLayout result) {
-//        errorLog("addAllToParent():");
-//        result.addView(mStopWatcherField.getLayout());
-//        result.addView(mExampleDisplay.getLayout());
-//        result.addView(mAnswerField.getLayout());
-//        result.addView(mButtonField.getLayout());
-//        result.addView(mSessionResult.getLayout());
-//    }
-
     private void showToast(int stringId) {
-        errorLog("showToast():");
         Toast toast = Toast.makeText(getActivity(), stringId, Toast.LENGTH_SHORT);
         // todo create dimension resource for third parameter
         toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 150);
@@ -383,12 +374,8 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
             case Constants.I_KIND_ARITH_DIVISION:
                 return new DivisionFactory(inflater, container, activity);
             default:
-                errorLog("Unknown type of training: " + kind);
+                Log.e(TAG,"Unknown type of training: " + kind);
         }
         return new AdditionFactory(inflater, container, activity);
-    }
-
-    private void errorLog(String msg) {
-        Log.e(getClass().getSimpleName(), msg);
     }
 }
