@@ -39,4 +39,5 @@ public interface IAnswerField extends IField{
      */
     public void showRightResult(final String answer);
 
+    void resetFocus();
 }

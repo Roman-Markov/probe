@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.mentalmath.R;
 import com.example.mentalmath.core.Constants;
 import com.example.mentalmath.core.Helper;
+import com.example.mentalmath.core.Utils;
 import com.example.mentalmath.trainings.fields.SimpleButtonField;
 import com.example.mentalmath.trainings.fields.SimpleExampleDisplay;
 import com.example.mentalmath.trainings.trainfactory.AdditionFactory;
@@ -242,6 +243,16 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         mAnswerField.showRightResult(mExampleDisplay.getCurrentRightAnswer());
     }
 
+    @Override
+    public void hideInputMethod() {
+        Utils.hideKeyBoard(getActivity());
+    }
+
+    @Override
+    public void resetFocus() {
+        mAnswerField.resetFocus();
+    }
+
     /**
      * should not be called in honest mode state
      * @param answer
@@ -339,7 +350,6 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     private String formTotalResult() {
 
         StringBuilder sb = new StringBuilder();
-        sb.append(getString(R.string.resultHeaderFormat));
 
         sb.append(String.format(getString(R.string.rightAnswers),
                 mRightCounter, mExampleAmount));

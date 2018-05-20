@@ -78,8 +78,8 @@
     <string name="your_result">Your result:</string>
     <string name="your_reminder">Your reminder:</string>
     <string name="counterFormat" formatted="false">"%s/ %s/ %s"</string>
-    <string name="exampleResultFormat" formatted="false">"%d:      %s      %s"</string>
-    <string name="resultHeaderFormat" formatted="false">"Result:\n"</string>
+    <string name="exampleResultFormat" formatted="false">"%d:     %s     %s"</string>
+    <!--<string name="resultHeaderFormat" formatted="false">"Result:\n"</string>-->
     <!--=========================================================================================-->
     <!-- ListPreference with number of trainings -->
     <string name="trainingNumber">Number of examples</string>
@@ -446,5 +446,6 @@
     <string name="result">Result:</string>
     <string name="reminder">Reminder:</string>
     <string name="rightHint">Right:</string>
+    <string name="trainResult">Train result:</string>
 
 </resources>

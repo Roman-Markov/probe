@@ -42,6 +42,7 @@ public class SimpleSessionResultField extends ABaseField implements ISessionResu
         mListView = mLayout.findViewById(R.id.list);
         mAdapter = new ArrayAdapter<> (mLayout.getContext(), android.R.layout.simple_list_item_1, mList);
         mListView.setAdapter(mAdapter);
+        mAdapter.insert(mLayout.getContext().getString(R.string.trainResult), 0);
     }
 
     @Override
@@ -57,11 +58,6 @@ public class SimpleSessionResultField extends ABaseField implements ISessionResu
         mSessionResultView = mLayout.findViewById(R.id.sessionResult);
         mSessionResultView.setVisibility(visibility);
         mSessionResultView.setText(text);
-        //mAdapter = (ArrayAdapter<String>) mListView.getAdapter();
-//        if (mAdapter == null) {
-//            mAdapter = new ArrayAdapter<> (mLayout.getContext(), android.R.layout.simple_list_item_1, mList);
-//        }
-//        mListView.setAdapter(mAdapter);
     }
 
 
@@ -77,17 +73,18 @@ public class SimpleSessionResultField extends ABaseField implements ISessionResu
         }
         mAdapter.insert(String.format(mLayout.getContext().getString(R.string.exampleResultFormat),
                 mExampleCounter, time, result.toLowerCase()),
-                0);
+                1);
     }
 
     @Override
     public void addCommonResult(String commonResult) {
-        mAdapter.insert(commonResult, 0);
+        mAdapter.insert(commonResult, 1);
         mExampleCounter = 0;
     }
 
     @Override
     public void reset() {
         mAdapter.clear();
+        mAdapter.insert(mLayout.getContext().getString(R.string.trainResult), 0);
     }
 }

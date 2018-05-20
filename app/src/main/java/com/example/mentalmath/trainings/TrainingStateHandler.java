@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.mentalmath.R;
+import com.example.mentalmath.core.Utils;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -49,6 +50,8 @@ public class TrainingStateHandler {
         mPauseButton    = buttonField.getPauseButton();
         mRightButton    = buttonField.getRightButton();
         mWrongButton    = buttonField.getWrongButton();
+
+        mWrongButton.getContext();
 
         initializeHandler(train);
     }
@@ -142,6 +145,8 @@ public class TrainingStateHandler {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.okButton:
+                    mOwner.hideInputMethod();
+                    mOwner.resetFocus();
                     mOwner.stopExample();
                     mOwner.showRightExampleResult();
                     if (mIsHonestMode) {

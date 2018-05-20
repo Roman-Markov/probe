@@ -150,6 +150,11 @@ public class SimpleAnswerField extends ABaseField implements IAnswerField {
         }
     }
 
+    @Override
+    public void resetFocus() {
+        //mUserAnswerField.clearFocus();
+    }
+
     private void showOnlyRightResult(String correctAnswer) {
         String rightAnswer = String.format(mLayout.getContext().getString(R.string.right_answer_format), correctAnswer);
         mRightAnswerField.setVisibility(View.VISIBLE);

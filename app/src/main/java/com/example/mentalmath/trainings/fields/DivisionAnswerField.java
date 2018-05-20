@@ -109,6 +109,11 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
         state.showRightResult(correctAnswer);
     }
 
+    @Override
+    public void resetFocus() {
+        state.resetFocus();
+    }
+
     private interface DivisionAnswerState {
         void init();
         void prepareField();
@@ -118,6 +123,7 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
         String getAnswer();
         void clean();
         void showRightResult(final String answer);
+        void resetFocus();
     }
 
     private class SimpleState implements DivisionAnswerState {
@@ -211,6 +217,11 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             }
         }
 
+        @Override
+        public void resetFocus() {
+            // do nothing
+        }
+
         protected void showOnlyRightResult(final String correctAnswer) {
             mRightResultHint.setVisibility(View.VISIBLE);
             // since this method is used in honest mode check is excess
@@ -251,6 +262,12 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             }
             mRightReminderHint.setVisibility(View.GONE);
             mRightReminderTextView.setVisibility(View.GONE);
+        }
+
+        @Override
+        public void resetFocus() {
+            super.resetFocus();
+            mEditTextForReminder.clearFocus();
         }
 
         @Override

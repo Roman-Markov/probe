@@ -13,8 +13,9 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:visibility="gone"
+        android:text="@string/result"
         tools:visibility="visible"
-        tools:text="Common result: "/>
+        tools:text="Result: "/>
 
     <ListView
         android:id="@id/list"

@@ -6,22 +6,26 @@ package com.example.mentalmath.trainings;
 
 public interface ITraining {
 
-    public void startTraining();
+    void startTraining();
 
-    public void startExample();
+    void startExample();
 
-    public void pause ();
+    void pause ();
 
-    public void resume();
+    void resume();
 
-    public void stopExample();
+    void stopExample();
 
-    public void stopTrain();
+    void stopTrain();
 
-    public boolean shouldProceed();
+    boolean shouldProceed();
 
     /**
      * shows wright result comparing with answer form user
      */
     public void showRightExampleResult();
+
+    void hideInputMethod();
+
+    void resetFocus();
 }

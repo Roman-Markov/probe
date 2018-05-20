@@ -26,7 +26,8 @@
         <activity android:name=".core.ChoiceStatisticsActivity"/>
         <activity android:name=".core.StaticsticsActivity"/>
         <activity android:name=".trainchoice.ChooseSubTrainActivity"/>
-        <activity android:name=".trainings.TrainingActivity"/>
+        <activity android:name=".trainings.TrainingActivity"
+            android:windowSoftInputMode="stateUnchanged|adjustResize"/>
         <activity android:name=".trainchoice.SetOptionOrStartTrainActivity"/>
         <activity android:name=".trainchoice.SetOptionActivity"
             android:theme="@style/AppPreferenceTheme"/>
