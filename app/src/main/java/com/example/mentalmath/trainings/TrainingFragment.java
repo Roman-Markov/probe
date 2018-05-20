@@ -74,7 +74,7 @@ public class TrainingFragment extends Fragment implements View.OnClickListener {
         m_startButton = (Button) result.findViewById(R.id.startButton);
         m_startButton.setOnClickListener(this);
 
-        m_timeView = (TextView) result.findViewById(R.id.stopwatch);
+        m_timeView = (TextView) result.findViewById(R.id.swCurrent);
         m_timeViewTotal = (TextView) result.findViewById(R.id.swTotal);
 
         if (m_isFirstrunning) {

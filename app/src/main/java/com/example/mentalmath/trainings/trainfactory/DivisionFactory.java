@@ -35,11 +35,6 @@ public class DivisionFactory extends ATrainingPartsAbstractFactory {
     public static final String DEF_VAL_FOR_FORMAT;
     public static final String DEF_VAL_FOR_VISTIME;
 
-    @Override
-    public IAnswerField getAnswerField() {
-        return new DivisionAnswerField(mInflater, mViewGroup, isHonestModeEnabled());
-    }
-
     public static final boolean DEF_VAL_FOR_HONESTMODE;
     public static final boolean DEF_VAL_FOR_STOPWATCHMODE;
     public static final boolean DEF_VAL_FOR_REMINDER_MODE;
@@ -73,6 +68,11 @@ public class DivisionFactory extends ATrainingPartsAbstractFactory {
     public DivisionFactory(LayoutInflater inflater, ViewGroup container,
                            Activity activity) {
         super(inflater, container, activity);
+    }
+
+    @Override
+    public IAnswerField getAnswerField() {
+        return new DivisionAnswerField(mViewGroup, isHonestModeEnabled());
     }
 
     @Override

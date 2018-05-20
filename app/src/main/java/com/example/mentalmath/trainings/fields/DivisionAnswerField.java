@@ -1,7 +1,6 @@
 package com.example.mentalmath.trainings.fields;
 
 import android.preference.PreferenceManager;
-import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +41,7 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
     @BindView(R.id.right_reminder_hint)
     TextView mRightReminderHint;
     @BindView(R.id.right_reminder_answer)
-    TextView mRightReminderAnswerField;
+    TextView mRightReminderTextView;
 
     private Unbinder unbinder;
 
@@ -53,6 +52,16 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
     public DivisionAnswerField (LayoutInflater inflater, ViewGroup container, boolean isHonestMode) {
 
         super(inflater, container, R.layout.division_answer_field);
+        init(isHonestMode);
+    }
+
+    public DivisionAnswerField (ViewGroup container, boolean isHonestMode) {
+
+        super(container, R.id.divisionAnswerField);
+        init(isHonestMode);
+    }
+
+    private void init(boolean isHonestMode) {
         mIsHonestMode = isHonestMode;
 
         unbinder = ButterKnife.bind(this, mLayout);
@@ -67,8 +76,7 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
     @Override
     public void resetFields(ViewGroup layout) {
         mLayout = layout;
-        unbinder.unbind();
-        unbinder = ButterKnife.bind(this, mLayout);
+        state.resetFields();
     }
 
     @Override
@@ -104,6 +112,7 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
     private interface DivisionAnswerState {
         void init();
         void prepareField();
+        void resetFields();
         void pause();
         void resume();
         String getAnswer();
@@ -134,6 +143,29 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
                 mEditTextForResult.setVisibility(View.VISIBLE);
                 mEditTextForResult.setText("");
             }
+        }
+
+        @Override
+        public void resetFields() {
+            boolean isEnabled = mEditTextForResult.isEnabled();
+            int visibility = mEditTextForResult.getVisibility();
+            mEditTextForResult = mLayout.findViewById(R.id.result_answer_field);
+            mEditTextForResult.setEnabled(isEnabled);
+            mEditTextForResult.setVisibility(visibility);
+
+            visibility = mTextViewForResult.getVisibility();
+            mTextViewForResult = mLayout.findViewById(R.id.result_answer_hint);
+            mTextViewForResult.setVisibility(visibility);
+
+            visibility = mRightResultTextView.getVisibility();
+            CharSequence text = mRightResultTextView.getText();
+            mRightResultTextView = mLayout.findViewById(R.id.right_result_answer);
+            mRightResultTextView.setVisibility(visibility);
+            mRightResultTextView.setText(text);
+
+            visibility = mRightResultHint.getVisibility();
+            mRightResultHint = mLayout.findViewById(R.id.right_result_hint);
+            mRightResultHint.setVisibility(visibility);
         }
 
         @Override
@@ -218,20 +250,44 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
                 mTextViewForReminder.setVisibility(View.VISIBLE);
             }
             mRightReminderHint.setVisibility(View.GONE);
-            mRightReminderAnswerField.setVisibility(View.GONE);
+            mRightReminderTextView.setVisibility(View.GONE);
         }
 
         @Override
         public void prepareField() {
             super.prepareField();
             mRightReminderHint.setVisibility(View.GONE);
-            mRightReminderAnswerField.setText("");
-            mRightReminderAnswerField.setVisibility(View.GONE);
+            mRightReminderTextView.setText("");
+            mRightReminderTextView.setVisibility(View.GONE);
             if(!mIsHonestMode) {
                 mEditTextForReminder.setVisibility(View.VISIBLE);
                 mEditTextForReminder.setText("");
                 mTextViewForReminder.setVisibility(View.VISIBLE);
             }
+        }
+
+        @Override
+        public void resetFields() {
+            super.resetFields();
+            boolean isEnabled = mEditTextForReminder.isEnabled();
+            int visibility = mEditTextForReminder.getVisibility();
+            mEditTextForReminder = mLayout.findViewById(R.id.reminder_answer_field);
+            mEditTextForReminder.setEnabled(isEnabled);
+            mEditTextForReminder.setVisibility(visibility);
+
+            visibility = mTextViewForReminder.getVisibility();
+            mTextViewForReminder = mLayout.findViewById(R.id.reminder_answer_hint);
+            mTextViewForReminder.setVisibility(visibility);
+
+            visibility = mRightReminderTextView.getVisibility();
+            CharSequence text = mRightReminderTextView.getText();
+            mRightReminderTextView = mLayout.findViewById(R.id.right_reminder_answer);
+            mRightReminderTextView.setVisibility(visibility);
+            mRightReminderTextView.setText(text);
+
+            visibility = mRightReminderHint.getVisibility();
+            mRightReminderHint = mLayout.findViewById(R.id.right_reminder_hint);
+            mRightReminderHint.setVisibility(visibility);
         }
 
         @Override
@@ -261,8 +317,8 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             super.clean();
             mRightReminderHint.setText(R.string.rightHint);
             mRightReminderHint.setVisibility(View.GONE);
-            mRightReminderAnswerField.setText("");
-            mRightReminderAnswerField.setVisibility(View.GONE);
+            mRightReminderTextView.setText("");
+            mRightReminderTextView.setVisibility(View.GONE);
             if(!mIsHonestMode) {
                 mEditTextForReminder.setText("");
                 mEditTextForReminder.setEnabled(false);
@@ -289,8 +345,8 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             mRightReminderHint.setVisibility(View.VISIBLE);
             // since this method is used in honest mode check is excess
             mRightReminderHint.setText(R.string.reminder);
-            mRightReminderAnswerField.setVisibility(View.VISIBLE);
-            mRightReminderAnswerField.setText(correctAnswer);
+            mRightReminderTextView.setVisibility(View.VISIBLE);
+            mRightReminderTextView.setText(correctAnswer);
         }
 
         protected void showUserAndRightResult(String correctAnswer, final CharSequence userAnswer) {
@@ -305,8 +361,8 @@ public class DivisionAnswerField extends ABaseField implements IAnswerField {
             mEditTextForReminder.setEnabled(false);
 
             mRightReminderHint.setVisibility(View.VISIBLE);
-            mRightReminderAnswerField.setVisibility(View.VISIBLE);
-            mRightReminderAnswerField.setText(correctAnswer);
+            mRightReminderTextView.setVisibility(View.VISIBLE);
+            mRightReminderTextView.setText(correctAnswer);
         }
     }
 }

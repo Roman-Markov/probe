@@ -3,6 +3,8 @@ package com.example.mentalmath.trainings;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.annotation.IntegerRes;
+import android.support.annotation.LayoutRes;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
 import android.view.Gravity;
@@ -59,12 +61,12 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle onSavedInstanceState) {
         super.onCreateView(inflater, container, onSavedInstanceState);
-
-
-        int kind = getActivity().getIntent().getIntExtra(Constants.KEY_KIND_OF_TRAININGS, -1);
         setRetainInstance(true);
 
-        mParentLayout = (LinearLayout) inflater.inflate(R.layout.common_training, container, false);
+        int kind = getActivity().getIntent().getIntExtra(Constants.KEY_KIND_OF_TRAININGS, -1);
+        int layoutId = getLayoutId(kind);
+
+        mParentLayout = (LinearLayout) inflater.inflate(layoutId, container, false);
 
         if (mIsFirstRunning) {
             errorLog("first running");
@@ -79,6 +81,21 @@ public class CommonTrainingFragment extends Fragment implements IHonestTrain {
         }
 
         return mParentLayout;
+    }
+
+    @LayoutRes
+    private int getLayoutId(int kind) {
+        switch (kind) {
+            case Constants.I_KIND_ARITH_ADDITION:
+            case Constants.I_KIND_ARITH_SUBTRACTION:
+            case Constants.I_KIND_ARITH_MULTIPLICATION:
+                return R.layout.common_training;
+            case Constants.I_KIND_ARITH_DIVISION:
+                return R.layout.division_training;
+            default:
+                errorLog("Unknown type of training: " + kind);
+                return R.layout.common_training;
+        }
     }
 
     @Override

@@ -1,9 +1,6 @@
 package com.example.mentalmath.trainings.fields;
 
-import android.content.SharedPreferences;
 import android.os.Handler;
-import android.preference.PreferenceManager;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -13,7 +10,6 @@ import com.example.mentalmath.trainings.ABaseField;
 import com.example.mentalmath.trainings.IStopWatch;
 import com.example.mentalmath.trainings.IStopWatchField;
 
-import java.nio.charset.Charset;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -62,7 +58,7 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     private void init(IStopWatch stopWatch, boolean isStopwatchVisible) {
         mStopWatch = stopWatch;
         mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);
-        mCurrentTrainStopWatch = mLayout.findViewById(R.id.stopwatch);
+        mCurrentTrainStopWatch = mLayout.findViewById(R.id.swCurrent);
         // TODO: 14.04.2018 replace with more smart logic which doesn't shows stopwatch field itself
         if (!isStopwatchVisible) {
             mCommonTrainStopWatch.setTextColor(mCommonTrainStopWatch.getDrawingCacheBackgroundColor());
@@ -82,12 +78,17 @@ public class SimpleStopWatchField extends ABaseField implements IStopWatchField 
     @Override
     public void resetFields(ViewGroup layout) {
         mLayout = layout;
+        CharSequence text = mCommonTrainStopWatch.getText();
         int visibility = mCommonTrainStopWatch.getVisibility();
         mCommonTrainStopWatch = mLayout.findViewById(R.id.swTotal);
         mCommonTrainStopWatch.setVisibility(visibility);
+        mCommonTrainStopWatch.setText(text);
+
+        text = mCurrentTrainStopWatch.getText();
         visibility = mCurrentTrainStopWatch.getVisibility();
-        mCurrentTrainStopWatch = mLayout.findViewById(R.id.stopwatch);
+        mCurrentTrainStopWatch = mLayout.findViewById(R.id.swCurrent);
         mCurrentTrainStopWatch.setVisibility(visibility);
+        mCurrentTrainStopWatch.setText(text);
     }
 
     @Override
