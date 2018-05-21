@@ -7,9 +7,9 @@
     </style>
 
     <!-- Custom Preference Theme inherits from the v14 support library Material Theme -->
-    <style name="AppPreferenceTheme" parent="@style/Theme.AppCompat">
+    <style name="AppPreferenceTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <!-- Theme for the Preferences -->
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="preferenceTheme">@style/Preference.PreferenceScreen.Material</item>
     </style>
 
     <style name="Divider">
