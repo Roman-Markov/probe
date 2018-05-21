@@ -102,6 +102,7 @@
             android:textSize="20sp"
             android:visibility="gone"
             android:text="@string/rightHint"
+            tools:visibility="visible"
             tools:text="@string/rightHint"/>
 
         <TextView

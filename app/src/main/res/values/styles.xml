@@ -12,12 +12,14 @@
         <item name="preferenceTheme">@style/Preference.PreferenceScreen.Material</item>
     </style>
 
-    <style name="Divider">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">2dp</item>
-        <item name="android:background">#FFFFFFFF</item>
-        <item name="android:layout_marginBottom">20dp</item>
-        <item name="android:layout_marginTop">20dp</item>
+    <style name="DividerVertical">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/darker_gray</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginEnd">2dp</item>
+        <item name="android:layout_marginStart">2dp</item>
         <item name="android:color">#FFFFFFFF</item>
     </style>
 
